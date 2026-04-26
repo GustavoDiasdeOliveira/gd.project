@@ -1,0 +1,396 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Gustavo Landing Page - Light Mode */
+  --primary: #FF3C3C;
+  --primary-rgb: 255, 60, 60;
+  --secondary: #FF6B35;
+  --secondary-rgb: 255, 107, 53;
+  --background: #F8F8FC;
+  --foreground: #0A0A0F;
+  --card: #FFFFFF;
+  --card-foreground: #0A0A0F;
+  --popover: #FFFFFF;
+  --popover-foreground: #0A0A0F;
+  --primary-foreground: #FFFFFF;
+  --secondary-foreground: #FFFFFF;
+  --muted: #E8E8F0;
+  --muted-foreground: #5A5A6A;
+  --accent: #F0F0F8;
+  --accent-foreground: #0A0A0F;
+  --destructive: #FF3C3C;
+  --destructive-foreground: #FFFFFF;
+  --border: #E0E0E8;
+  --input: #E8E8F0;
+  --ring: #FF3C3C;
+  --radius: 1rem;
+  
+  /* Custom Properties */
+  --gradient: linear-gradient(135deg, #FF3C3C, #FF6B35);
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(255, 60, 60, 0.2);
+  --shadow: 0 8px 32px rgba(255, 60, 60, 0.1);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark {
+  /* Gustavo Landing Page - Dark Mode (Default) */
+  --background: #0A0A0F;
+  --foreground: #F0F0F0;
+  --card: #12121A;
+  --card-foreground: #F0F0F0;
+  --popover: #12121A;
+  --popover-foreground: #F0F0F0;
+  --muted: #1A1A24;
+  --muted-foreground: #A0A0B0;
+  --accent: #1A1A24;
+  --accent-foreground: #F0F0F0;
+  --border: #2A2A34;
+  --input: #1A1A24;
+  --ring: #FF3C3C;
+  
+  /* Custom Properties Dark */
+  --glass-bg: rgba(18, 18, 26, 0.6);
+  --glass-border: rgba(255, 60, 60, 0.2);
+  --shadow: 0 8px 32px rgba(255, 60, 60, 0.15);
+}
+
+@theme inline {
+  --font-sans: 'Poppins', 'Poppins Fallback', sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Scroll Progress Bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: var(--gradient);
+  z-index: 9999;
+  transition: width 0.1s ease;
+}
+
+/* Orbs Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -30px) scale(1.05);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-40px, 40px) scale(1.1);
+  }
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.orb-primary {
+  background: var(--primary);
+  animation: float 8s ease-in-out infinite;
+}
+
+.orb-secondary {
+  background: var(--secondary);
+  animation: float-slow 10s ease-in-out infinite;
+}
+
+/* Particles */
+@keyframes particle-float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(20px);
+    opacity: 0;
+  }
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 50%;
+  animation: particle-float 15s linear infinite;
+  pointer-events: none;
+}
+
+/* Glassmorphism */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+}
+
+.glass-strong {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+}
+
+/* Gradient Border Animation */
+@keyframes borderGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-border {
+  position: relative;
+  background: var(--card);
+  border-radius: var(--radius);
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--primary));
+  background-size: 200% 100%;
+  border-radius: calc(var(--radius) + 2px);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: borderGlow 3s linear infinite;
+}
+
+.gradient-border:hover::before {
+  opacity: 1;
+}
+
+/* Typing Effect */
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.typing-cursor::after {
+  content: '|';
+  animation: blink 1s infinite;
+  color: var(--primary);
+}
+
+/* Scroll Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.slide-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.slide-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.zoom-in {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.zoom-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Pulse Animation for WhatsApp Button */
+@keyframes pulse-green {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.pulse-green {
+  animation: pulse-green 2s infinite;
+}
+
+/* Tech Carousel */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.tech-carousel {
+  animation: scroll-left 30s linear infinite;
+}
+
+.tech-carousel:hover {
+  animation-play-state: paused;
+}
+
+/* Loading Screen */
+@keyframes logo-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.loading-logo {
+  animation: logo-pulse 1.5s ease-in-out infinite;
+}
+
+/* Spinning Border for Photo */
+@keyframes spin-border {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinning-border::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  background: var(--gradient);
+  border-radius: 50%;
+  z-index: -1;
+  animation: spin-border 8s linear infinite;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary);
+}
+
+/* Selection */
+::selection {
+  background: var(--primary);
+  color: white;
+}
