@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Github, Linkedin, MessageCircle, Download, ArrowRight } from "lucide-react"
+import { Github, Linkedin, MessageCircle, Download, ArrowRight, Loader2 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -16,6 +16,22 @@ export function Hero() {
   const [currentTextIndex, setCurrentTextIndex] = useState(0)
   const [displayText, setDisplayText] = useState("")
   const [isDeleting, setIsDeleting] = useState(false)
+  const [isDownloading, setIsDownloading] = useState(false)
+
+  const handleDownload = () => {
+    if (isDownloading) return;
+    setIsDownloading(true);
+    
+    setTimeout(() => {
+      const link = document.createElement('a');
+      link.href = './Gustavo_Dias_CV.pdf';
+      link.download = 'Gustavo_Dias_CV.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      setIsDownloading(false);
+    }, 3000);
+  }
 
   useEffect(() => {
     const currentFullText = typingTexts[currentTextIndex]
@@ -119,15 +135,18 @@ export function Hero() {
                 </Link>
               </Button>
               <Button
-                asChild
                 variant="outline"
                 size="lg"
                 className="w-full sm:w-auto gap-2 border-primary/30 hover:bg-primary/10"
+                onClick={handleDownload}
+                disabled={isDownloading}
               >
-                <a href="./Gustavo_Dias_CV.pdf" download>
+                {isDownloading ? (
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                ) : (
                   <Download className="w-4 h-4" />
-                  Download CV
-                </a>
+                )}
+                {isDownloading ? "Baixando..." : "Download CV"}
               </Button>
             </div>
 

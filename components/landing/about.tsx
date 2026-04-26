@@ -1,8 +1,8 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Download, Check } from "lucide-react"
+import { Download, Check, Loader2 } from "lucide-react"
 import Image from "next/image"
 
 const highlights = [
@@ -14,6 +14,22 @@ const highlights = [
 
 export function About() {
   const ref = useRef<HTMLDivElement>(null)
+  const [isDownloading, setIsDownloading] = useState(false)
+
+  const handleDownload = () => {
+    if (isDownloading) return
+    setIsDownloading(true)
+    
+    setTimeout(() => {
+      const link = document.createElement('a')
+      link.href = './Gustavo_Dias_CV.pdf'
+      link.download = 'Gustavo_Dias_CV.pdf'
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+      setIsDownloading(false)
+    }, 2000)
+  }
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -92,14 +108,17 @@ export function About() {
             {/* CTA */}
             <div className="pt-4 sm:pt-6 flex justify-center lg:justify-start">
               <Button
-                asChild
                 size="lg"
                 className="w-full sm:w-auto gap-2 bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white"
+                onClick={handleDownload}
+                disabled={isDownloading}
               >
-                <a href="./Gustavo_Dias_CV.pdf" download>
+                {isDownloading ? (
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                ) : (
                   <Download className="w-4 h-4" />
-                  Baixar currículo completo
-                </a>
+                )}
+                {isDownloading ? "Baixando..." : "Baixar currículo completo"}
               </Button>
             </div>
           </div>
