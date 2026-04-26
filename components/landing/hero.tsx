@@ -124,7 +124,7 @@ export function Hero() {
                 size="lg"
                 className="w-full sm:w-auto gap-2 border-primary/30 hover:bg-primary/10"
               >
-                <a href="/cv-gustavo.pdf" download>
+                <a href="./Gustavo_Dias_CV.pdf" download>
                   <Download className="w-4 h-4" />
                   Download CV
                 </a>

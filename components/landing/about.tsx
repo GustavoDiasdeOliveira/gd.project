@@ -96,7 +96,7 @@ export function About() {
                 size="lg"
                 className="w-full sm:w-auto gap-2 bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white"
               >
-                <a href="/cv-gustavo.pdf" download>
+                <a href="./Gustavo_Dias_CV.pdf" download>
                   <Download className="w-4 h-4" />
                   Baixar currículo completo
                 </a>
