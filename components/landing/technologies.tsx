@@ -3,16 +3,15 @@
 import { useEffect, useRef } from "react"
 
 const technologies = [
-  { name: "HTML5", icon: "🌐" },
-  { name: "CSS3", icon: "🎨" },
-  { name: "JavaScript", icon: "⚡" },
-  { name: "Figma", icon: "🖼️" },
-  { name: "n8n", icon: "🔄" },
-  { name: "GitHub", icon: "🐙" },
-  { name: "WordPress", icon: "📝" },
-  { name: "Google Sheets", icon: "📊" },
-  { name: "WhatsApp API", icon: "💬" },
-  { name: "Python", icon: "🐍" },
+  { name: "HTML5", icon: "./icons/icons8-html-5-48.png" },
+  { name: "CSS3", icon: "./icons/icons8-css3-48.png" },
+  { name: "JavaScript", icon: "./icons/icons8-js-48.png" },
+  { name: "Figma", icon: "./icons/icons8-figma-48.png" },
+  { name: "n8n", icon: "./icons/n8n-color.png" },
+  { name: "GitHub", icon: "./icons/icons8-github-2-50.png" },
+  { name: "Google Sheets", icon: "./icons/icons8-google-sheets-48.png" },
+  { name: "WhatsApp API", icon: "./icons/icons8-whatsapp-48.png" },
+  { name: "Python", icon: "./icons/icons8-python-48.png" },
 ]
 
 export function Technologies() {
@@ -44,7 +43,7 @@ export function Technologies() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-balance">
             Ferramentas que{" "}
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              domino
+              utilizo no dia a dia
             </span>
           </h2>
         </div>
@@ -64,9 +63,9 @@ export function Technologies() {
                   key={`a-${index}`}
                   className="gradient-border group flex flex-col items-center gap-2 sm:gap-3 p-4 sm:p-5 md:p-6 rounded-lg sm:rounded-xl hover:-translate-y-1 transition-transform cursor-default"
                 >
-                  <span className="text-2xl sm:text-3xl md:text-4xl" role="img" aria-label={tech.name}>
-                    {tech.icon}
-                  </span>
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center">
+                    <img src={tech.icon} alt={tech.name} className="max-w-full max-h-full object-contain" />
+                  </div>
                   <span className="text-xs sm:text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors whitespace-nowrap">
                     {tech.name}
                   </span>
@@ -78,9 +77,9 @@ export function Technologies() {
                   key={`b-${index}`}
                   className="gradient-border group flex flex-col items-center gap-2 sm:gap-3 p-4 sm:p-5 md:p-6 rounded-lg sm:rounded-xl hover:-translate-y-1 transition-transform cursor-default"
                 >
-                  <span className="text-2xl sm:text-3xl md:text-4xl" role="img" aria-label={tech.name}>
-                    {tech.icon}
-                  </span>
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center">
+                    <img src={tech.icon} alt={tech.name} className="max-w-full max-h-full object-contain" />
+                  </div>
                   <span className="text-xs sm:text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors whitespace-nowrap">
                     {tech.name}
                   </span>
