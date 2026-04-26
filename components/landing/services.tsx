@@ -10,7 +10,7 @@ const services = [
     title: "Desenvolvimento Frontend",
     description:
       "Criação de aplicações web e landing pages modernas, responsivas e de alta performance. Utilizando React e tecnologias de ponta para entregar interfaces que superam o básico do HTML/CSS.",
-    tools: ["React", "Next.js", "JavaScript", "Figma", "Tailwind CSS", "GitHub"],
+    tools: ["Html/Css", "React", "Next.js", "JavaScript", "Figma", "Tailwind CSS", "GitHub"],
     cta: "Quero um site moderno",
     badge: null,
   },
