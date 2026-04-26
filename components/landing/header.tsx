@@ -74,7 +74,7 @@ export function Header() {
         <div className="flex items-center justify-between h-14 sm:h-16 lg:h-20">
           {/* Logo */}
           <Link href="#inicio" className="flex items-center gap-1 text-2xl font-bold">
-            <img src="/logoGDHeader.png" alt="GD Logo" className="h-15 w-auto" />
+            <img src="./logoGDHeader.png" alt="GD Logo" className="h-15 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}

@@ -46,7 +46,7 @@ export function About() {
               {/* Photo Frame with Spinning Border */}
               <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-xl sm:rounded-2xl overflow-hidden spinning-border">
                 <div className="absolute inset-1 rounded-lg sm:rounded-xl overflow-hidden bg-gradient-to-br from-card to-muted">
-                  <Image src="/foto.png" alt="Gustavo Dias" fill className="object-cover" quality={100} />
+                  <Image src="./foto.png" alt="Gustavo Dias" fill className="object-cover" quality={100} unoptimized />
                 </div>
               </div>
 
