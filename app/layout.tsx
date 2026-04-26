@@ -10,22 +10,27 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: 'Gustavo Dias | Web Designer & Automações com IA',
-  description: 'Transformo ideias em resultados digitais. Landing pages de alta conversão, automações inteligentes com n8n e inteligência de mercado para pequenas e médias empresas.',
-  keywords: ['web designer', 'landing page', 'automação', 'n8n', 'IA', 'inteligência artificial', 'freelancer', 'Praia Grande', 'São Paulo'],
+  title: 'Gustavo Dias | Frontend & Automações com IA',
+  description: 'Transformo ideias em resultados digitais. Landing pages de alta conversão, automações inteligentes com n8n e análise de dados para pequenas e médias empresas.',
+  keywords: ['frontend', 'react', 'landing page', 'automação', 'n8n', 'IA', 'inteligência artificial', 'freelancer', 'Praia Grande', 'São Paulo'],
   authors: [{ name: 'Gustavo Dias de Oliveira' }],
   creator: 'Gustavo Dias de Oliveira',
+  icons: {
+    icon: './logoGDHeader.png',
+    shortcut: './logoGDHeader.png',
+    apple: './logoGDHeader.png',
+  },
   openGraph: {
     type: 'website',
     locale: 'pt_BR',
     url: 'https://gustavodiasdeoliveira.com',
-    title: 'Gustavo Dias | Web Designer & Automações com IA',
-    description: 'Transformo ideias em resultados digitais. Landing pages de alta conversão, automações inteligentes com n8n e inteligência de mercado.',
+    title: 'Gustavo Dias | Frontend & Automações com IA',
+    description: 'Transformo ideias em resultados digitais. Landing pages de alta conversão, automações inteligentes com n8n e análise de dados.',
     siteName: 'Gustavo Dias de Oliveira',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Gustavo Dias | Web Designer & Automações com IA',
+    title: 'Gustavo Dias | Frontend & Automações com IA',
     description: 'Transformo ideias em resultados digitais.',
   },
   robots: {
