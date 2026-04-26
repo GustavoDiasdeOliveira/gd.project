@@ -43,7 +43,7 @@ export function Technologies() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-balance">
             Ferramentas que{" "}
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              utilizo no dia a dia
+              utilizo
             </span>
           </h2>
         </div>
