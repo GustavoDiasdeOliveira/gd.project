@@ -7,9 +7,9 @@ import { Code2, Zap, BarChart3, ArrowRight, Flame } from "lucide-react"
 const services = [
   {
     icon: Code2,
-    title: "Desenvolvimento Frontend",
+    title: "Landing Pages que Convertem",
     description:
-      "Criação de aplicações web e landing pages modernas, responsivas e de alta performance. Utilizando React e tecnologias de ponta para entregar interfaces que superam o básico do HTML/CSS.",
+      "Criação de websites modernos, responsivos e de alta performance. Utilizando React e tecnologias de ponta para o seu negócio alcançar o próximo nível.",
     tools: ["Html/Css", "React", "Next.js", "JavaScript", "Figma", "Tailwind CSS", "GitHub"],
     cta: "Quero um site moderno",
     badge: null,

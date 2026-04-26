@@ -10,7 +10,7 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: 'Gustavo Dias | Frontend & Automações com IA',
+  title: 'Project | Frontend & Automações com IA',
   description: 'Transformo ideias em resultados digitais. Landing pages de alta conversão, automações inteligentes com n8n e análise de dados para pequenas e médias empresas.',
   keywords: ['frontend', 'react', 'landing page', 'automação', 'n8n', 'IA', 'inteligência artificial', 'freelancer', 'Praia Grande', 'São Paulo'],
   authors: [{ name: 'Gustavo Dias de Oliveira' }],
@@ -24,13 +24,13 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'pt_BR',
     url: 'https://gustavodiasdeoliveira.com',
-    title: 'Gustavo Dias | Frontend & Automações com IA',
+    title: 'Project | Frontend & Automações com IA',
     description: 'Transformo ideias em resultados digitais. Landing pages de alta conversão, automações inteligentes com n8n e análise de dados.',
-    siteName: 'Gustavo Dias de Oliveira',
+    siteName: 'Project',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Gustavo Dias | Frontend & Automações com IA',
+    title: 'Project | Frontend & Automações com IA',
     description: 'Transformo ideias em resultados digitais.',
   },
   robots: {
