@@ -7,11 +7,11 @@ import { Code2, Zap, BarChart3, ArrowRight, Flame } from "lucide-react"
 const services = [
   {
     icon: Code2,
-    title: "Landing Pages que Convertem",
+    title: "Desenvolvimento Frontend",
     description:
-      "Criação de sites e landing pages responsivas com foco em conversão. Design moderno no Figma, desenvolvimento em HTML/CSS/JS ou WordPress, sempre otimizado para SEO e velocidade.",
-    tools: ["HTML", "CSS", "JavaScript", "Figma", "WordPress", "GitHub"],
-    cta: "Quero um site assim",
+      "Criação de aplicações web e landing pages modernas, responsivas e de alta performance. Utilizando React e tecnologias de ponta para entregar interfaces que superam o básico do HTML/CSS.",
+    tools: ["React", "Next.js", "JavaScript", "Figma", "Tailwind CSS", "GitHub"],
+    cta: "Quero um site moderno",
     badge: null,
   },
   {
@@ -25,11 +25,11 @@ const services = [
   },
   {
     icon: BarChart3,
-    title: "Dados que Geram Decisões",
+    title: "Análise de Dados Freelancer",
     description:
-      "Coleta, limpeza e análise de dados de mercado e concorrência. Varreduras automatizadas, relatórios de pricing e dashboards para você tomar as melhores decisões.",
+      "Atuação dedicada como freelancer para coleta, tratamento e análise de dados. Com experiência real de mercado (ex: Zukkin) e facilidade de aprendizado rápido, me adapto ao seu negócio para entregar varreduras automatizadas, relatórios de pricing e insights valiosos.",
     tools: ["Python", "Excel", "Web Scraping", "Análise de Concorrência", "Pricing"],
-    cta: "Quero insights de mercado",
+    cta: "Quero potencializar meus dados",
     badge: null,
   },
 ]

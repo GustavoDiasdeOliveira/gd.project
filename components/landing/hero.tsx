@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Github, Linkedin, MessageCircle, Download, ArrowRight } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 const typingTexts = [
   "Landing Pages que convertem",
@@ -60,14 +61,14 @@ export function Hero() {
 
       {/* Particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(15)].map((_, i) => (
+        {[7,22,38,51,64,12,45,73,86,33,55,18,91,29,68].map((pos, i) => (
           <div
             key={i}
             className="particle"
             style={{
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 15}s`,
-              animationDuration: `${15 + Math.random() * 10}s`,
+              left: `${pos}%`,
+              animationDelay: `${(i * 1.7) % 15}s`,
+              animationDuration: `${15 + (i * 0.7) % 10}s`,
             }}
           />
         ))}
@@ -101,7 +102,7 @@ export function Hero() {
 
             {/* Description */}
             <p className="text-base sm:text-lg text-muted-foreground max-w-lg mx-auto lg:mx-0 text-pretty">
-              Sou Gustavo, especialista em Web Design e Automações com IA (n8n). 
+              Sou Gustavo, especialista em Frontend e Automações com IA (n8n). 
               Ajudo pequenas e médias empresas a crescer com tecnologia acessível e resultados reais.
             </p>
 
@@ -171,11 +172,7 @@ export function Hero() {
             <div className="relative">
               <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 rounded-full overflow-hidden spinning-border">
                 <div className="absolute inset-1 rounded-full overflow-hidden bg-gradient-to-br from-card to-muted">
-                  <div className="w-full h-full flex items-center justify-center text-5xl sm:text-6xl lg:text-7xl font-bold bg-gradient-to-br from-primary/20 to-secondary/20">
-                    <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                      GD
-                    </span>
-                  </div>
+                  <img src="/foto.png" alt="Gustavo Dias" className="w-full h-full object-cover" />
                 </div>
               </div>
 
@@ -184,7 +181,7 @@ export function Hero() {
                 <span className="font-semibold text-xs sm:text-sm">n8n</span>
               </div>
               <div className="absolute top-1/4 -left-4 sm:-left-8 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full glass border border-secondary/30 animate-bounce" style={{ animationDelay: '0.5s' }}>
-                <span className="font-semibold text-xs sm:text-sm">HTML/CSS</span>
+                <span className="font-semibold text-xs sm:text-sm">React</span>
               </div>
               <div className="absolute bottom-1/4 -right-4 sm:-right-8 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full glass border border-primary/30 animate-bounce" style={{ animationDelay: '1s' }}>
                 <span className="font-semibold text-xs sm:text-sm">IA</span>

@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Download, Check } from "lucide-react"
+import Image from "next/image"
 
 const highlights = [
   "Estudante de Ciência da Computação (UNIP)",
@@ -45,11 +46,7 @@ export function About() {
               {/* Photo Frame with Spinning Border */}
               <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-xl sm:rounded-2xl overflow-hidden spinning-border">
                 <div className="absolute inset-1 rounded-lg sm:rounded-xl overflow-hidden bg-gradient-to-br from-card to-muted">
-                  <div className="w-full h-full flex items-center justify-center text-5xl sm:text-6xl md:text-7xl font-bold bg-gradient-to-br from-primary/20 to-secondary/20">
-                    <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                      GD
-                    </span>
-                  </div>
+                  <Image src="/foto.png" alt="Gustavo Dias" fill className="object-cover" quality={100} />
                 </div>
               </div>
 

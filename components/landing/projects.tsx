@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Github, ArrowRight } from "lucide-react"
 
@@ -48,6 +48,7 @@ const projects = [
 ]
 
 export function Projects() {
+  const [visibleCount, setVisibleCount] = useState(2)
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -66,7 +67,7 @@ export function Projects() {
     elements?.forEach((el) => observer.observe(el))
 
     return () => observer.disconnect()
-  }, [])
+  }, [visibleCount])  
 
   return (
     <section id="projetos" ref={ref} className="relative py-16 sm:py-20 md:py-24 lg:py-32">
@@ -89,7 +90,7 @@ export function Projects() {
 
         {/* Projects Grid */}
         <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
-          {projects.map((project, index) => (
+          {projects.slice(0, visibleCount).map((project, index) => (
             <div
               key={index}
               className="fade-in gradient-border group rounded-xl sm:rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
@@ -159,23 +160,19 @@ export function Projects() {
         </div>
 
         {/* View All Button */}
-        <div className="text-center mt-8 sm:mt-10 md:mt-12 fade-in">
-          <Button
-            asChild
-            variant="outline"
-            size="lg"
-            className="w-full sm:w-auto gap-2 border-primary/30 hover:bg-primary/10"
-          >
-            <a
-              href="https://gustavodiasdeoliveira.github.io/Portfolio"
-              target="_blank"
-              rel="noopener noreferrer"
+        {visibleCount < projects.length && (
+          <div className="text-center mt-8 sm:mt-10 md:mt-12 fade-in">
+            <Button
+              onClick={() => setVisibleCount(projects.length)}
+              variant="outline"
+              size="lg"
+              className="w-full sm:w-auto gap-2 border-primary/30 hover:bg-primary/10 cursor-pointer"
             >
               Ver todos os projetos
               <ArrowRight className="w-4 h-4" />
-            </a>
-          </Button>
-        </div>
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   )
