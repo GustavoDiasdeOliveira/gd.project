@@ -6,7 +6,7 @@ import { Monitor, Zap, GraduationCap, Coffee } from "lucide-react"
 const stats = [
   { icon: Monitor, value: 12, suffix: "+", label: "Projetos Criados" },
   { icon: Zap, value: 3, suffix: "+", label: "Automações prontas" },
-  { icon: GraduationCap, value: 2, suffix: "", label: "Certificados Tech" },
+  { icon: GraduationCap, value: 5, suffix: "+", label: "Certificados Tech" },
   { icon: Coffee, value: null, suffix: "∞", label: "E apenas começando" },
 ]
 
