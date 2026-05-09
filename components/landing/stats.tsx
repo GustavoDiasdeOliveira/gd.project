@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from "react"
 import { Monitor, Zap, GraduationCap, Coffee } from "lucide-react"
 
 const stats = [
-  { icon: Monitor, value: 12, suffix: "+", label: "Projetos entregues" },
-  { icon: Zap, value: 3, suffix: "+", label: "Automações ativas" },
-  { icon: GraduationCap, value: 2, suffix: "", label: "Certificações" },
-  { icon: Coffee, value: null, suffix: "∞", label: "Cafés consumidos" },
+  { icon: Monitor, value: 12, suffix: "+", label: "Projetos Criados" },
+  { icon: Zap, value: 3, suffix: "+", label: "Automações prontas" },
+  { icon: GraduationCap, value: 2, suffix: "", label: "Certificados Tech" },
+  { icon: Coffee, value: null, suffix: "∞", label: "E apenas começando" },
 ]
 
 function useCountUp(end: number | null, duration: number = 2000, start: boolean = false) {

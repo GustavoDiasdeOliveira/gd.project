@@ -1,0 +1,1859 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta
+      name="description"
+      content="Vita Saúde — Clínica médica premium com atendimento humanizado, especialistas renomados e tecnologia de ponta. Agende sua consulta agora."
+    />
+    <meta name="theme-color" content="#0066FF" />
+    <meta
+      property="og:title"
+      content="Vita Saúde — Saúde Premium ao Seu Alcance"
+    />
+    <meta
+      property="og:description"
+      content="Clínica médica moderna com atendimento humanizado e especialistas renomados."
+    />
+    <meta property="og:type" content="website" />
+    <title>Vita Saúde — Saúde Premium ao Seu Alcance</title>
+    <style>
+      /* ============================================
+   VITA SAÚDE — Premium Landing Page
+   Design System & Styles
+   ============================================ */
+
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary: #0066ff;
+        --primary-dark: #0050cc;
+        --primary-light: #e8f1ff;
+        --primary-glow: rgba(0, 102, 255, 0.15);
+        --accent: #00c2ff;
+        --gradient: linear-gradient(135deg, #0066ff 0%, #00c2ff 100%);
+        --gradient-soft: linear-gradient(
+          135deg,
+          rgba(0, 102, 255, 0.08) 0%,
+          rgba(0, 194, 255, 0.08) 100%
+        );
+        --bg: #fafbff;
+        --surface: #ffffff;
+        --surface-alt: #f1f5fb;
+        --border: rgba(0, 102, 255, 0.08);
+        --text: #0a1628;
+        --text-secondary: #5a6a7e;
+        --text-muted: #8b99ae;
+        --shadow-sm: 0 1px 3px rgba(0, 20, 60, 0.04);
+        --shadow-md: 0 4px 16px rgba(0, 20, 60, 0.06);
+        --shadow-lg: 0 8px 32px rgba(0, 20, 60, 0.08);
+        --shadow-xl: 0 16px 48px rgba(0, 20, 60, 0.1);
+        --shadow-glow: 0 8px 32px rgba(0, 102, 255, 0.2);
+        --radius-sm: 8px;
+        --radius-md: 12px;
+        --radius-lg: 16px;
+        --radius-xl: 24px;
+        --radius-full: 9999px;
+        --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --font-main: "Inter", -apple-system, sans-serif;
+        --font-heading: "Poppins", "Inter", sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+      }
+      body {
+        font-family: var(--font-main);
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      button {
+        font-family: inherit;
+        cursor: pointer;
+        border: none;
+        background: none;
+      }
+      ul {
+        list-style: none;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* === HEADER === */
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: rgba(250, 251, 255, 0.85);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border);
+        transition: var(--transition);
+      }
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--font-heading);
+        font-weight: 700;
+        font-size: 1.35rem;
+        color: var(--primary);
+      }
+      .logo-icon {
+        width: 36px;
+        height: 36px;
+        background: var(--gradient);
+        border-radius: var(--radius-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-weight: 800;
+        font-size: 1rem;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+      }
+      .nav a {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        transition: var(--transition);
+      }
+      .nav a:hover {
+        color: var(--primary);
+      }
+      .nav-cta {
+        padding: 10px 24px !important;
+        background: var(--gradient);
+        color: #fff !important;
+        border-radius: var(--radius-full);
+        font-weight: 600 !important;
+        transition: var(--transition);
+        box-shadow: var(--shadow-glow);
+      }
+      .nav-cta:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 12px 40px rgba(0, 102, 255, 0.3);
+      }
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        padding: 8px;
+      }
+      .menu-toggle span {
+        width: 22px;
+        height: 2px;
+        background: var(--text);
+        border-radius: 2px;
+        transition: var(--transition);
+      }
+
+      /* === HERO === */
+      .hero {
+        padding: 140px 0 80px;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(180deg, var(--bg) 0%, #eef4ff 100%);
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -200px;
+        right: -200px;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          rgba(0, 102, 255, 0.08) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+        animation: float 8s ease-in-out infinite;
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        bottom: -100px;
+        left: -100px;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(
+          circle,
+          rgba(0, 194, 255, 0.06) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+        animation: float 10s ease-in-out infinite reverse;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) scale(1);
+        }
+        50% {
+          transform: translateY(-30px) scale(1.05);
+        }
+      }
+      .hero-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 16px;
+        background: var(--primary-light);
+        border-radius: var(--radius-full);
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--primary);
+        margin-bottom: 20px;
+      }
+      .hero-badge::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        background: var(--primary);
+        border-radius: 50%;
+        animation: pulse-dot 2s infinite;
+      }
+      @keyframes pulse-dot {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.4;
+        }
+      }
+      .hero h1 {
+        font-family: var(--font-heading);
+        font-size: clamp(2.2rem, 5vw, 3.6rem);
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 20px;
+        color: var(--text);
+      }
+      .hero h1 span {
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .hero p {
+        font-size: clamp(1rem, 1.5vw, 1.15rem);
+        color: var(--text-secondary);
+        max-width: 500px;
+        margin-bottom: 32px;
+        line-height: 1.7;
+      }
+      .hero-buttons {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 32px;
+        border-radius: var(--radius-full);
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: var(--transition);
+      }
+      .btn-primary {
+        background: var(--gradient);
+        color: #fff;
+        box-shadow: var(--shadow-glow);
+      }
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 40px rgba(0, 102, 255, 0.3);
+      }
+      .btn-secondary {
+        background: var(--surface);
+        color: var(--primary);
+        border: 1.5px solid rgba(0, 102, 255, 0.2);
+      }
+      .btn-secondary:hover {
+        background: var(--primary-light);
+        border-color: var(--primary);
+        transform: translateY(-2px);
+      }
+
+      /* Hero Chat Mockup */
+      .hero-visual {
+        position: relative;
+      }
+      .chat-mockup {
+        background: var(--surface);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-xl);
+        padding: 0;
+        overflow: hidden;
+        max-width: 380px;
+        margin-left: auto;
+        border: 1px solid var(--border);
+      }
+      .chat-mockup-header {
+        background: var(--gradient);
+        padding: 16px 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .chat-mockup-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        object-fit: cover;
+      }
+      .chat-mockup-info h4 {
+        color: #fff;
+        font-size: 0.95rem;
+        font-weight: 600;
+      }
+      .chat-mockup-info span {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.75rem;
+      }
+      .chat-mockup-body {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        min-height: 200px;
+      }
+      .mock-msg {
+        padding: 10px 14px;
+        border-radius: 14px;
+        font-size: 0.85rem;
+        max-width: 80%;
+        animation: fadeInMsg 0.5s ease;
+        line-height: 1.5;
+      }
+      .mock-msg.bot {
+        background: var(--surface-alt);
+        color: var(--text);
+        align-self: flex-start;
+        border-bottom-left-radius: 4px;
+      }
+      .mock-msg.user {
+        background: var(--gradient);
+        color: #fff;
+        align-self: flex-end;
+        border-bottom-right-radius: 4px;
+      }
+      @keyframes fadeInMsg {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* === SECTIONS === */
+      section {
+        padding: 80px 0;
+      }
+      .section-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 12px;
+      }
+      .section-title {
+        font-family: var(--font-heading);
+        font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 16px;
+        line-height: 1.2;
+      }
+      .section-subtitle {
+        font-size: 1.05rem;
+        color: var(--text-secondary);
+        max-width: 600px;
+        line-height: 1.7;
+      }
+      .section-header {
+        text-align: center;
+        margin-bottom: 56px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* === BENEFITS === */
+      .benefits {
+        background: var(--surface);
+      }
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 24px;
+      }
+      .benefit-card {
+        padding: 32px 24px;
+        border-radius: var(--radius-lg);
+        background: var(--bg);
+        border: 1px solid var(--border);
+        transition: var(--transition);
+        text-align: center;
+      }
+      .benefit-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+        border-color: rgba(0, 102, 255, 0.15);
+      }
+      .benefit-icon {
+        width: 56px;
+        height: 56px;
+        margin: 0 auto 16px;
+        background: var(--gradient-soft);
+        border-radius: var(--radius-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+      }
+      .benefit-card h3 {
+        font-family: var(--font-heading);
+        font-size: 1.05rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+      .benefit-card p {
+        font-size: 0.88rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      /* === SPECIALTIES === */
+      .specialties-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        gap: 20px;
+      }
+      .specialty-card {
+        padding: 28px 20px;
+        border-radius: var(--radius-lg);
+        background: var(--surface);
+        border: 1px solid var(--border);
+        text-align: center;
+        transition: var(--transition);
+      }
+      .specialty-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--primary);
+      }
+      .specialty-card:hover .specialty-icon {
+        background: var(--gradient);
+        color: #fff;
+        transform: scale(1.1);
+      }
+      .specialty-icon {
+        width: 52px;
+        height: 52px;
+        margin: 0 auto 14px;
+        background: var(--primary-light);
+        border-radius: var(--radius-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        transition: var(--transition);
+      }
+      .specialty-card h3 {
+        font-size: 0.95rem;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+      .specialty-card p {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+      }
+
+      /* === TREATMENTS === */
+      .treatments {
+        background: var(--surface);
+      }
+      .treatments-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 24px;
+      }
+      .treatment-card {
+        position: relative;
+        padding: 32px 24px;
+        border-radius: var(--radius-lg);
+        background: var(--bg);
+        border: 1px solid var(--border);
+        overflow: hidden;
+        transition: var(--transition);
+      }
+      .treatment-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--gradient);
+        transform: scaleX(0);
+        transition: var(--transition);
+        transform-origin: left;
+      }
+      .treatment-card:hover::before {
+        transform: scaleX(1);
+      }
+      .treatment-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+      }
+      .treatment-emoji {
+        font-size: 2rem;
+        margin-bottom: 16px;
+      }
+      .treatment-card h3 {
+        font-family: var(--font-heading);
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+      .treatment-card p {
+        font-size: 0.88rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      /* === CTA FINAL === */
+      .cta-section {
+        padding: 100px 0;
+        background: linear-gradient(135deg, #0a1628 0%, #0d2347 100%);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .cta-section::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          rgba(0, 102, 255, 0.15) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+      }
+      .cta-section .section-title {
+        color: #fff;
+      }
+      .cta-section .section-subtitle {
+        color: rgba(255, 255, 255, 0.7);
+        margin: 0 auto 32px;
+      }
+      .cta-section .btn-primary {
+        padding: 16px 40px;
+        font-size: 1.05rem;
+      }
+
+      /* === FOOTER === */
+      .footer {
+        background: #0a1628;
+        color: rgba(255, 255, 255, 0.6);
+        padding: 48px 0 24px;
+        text-align: center;
+        font-size: 0.85rem;
+      }
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.6);
+        transition: var(--transition);
+      }
+      .footer-links a:hover {
+        color: #fff;
+      }
+
+      /* ============================================
+   CHATBOT
+   ============================================ */
+      .chatbot-fab {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 999;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: var(--gradient);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 32px rgba(0, 102, 255, 0.35);
+        transition: var(--transition);
+        cursor: pointer;
+      }
+      .chatbot-fab:hover {
+        transform: scale(1.08);
+        box-shadow: 0 12px 40px rgba(0, 102, 255, 0.45);
+      }
+      .chatbot-fab svg {
+        width: 28px;
+        height: 28px;
+        transition: var(--transition);
+      }
+      .chatbot-fab.active svg {
+        transform: rotate(90deg);
+      }
+      .fab-pulse {
+        position: absolute;
+        inset: -4px;
+        border-radius: 50%;
+        border: 2px solid var(--primary);
+        animation: fabPulse 2s infinite;
+      }
+      @keyframes fabPulse {
+        0% {
+          transform: scale(1);
+          opacity: 0.6;
+        }
+        100% {
+          transform: scale(1.4);
+          opacity: 0;
+        }
+      }
+
+      .chatbot-window {
+        position: fixed;
+        bottom: 96px;
+        right: 24px;
+        z-index: 998;
+        width: 390px;
+        max-width: calc(100vw - 32px);
+        height: 560px;
+        max-height: calc(100vh - 140px);
+        border-radius: var(--radius-xl);
+        background: var(--surface);
+        box-shadow: 0 20px 60px rgba(0, 20, 60, 0.15);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+        pointer-events: none;
+        transition:
+          opacity 0.3s ease,
+          transform 0.3s ease;
+        border: 1px solid var(--border);
+      }
+      .chatbot-window.open {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        pointer-events: all;
+      }
+
+      .chat-header {
+        background: var(--gradient);
+        padding: 18px 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-shrink: 0;
+      }
+      .chat-avatar {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        object-fit: cover;
+      }
+      .chat-header-info {
+        flex: 1;
+      }
+      .chat-header-info h4 {
+        color: #fff;
+        font-size: 0.95rem;
+        font-weight: 600;
+      }
+      .chat-header-info .status {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.85);
+      }
+      .chat-header-info .status::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        background: #00e676;
+        border-radius: 50%;
+        box-shadow: 0 0 6px rgba(0, 230, 118, 0.5);
+      }
+      .chat-close {
+        color: rgba(255, 255, 255, 0.7);
+        padding: 4px;
+        transition: var(--transition);
+        border-radius: 50%;
+      }
+      .chat-close:hover {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.15);
+      }
+      .chat-close svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .chat-messages {
+        flex: 1;
+        overflow-y: auto;
+        padding: 20px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        background: var(--bg);
+        scroll-behavior: smooth;
+      }
+      .chat-messages::-webkit-scrollbar {
+        width: 4px;
+      }
+      .chat-messages::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .chat-messages::-webkit-scrollbar-thumb {
+        background: rgba(0, 102, 255, 0.15);
+        border-radius: 4px;
+      }
+
+      .message {
+        display: flex;
+        flex-direction: column;
+        max-width: 82%;
+        animation: msgIn 0.35s ease;
+      }
+      .message.bot {
+        align-self: flex-start;
+      }
+      .message.user {
+        align-self: flex-end;
+      }
+      @keyframes msgIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .message-bubble {
+        padding: 12px 16px;
+        font-size: 0.88rem;
+        line-height: 1.6;
+        word-wrap: break-word;
+      }
+      .message.bot .message-bubble {
+        background: var(--surface);
+        border-radius: 16px 16px 16px 4px;
+        color: var(--text);
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--border);
+      }
+      .message.user .message-bubble {
+        background: var(--gradient);
+        border-radius: 16px 16px 4px 16px;
+        color: #fff;
+      }
+      .message-time {
+        font-size: 0.68rem;
+        color: var(--text-muted);
+        margin-top: 4px;
+        padding: 0 4px;
+      }
+      .message.user .message-time {
+        text-align: right;
+      }
+
+      /* Typing Indicator */
+      .typing-indicator {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 14px 18px;
+        background: var(--surface);
+        border-radius: 16px 16px 16px 4px;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--border);
+        align-self: flex-start;
+      }
+      .typing-indicator span {
+        width: 7px;
+        height: 7px;
+        background: var(--text-muted);
+        border-radius: 50%;
+        animation: typingBounce 1.4s infinite;
+      }
+      .typing-indicator span:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .typing-indicator span:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+      @keyframes typingBounce {
+        0%,
+        60%,
+        100% {
+          transform: translateY(0);
+        }
+        30% {
+          transform: translateY(-6px);
+        }
+      }
+
+      /* Quick Actions */
+      .quick-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 12px 16px;
+        background: var(--bg);
+        border-top: 1px solid var(--border);
+        flex-shrink: 0;
+      }
+      .quick-btn {
+        padding: 8px 14px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        border-radius: var(--radius-full);
+        background: var(--surface);
+        color: var(--primary);
+        border: 1px solid rgba(0, 102, 255, 0.15);
+        transition: var(--transition);
+        white-space: nowrap;
+      }
+      .quick-btn:hover {
+        background: var(--primary);
+        color: #fff;
+      }
+
+      /* Chat Input */
+      .chat-input-area {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 16px;
+        background: var(--surface);
+        border-top: 1px solid var(--border);
+        flex-shrink: 0;
+      }
+      .chat-input {
+        flex: 1;
+        padding: 10px 16px;
+        border: 1.5px solid var(--border);
+        border-radius: var(--radius-full);
+        font-size: 0.88rem;
+        background: var(--bg);
+        color: var(--text);
+        outline: none;
+        transition: var(--transition);
+      }
+      .chat-input:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px var(--primary-glow);
+      }
+      .chat-input::placeholder {
+        color: var(--text-muted);
+      }
+      .chat-send {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--gradient);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+        flex-shrink: 0;
+      }
+      .chat-send:hover {
+        transform: scale(1.05);
+      }
+      .chat-send:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+      .chat-send svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      /* === ANIMATIONS === */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* === RESPONSIVE === */
+      @media (max-width: 1024px) {
+        .hero-inner {
+          grid-template-columns: 1fr;
+          text-align: center;
+          gap: 40px;
+        }
+        .hero p {
+          margin: 0 auto 32px;
+        }
+        .hero-buttons {
+          justify-content: center;
+        }
+        .chat-mockup {
+          margin: 0 auto;
+          max-width: 340px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav {
+          display: none;
+          position: fixed;
+          top: 72px;
+          left: 0;
+          right: 0;
+          background: rgba(250, 251, 255, 0.98);
+          backdrop-filter: blur(20px);
+          flex-direction: column;
+          padding: 24px;
+          gap: 20px;
+          border-bottom: 1px solid var(--border);
+          box-shadow: var(--shadow-lg);
+        }
+        .nav.active {
+          display: flex;
+        }
+        .menu-toggle {
+          display: flex;
+        }
+        section {
+          padding: 60px 0;
+        }
+        .section-header {
+          margin-bottom: 40px;
+        }
+        .benefits-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .specialties-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .treatments-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 16px;
+        }
+        .hero {
+          padding: 110px 0 60px;
+        }
+        .hero-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+        .btn {
+          width: 100%;
+          justify-content: center;
+        }
+        .benefits-grid {
+          grid-template-columns: 1fr;
+        }
+        .specialties-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .chatbot-window {
+          bottom: 0;
+          right: 0;
+          left: 0;
+          width: 100%;
+          max-width: 100%;
+          height: 100vh;
+          max-height: 100vh;
+          border-radius: 0;
+        }
+        .chatbot-fab {
+          bottom: 16px;
+          right: 16px;
+          width: 54px;
+          height: 54px;
+        }
+        .chat-mockup {
+          max-width: 100%;
+        }
+        .cta-section {
+          padding: 60px 0;
+        }
+      }
+
+      /* === DARK MODE === */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0a1628;
+          --surface: #111d32;
+          --surface-alt: #162338;
+          --border: rgba(255, 255, 255, 0.06);
+          --text: #e8edf5;
+          --text-secondary: #8b99ae;
+          --text-muted: #5a6a7e;
+          --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+          --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.25);
+          --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.3);
+          --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.35);
+          --gradient-soft: linear-gradient(
+            135deg,
+            rgba(0, 102, 255, 0.12) 0%,
+            rgba(0, 194, 255, 0.12) 100%
+          );
+          --primary-light: rgba(0, 102, 255, 0.15);
+        }
+        .header {
+          background: rgba(10, 22, 40, 0.85);
+        }
+        .hero {
+          background: linear-gradient(180deg, var(--bg) 0%, #0d2040 100%);
+        }
+        .cta-section {
+          background: linear-gradient(135deg, #060e1a 0%, #0a1930 100%);
+        }
+        .footer {
+          background: #060e1a;
+        }
+      }
+    </style>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💙</text></svg>"
+    />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="header" id="header">
+      <div class="container header-inner">
+        <a href="#" class="logo">
+          <div class="logo-icon">V</div>
+          Vita Saúde
+        </a>
+        <nav class="nav" id="nav">
+          <a href="#beneficios">Benefícios</a>
+          <a href="#especialidades">Especialidades</a>
+          <a href="#tratamentos">Tratamentos</a>
+          <a href="#contato" class="nav-cta">Agendar Consulta</a>
+        </nav>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <div class="hero-badge">✨ Clínica Premium</div>
+          <h1>Sua saúde merece o <span>melhor cuidado</span></h1>
+          <p>
+            Atendimento humanizado com especialistas renomados e tecnologia de
+            ponta. Agende sua consulta em segundos com a Sofia, nossa assistente
+            virtual.
+          </p>
+          <div class="hero-buttons">
+            <a href="#contato" class="btn btn-primary">
+              <svg
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                viewBox="0 0 24 24"
+              >
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+              Agendar Consulta
+            </a>
+            <button class="btn btn-secondary" id="heroChat">
+              <svg
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                />
+              </svg>
+              Falar com Sofia
+            </button>
+          </div>
+        </div>
+        <div class="hero-visual fade-in">
+          <div class="chat-mockup">
+            <div class="chat-mockup-header">
+              <img
+                src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=150&h=150"
+                alt="Sofia"
+                class="chat-mockup-avatar"
+              />
+              <div class="chat-mockup-info">
+                <h4>Sofia — Assistente Virtual</h4>
+                <span>🟢 Online agora</span>
+              </div>
+            </div>
+            <div class="chat-mockup-body">
+              <div class="mock-msg bot">
+                Olá! 👋 Sou a Sofia, sua assistente virtual da Vita Saúde.
+              </div>
+              <div class="mock-msg bot">Como posso ajudar você hoje?</div>
+              <div class="mock-msg user">Quero agendar uma consulta</div>
+              <div class="mock-msg bot">
+                Claro! Vou te ajudar com o agendamento. Qual especialidade você
+                procura? 😊
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFÍCIOS -->
+    <section class="benefits" id="beneficios">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">✦ Por que nos escolher</span>
+          <h2 class="section-title">Excelência em cada detalhe</h2>
+          <p class="section-subtitle">
+            Cuidamos de você com a atenção que você merece, unindo tecnologia
+            avançada ao toque humano.
+          </p>
+        </div>
+        <div class="benefits-grid">
+          <div class="benefit-card fade-in">
+            <div class="benefit-icon">💙</div>
+            <h3>Atendimento Humanizado</h3>
+            <p>
+              Cada paciente é único. Tratamos você com carinho, respeito e
+              atenção individual.
+            </p>
+          </div>
+          <div class="benefit-card fade-in">
+            <div class="benefit-icon">🩺</div>
+            <h3>Especialistas Renomados</h3>
+            <p>Equipe médica altamente qualificada e reconhecida no mercado.</p>
+          </div>
+          <div class="benefit-card fade-in">
+            <div class="benefit-icon">🏥</div>
+            <h3>Convênios Aceitos</h3>
+            <p>
+              Aceitamos os principais convênios médicos para sua comodidade.
+            </p>
+          </div>
+          <div class="benefit-card fade-in">
+            <div class="benefit-icon">✨</div>
+            <h3>Estética Avançada</h3>
+            <p>
+              Procedimentos estéticos com tecnologia de ponta e resultados
+              naturais.
+            </p>
+          </div>
+          <div class="benefit-card fade-in">
+            <div class="benefit-icon">⚡</div>
+            <h3>Resultados Rápidos</h3>
+            <p>Diagnósticos ágeis e tratamentos eficientes para sua saúde.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESPECIALIDADES -->
+    <section class="specialties" id="especialidades">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">✦ Nossas especialidades</span>
+          <h2 class="section-title">Cuidado completo para toda a família</h2>
+          <p class="section-subtitle">
+            Oferecemos diversas especialidades médicas em um só lugar, com
+            profissionais dedicados ao seu bem-estar.
+          </p>
+        </div>
+        <div class="specialties-grid">
+          <div class="specialty-card fade-in">
+            <div class="specialty-icon">🧴</div>
+            <h3>Dermatologia</h3>
+            <p>Pele saudável e bonita</p>
+          </div>
+          <div class="specialty-card fade-in">
+            <div class="specialty-icon">👩⚕️</div>
+            <h3>Ginecologia</h3>
+            <p>Saúde da mulher</p>
+          </div>
+          <div class="specialty-card fade-in">
+            <div class="specialty-icon">🧠</div>
+            <h3>Psicologia</h3>
+            <p>Bem-estar mental</p>
+          </div>
+          <div class="specialty-card fade-in">
+            <div class="specialty-icon">🩺</div>
+            <h3>Clínica Geral</h3>
+            <p>Cuidado preventivo</p>
+          </div>
+          <div class="specialty-card fade-in">
+            <div class="specialty-icon">🥗</div>
+            <h3>Nutrição</h3>
+            <p>Alimentação equilibrada</p>
+          </div>
+          <div class="specialty-card fade-in">
+            <div class="specialty-icon">🏃</div>
+            <h3>Fisioterapia</h3>
+            <p>Reabilitação e movimento</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRATAMENTOS -->
+    <section class="treatments" id="tratamentos">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">✦ Tratamentos estéticos</span>
+          <h2 class="section-title">Realce sua beleza natural</h2>
+          <p class="section-subtitle">
+            Procedimentos estéticos modernos realizados por profissionais
+            especializados com resultados comprovados.
+          </p>
+        </div>
+        <div class="treatments-grid">
+          <div class="treatment-card fade-in">
+            <div class="treatment-emoji">💉</div>
+            <h3>Botox</h3>
+            <p>
+              Tratamento para linhas de expressão e rugas com toxina botulínica,
+              resultados naturais e duradouros.
+            </p>
+          </div>
+          <div class="treatment-card fade-in">
+            <div class="treatment-emoji">✨</div>
+            <h3>Preenchimento</h3>
+            <p>
+              Harmonização facial com ácido hialurônico para volume, contorno e
+              rejuvenescimento da pele.
+            </p>
+          </div>
+          <div class="treatment-card fade-in">
+            <div class="treatment-emoji">🔬</div>
+            <h3>Laser</h3>
+            <p>
+              Tecnologia laser avançada para tratamento de manchas, cicatrizes e
+              rejuvenescimento da pele.
+            </p>
+          </div>
+          <div class="treatment-card fade-in">
+            <div class="treatment-emoji">🧖</div>
+            <h3>Limpeza de Pele</h3>
+            <p>
+              Limpeza profunda profissional para uma pele limpa, hidratada e com
+              aspecto renovado.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-section" id="contato">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label" style="color: rgba(255, 255, 255, 0.6)"
+            >✦ Comece agora</span
+          >
+          <h2 class="section-title">Pronto para cuidar da sua saúde?</h2>
+          <p class="section-subtitle">
+            Fale agora com a Sofia e agende sua consulta em poucos segundos. Sem
+            filas, sem burocracia.
+          </p>
+        </div>
+        <button
+          class="btn btn-primary"
+          id="ctaChat"
+          style="position: relative; z-index: 1"
+        >
+          <svg
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+            />
+          </svg>
+          Abrir Chat
+        </button>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-links">
+          <a href="#beneficios">Benefícios</a>
+          <a href="#especialidades">Especialidades</a>
+          <a href="#tratamentos">Tratamentos</a>
+          <a href="#contato">Contato</a>
+        </div>
+        <p>© 2026 Vita Saúde. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+
+    <!-- CHATBOT -->
+    <button class="chatbot-fab" id="chatFab" aria-label="Abrir chat">
+      <div class="fab-pulse"></div>
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+        />
+      </svg>
+    </button>
+
+    <div class="chatbot-window" id="chatWindow">
+      <div class="chat-header">
+        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=150&h=150" alt="Sofia" class="chat-avatar" />
+        <div class="chat-header-info">
+          <h4>Sofia — Assistente Virtual</h4>
+          <div class="status">Online agora</div>
+        </div>
+        <button class="chat-close" id="chatClose" aria-label="Fechar chat">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+      <div class="chat-messages" id="chatMessages"></div>
+      <div class="quick-actions" id="quickActions">
+        <button class="quick-btn" data-msg="Quero agendar uma consulta">
+          📅 Agendar consulta
+        </button>
+        <button class="quick-btn" data-msg="Quais tratamentos vocês oferecem?">
+          💆 Tratamentos
+        </button>
+        <button class="quick-btn" data-msg="Quais exames estão disponíveis?">
+          🔬 Exames
+        </button>
+        <button
+          class="quick-btn"
+          data-msg="Quero falar com um atendente humano"
+        >
+          👩⚕️ Atendente
+        </button>
+      </div>
+      <div class="chat-input-area">
+        <input
+          type="text"
+          class="chat-input"
+          id="chatInput"
+          placeholder="Digite sua mensagem..."
+          autocomplete="off"
+        />
+        <button class="chat-send" id="chatSend" aria-label="Enviar">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="22" y1="2" x2="11" y2="13" />
+            <polygon points="22 2 15 22 11 13 2 9 22 2" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <script>
+      /* ============================================
+   VITA SAÚDE — App JavaScript
+   Chatbot Integration & UI Logic
+   ============================================ */
+
+      // ==========================================
+      // CONFIGURAÇÃO — Altere os webhooks aqui
+      // ==========================================
+      const WEBHOOK_URL = "https://n8n.marbr.com.br/webhook/vita-saude-web";
+      const TEST_WEBHOOK_URL =
+        "https://n8n.marbr.com.br/webhook-test/vita-saude-web";
+
+      // Altere para TEST_WEBHOOK_URL para testar
+      const ACTIVE_WEBHOOK = WEBHOOK_URL;
+
+      // ==========================================
+      // SESSION MANAGEMENT
+      // ==========================================
+      function getSessionId() {
+        let id = sessionStorage.getItem("vita_session_id");
+        if (!id) {
+          id =
+            "vita_" +
+            Date.now() +
+            "_" +
+            Math.random().toString(36).substring(2, 9);
+          sessionStorage.setItem("vita_session_id", id);
+        }
+        return id;
+      }
+
+      function saveChatHistory(messages) {
+        try {
+          sessionStorage.setItem("vita_chat_history", JSON.stringify(messages));
+        } catch (e) {
+          /* silently fail */
+        }
+      }
+
+      function loadChatHistory() {
+        try {
+          const data = sessionStorage.getItem("vita_chat_history");
+          return data ? JSON.parse(data) : [];
+        } catch (e) {
+          return [];
+        }
+      }
+
+      // ==========================================
+      // DOM ELEMENTS
+      // ==========================================
+      const chatFab = document.getElementById("chatFab");
+      const chatWindow = document.getElementById("chatWindow");
+      const chatClose = document.getElementById("chatClose");
+      const chatMessages = document.getElementById("chatMessages");
+      const chatInput = document.getElementById("chatInput");
+      const chatSend = document.getElementById("chatSend");
+      const quickActions = document.getElementById("quickActions");
+      const menuToggle = document.getElementById("menuToggle");
+      const nav = document.getElementById("nav");
+      const heroChat = document.getElementById("heroChat");
+      const ctaChat = document.getElementById("ctaChat");
+
+      let chatHistory = [];
+      let isSending = false;
+
+      // ==========================================
+      // CHATBOT TOGGLE
+      // ==========================================
+      function openChat() {
+        chatWindow.classList.add("open");
+        chatFab.classList.add("active");
+        chatFab.innerHTML =
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+        setTimeout(() => chatInput.focus(), 400);
+
+        // Load history or show welcome
+        if (chatHistory.length === 0) {
+          const saved = loadChatHistory();
+          if (saved.length > 0) {
+            chatHistory = saved;
+            saved.forEach((msg) =>
+              renderMessage(msg.text, msg.type, msg.time, false),
+            );
+          } else {
+            addBotMessage(
+              "Olá! 😊 Sou a **Sofia**, assistente virtual da Clínica Vita Saúde.\n\nComo posso ajudar você hoje?\n\n• 📅 **Agendar uma consulta**\n• ✨ **Saber sobre tratamentos estéticos**\n• 📋 **Verificar resultado de exames**\n• 👩⚕️ **Falar com nossa equipe**",
+            );
+          }
+        }
+        scrollToBottom();
+      }
+
+      function closeChat() {
+        chatWindow.classList.remove("open");
+        chatFab.classList.remove("active");
+        chatFab.innerHTML =
+          '<div class="fab-pulse"></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>';
+      }
+
+      function toggleChat() {
+        if (chatWindow.classList.contains("open")) {
+          closeChat();
+        } else {
+          openChat();
+        }
+      }
+
+      chatFab.addEventListener("click", toggleChat);
+      chatClose.addEventListener("click", closeChat);
+      if (heroChat) heroChat.addEventListener("click", openChat);
+      if (ctaChat) ctaChat.addEventListener("click", openChat);
+
+      // ==========================================
+      // MESSAGES
+      // ==========================================
+      function getTimestamp() {
+        return new Date().toLocaleTimeString("pt-BR", {
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+      }
+
+      function renderMessage(text, type, time, save = true) {
+        const msgDiv = document.createElement("div");
+        msgDiv.className = `message ${type}`;
+
+        const bubble = document.createElement("div");
+        bubble.className = "message-bubble";
+        // Support line breaks and bolding
+        bubble.innerHTML = text
+          .replace(/\n/g, "<br>")
+          .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+
+        const timeEl = document.createElement("div");
+        timeEl.className = "message-time";
+        timeEl.textContent = time || getTimestamp();
+
+        msgDiv.appendChild(bubble);
+        msgDiv.appendChild(timeEl);
+        chatMessages.appendChild(msgDiv);
+
+        if (save) {
+          chatHistory.push({ text, type, time: time || getTimestamp() });
+          saveChatHistory(chatHistory);
+        }
+
+        scrollToBottom();
+        return msgDiv;
+      }
+
+      function addBotMessage(text) {
+        renderMessage(text, "bot");
+      }
+
+      function addUserMessage(text) {
+        renderMessage(text, "user");
+      }
+
+      function scrollToBottom() {
+        requestAnimationFrame(() => {
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        });
+      }
+
+      // ==========================================
+      // TYPING INDICATOR
+      // ==========================================
+      function showTyping() {
+        const typingDiv = document.createElement("div");
+        typingDiv.className = "typing-indicator";
+        typingDiv.id = "typingIndicator";
+        typingDiv.innerHTML = "<span></span><span></span><span></span>";
+        chatMessages.appendChild(typingDiv);
+        scrollToBottom();
+      }
+
+      function hideTyping() {
+        const el = document.getElementById("typingIndicator");
+        if (el) el.remove();
+      }
+
+      // ==========================================
+      // SEND MESSAGE TO N8N
+      // ==========================================
+      async function sendMessage(text) {
+        if (!text.trim() || isSending) return;
+
+        isSending = true;
+        chatSend.disabled = true;
+        chatInput.value = "";
+
+        // Add user message
+        addUserMessage(text.trim());
+
+        // Hide quick actions after first message
+        if (quickActions) quickActions.style.display = "none";
+
+        // Show typing
+        showTyping();
+
+        try {
+          const payload = {
+            message: text.trim(),
+            sessionId: getSessionId(),
+            timestamp: new Date().toISOString(),
+            source: "site",
+          };
+
+          const controller = new AbortController();
+          const timeout = setTimeout(() => controller.abort(), 30000);
+
+          const response = await fetch(ACTIVE_WEBHOOK, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+            signal: controller.signal,
+          });
+
+          clearTimeout(timeout);
+
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+          const data = await response.json();
+          hideTyping();
+
+          // Handle various n8n response formats
+          let botReply = "";
+          if (typeof data === "string") {
+            botReply = data;
+          } else if (Array.isArray(data)) {
+            // n8n sometimes returns array
+            botReply =
+              data[0]?.output ||
+              data[0]?.message ||
+              data[0]?.text ||
+              data[0]?.response ||
+              JSON.stringify(data[0]);
+          } else if (data.output) {
+            botReply = data.output;
+          } else if (data.message) {
+            botReply = data.message;
+          } else if (data.text) {
+            botReply = data.text;
+          } else if (data.response) {
+            botReply = data.response;
+          } else {
+            botReply = JSON.stringify(data);
+          }
+
+          // Simulate typing delay for natural feel
+          setTimeout(
+            () => {
+              addBotMessage(botReply);
+            },
+            300 + Math.random() * 400,
+          );
+        } catch (error) {
+          hideTyping();
+          console.error("Chat error:", error);
+
+          if (error.name === "AbortError") {
+            addBotMessage(
+              "⏱️ O servidor demorou para responder. Por favor, tente novamente.",
+            );
+          } else {
+            addBotMessage(
+              "😔 Desculpe, ocorreu um erro ao processar sua mensagem. Tente novamente em alguns instantes.",
+            );
+          }
+        } finally {
+          isSending = false;
+          chatSend.disabled = false;
+          chatInput.focus();
+        }
+      }
+
+      // ==========================================
+      // EVENT LISTENERS
+      // ==========================================
+
+      // Send button
+      chatSend.addEventListener("click", () => sendMessage(chatInput.value));
+
+      // Enter to send
+      chatInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" && !e.shiftKey) {
+          e.preventDefault();
+          sendMessage(chatInput.value);
+        }
+      });
+
+      // Quick action buttons
+      document.querySelectorAll(".quick-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const msg = btn.getAttribute("data-msg");
+          if (msg) sendMessage(msg);
+        });
+      });
+
+      // ==========================================
+      // MOBILE MENU
+      // ==========================================
+      menuToggle.addEventListener("click", () => {
+        nav.classList.toggle("active");
+      });
+
+      // Close menu on link click
+      nav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => nav.classList.remove("active"));
+      });
+
+      // ==========================================
+      // SCROLL ANIMATIONS (Intersection Observer)
+      // ==========================================
+      const fadeObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              fadeObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
+      );
+
+      document
+        .querySelectorAll(".fade-in")
+        .forEach((el) => fadeObserver.observe(el));
+
+      // ==========================================
+      // SMOOTH SCROLL FOR NAV
+      // ==========================================
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+
+      // ==========================================
+      // HEADER SCROLL EFFECT
+      // ==========================================
+      let lastScroll = 0;
+      window.addEventListener(
+        "scroll",
+        () => {
+          const header = document.getElementById("header");
+          const scrollY = window.scrollY;
+          if (scrollY > 50) {
+            header.style.boxShadow = "0 2px 20px rgba(0,20,60,0.06)";
+          } else {
+            header.style.boxShadow = "none";
+          }
+          lastScroll = scrollY;
+        },
+        { passive: true },
+      );
+
+      console.log(
+        "%c🏥 Vita Saúde — Landing Page Loaded",
+        "color: #0066FF; font-weight: bold; font-size: 14px;",
+      );
+      console.log("%cWebhook ativo: " + ACTIVE_WEBHOOK, "color: #5A6A7E;");
+    </script>
+  </body>
+</html>

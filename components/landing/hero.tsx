@@ -206,7 +206,7 @@ export function Hero() {
                 <span className="font-semibold text-xs sm:text-sm">IA</span>
               </div>
               <div className="absolute -bottom-2 left-1/4 sm:-bottom-4 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full glass border border-secondary/30 animate-bounce" style={{ animationDelay: '1.5s' }}>
-                <span className="font-semibold text-xs sm:text-sm">Figma</span>
+                <span className="font-semibold text-xs sm:text-sm">AI Agent</span>
               </div>
             </div>
           </div>
