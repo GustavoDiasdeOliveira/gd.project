@@ -12,10 +12,10 @@ const projects = [
     category: "Automações",
     description: "Clínica médica premium com assistente virtual (Sofia) integrada via n8n para agendamentos e suporte humanizado.",
     tags: ["n8n", "IA", "Frontend", "Automação"],
-    liveUrl: "/vita-saude/index.html",
+    liveUrl: "./vita-saude/index.html",
     githubUrl: null,
     gradient: "from-[#0066FF] to-[#00C2FF]",
-    image: "/vita-saude-thumb.jpg",
+    image: "./vita-saude-thumb.jpg",
   },
   {
     title: "Ciber Prime",
@@ -27,7 +27,7 @@ const projects = [
     liveUrl: "https://gustavodiasdeoliveira.github.io/ciberprime/",
     githubUrl: "https://github.com/GustavoDiasdeOliveira/ciberprime",
     gradient: "from-primary to-secondary",
-    image: "/ciberprime-thumb.png",
+    image: "./ciberprime-thumb.png",
   },
   {
     title: "Fiesta Finança",
@@ -153,11 +153,10 @@ export function Projects() {
                 {/* Project Image or Name */}
                 {project.image ? (
                   <div className="absolute inset-0">
-                    <Image
+                    <img
                       src={project.image}
                       alt={project.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
                   </div>
