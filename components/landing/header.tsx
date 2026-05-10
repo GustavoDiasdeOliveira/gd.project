@@ -2,22 +2,39 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Menu, X, Moon, Sun } from "lucide-react"
+import { Menu, X, Moon, Sun, Languages, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { useLanguage } from "@/context/LanguageContext"
 
-const navLinks = [
-  { href: "#inicio", label: "Início" },
-  { href: "#servicos", label: "Serviços" },
-  { href: "#projetos", label: "Projetos" },
-  { href: "#sobre", label: "Sobre" },
-  { href: "#contato", label: "Contato" },
-]
+const languages = [
+  { code: "pt", label: "Brasil", flag: "https://flagcdn.com/w40/br.png" },
+  { code: "en", label: "EUA", flag: "https://flagcdn.com/w40/us.png" },
+  { code: "es", label: "Espanhol", flag: "https://flagcdn.com/w40/es.png" },
+  { code: "it", label: "Italiano", flag: "https://flagcdn.com/w40/it.png" },
+] as const
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isDark, setIsDark] = useState(true)
   const [activeSection, setActiveSection] = useState("inicio")
+  const { language, setLanguage, t } = useLanguage()
+  
+  const currentLang = languages.find(l => l.code === language) || languages[0]
+
+  const navLinks = [
+    { href: "#inicio", label: t("header.home") },
+    { href: "#servicos", label: t("header.services") },
+    { href: "#projetos", label: t("header.projects") },
+    { href: "#sobre", label: t("header.about") },
+    { href: "#contato", label: t("header.contact") },
+  ]
 
   useEffect(() => {
     // Check saved theme preference
@@ -34,7 +51,7 @@ export function Header() {
     // Intersection Observer for active section
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
+        entries.forEach((entry: IntersectionObserverEntry) => {
           if (entry.isIntersecting) {
             setActiveSection(entry.target.id)
           }
@@ -44,7 +61,7 @@ export function Header() {
     )
 
     const sections = document.querySelectorAll("section[id]")
-    sections.forEach((section) => observer.observe(section))
+    sections.forEach((section: Element) => observer.observe(section))
 
     window.addEventListener("scroll", handleScroll)
     return () => {
@@ -106,16 +123,38 @@ export function Header() {
             >
               {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button className="flex items-center gap-2 p-2 rounded-full hover:bg-muted transition-colors text-sm font-medium">
+                  <img src={currentLang.flag} alt={currentLang.label} className="w-5 h-3.5 object-cover rounded-sm" />
+                  <span className="hidden xl:inline">{currentLang.label}</span>
+                  <ChevronDown className="w-3 h-3 opacity-50" />
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="glass-strong border-[var(--glass-border)]">
+                {languages.map((lang) => (
+                  <DropdownMenuItem
+                    key={lang.code}
+                    onClick={() => setLanguage(lang.code)}
+                    className="flex items-center gap-3 cursor-pointer"
+                  >
+                    <img src={lang.flag} alt={lang.label} className="w-5 h-3.5 object-cover rounded-sm" />
+                    <span>{lang.label}</span>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
             <Button
               asChild
               className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white"
             >
               <a
-                href="https://wa.me/5513991895950?text=Olá%20Gustavo%2C%20vi%20seu%20site%20e%20gostaria%20de%20um%20orçamento!"
+                href={`https://wa.me/5513991895950?text=${encodeURIComponent(t("whatsapp.message"))}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Fale Comigo
+                {t("header.cta")}
               </a>
             </Button>
           </div>
@@ -129,6 +168,25 @@ export function Header() {
             >
               {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button className="p-2 rounded-full hover:bg-muted transition-colors">
+                  <img src={currentLang.flag} alt={currentLang.label} className="w-5 h-3.5 object-cover rounded-sm" />
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="glass-strong border-[var(--glass-border)]">
+                {languages.map((lang) => (
+                  <DropdownMenuItem
+                    key={lang.code}
+                    onClick={() => setLanguage(lang.code)}
+                    className="flex items-center gap-3 cursor-pointer"
+                  >
+                    <img src={lang.flag} alt={lang.label} className="w-5 h-3.5 object-cover rounded-sm" />
+                    <span>{lang.label}</span>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 rounded-lg hover:bg-muted transition-colors"
@@ -169,12 +227,12 @@ export function Header() {
               className="mt-2 sm:mt-4 bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white"
             >
               <a
-                href="https://wa.me/5513991895950?text=Olá%20Gustavo%2C%20vi%20seu%20site%20e%20gostaria%20de%20um%20orçamento!"
+                href={`https://wa.me/5513991895950?text=${encodeURIComponent(t("whatsapp.message"))}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={closeMobileMenu}
               >
-                Fale Comigo
+                {t("header.cta")}
               </a>
             </Button>
           </div>

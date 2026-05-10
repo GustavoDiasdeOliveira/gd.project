@@ -3,43 +3,44 @@
 import { useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Mail, Phone, MapPin, Linkedin, Send, CheckCircle } from "lucide-react"
-
-const contactInfo = [
-  {
-    icon: Mail,
-    label: "E-mail",
-    value: "gustavodiasdeoliveira72@gmail.com",
-    href: "mailto:gustavodiasdeoliveira72@gmail.com",
-  },
-  {
-    icon: Phone,
-    label: "Telefone",
-    value: "(13) 99189-5950",
-    href: "tel:+5513991895950",
-  },
-  {
-    icon: MapPin,
-    label: "Localização",
-    value: "Praia Grande – SP (atendimento remoto)",
-    href: null,
-  },
-  {
-    icon: Linkedin,
-    label: "LinkedIn",
-    value: "/gustavo-dias-de-oliveira",
-    href: "https://www.linkedin.com/in/gustavo-dias-de-oliveira-615073299/",
-  },
-]
+import { useLanguage } from "@/context/LanguageContext"
 
 export function Contact() {
+  const { t } = useLanguage()
+  const contactInfo = [
+    {
+      icon: Mail,
+      label: t("contact.info.email"),
+      value: "gustavodiasdeoliveira72@gmail.com",
+      href: "mailto:gustavodiasdeoliveira72@gmail.com",
+    },
+    {
+      icon: Phone,
+      label: t("contact.info.phone"),
+      value: "(13) 99189-5950",
+      href: "tel:+5513991895950",
+    },
+    {
+      icon: MapPin,
+      label: t("contact.info.location"),
+      value: t("contact.info.location_value"),
+      href: null,
+    },
+    {
+      icon: Linkedin,
+      label: t("contact.info.linkedin"),
+      value: "/gustavo-dias-de-oliveira",
+      href: "https://www.linkedin.com/in/gustavo-dias-de-oliveira-615073299/",
+    },
+  ]
   const ref = useRef<HTMLDivElement>(null)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
+      (entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry: IntersectionObserverEntry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("visible")
           }
@@ -49,7 +50,7 @@ export function Contact() {
     )
 
     const elements = ref.current?.querySelectorAll(".fade-in, .slide-left, .slide-right")
-    elements?.forEach((el) => observer.observe(el))
+    elements?.forEach((el: Element) => observer.observe(el))
 
     return () => observer.disconnect()
   }, [])
@@ -87,13 +88,13 @@ export function Contact() {
         {/* Section Header */}
         <div className="text-center mb-10 sm:mb-12 md:mb-16 fade-in">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-balance">
-            Vamos trabalhar{" "}
+            {t("contact.title_part1")}{" "}
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              juntos?
+              {t("contact.title_highlight")}
             </span>
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto text-pretty px-4">
-            Me conta seu projeto e eu te respondo em até 24h
+            {t("contact.subtitle")}
           </p>
         </div>
 
@@ -139,7 +140,7 @@ export function Contact() {
               {/* Name / Company */}
               <div>
                 <label htmlFor="name" className="block text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">
-                  Nome / Empresa <span className="text-primary">*</span>
+                  {t("contact.form.name_label")} <span className="text-primary">*</span>
                 </label>
                 <input
                   type="text"
@@ -147,14 +148,14 @@ export function Contact() {
                   name="name"
                   required
                   className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-muted border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-sm sm:text-base"
-                  placeholder="Seu nome ou empresa"
+                  placeholder={t("contact.form.name_placeholder")}
                 />
               </div>
 
               {/* Email */}
               <div>
                 <label htmlFor="email" className="block text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">
-                  E-mail <span className="text-primary">*</span>
+                  {t("contact.form.email_label")} <span className="text-primary">*</span>
                 </label>
                 <input
                   type="email"
@@ -162,39 +163,39 @@ export function Contact() {
                   name="email"
                   required
                   className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-muted border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-sm sm:text-base"
-                  placeholder="seu@email.com"
+                  placeholder={t("contact.form.email_placeholder")}
                 />
               </div>
 
               {/* Service Type */}
               <div>
                 <label htmlFor="service" className="block text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">
-                  Tipo de serviço
+                  {t("contact.form.service_label")}
                 </label>
                 <select
                   id="service"
                   name="service"
                   className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-muted border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-sm sm:text-base"
                 >
-                  <option value="">Selecione uma opção</option>
-                  <option value="landing-page">Landing Page</option>
-                  <option value="automacao-n8n">Automação n8n</option>
-                  <option value="inteligencia-mercado">Inteligência de Mercado</option>
-                  <option value="outro">Outro</option>
+                  <option value="">{t("contact.form.service_select")}</option>
+                  <option value="landing-page">{t("contact.form.service_landing")}</option>
+                  <option value="automacao-n8n">{t("contact.form.service_automation")}</option>
+                  <option value="inteligencia-mercado">{t("contact.form.service_intelligence")}</option>
+                  <option value="outro">{t("contact.form.service_other")}</option>
                 </select>
               </div>
 
               {/* Message */}
               <div>
                 <label htmlFor="message" className="block text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">
-                  Descrição do projeto
+                  {t("contact.form.message_label")}
                 </label>
                 <textarea
                   id="message"
                   name="message"
                   rows={4}
                   className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-muted border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors resize-none text-sm sm:text-base"
-                  placeholder="Conte um pouco sobre seu projeto..."
+                  placeholder={t("contact.form.message_placeholder")}
                 />
               </div>
 
@@ -206,15 +207,15 @@ export function Contact() {
                 size="lg"
               >
                 {isSubmitting ? (
-                  "Enviando..."
+                  t("contact.form.sending")
                 ) : isSubmitted ? (
                   <>
                     <CheckCircle className="w-4 h-4" />
-                    Mensagem enviada!
+                    {t("contact.form.success")}
                   </>
                 ) : (
                   <>
-                    Enviar mensagem
+                    {t("contact.form.send")}
                     <Send className="w-4 h-4" />
                   </>
                 )}
@@ -223,7 +224,7 @@ export function Contact() {
               {/* Success Message */}
               {isSubmitted && (
                 <p className="text-center text-sm text-green-500 animate-in fade-in">
-                  Obrigado! Entrarei em contato em breve.
+                  {t("contact.form.success_message")}
                 </p>
               )}
             </form>

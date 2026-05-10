@@ -2,13 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Monitor, Zap, GraduationCap, Coffee } from "lucide-react"
-
-const stats = [
-  { icon: Monitor, value: 12, suffix: "+", label: "Projetos Criados" },
-  { icon: Zap, value: 3, suffix: "+", label: "Automações prontas" },
-  { icon: GraduationCap, value: 5, suffix: "+", label: "Certificados Tech" },
-  { icon: Coffee, value: null, suffix: "∞", label: "E apenas começando" },
-]
+import { useLanguage } from "@/context/LanguageContext"
 
 function useCountUp(end: number | null, duration: number = 2000, start: boolean = false) {
   const [count, setCount] = useState(0)
@@ -32,12 +26,20 @@ function useCountUp(end: number | null, duration: number = 2000, start: boolean 
 }
 
 export function Stats() {
+  const { t } = useLanguage()
+  const stats = [
+    { icon: Monitor, value: 12, suffix: "+", label: t("stats.projects") },
+    { icon: Zap, value: 3, suffix: "+", label: t("stats.automations") },
+    { icon: GraduationCap, value: 5, suffix: "+", label: t("stats.certificates") },
+    { icon: Coffee, value: null, suffix: "∞", label: t("stats.starting") },
+  ]
   const ref = useRef<HTMLDivElement>(null)
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
+      (entries: IntersectionObserverEntry[]) => {
+        const [entry] = entries
         if (entry.isIntersecting) {
           setIsVisible(true)
           observer.disconnect()
@@ -57,7 +59,7 @@ export function Stats() {
     <section ref={ref} className="relative py-12 sm:py-16 md:py-20 lg:py-24">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
-          {stats.map((stat, index) => (
+          {stats.map((stat: any, index: number) => (
             <StatCard key={index} stat={stat} isVisible={isVisible} delay={index * 100} />
           ))}
         </div>
@@ -71,7 +73,7 @@ function StatCard({
   isVisible,
   delay,
 }: {
-  stat: (typeof stats)[0]
+  stat: any
   isVisible: boolean
   delay: number
 }) {

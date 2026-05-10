@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Github, ArrowRight, Eye } from "lucide-react"
 import Image from "next/image"
+import { useLanguage } from "@/context/LanguageContext"
 
 const projects = [
   {
@@ -64,21 +65,21 @@ const projects = [
   },
 ]
 
-const categories = ["Todos os projetos", "Landing Page", "Automações", "Apps"]
-
 export function Projects() {
-  const [activeCategory, setActiveCategory] = useState("Todos os projetos")
+  const { t } = useLanguage()
+  const categories = [t("projects.all"), t("projects.landing"), t("projects.automation"), t("projects.apps")]
+  const [activeCategory, setActiveCategory] = useState(categories[0])
   const [visibleCount, setVisibleCount] = useState(2)
   const ref = useRef<HTMLDivElement>(null)
 
   const filteredProjects = projects.filter(
-    (project) => activeCategory === "Todos os projetos" || project.category === activeCategory
+    (project) => activeCategory === categories[0] || project.category === (activeCategory === categories[1] ? "Landing Page" : activeCategory === categories[2] ? "Automações" : activeCategory === categories[3] ? "Apps" : "")
   )
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
+      (entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry: IntersectionObserverEntry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("visible")
           }
@@ -88,7 +89,7 @@ export function Projects() {
     )
 
     const elements = ref.current?.querySelectorAll(".fade-in")
-    elements?.forEach((el) => observer.observe(el))
+    elements?.forEach((el: Element) => observer.observe(el))
 
     return () => observer.disconnect()
   }, [visibleCount, activeCategory])  
@@ -102,18 +103,18 @@ export function Projects() {
         {/* Section Header */}
         <div className="text-center mb-10 sm:mb-12 md:mb-16 fade-in">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-balance">
-            Projetos que já{" "}
+            {t("projects.title_part1")}{" "}
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              desenvolvi
+              {t("projects.title_highlight")}
             </span>
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto text-pretty px-4 mb-8">
-            Veja alguns trabalhos reais
+            {t("projects.subtitle")}
           </p>
 
           {/* Category Filter Buttons */}
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 fade-in">
-            {categories.map((category) => (
+            {categories.map((category: string) => (
               <Button
                 key={category}
                 variant={activeCategory === category ? "default" : "outline"}
@@ -135,7 +136,7 @@ export function Projects() {
 
         {/* Projects Grid */}
         <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 min-h-[400px]">
-          {filteredProjects.slice(0, visibleCount).map((project, index) => (
+          {filteredProjects.slice(0, visibleCount).map((project: any, index: number) => (
             <div
               key={`${project.title}-${index}`}
               className="fade-in gradient-border group rounded-xl sm:rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
@@ -212,7 +213,7 @@ export function Projects() {
 
                 {/* Tags */}
                 <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                  {project.tags.map((tag, i) => (
+                  {project.tags.map((tag: string, i: number) => (
                     <span
                       key={i}
                       className="px-2 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-medium rounded-full bg-muted text-muted-foreground"
@@ -241,7 +242,7 @@ export function Projects() {
               size="lg"
               className="w-full sm:w-auto gap-2 border-primary/30 hover:bg-primary/10 cursor-pointer"
             >
-              Ver mais projetos
+              {t("projects.more_projects")}
               <ArrowRight className="w-4 h-4" />
             </Button>
           </div>

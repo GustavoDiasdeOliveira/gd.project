@@ -1,0 +1,150 @@
+{
+  "header": {
+    "home": "Home",
+    "services": "Services",
+    "projects": "Projects",
+    "about": "About",
+    "contact": "Contact",
+    "cta": "Talk to Me",
+    "theme_light": "Switch to light mode",
+    "theme_dark": "Switch to dark mode"
+  },
+  "about": {
+    "title_part1": "Who is",
+    "title_highlight": "Gustavo?",
+    "description_1": "I am a Computer Science student at UNIP (7th/8th semester), passionate about technology and constantly learning. Currently a IT intern at Mar Brasil, with previous experience in Market Intelligence at Zukkin.",
+    "description_2": "I believe that technology should be accessible. That's why I offer modern solutions at fair prices for small and medium-sized companies that want to grow digitally.",
+    "highlights": [
+      "Computer Science Student (UNIP)",
+      "Santander Front-end Certificate – Ada Tech (2024)",
+      "N8N Automation Immersion – Hashtag (2026)",
+      "Praia Grande – SP | National remote service"
+    ],
+    "cta_cv": "Download full resume",
+    "cv_downloading": "Downloading..."
+  },
+  "hero": {
+    "badge": "Available for new projects",
+    "title_part1": "I transform ideas into",
+    "title_highlight": "digital results",
+    "typing": [
+      "Landing Pages that convert",
+      "Automations that save hours",
+      "Data that guides decisions"
+    ],
+    "description": "I'm Gustavo, a specialist in Frontend and AI Automations (n8n). I help small and medium-sized businesses grow with accessible technology and real results.",
+    "cta_projects": "View my projects",
+    "cta_cv": "Download CV",
+    "cv_downloading": "Downloading...",
+    "social": "Find me:"
+  },
+  "stats": {
+    "projects": "Projects Created",
+    "automations": "Ready Automations",
+    "certificates": "Tech Certificates",
+    "starting": "And just starting"
+  },
+  "services": {
+    "title_part1": "What I can do",
+    "title_highlight": "for you",
+    "subtitle": "Complete digital solutions to make your business grow",
+    "most_requested": "Most requested",
+    "items": [
+      {
+        "title": "Landing Pages that Convert",
+        "description": "Creation of modern, responsive, and high-performance websites. Using React and cutting-edge technologies to take your business to the next level.",
+        "cta": "I want a modern site"
+      },
+      {
+        "title": "Intelligent Automations with n8n",
+        "description": "I automate your company's repetitive processes by integrating WhatsApp, Google Sheets, APIs, and more. Save hours of manual work every week.",
+        "cta": "I want to automate my business"
+      },
+      {
+        "title": "Freelance Data Analysis",
+        "description": "Dedicated action as a freelancer for data collection, processing, and analysis. With real market experience (ex: Zukkin) and fast learning, I adapt to your business to deliver automated scans, pricing reports, and valuable insights.",
+        "cta": "I want to empower my data"
+      }
+    ]
+  },
+  "technologies": {
+    "title_part1": "Tools I",
+    "title_highlight": "use"
+  },
+  "projects": {
+    "title_part1": "My",
+    "title_highlight": "Projects",
+    "subtitle": "A selection of recent development and automation work.",
+    "all": "All",
+    "landing": "Landing Pages",
+    "automation": "Automations",
+    "apps": "Apps",
+    "view_project": "View project",
+    "more_projects": "View all projects"
+  },
+  "contact": {
+    "title_part1": "Let's work",
+    "title_highlight": "together?",
+    "subtitle": "Tell me about your project and I'll respond within 24h",
+    "info": {
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location",
+      "linkedin": "LinkedIn",
+      "location_value": "Praia Grande – SP (remote service)"
+    },
+    "form": {
+      "name_label": "Name / Company",
+      "name_placeholder": "Your name or company",
+      "email_label": "Email",
+      "email_placeholder": "your@email.com",
+      "service_label": "Service type",
+      "service_select": "Select an option",
+      "service_landing": "Landing Page",
+      "service_automation": "n8n Automation",
+      "service_intelligence": "Market Intelligence",
+      "service_other": "Other",
+      "message_label": "Project description",
+      "message_placeholder": "Tell me a bit about your project...",
+      "send": "Send message",
+      "sending": "Sending...",
+      "success": "Message sent!",
+      "success_message": "Thank you! I will get in touch soon."
+    }
+  },
+  "process": {
+    "title_part1": "How we work",
+    "title_highlight": "together",
+    "steps": [
+      {
+        "title": "Initial talk",
+        "description": "Tell me about your project and goals via WhatsApp"
+      },
+      {
+        "title": "Custom proposal",
+        "description": "I prepare a briefing and tailored quote"
+      },
+      {
+        "title": "Development",
+        "description": "I get to work with frequent updates"
+      },
+      {
+        "title": "Delivery + Support",
+        "description": "I deliver the project and offer post-delivery support"
+      }
+    ]
+  },
+  "footer": {
+    "description": "Transforming ideas into digital results through modern design and intelligent automation.",
+    "quick_links": "Quick Links",
+    "rights": "Made with 💻 and ☕",
+    "back_to_top": "Back to top"
+  },
+  "whatsapp": {
+    "aria_label": "Contact via WhatsApp",
+    "message": "Hi Gustavo, I saw your website and would like a quote!"
+  },
+  "scroll_progress": {
+    "aria_label": "Reading progress"
+  }
+}

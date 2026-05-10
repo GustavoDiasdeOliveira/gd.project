@@ -1,8 +1,10 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { useLanguage } from "@/context/LanguageContext"
 
 export function ScrollProgress() {
+  const { t } = useLanguage()
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
@@ -26,7 +28,7 @@ export function ScrollProgress() {
       aria-valuenow={Math.round(progress)}
       aria-valuemin={0}
       aria-valuemax={100}
-      aria-label="Progresso de leitura"
+      aria-label={t("scroll_progress.aria_label")}
     />
   )
 }

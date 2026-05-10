@@ -1,0 +1,150 @@
+{
+  "header": {
+    "home": "Inizio",
+    "services": "Servizi",
+    "projects": "Progetti",
+    "about": "Su di me",
+    "contact": "Contatti",
+    "cta": "Parliamo",
+    "theme_light": "Attiva modalità chiara",
+    "theme_dark": "Attiva modalità scura"
+  },
+  "about": {
+    "title_part1": "Chi è",
+    "title_highlight": "Gustavo?",
+    "description_1": "Sono uno studente di Informatica presso l'UNIP (7°/8° semestre), appassionato di tecnologia e in costante apprendimento. Attualmente tirocinante IT presso Mar Brasil, con precedente esperienza in Market Intelligence presso Zukkin.",
+    "description_2": "Credo che la tecnologia debba essere accessibile. Per questo offro soluzioni moderne a prezzi equi per le piccole e medie imprese che vogliono crescere nel digitale.",
+    "highlights": [
+      "Studente di Informatica (UNIP)",
+      "Certificato Santander Front-end – Ada Tech (2024)",
+      "Imersione nell'automazione N8N – Hashtag (2026)",
+      "Praia Grande – SP | Assistenza remota nazionale"
+    ],
+    "cta_cv": "Scarica il curriculum completo",
+    "cv_downloading": "Scaricamento..."
+  },
+  "hero": {
+    "badge": "Disponibile per nuovi progetti",
+    "title_part1": "Trasformo le idee in",
+    "title_highlight": "risultati digitali",
+    "typing": [
+      "Landing Page che convertono",
+      "Automazioni che fanno risparmiare ore",
+      "Dati che guidano le decisioni"
+    ],
+    "description": "Sono Gustavo, uno specialista in Frontend e Automazioni AI (n8n). Aiuto le piccole e medie imprese a crescere con una tecnologia accessibile e risultati reali.",
+    "cta_projects": "Guarda i miei progetti",
+    "cta_cv": "Scarica CV",
+    "cv_downloading": "Scaricamento...",
+    "social": "Trovami su:"
+  },
+  "stats": {
+    "projects": "Progetti Creati",
+    "automations": "Automazioni Pronte",
+    "certificates": "Certificati Tech",
+    "starting": "E ho appena iniziato"
+  },
+  "services": {
+    "title_part1": "Cosa posso fare",
+    "title_highlight": "per te",
+    "subtitle": "Soluzioni digitali complete per far crescere la tua attività",
+    "most_requested": "Più richiesto",
+    "items": [
+      {
+        "title": "Landing Page che Convertono",
+        "description": "Creazione di siti web moderni, reattivi e ad alte prestazioni. Utilizzando React e tecnologie all'avanguardia per portare la tua attività al livello successivo.",
+        "cta": "Voglio un sito moderno"
+      },
+      {
+        "title": "Automazioni Intelligenti con n8n",
+        "description": "Automatizzo i processi ripetitivi della tua azienda integrando WhatsApp, Google Sheets, API e altro. Risparmia ore di lavoro manuale ogni settimana.",
+        "cta": "Voglio automatizzare la mia attività"
+      },
+      {
+        "title": "Analisi dei Dati Freelance",
+        "description": "Azione dedicata come freelance per la raccolta, l'elaborazione e l'analisi dei dati. Con una reale esperienza di mercato (es: Zukkin) e un apprendimento rapido, mi adatto alla tua attività per fornire scansioni automatizzate, rapporti sui prezzi e approfondimenti preziosi.",
+        "cta": "Voglio potenziare i miei dati"
+      }
+    ]
+  },
+  "technologies": {
+    "title_part1": "Strumenti che",
+    "title_highlight": "utilizzo"
+  },
+  "projects": {
+    "title_part1": "I miei",
+    "title_highlight": "Progetti",
+    "subtitle": "Una selezione di recenti lavori di sviluppo e automazione.",
+    "all": "Tutti",
+    "landing": "Landing Page",
+    "automation": "Automazioni",
+    "apps": "App",
+    "view_project": "Vedi progetto",
+    "more_projects": "Vedi tutti i progetti"
+  },
+  "contact": {
+    "title_part1": "Lavoriamo",
+    "title_highlight": "insieme?",
+    "subtitle": "Raccontami il tuo projeto e ti risponderò entro 24 ore",
+    "info": {
+      "email": "E-mail",
+      "phone": "Telefono",
+      "location": "Posizione",
+      "linkedin": "LinkedIn",
+      "location_value": "Praia Grande – SP (assistenza remota)"
+    },
+    "form": {
+      "name_label": "Nome / Azienda",
+      "name_placeholder": "Il tuo nome o azienda",
+      "email_label": "E-mail",
+      "email_placeholder": "tua@email.com",
+      "service_label": "Tipo di servizio",
+      "service_select": "Seleziona un'opzione",
+      "service_landing": "Landing Page",
+      "service_automation": "Automazione n8n",
+      "service_intelligence": "Market Intelligence",
+      "service_other": "Altro",
+      "message_label": "Descrizione del progetto",
+      "message_placeholder": "Raccontami un po' del tuo progetto...",
+      "send": "Invia messaggio",
+      "sending": "Invio in corso...",
+      "success": "Messaggio inviato!",
+      "success_message": "Grazie! Ti contatterò presto."
+    }
+  },
+  "process": {
+    "title_part1": "Come lavoriamo",
+    "title_highlight": "insieme",
+    "steps": [
+      {
+        "title": "Colloquio iniziale",
+        "description": "Raccontami il tuo progetto e i tuoi obiettivi tramite WhatsApp"
+      },
+      {
+        "title": "Proposta personalizzata",
+        "description": "Preparo un briefing e un preventivo su misura"
+      },
+      {
+        "title": "Sviluppo",
+        "description": "Mi metto al lavoro con aggiornamenti frequenti"
+      },
+      {
+        "title": "Consegna + Supporto",
+        "description": "Consegno il progetto e offro supporto post-consegna"
+      }
+    ]
+  },
+  "footer": {
+    "description": "Trasformare le idee in risultati digitali attraverso un design moderno e un'automazione intelligente.",
+    "quick_links": "Link Rapidi",
+    "rights": "Fatto con 💻 e ☕",
+    "back_to_top": "Torna su"
+  },
+  "whatsapp": {
+    "aria_label": "Contatto via WhatsApp",
+    "message": "Ciao Gustavo, ho visto il tuo sito e vorrei un preventivo!"
+  },
+  "scroll_progress": {
+    "aria_label": "Progresso di lettura"
+  }
+}

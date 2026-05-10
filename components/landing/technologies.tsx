@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
+import { useLanguage } from "@/context/LanguageContext"
 
 const technologies = [
   { name: "HTML5", icon: "./icons/icons8-html-5-48.png" },
@@ -15,12 +16,13 @@ const technologies = [
 ]
 
 export function Technologies() {
+  const { t } = useLanguage()
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
+      (entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry: IntersectionObserverEntry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("visible")
           }
@@ -30,7 +32,7 @@ export function Technologies() {
     )
 
     const elements = ref.current?.querySelectorAll(".fade-in")
-    elements?.forEach((el) => observer.observe(el))
+    elements?.forEach((el: Element) => observer.observe(el))
 
     return () => observer.disconnect()
   }, [])
@@ -41,9 +43,9 @@ export function Technologies() {
         {/* Section Header */}
         <div className="text-center mb-10 sm:mb-12 md:mb-16 fade-in">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-balance">
-            Ferramentas que{" "}
+            {t("technologies.title_part1")}{" "}
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              utilizo
+              {t("technologies.title_highlight")}
             </span>
           </h2>
         </div>

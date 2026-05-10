@@ -2,41 +2,23 @@
 
 import { useEffect, useRef } from "react"
 import { MessageSquare, FileText, Settings, Rocket } from "lucide-react"
-
-const steps = [
-  {
-    icon: MessageSquare,
-    number: "01",
-    title: "Conversa inicial",
-    description: "Me conta seu projeto e objetivos pelo WhatsApp",
-  },
-  {
-    icon: FileText,
-    number: "02",
-    title: "Proposta personalizada",
-    description: "Preparo um briefing e orçamento sob medida",
-  },
-  {
-    icon: Settings,
-    number: "03",
-    title: "Desenvolvimento",
-    description: "Coloco a mão na massa com updates frequentes",
-  },
-  {
-    icon: Rocket,
-    number: "04",
-    title: "Entrega + Suporte",
-    description: "Entrego o projeto e ofereço suporte pós-entrega",
-  },
-]
+import { useLanguage } from "@/context/LanguageContext"
 
 export function Process() {
+  const { t } = useLanguage()
+  const stepsData = t("process.steps")
+  const steps = [
+    { icon: MessageSquare, number: "01", ...stepsData[0] },
+    { icon: FileText, number: "02", ...stepsData[1] },
+    { icon: Settings, number: "03", ...stepsData[2] },
+    { icon: Rocket, number: "04", ...stepsData[3] },
+  ]
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
+      (entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry: IntersectionObserverEntry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("visible")
           }
@@ -46,7 +28,7 @@ export function Process() {
     )
 
     const elements = ref.current?.querySelectorAll(".fade-in")
-    elements?.forEach((el) => observer.observe(el))
+    elements?.forEach((el: Element) => observer.observe(el))
 
     return () => observer.disconnect()
   }, [])
@@ -57,9 +39,9 @@ export function Process() {
         {/* Section Header */}
         <div className="text-center mb-10 sm:mb-12 md:mb-16 fade-in">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-balance">
-            Como trabalhamos{" "}
+            {t("process.title_part1")}{" "}
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              juntos
+              {t("process.title_highlight")}
             </span>
           </h2>
         </div>
@@ -70,7 +52,7 @@ export function Process() {
           <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary -translate-y-1/2 rounded-full" />
 
           <div className="grid grid-cols-4 gap-4 lg:gap-6 xl:gap-8 relative">
-            {steps.map((step, index) => (
+            {steps.map((step: any, index: number) => (
               <div
                 key={index}
                 className="fade-in relative"
@@ -103,7 +85,7 @@ export function Process() {
           <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-primary to-secondary rounded-full" />
 
           <div className="space-y-8">
-            {steps.map((step, index) => (
+            {steps.map((step: any, index: number) => (
               <div
                 key={index}
                 className="fade-in relative pl-16"

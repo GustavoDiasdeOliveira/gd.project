@@ -39,6 +39,8 @@ export const metadata: Metadata = {
   },
 }
 
+import { LanguageProvider } from "@/context/LanguageContext"
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -47,7 +49,9 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className="dark bg-background">
       <body className={`${poppins.className} font-sans antialiased`}>
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

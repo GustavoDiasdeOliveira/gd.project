@@ -5,14 +5,11 @@ import { Button } from "@/components/ui/button"
 import { Github, Linkedin, MessageCircle, Download, ArrowRight, Loader2 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-
-const typingTexts = [
-  "Landing Pages que convertem",
-  "Automações que economizam horas",
-  "Dados que guiam decisões",
-]
+import { useLanguage } from "@/context/LanguageContext"
 
 export function Hero() {
+  const { t } = useLanguage()
+  const typingTexts = t("hero.typing")
   const [currentTextIndex, setCurrentTextIndex] = useState(0)
   const [displayText, setDisplayText] = useState("")
   const [isDeleting, setIsDeleting] = useState(false)
@@ -54,7 +51,7 @@ export function Hero() {
     }, isDeleting ? 30 : 80)
 
     return () => clearTimeout(timeout)
-  }, [displayText, isDeleting, currentTextIndex])
+  }, [displayText, isDeleting, currentTextIndex, typingTexts])
 
   return (
     <section
@@ -77,7 +74,7 @@ export function Hero() {
 
       {/* Particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[7,22,38,51,64,12,45,73,86,33,55,18,91,29,68].map((pos, i) => (
+        {[7,22,38,51,64,12,45,73,86,33,55,18,91,29,68].map((pos: number, i: number) => (
           <div
             key={i}
             className="particle"
@@ -97,15 +94,15 @@ export function Hero() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-primary/20">
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              <span className="text-sm font-medium">Disponível para novos projetos</span>
+              <span className="text-sm font-medium">{t("hero.badge")}</span>
             </div>
 
             {/* Main Heading */}
             <div className="space-y-4">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold leading-[1.15] text-balance">
-                Transformo ideias em{" "}
+                {t("hero.title_part1")}{" "}
                 <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                  resultados digitais
+                  {t("hero.title_highlight")}
                 </span>
               </h1>
 
@@ -118,8 +115,7 @@ export function Hero() {
 
             {/* Description */}
             <p className="text-base sm:text-lg text-muted-foreground max-w-lg mx-auto lg:mx-0 text-pretty">
-              Sou Gustavo, especialista em Frontend e Automações com IA (n8n). 
-              Ajudo pequenas e médias empresas a crescer com tecnologia acessível e resultados reais.
+              {t("hero.description")}
             </p>
 
             {/* CTAs */}
@@ -130,7 +126,7 @@ export function Hero() {
                 className="w-full sm:w-auto bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white gap-2"
               >
                 <Link href="#projetos">
-                  Ver meus projetos
+                  {t("hero.cta_projects")}
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </Button>
@@ -146,13 +142,13 @@ export function Hero() {
                 ) : (
                   <Download className="w-4 h-4" />
                 )}
-                {isDownloading ? "Baixando..." : "Download CV"}
+                {isDownloading ? t("hero.cv_downloading") : t("hero.cta_cv")}
               </Button>
             </div>
 
             {/* Social Links */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2 sm:pt-4">
-              <span className="text-sm text-muted-foreground">Me encontre:</span>
+              <span className="text-sm text-muted-foreground">{t("hero.social")}</span>
               <div className="flex gap-3">
                 <a
                   href="https://www.linkedin.com/in/gustavo-dias-de-oliveira-615073299/"
@@ -173,7 +169,7 @@ export function Hero() {
                   <Github className="w-5 h-5" />
                 </a>
                 <a
-                  href="https://wa.me/5513991895950?text=Olá%20Gustavo%2C%20vi%20seu%20site%20e%20gostaria%20de%20um%20orçamento!"
+                  href={`https://wa.me/5513991895950?text=${encodeURIComponent(t("whatsapp.message"))}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2.5 rounded-full glass hover:bg-primary/20 transition-colors"
