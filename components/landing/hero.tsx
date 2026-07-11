@@ -99,7 +99,7 @@ export function Hero() {
 
             {/* Main Heading */}
             <div className="space-y-4">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold leading-[1.15] text-balance">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-5xl font-bold leading-[1.15] text-balance">
                 {t("hero.title_part1")}{" "}
                 <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                   {t("hero.title_highlight")}
@@ -183,26 +183,31 @@ export function Hero() {
 
           {/* Right - Visual */}
           <div className="relative flex justify-center order-first lg:order-last">
-            {/* Photo Frame with Spinning Border */}
-            <div className="relative">
-              <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 rounded-full overflow-hidden spinning-border">
-                <div className="absolute inset-1 rounded-full overflow-hidden bg-gradient-to-br from-card to-muted">
-                  <img src="./foto.png" alt="Gustavo Dias" className="w-full h-full object-cover" />
+            <div className="orbit-wrapper">
+              <div className="orbit-ring">
+                <div className="orbit-badge b1">
+                  <img src="./icons/n8n-color.png" alt="n8n" className="w-5 h-5 object-contain" />
+                  n8n
+                </div>
+                <div className="orbit-badge b2">
+                  <img src="./icons/ia.png" alt="IA" className="w-5 h-5 object-contain" />
+                  IA
+                </div>
+                <div className="orbit-badge b3">
+                  <img src="./icons/ai-agent.png" alt="AI Agent" className="w-5 h-5 object-contain" />
+                  AI Agent
+                </div>
+                <div className="orbit-badge b4">
+                  <img src="./icons/power-bi.png" alt="Power BI" className="w-5 h-5 object-contain" />
+                  Power BI
+                </div>
+                <div className="orbit-badge b5">
+                  <span className="text-base">🧑‍💻</span>
+                  Web Designer
                 </div>
               </div>
-
-              {/* Floating Badges */}
-              <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full glass border border-primary/30 animate-bounce">
-                <span className="font-semibold text-xs sm:text-sm">n8n</span>
-              </div>
-              <div className="absolute top-1/4 -left-4 sm:-left-8 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full glass border border-secondary/30 animate-bounce" style={{ animationDelay: '0.5s' }}>
-                <span className="font-semibold text-xs sm:text-sm">React</span>
-              </div>
-              <div className="absolute bottom-1/4 -right-4 sm:-right-8 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full glass border border-primary/30 animate-bounce" style={{ animationDelay: '1s' }}>
-                <span className="font-semibold text-xs sm:text-sm">IA</span>
-              </div>
-              <div className="absolute -bottom-2 left-1/4 sm:-bottom-4 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full glass border border-secondary/30 animate-bounce" style={{ animationDelay: '1.5s' }}>
-                <span className="font-semibold text-xs sm:text-sm">AI Agent</span>
+              <div className="center-circle">
+                <img src="./foto.png" alt="Gustavo Dias" />
               </div>
             </div>
           </div>

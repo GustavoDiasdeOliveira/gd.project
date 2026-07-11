@@ -9,9 +9,9 @@ export function Services() {
   const { t } = useLanguage()
   const servicesData = t("services.items")
   const services = [
-    { ...servicesData[0], icon: Code2, tools: ["Html/Css", "React", "Next.js", "JavaScript", "Figma", "Tailwind CSS", "GitHub"], badge: null },
-    { ...servicesData[1], icon: Zap, tools: ["n8n", "WhatsApp API", "Google Sheets", "Agentes de IA", "Webhooks"], badge: t("services.most_requested") },
-    { ...servicesData[2], icon: BarChart3, tools: ["Python", "Excel", "Web Scraping", "Análise de Concorrência", "Pricing"], badge: null },
+    { ...servicesData[0], icon: BarChart3, tools: ["Análise de Concorrência", "Pricing", "Data Cleansing", "ZROBOT", "Excel", "Google Sheets"], badge: "Análise Estratégica" },
+    { ...servicesData[1], icon: Zap, tools: ["n8n", "WhatsApp API", "Agentes de IA", "RD Station", "Google Agenda", "Supabase"], badge: t("services.most_requested") },
+    { ...servicesData[2], icon: Code2, tools: ["HTML/CSS", "JavaScript", "React", "Figma", "Responsivo", "GitHub"], badge: "Alta Conversão" },
   ]
   const ref = useRef<HTMLDivElement>(null)
 

@@ -146,5 +146,76 @@
   },
   "scroll_progress": {
     "aria_label": "Reading progress"
+  },
+  "experience": {
+    "title_part1": "My",
+    "title_highlight": "Journey",
+    "items": [
+      {
+        "company": "Freelancer",
+        "role": "Web Designer & AI Automations",
+        "period": "2025 — Present",
+        "description": "Responsive landing page development focused on conversion and intelligent automations with n8n integrating WhatsApp, CRM and databases. Serving clients across various segments.",
+        "tags": ["n8n", "React", "Figma", "AI", "WhatsApp API"]
+      },
+      {
+        "company": "Zukkin",
+        "role": "Market Intelligence & Pricing Analyst",
+        "period": "2024 — 2025",
+        "description": "Massive competitor data collection via ZROBOT, database auditing and cleansing, competitive data validation and strategic insight generation for the commercial team. Developed ZBOT — internal chatbot for new employee support.",
+        "tags": ["ZROBOT", "Excel", "Data Cleansing", "Pricing", "Chatbot"]
+      },
+      {
+        "company": "Mar Brasil",
+        "role": "IT Intern",
+        "period": "2024 — Present",
+        "description": "IT infrastructure support, asset inventory management and development of device monitoring automations integrating MaaS360 and Auvo with Power BI dashboards.",
+        "tags": ["Power BI", "MaaS360", "Auvo", "IT Support", "Dashboards"]
+      }
+    ]
+  },
+  "certificates": {
+    "title_part1": "Certificates",
+    "title_highlight": "& Courses",
+    "items": [
+      {
+        "title": "AI Agents with n8n Immersion",
+        "issuer": "Hashtag Treinamentos",
+        "year": "2026",
+        "description": "AI agent creation with n8n, integration with Evolution API, RD Station CRM, Google Calendar and Supabase. Complete automations with humanized messaging."
+      },
+      {
+        "title": "Santander Front-end",
+        "issuer": "Ada Tech",
+        "year": "2024",
+        "description": "Complete front-end development training with HTML, CSS, JavaScript, React and agile methodologies. Final project with practical application."
+      }
+    ]
+  },
+  "skills": {
+    "title_part1": "My",
+    "title_highlight": "Skills",
+    "categories": [
+      {
+        "name": "Market Intelligence",
+        "icon": "BarChart3",
+        "items": ["Excel", "Google Sheets", "Power BI", "SQL", "Data Analysis"]
+      },
+      {
+        "name": "Automations & AI",
+        "icon": "Zap",
+        "items": ["n8n", "Python", "WhatsApp API", "Supabase", "REST APIs"]
+      },
+      {
+        "name": "Web Design & Front-end",
+        "icon": "Code2",
+        "items": ["HTML/CSS", "JavaScript", "React", "Figma", "Tailwind CSS"]
+      },
+      {
+        "name": "Tools & DevOps",
+        "icon": "GitBranch",
+        "items": ["Git/GitHub", "VS Code", "Postman", "Vercel", "Notion"]
+      }
+    ]
   }
 }

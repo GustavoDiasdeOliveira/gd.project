@@ -28,9 +28,9 @@ function useCountUp(end: number | null, duration: number = 2000, start: boolean 
 export function Stats() {
   const { t } = useLanguage()
   const stats = [
-    { icon: Monitor, value: 12, suffix: "+", label: t("stats.projects") },
+    { icon: Monitor, value: 13, suffix: "+", label: t("stats.projects") },
     { icon: Zap, value: 3, suffix: "+", label: t("stats.automations") },
-    { icon: GraduationCap, value: 5, suffix: "+", label: t("stats.certificates") },
+    { icon: GraduationCap, value: 3, suffix: "+", label: t("stats.certificates") },
     { icon: Coffee, value: null, suffix: "∞", label: t("stats.starting") },
   ]
   const ref = useRef<HTMLDivElement>(null)
@@ -82,7 +82,7 @@ function StatCard({
 
   return (
     <div
-      className="gradient-border group p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl text-center transition-transform duration-300 hover:-translate-y-2"
+      className="glass bg-card/40 border border-white/5 group p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl text-center transition-transform duration-300 hover:-translate-y-2"
       style={{ transitionDelay: `${delay}ms` }}
     >
       <div className="inline-flex p-2.5 sm:p-3 rounded-lg sm:rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 mb-3 sm:mb-4">

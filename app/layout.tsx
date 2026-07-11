@@ -10,9 +10,9 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: 'Project | Frontend & Automações com IA',
-  description: 'Transformo ideias em resultados digitais. Landing pages de alta conversão, automações inteligentes com n8n e análise de dados para pequenas e médias empresas.',
-  keywords: ['frontend', 'react', 'landing page', 'automação', 'n8n', 'IA', 'inteligência artificial', 'freelancer', 'Praia Grande', 'São Paulo'],
+  title: 'Gustavo Dias | Inteligência de Mercado, Automações IA & Web Designer',
+  description: 'Especialista em Inteligência de Mercado, Automações com IA (n8n) e Web Design. Análise de concorrência, agentes de IA no WhatsApp e landing pages de alta conversão.',
+  keywords: ['inteligência de mercado', 'pricing', 'análise de concorrência', 'automação n8n', 'agente de IA', 'web designer', 'landing page', 'freelancer', 'Praia Grande', 'São Paulo'],
   authors: [{ name: 'Gustavo Dias de Oliveira' }],
   creator: 'Gustavo Dias de Oliveira',
   icons: {
@@ -24,14 +24,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'pt_BR',
     url: 'https://gustavodiasdeoliveira.com',
-    title: 'Project | Frontend & Automações com IA',
-    description: 'Transformo ideias em resultados digitais. Landing pages de alta conversão, automações inteligentes com n8n e análise de dados.',
-    siteName: 'Project',
+    title: 'Gustavo Dias | Inteligência de Mercado, Automações IA & Web Designer',
+    description: 'Especialista em Inteligência de Mercado, Automações com IA (n8n) e Web Design. Análise de concorrência, agentes de IA no WhatsApp e landing pages de alta conversão.',
+    siteName: 'Gustavo Dias',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Project | Frontend & Automações com IA',
-    description: 'Transformo ideias em resultados digitais.',
+    title: 'Gustavo Dias | Inteligência de Mercado, Automações IA & Web Designer',
+    description: 'Especialista em Inteligência de Mercado, Automações com IA (n8n) e Web Design.',
   },
   robots: {
     index: true,

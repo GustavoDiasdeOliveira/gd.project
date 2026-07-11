@@ -146,5 +146,76 @@
   },
   "scroll_progress": {
     "aria_label": "Progresso di lettura"
+  },
+  "experience": {
+    "title_part1": "La Mia",
+    "title_highlight": "Carriera",
+    "items": [
+      {
+        "company": "Freelancer",
+        "role": "Web Designer & Automazioni AI",
+        "period": "2025 — Presente",
+        "description": "Sviluppo di landing page reattive con focus sulla conversione e automazioni intelligenti con n8n integrando WhatsApp, CRM e database. Assistenza a clienti di vari settori.",
+        "tags": ["n8n", "React", "Figma", "IA", "WhatsApp API"]
+      },
+      {
+        "company": "Zukkin",
+        "role": "Analista di Intelligence di Mercato & Pricing",
+        "period": "2024 — 2025",
+        "description": "Raccolta massiva di dati della concorrenza tramite ZROBOT, audit e pulizia dei database, validazione dei dati competitivi e generazione di insight strategici per il team commerciale. Sviluppo di ZBOT — chatbot interno per il supporto ai nuovi collaboratori.",
+        "tags": ["ZROBOT", "Excel", "Data Cleansing", "Pricing", "Chatbot"]
+      },
+      {
+        "company": "Mar Brasil",
+        "role": "Tirocinante IT",
+        "period": "2024 — Presente",
+        "description": "Supporto all'infrastruttura IT, gestione dell'inventario degli asset e sviluppo di automazioni per il monitoraggio dei dispositivi integrando MaaS360 e Auvo con dashboard in Power BI.",
+        "tags": ["Power BI", "MaaS360", "Auvo", "Supporto IT", "Dashboard"]
+      }
+    ]
+  },
+  "certificates": {
+    "title_part1": "Certificati",
+    "title_highlight": "e Corsi",
+    "items": [
+      {
+        "title": "Immersione negli Agenti AI con n8n",
+        "issuer": "Hashtag Treinamentos",
+        "year": "2026",
+        "description": "Creazione di agenti AI con n8n, integrazione con Evolution API, RD Station CRM, Google Calendar e Supabase. Automazioni complete con messaggi umanizzati."
+      },
+      {
+        "title": "Santander Front-end",
+        "issuer": "Ada Tech",
+        "year": "2024",
+        "description": "Formazione completa in sviluppo front-end con HTML, CSS, JavaScript, React e metodologie agili. Progetto finale con applicazione pratica."
+      }
+    ]
+  },
+  "skills": {
+    "title_part1": "Le Mie",
+    "title_highlight": "Competenze",
+    "categories": [
+      {
+        "name": "Intelligence di Mercato",
+        "icon": "BarChart3",
+        "items": ["Excel", "Google Sheets", "Power BI", "SQL", "Data Analysis"]
+      },
+      {
+        "name": "Automazioni & IA",
+        "icon": "Zap",
+        "items": ["n8n", "Python", "WhatsApp API", "Supabase", "API REST"]
+      },
+      {
+        "name": "Web Design & Front-end",
+        "icon": "Code2",
+        "items": ["HTML/CSS", "JavaScript", "React", "Figma", "Tailwind CSS"]
+      },
+      {
+        "name": "Strumenti & DevOps",
+        "icon": "GitBranch",
+        "items": ["Git/GitHub", "VS Code", "Postman", "Vercel", "Notion"]
+      }
+    ]
   }
 }

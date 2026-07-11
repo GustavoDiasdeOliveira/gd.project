@@ -146,5 +146,76 @@
   },
   "scroll_progress": {
     "aria_label": "Progreso de lectura"
+  },
+  "experience": {
+    "title_part1": "Mi",
+    "title_highlight": "Trayectoria",
+    "items": [
+      {
+        "company": "Freelancer",
+        "role": "Web Designer & Automatizaciones con IA",
+        "period": "2025 — Presente",
+        "description": "Desarrollo de landing pages responsivas con enfoque en conversión y automatizaciones inteligentes con n8n integrando WhatsApp, CRM y bases de datos. Atención a clientes de diversos segmentos.",
+        "tags": ["n8n", "React", "Figma", "IA", "WhatsApp API"]
+      },
+      {
+        "company": "Zukkin",
+        "role": "Analista de Inteligencia de Mercado & Pricing",
+        "period": "2024 — 2025",
+        "description": "Recolección masiva de datos de competencia via ZROBOT, auditoría y limpieza de bases, validación de datos competitivos y generación de insights estratégicos para el equipo comercial. Desarrollo del ZBOT — chatbot interno para soporte a nuevos colaboradores.",
+        "tags": ["ZROBOT", "Excel", "Data Cleansing", "Pricing", "Chatbot"]
+      },
+      {
+        "company": "Mar Brasil",
+        "role": "Pasante de TI",
+        "period": "2024 — Presente",
+        "description": "Soporte a infraestructura de TI, gestión de inventario de activos y desarrollo de automatizaciones para monitoreo de dispositivos integrando MaaS360 y Auvo con dashboards en Power BI.",
+        "tags": ["Power BI", "MaaS360", "Auvo", "Soporte TI", "Dashboards"]
+      }
+    ]
+  },
+  "certificates": {
+    "title_part1": "Certificados",
+    "title_highlight": "y Cursos",
+    "items": [
+      {
+        "title": "Inmersión en Agentes de IA con n8n",
+        "issuer": "Hashtag Treinamentos",
+        "year": "2026",
+        "description": "Creación de agentes de IA con n8n, integración con Evolution API, RD Station CRM, Google Agenda y Supabase. Automatizaciones completas con mensajes humanizados."
+      },
+      {
+        "title": "Santander Front-end",
+        "issuer": "Ada Tech",
+        "year": "2024",
+        "description": "Formación completa en desarrollo front-end con HTML, CSS, JavaScript, React y metodologías ágiles. Proyecto final con aplicación práctica."
+      }
+    ]
+  },
+  "skills": {
+    "title_part1": "Mis",
+    "title_highlight": "Habilidades",
+    "categories": [
+      {
+        "name": "Inteligencia de Mercado",
+        "icon": "BarChart3",
+        "items": ["Excel", "Google Sheets", "Power BI", "SQL", "Data Analysis"]
+      },
+      {
+        "name": "Automatizaciones & IA",
+        "icon": "Zap",
+        "items": ["n8n", "Python", "WhatsApp API", "Supabase", "APIs REST"]
+      },
+      {
+        "name": "Web Design & Front-end",
+        "icon": "Code2",
+        "items": ["HTML/CSS", "JavaScript", "React", "Figma", "Tailwind CSS"]
+      },
+      {
+        "name": "Herramientas & DevOps",
+        "icon": "GitBranch",
+        "items": ["Git/GitHub", "VS Code", "Postman", "Vercel", "Notion"]
+      }
+    ]
   }
 }

@@ -35,6 +35,156 @@
   --shadow: 0 8px 32px rgba(255, 60, 60, 0.1);
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+@keyframes spin-reverse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+.animate-spin-reverse {
+  animation: spin-reverse 30s linear infinite;
+}
+.animate-spin-slow {
+  animation: spin 30s linear infinite;
+}
+
+/* ========================================
+   ORBIT BADGES — Gustavo Dias Portfolio
+======================================== */
+.orbit-wrapper {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+@media (min-width: 640px) {
+  .orbit-wrapper {
+    width: 440px;
+    height: 440px;
+  }
+}
+
+/* Foto central */
+.center-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 3px solid var(--primary);
+  overflow: hidden;
+  z-index: 2;
+}
+@media (min-width: 640px) {
+  .center-circle {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+.center-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Anel que gira */
+.orbit-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 280px;
+  height: 280px;
+  margin-top: -140px;
+  margin-left: -140px;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  animation: orbit-spin 20s linear infinite;
+  transform-origin: center center;
+}
+@media (min-width: 640px) {
+  .orbit-ring {
+    width: 420px;
+    height: 420px;
+    margin-top: -210px;
+    margin-left: -210px;
+  }
+}
+
+@keyframes orbit-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Badge base */
+.orbit-badge {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  background: rgba(26, 26, 36, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 10;
+}
+
+/* Posições dos 5 badges ao redor do anel */
+.orbit-badge.b1 { top: -20px; left: 50%;  transform: translateX(-50%); }
+.orbit-badge.b2 { top: 50%;   right: -40px; transform: translateY(-50%); }
+.orbit-badge.b3 { bottom: -20px; left: 50%; transform: translateX(-50%); }
+.orbit-badge.b4 { top: 50%;   left: -40px; transform: translateY(-50%); }
+.orbit-badge.b5 { top: 12%;   right: -10px;  }
+
+/* Contra-rotação individual de cada badge */
+.orbit-badge.b1 { animation: counter-b1 20s linear infinite; }
+.orbit-badge.b2 { animation: counter-b2 20s linear infinite; }
+.orbit-badge.b3 { animation: counter-b3 20s linear infinite; }
+.orbit-badge.b4 { animation: counter-b4 20s linear infinite; }
+.orbit-badge.b5 { animation: counter-b5 20s linear infinite; }
+
+@keyframes counter-b1 {
+  from { transform: translateX(-50%) rotate(0deg); }
+  to   { transform: translateX(-50%) rotate(-360deg); }
+}
+@keyframes counter-b2 {
+  from { transform: translateY(-50%) rotate(0deg); }
+  to   { transform: translateY(-50%) rotate(-360deg); }
+}
+@keyframes counter-b3 {
+  from { transform: translateX(-50%) rotate(0deg); }
+  to   { transform: translateX(-50%) rotate(-360deg); }
+}
+@keyframes counter-b4 {
+  from { transform: translateY(-50%) rotate(0deg); }
+  to   { transform: translateY(-50%) rotate(-360deg); }
+}
+@keyframes counter-b5 {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+/* Bolinhas coloridas */
+.orbit-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.dot-red    { background: #e03030; }
+.dot-blue   { background: #378ADD; }
+.dot-purple { background: #7F77DD; }
+.dot-green  { background: #1D9E75; }
+.dot-amber  { background: #EF9F27; }
 
 .dark {
   /* Gustavo Landing Page - Dark Mode (Default) */
@@ -393,4 +543,12 @@
 ::selection {
   background: var(--primary);
   color: white;
+}
+
+/* Orbit Components */
+.orbit-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
 }

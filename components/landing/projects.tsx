@@ -8,61 +8,161 @@ import { useLanguage } from "@/context/LanguageContext"
 
 const projects = [
   {
-    title: "Vita Saúde",
-    type: "Automação com IA + Frontend",
+    title: "Agente de IA WhatsApp — CRM Comercial",
+    type: "Automação & IA",
     category: "Automações",
-    description: "Clínica médica premium com assistente virtual (Sofia) integrada via n8n para agendamentos e suporte humanizado.",
-    tags: ["n8n", "IA", "Frontend", "Automação"],
-    liveUrl: "./vita-saude/index.html",
+    description: "Agente de IA com persona humanizada integrado ao WhatsApp via Evolution API. Fluxo completo de atendimento comercial: qualificação de leads, agendamento via Calendly, atualização automática de pipeline no RD Station CRM e registro no Supabase. Mensagens com menus de opções e mensagens picotadas com typing indicator, indistinguível de atendente humano.",
+    tags: ["n8n", "Evolution API", "RD Station", "Supabase", "Groq AI"],
+    liveUrl: "https://wa.me/5513991895950?text=Ol%C3%A1%2C%20gostaria%20de%20testar%20o%20Agente%20de%20IA%20CRM%20Comercial",
+    githubUrl: null,
+    gradient: "from-[#0066FF] to-[#00C2FF]",
+    image: null,
+  },
+  {
+    title: "Agente de IA WhatsApp — Google Agenda",
+    type: "Automação & IA",
+    category: "Automações",
+    description: "Segunda versão do agente com agendamento nativo via Google Agenda. Verifica disponibilidade em tempo real, cria e confirma eventos direto no WhatsApp. Respostas humanizadas com textos divididos em blocos curtos e animação de digitação, replicando o comportamento natural de uma conversa humana.",
+    tags: ["n8n", "Evolution API", "Google Calendar", "Groq AI", "Supabase"],
+    liveUrl: "https://wa.me/5513991895950?text=Ol%C3%A1%2C%20gostaria%20de%20testar%20o%20Agente%20de%20IA%20Google%20Agenda",
+    githubUrl: null,
+    gradient: "from-primary to-secondary",
+    image: null,
+  },
+  {
+    title: "Agente de IA Web — Clínica Vita Saúde",
+    type: "Web + IA",
+    category: "Automações",
+    description: "Landing page completa para clínica médica com agente de IA embarcado diretamente na página web. O assistente tira dúvidas sobre serviços, exibe as opções disponíveis e realiza agendamentos de consultas em tempo real via Google Agenda. Solução integrada de frontend + automação + banco de dados.",
+    tags: ["HTML/CSS/JS", "n8n", "Supabase", "Google Calendar", "IA"],
+    liveUrl: null,
     githubUrl: null,
     gradient: "from-[#0066FF] to-[#00C2FF]",
     image: "./vita-saude-thumb.jpg",
   },
   {
+    title: "ZBot - Projeto Zukkin",
+    type: "IM & Automação",
+    category: "Apps",
+    description: "Mini projeto desenvolvido para a empresa Zukkin, com o objetivo de auxiliar novos estagiários do time virtual no esclarecimento de dúvidas recorrentes do dia a dia. A robô Mary foi programada para simular interações e orientar sobre processos como varredura de sites, coleta de dados e uso do sistema interno.",
+    tags: ["Custom JS", "Inteligência de Mercado"],
+    liveUrl: "https://gustavodiasdeoliveira.github.io/ZBot/varredura.html",
+    githubUrl: "https://github.com/GustavoDiasdeOliveira/ZBot",
+    gradient: "from-orange-400 to-primary",
+    image: null,
+  },
+  {
+    title: "Dashboard Farma Vision",
+    type: "Data Visualization",
+    category: "Apps",
+    description: "Projeto de Extensão da UNIP focado em gestão farmacêutica. Implementação de dashboard voltado à metrificação clínica, hierarquia de cor e Data Visualization UI.",
+    tags: ["Data Mapping", "Acadêmico"],
+    liveUrl: "https://gustavodiasdeoliveira.github.io/dashboardGustavo/",
+    githubUrl: "https://github.com/GustavoDiasdeOliveira/dashboardGustavo",
+    gradient: "from-secondary to-orange-400",
+    image: null,
+  },
+  {
+    title: "Dashboard de Ativos TI",
+    type: "BI & Automação",
+    category: "Automações",
+    description: "Sistema de monitoramento de inventário de TI integrando MaaS360 e Auvo com dashboard Power BI automatizado via n8n. Visualização em tempo real de dispositivos disponíveis, em uso e em manutenção, com alertas automáticos para gestão.",
+    tags: ["n8n", "Power BI", "MaaS360", "Auvo"],
+    liveUrl: null,
+    githubUrl: null,
+    gradient: "from-primary via-secondary to-orange-400",
+    status: "Em breve",
+    image: null,
+  },
+  {
+    title: "Chatbot IA — Rancho da Praia",
+    type: "Automação & IA",
+    category: "Automações",
+    description: "Agente de IA com persona \"Fabi\" integrado ao WhatsApp via Evolution API. Automação completa de atendimento comercial: qualificação de leads, agendamento de visitas no Google Agenda, atualização de CRM (RD Station) e registro de dados no Supabase.",
+    tags: ["n8n", "Evolution API", "Groq AI", "RD Station", "Supabase", "Google Calendar"],
+    liveUrl: "https://wa.me/5513991895950?text=Ol%C3%A1%2C%20gostaria%20de%20testar%20o%20Chatbot%20Rancho%20da%20Praia",
+    githubUrl: null,
+    gradient: "from-[#0066FF] to-[#00C2FF]",
+    status: "Em produção",
+    image: null,
+  },
+  {
+    title: "Orça+",
+    type: "SaaS & IA",
+    category: "Apps",
+    description: "Sistema Financeiro que faz o controle de custos e as movimentações de entrada e saída de transações.",
+    tags: ["Em desenvolvimento", "Empresarial", "Automação com IA"],
+    liveUrl: "https://gustavofinancesapp.lovable.app/",
+    githubUrl: null,
+    gradient: "from-orange-400 to-primary",
+    image: null,
+  },
+  {
     title: "Ciber Prime",
-    type: "Landing Page Corporativa",
+    type: "Landing Page",
     category: "Landing Page",
-    description:
-      "Especialista em Desenvolvimento de Software, Criação de sites, landing pages e inteligência de mercado. Levando o negócio ao próximo nível digital.",
-    tags: ["HTML", "CSS", "JavaScript", "Responsivo"],
+    description: "Landing Page responsiva corporativa. Transformamos ideias em soluções digitais: sites, automação e inteligência de mercado para escalar negócios.",
+    tags: ["Empresarial", "Lead Gen"],
     liveUrl: "https://gustavodiasdeoliveira.github.io/ciberprime/",
     githubUrl: "https://github.com/GustavoDiasdeOliveira/ciberprime",
     gradient: "from-primary to-secondary",
     image: "./ciberprime-thumb.png",
   },
   {
-    title: "Fiesta Finança",
-    type: "App de Controle Financeiro",
-    category: "Apps",
-    description:
-      "Aplicação web para controle de finanças pessoais com interface intuitiva e armazenamento local.",
-    tags: ["JavaScript", "LocalStorage", "UI/UX"],
-    liveUrl: "https://gustavodiasdeoliveira.github.io/Portfolio",
-    githubUrl: null,
+    title: "FOOD Restaurantes",
+    type: "Landing Page",
+    category: "Landing Page",
+    description: "Landing page moderna e totalmente responsiva, ideal para divulgar restaurantes e cardápios online, garantindo ótima experiência em qualquer dispositivo.",
+    tags: ["Responsive Design", "B2C"],
+    liveUrl: "https://gustavodiasdeoliveira.github.io/FOOD-Restaurantes/",
+    githubUrl: "https://github.com/GustavoDiasdeOliveira/FOOD-Restaurantes",
     gradient: "from-secondary to-orange-400",
+    image: null,
   },
   {
-    title: "ZBOT",
-    type: "Chatbot Corporativo",
-    category: "Automações",
-    description:
-      "Mini chatbot desenvolvido para a empresa Zukkin para tirar dúvidas de novos estagiários de forma automatizada.",
-    tags: ["Automação", "IA", "n8n"],
-    liveUrl: "https://gustavodiasdeoliveira.github.io/Portfolio",
-    githubUrl: null,
-    gradient: "from-orange-400 to-primary",
+    title: "Beauty Glow",
+    type: "Landing Page",
+    category: "Landing Page",
+    description: "Landing page responsiva sobre beleza e maquiagem. Desperte sua beleza natural com um design leve e elegante utilizando HTML, CSS e JS.",
+    tags: ["Beleza", "UX Fluído"],
+    liveUrl: "https://gustavodiasdeoliveira.github.io/BeautyGlow/",
+    githubUrl: "https://github.com/GustavoDiasdeOliveira/BeautyGlow",
+    gradient: "from-primary via-secondary to-orange-400",
+    image: null,
   },
   {
-    title: "Gerenciador de Concursos",
-    type: "SaaS / Productivity App",
+    title: "Academia FIT",
+    type: "Landing Page",
+    category: "Landing Page",
+    description: "Landing page focada em academia, ideal para apresentar serviços, planos e incentivar a prática de atividades físicas com design moderno e acessível.",
+    tags: ["Fitness UI", "Landing Page"],
+    liveUrl: "https://gustavodiasdeoliveira.github.io/Academia-Fit/",
+    githubUrl: "https://github.com/GustavoDiasdeOliveira/Academia-Fit",
+    gradient: "from-[#0066FF] to-[#00C2FF]",
+    image: null,
+  },
+  {
+    title: "Motorcycle",
+    type: "Landing Page",
+    category: "Landing Page",
+    description: "Landing page para lojas de motos, apresentando modelos com foco em design moderno, preço e acessibilidade.",
+    tags: ["Vendas", "Grid Layout"],
+    liveUrl: "Motorcycle/index.html",
+    githubUrl: "https://github.com/GustavoDiasdeOliveira/Portfolio",
+    gradient: "from-primary to-secondary",
+    image: null,
+  },
+  {
+    title: "Projeto Concursos Público 2025",
+    type: "Web App",
     category: "Apps",
-    description:
-      "Cronograma de estudos interativo com checklist, progresso salvo, dark mode, filtros e exportação CSV.",
-    tags: ["JavaScript", "LocalStorage", "Produtividade"],
+    description: "Cronograma de estudos interativo para PMESP e outros. Checklist por bloco, progresso salvo localmente (LocalStorage), dark mode, filtros de busca, exportação CSV e anotações.",
+    tags: ["SaaS App", "Productivity"],
     liveUrl: "https://gustavodiasdeoliveira.github.io/gerenciadorConcursoPublico/",
     githubUrl: "https://github.com/GustavoDiasdeOliveira/gerenciadorConcursoPublico",
-    gradient: "from-primary via-secondary to-orange-400",
-  },
+    gradient: "from-orange-400 to-primary",
+    image: null,
+  }
 ]
 
 export function Projects() {
@@ -139,7 +239,7 @@ export function Projects() {
           {filteredProjects.slice(0, visibleCount).map((project: any, index: number) => (
             <div
               key={`${project.title}-${index}`}
-              className="fade-in gradient-border group rounded-xl sm:rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+              className={`fade-in gradient-border group rounded-xl sm:rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${project.status === 'Em desenvolvimento' ? 'opacity-80 hover:opacity-100' : ''}`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               {/* Project Thumbnail */}
@@ -150,6 +250,12 @@ export function Projects() {
                 <div className="absolute top-3 left-3 sm:top-4 sm:left-4 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full glass text-[10px] sm:text-xs font-semibold">
                   {project.type}
                 </div>
+                {/* Status Badge */}
+                {project.status === 'Em desenvolvimento' && (
+                  <div className="absolute top-3 right-3 sm:top-4 sm:right-4 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border-dashed border border-white/50 bg-black/30 text-white text-[10px] sm:text-xs font-semibold">
+                    Em breve
+                  </div>
+                )}
 
                 {/* Project Image or Name */}
                 {project.image ? (
@@ -168,7 +274,7 @@ export function Projects() {
                 )}
 
                 {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3 sm:gap-4">
+                <div className="absolute inset-0 z-20 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3 sm:gap-4">
                   {project.image && (
                     <a
                       href={project.image}
@@ -180,7 +286,7 @@ export function Projects() {
                       <Eye className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </a>
                   )}
-                  {project.liveUrl && (
+                  {project.liveUrl && project.status !== 'Em desenvolvimento' && (
                     <a
                       href={project.liveUrl}
                       target="_blank"
@@ -191,7 +297,14 @@ export function Projects() {
                       <ExternalLink className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </a>
                   )}
-                  {project.githubUrl && (
+                  {project.status === 'Em desenvolvimento' && (
+                    <span
+                      className="p-2.5 sm:p-3 rounded-full bg-white/20 text-white text-xs font-medium cursor-not-allowed"
+                    >
+                      Em breve
+                    </span>
+                  )}
+                  {project.githubUrl && project.status !== 'Em desenvolvimento' && (
                     <a
                       href={project.githubUrl}
                       target="_blank"

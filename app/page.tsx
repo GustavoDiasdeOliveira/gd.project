@@ -1,6 +1,5 @@
 import { Header } from "@/components/landing/header"
 import { Hero } from "@/components/landing/hero"
-import { Stats } from "@/components/landing/stats"
 import { Services } from "@/components/landing/services"
 import { Process } from "@/components/landing/process"
 import { Projects } from "@/components/landing/projects"
@@ -17,7 +16,6 @@ export default function LandingPage() {
       <ScrollProgress />
       <Header />
       <Hero />
-      <Stats />
       <Services />
       <Process />
       <Projects />
