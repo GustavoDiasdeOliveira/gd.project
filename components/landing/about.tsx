@@ -16,8 +16,9 @@ export function About() {
     setIsDownloading(true);
     
     setTimeout(() => {
+      const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
       const link = document.createElement('a');
-      link.href = '/Gustavo_CV_2026.pdf';
+      link.href = `${basePath}/Gustavo_CV_2026.pdf`;
       link.download = 'Gustavo_CV_2026.pdf';
       document.body.appendChild(link);
       link.click();
