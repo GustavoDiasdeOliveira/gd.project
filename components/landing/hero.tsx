@@ -21,8 +21,8 @@ export function Hero() {
     
     setTimeout(() => {
       const link = document.createElement('a');
-      link.href = './Gustavo_Dias_CV.pdf';
-      link.download = 'Gustavo_Dias_CV.pdf';
+      link.href = '/Gustavo_CV_2026.pdf';
+      link.download = 'Gustavo_CV_2026.pdf';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
