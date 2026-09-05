@@ -12,29 +12,29 @@
   "about": {
     "title_part1": "Quem é o",
     "title_highlight": "Gustavo?",
-    "description_1": "Profissional de TI com experiência em Suporte Técnico, Qualidade de Dados e Automações com IA.",
-    "description_2": "Atualmente atuo como Estagiário de TI na Mar Brasil, prestando suporte a hardware e software, além de desenvolver automações internas com n8n. Tenho background em Qualidade e Inteligência de Mercado pela Zukkin (Inteligência de Preços), onde realizei coleta e auditoria de dados de concorrência em larga escala via sistemas internos, garantindo qualidade e consistência das informações para análises de pricing.\n\nDesenvolvo automações completas com n8n — agentes de IA, fluxos automatizados e integrações com APIs — e crio interfaces web responsivas com HTML, CSS e JavaScript. Em evolução com Power BI, Python e SQL aplicados a dados e BI.\n\nBusco oportunidades em TI, Suporte, Qualidade de Dados, Inteligência de Mercado ou Automações com IA remoto, freela ou CLT.",
+    "description_1": "Profissional de Automação Low-Code / No-Code especializado em n8n, com experiência na construção de workflows, AI Agents e integrações.",
+    "description_2": "Atualmente atuo como Estagiário de TI na Mar Brasil e também executo projetos freelancer de ponta a ponta para clientes reais (atendimento comercial, agendamento e qualificação de leads via WhatsApp), incluindo deploy de n8n e Evolution API em containers Docker.\n\nTenho vivência com LLM (Groq AI, OpenAI, Gemini), Google Sheets, Google Calendar e CRMs — prompt engineering, tratamento de erros e documentação técnica de fluxos. Busco posição como Analista de Automação Low-Code / AI Agents, nível Júnior, em regime remoto, freelance ou CLT.",
     "highlights": [
-      "Foco em Automações com IA (n8n) e Web Design",
-      "Exp. em Qualidade de Dados & Inteligência de Mercado (Zukkin)",
-      "Desenvolvimento de integrações com n8n, APIs e bancos de dados",
-      "Análise de Dados com Power BI e SQL",
-      "Disponível para trabalho remoto ou presencial"
+      "Foco em Automações (n8n), Workflows e AI Agents",
+      "Integração via APIs (Evolution API, RD Station, Supabase)",
+      "Deploy Docker, VPS e Configuração de Infraestrutura",
+      "Exp. em Suporte TI (Mar Brasil) e Qualidade de Dados (Zukkin)",
+      "Desenvolvimento Web Frontend (HTML/CSS/JS)"
     ],
     "cta_cv": "Baixar currículo completo",
     "cv_downloading": "Baixando..."
   },
   "hero": {
-    "badge": "Disponível para oportunidades",
-    "title_part1": "Automações com IA,",
-    "title_highlight": "Qualidade IM & Web Designer",
+    "badge": "Disponível para oportunidades (Remoto/CLT/Freela)",
+    "title_part1": "Analista de Automação,",
+    "title_highlight": "AI Agents & Web",
     "typing": [
-      "Automatizando processos com IA e n8n ⚡",
-      "Transformando dados em estratégias 📊",
+      "Automatizando fluxos com n8n e IA ⚡",
+      "Criando AI Agents (WhatsApp/Web) 🤖",
       "Desenvolvendo interfaces modernas 💻",
-      "Otimizando rotinas e atendimento ⚙️"
+      "Otimizando processos e integrações ⚙️"
     ],
-    "description": "Profissional de TI com experiência em Suporte Técnico, Qualidade de Dados e Automações com IA. Desenvolvo agentes de IA, integrações entre APIs e fluxos automatizados com n8n, além de interfaces web responsivas com HTML, CSS e JavaScript. Tenho experiência em Inteligência de Mercado e Pricing, unindo tecnologia e análise de dados para criar soluções eficientes.",
+    "description": "Profissional de Automação Low-Code especializado em n8n. Desenvolvo AI Agents, integrações via API e Webhooks (Evolution API, RD Station, Supabase, LLMs). Também atuo na criação de interfaces web responsivas. Tenho vivência prática com automação de atendimento comercial, agendamentos e suporte de TI.",
     "cta_projects": "Ver meus projetos",
     "cta_cv": "Download CV",
     "cv_downloading": "Baixando...",
@@ -53,24 +53,24 @@
     "most_requested": "Mais procurado",
     "items": [
       {
-        "title": "Qualidade & Inteligência de Mercado",
-        "description": "Tenho experiência real na Zukkin (Inteligência de Preços) com análise de concorrência. Faço coleta, monitoramento e validação rigorosa de dados de mercado para garantir consistência em estratégias de pricing.",
-        "cta": "Quero análise de mercado"
-      },
-      {
         "title": "Automações com IA & n8n",
-        "description": "Criação de agentes de IA e fluxos automatizados com n8n. Integração de APIs como WhatsApp (Evolution API), RD Station, Google Agenda e Supabase. Criação de pipelines completos de ponta a ponta.",
+        "description": "Criação de AI Agents (chatbot WhatsApp, atendimento, agendamentos) e fluxos automatizados com n8n. Deploy de n8n e Evolution API via Docker.",
         "cta": "Quero automatizar"
       },
       {
-        "title": "Web Designer & Frontend",
-        "description": "Criação de landing pages e interfaces web responsivas modernas com HTML, CSS e JavaScript. Foco total em usabilidade, performance, conversão e design limpo.",
+        "title": "Integração de APIs & Webhooks",
+        "description": "Conexão de sistemas como Google Sheets, Calendar, Supabase, CRMs (RD Station) e ferramentas de IA (OpenAI, Groq, Gemini) para orquestrar dados.",
+        "cta": "Quero integrar sistemas"
+      },
+      {
+        "title": "Web Design & Frontend",
+        "description": "Criação de landing pages responsivas e portfólios com HTML, CSS e JavaScript para captar clientes, focando em usabilidade e performance.",
         "cta": "Quero um site"
       },
       {
-        "title": "Análise de Dados & BI",
-        "description": "Estruturação de dados e criação de dashboards e relatórios para apoio à tomada de decisão utilizando Power BI e SQL.",
-        "cta": "Quero análise de dados"
+        "title": "Dados & Infraestrutura",
+        "description": "Configuração de containers Docker, VPS, análise de dados básica (PostgreSQL, Power BI) e coleta de informações (auditoria Zukkin).",
+        "cta": "Saber mais"
       }
     ]
   },
@@ -92,7 +92,7 @@
   "contact": {
     "title_part1": "Vamos trabalhar",
     "title_highlight": "juntos?",
-    "subtitle": "Estou disponível para oportunidades (CLT, PJ ou Freelance) em Automações (n8n), Inteligência de Mercado/Qualidade e Suporte TI. Entre em contato!",
+    "subtitle": "Estou disponível para oportunidades (CLT, PJ ou Freelance) como Analista de Automação, AI Agents ou Suporte TI. Entre em contato!",
     "info": {
       "email": "E-mail",
       "phone": "Telefone",
@@ -163,15 +163,26 @@
         "company": "Mar Brasil",
         "role": "Estagiário de TI (Suporte & Automações com IA)",
         "period": "Dez/2025 — Atual",
-        "description": "Desenvolvimento de automações internas com n8n para otimização de rotinas operacionais, suporte técnico de hardware/software, e gestão de dispositivos corporativos via IBM MaaS360 e Auvo.",
-        "tags": ["n8n", "MaaS360", "Auvo", "Suporte TI"]
+        "description": "Criação de workflows (Low-Code) em n8n para otimizar rotinas; integração de APIs/Webhooks; gestão via MaaS360 e sistema Auvo 2.0; suporte técnico a colaboradores e monitoramento em produção.",
+        "tags": [
+          "n8n",
+          "MaaS360",
+          "Auvo",
+          "Suporte TI"
+        ]
       },
       {
         "company": "Zukkin — Inteligência de Preços",
-        "role": "Estagiário de Qualidade & Inteligência de Mercado",
-        "period": "Mar/2024 — Mai/2025",
-        "description": "Coleta e monitoramento de dados de concorrência em larga escala. Auditoria e validação de dados para garantir integridade nas análises de pricing. Identificação de padrões de mercado e desenvolvimento do ZBOT (chatbot interno).",
-        "tags": ["Qualidade de Dados", "Pricing", "Auditoria", "ZBOT", "ZROBOT"]
+        "role": "Estagiário de Qualidade — Inteligência de Mercado",
+        "period": "2024 — 2025",
+        "description": "Desenvolvimento do ZBOT (chatbot web interno construído do zero) para automatizar suporte e onboarding. Auditoria e validação de dados de concorrência coletados via ZROBOT.",
+        "tags": [
+          "ZBOT",
+          "Auditoria",
+          "HTML/CSS/JS",
+          "n8n",
+          "ZROBOT"
+        ]
       }
     ]
   },
@@ -183,31 +194,31 @@
         "title": "Agentes de IA com n8n",
         "issuer": "Hashtag Treinamentos",
         "year": "2026",
-        "description": "Criação de fluxos automatizados com n8n, Integração de Agentes de IA e de APIs."
+        "description": "Integração e criação de fluxos com Agentes de IA."
       },
       {
-        "title": "SQL para Análise de Dados",
-        "issuer": "Hashtag Treinamentos",
+        "title": "N8N: Dominando Automações do Zero",
+        "issuer": "Matheus Fraga, Udemy",
         "year": "2026",
-        "description": "Consultas, JOINs, Subqueries, CTEs e análise de dados."
+        "description": "Automatização completa com ferramentas no-code e n8n."
       },
       {
-        "title": "Power BI Completo",
-        "issuer": "Hashtag Treinamentos",
+        "title": "Formação Desenvolvedor IA: Do Zero ao Full-Stack",
+        "issuer": "Lovable, Supabase, n8n — Udemy",
         "year": "2026",
-        "description": "Power Query, DAX, Dashboards interativos e Data Visualization."
+        "description": "Criação de soluções usando IA e low-code/no-code."
       },
       {
-        "title": "Python para Automação de Tarefas",
-        "issuer": "Hashtag Treinamentos",
-        "year": "2026",
-        "description": "Pandas, Numpy, Matplotlib, análise exploratória e automação."
+        "title": "Bootcamp n8n",
+        "issuer": "Open Academy",
+        "year": "Em andamento",
+        "description": "Treinamento intensivo de n8n."
       },
       {
         "title": "Desenvolvimento Front-end",
         "issuer": "Santander / Ada Tech",
         "year": "2025",
-        "description": "HTML, CSS, Git e Versionamento, Lógica de Programação, Figma para Devs."
+        "description": "Lógica de programação, HTML, CSS, JavaScript."
       }
     ]
   },
@@ -216,24 +227,49 @@
     "title_highlight": "Habilidades",
     "categories": [
       {
-        "name": "Automações & IA (n8n)",
+        "name": "Low-Code & Workflow Automation",
         "icon": "Zap",
-        "items": ["n8n", "Agentes de IA", "Evolution API", "RD Station CRM", "Supabase", "Google Agenda", "Webhooks", "APIs REST"]
+        "items": [
+          "n8n",
+          "Webhooks",
+          "Lógica Condicional",
+          "Tratamento de Erros",
+          "APIs REST"
+        ]
       },
       {
-        "name": "Qualidade & Inteligência de Mercado",
-        "icon": "BarChart3",
-        "items": ["Auditoria", "Validação de Dados", "Pricing", "Coleta", "Monitoramento da Concorrência", "ZROBOT"]
+        "name": "AI Agents & LLM",
+        "icon": "Bot",
+        "items": [
+          "Groq AI",
+          "OpenAI",
+          "Gemini",
+          "Prompt Engineering",
+          "Chatbots"
+        ]
       },
       {
-        "name": "Análise de Dados & BI",
-        "icon": "LineChart",
-        "items": ["Power BI", "SQL", "Python", "Pandas", "Dashboard", "Excel", "KPIs"]
+        "name": "Infra & Deploy",
+        "icon": "Server",
+        "items": [
+          "Docker",
+          "VPS",
+          "Containers n8n",
+          "Evolution API Self-Hosted"
+        ]
       },
       {
-        "name": "Web Designer & Frontend",
+        "name": "Web & Dados",
         "icon": "Code2",
-        "items": ["HTML", "CSS", "JavaScript", "Figma", "Design Responsivo", "UI/UX"]
+        "items": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "Figma",
+          "PostgreSQL",
+          "Power BI",
+          "Google Sheets"
+        ]
       }
     ]
   }

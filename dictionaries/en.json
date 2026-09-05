@@ -12,27 +12,29 @@
   "about": {
     "title_part1": "Who is",
     "title_highlight": "Gustavo?",
-    "description_1": "I am a Computer Science student at UNIP (7th/8th semester), passionate about technology and constantly learning. Currently a IT intern at Mar Brasil, with previous experience in Market Intelligence at Zukkin.",
-    "description_2": "I believe that technology should be accessible. That's why I offer modern solutions at fair prices for small and medium-sized companies that want to grow digitally.",
+    "description_1": "Low-Code / No-Code Automation Professional specialized in n8n, with experience in building workflows, AI Agents and integrations.",
+    "description_2": "I currently work as an IT Intern at Mar Brasil and also execute end-to-end freelance projects for real clients (commercial service, scheduling and lead qualification via WhatsApp), including deployment of n8n and Evolution API in Docker containers.\n\nI have experience with LLMs (Groq AI, OpenAI, Gemini), Google Sheets, Google Calendar and CRMs — prompt engineering, error handling and technical documentation of flows. I am seeking a Junior position as Low-Code / AI Agents Automation Analyst (remote, freelance or full-time).",
     "highlights": [
-      "Computer Science Student (UNIP)",
-      "Santander Front-end Certificate – Ada Tech (2024)",
-      "N8N Automation Immersion – Hashtag (2026)",
-      "Praia Grande – SP | National remote service"
+      "Focus on Automations (n8n), Workflows and AI Agents",
+      "API Integrations (Evolution API, RD Station, Supabase)",
+      "Docker Deployment, VPS and Infrastructure Setup",
+      "IT Support (Mar Brasil) & Data Quality (Zukkin) exp.",
+      "Frontend Web Development (HTML/CSS/JS)"
     ],
     "cta_cv": "Download full resume",
     "cv_downloading": "Downloading..."
   },
   "hero": {
-    "badge": "Available for new projects",
-    "title_part1": "I transform ideas into",
-    "title_highlight": "digital results",
+    "badge": "Available for opportunities (Remote/Full-time/Freelance)",
+    "title_part1": "Automation Analyst,",
+    "title_highlight": "AI Agents & Web",
     "typing": [
-      "Landing Pages that convert",
-      "Automations that save hours",
-      "Data that guides decisions"
+      "Automating flows with n8n and AI ⚡",
+      "Building AI Agents (WhatsApp/Web) 🤖",
+      "Developing modern interfaces 💻",
+      "Optimizing processes and integrations ⚙️"
     ],
-    "description": "IT professional with experience in Technical Support, Data Quality, and AI Automations. I develop AI agents, API integrations, and automated workflows with n8n, as well as responsive web interfaces with HTML, CSS, and JavaScript. I have experience in Market Intelligence and Pricing, combining technology and data analysis to create efficient solutions.",
+    "description": "Low-Code Automation Professional specialized in n8n. I develop AI Agents, API integrations, and Webhooks (Evolution API, RD Station, Supabase, LLMs). I also work on creating responsive web interfaces. I have practical experience with commercial service automation, scheduling, and IT support.",
     "cta_projects": "View my projects",
     "cta_cv": "Download CV",
     "cv_downloading": "Downloading...",
@@ -51,19 +53,24 @@
     "most_requested": "Most requested",
     "items": [
       {
-        "title": "Landing Pages that Convert",
-        "description": "Creation of modern, responsive, and high-performance websites. Using React and cutting-edge technologies to take your business to the next level.",
-        "cta": "I want a modern site"
+        "title": "AI Automations & n8n",
+        "description": "Creation of AI Agents (WhatsApp chatbot, customer service, scheduling) and automated flows with n8n. n8n and Evolution API deployment via Docker.",
+        "cta": "I want to automate"
       },
       {
-        "title": "Intelligent Automations with n8n",
-        "description": "I automate your company's repetitive processes by integrating WhatsApp, Google Sheets, APIs, and more. Save hours of manual work every week.",
-        "cta": "I want to automate my business"
+        "title": "API Integrations & Webhooks",
+        "description": "Connecting systems like Google Sheets, Calendar, Supabase, CRMs (RD Station), and AI tools (OpenAI, Groq, Gemini) to orchestrate data.",
+        "cta": "I want to integrate"
       },
       {
-        "title": "Freelance Data Analysis",
-        "description": "Dedicated action as a freelancer for data collection, processing, and analysis. With real market experience (ex: Zukkin) and fast learning, I adapt to your business to deliver automated scans, pricing reports, and valuable insights.",
-        "cta": "I want to empower my data"
+        "title": "Web Design & Frontend",
+        "description": "Creation of responsive landing pages and portfolios using HTML, CSS, and JavaScript to attract clients, focusing on usability and performance.",
+        "cta": "I want a website"
+      },
+      {
+        "title": "Data & Infrastructure",
+        "description": "Docker containers setup, VPS, basic data analysis (PostgreSQL, Power BI) and data gathering (Zukkin auditing).",
+        "cta": "Learn more"
       }
     ]
   },
@@ -85,7 +92,7 @@
   "contact": {
     "title_part1": "Let's work",
     "title_highlight": "together?",
-    "subtitle": "Tell me about your project and I'll respond within 24h",
+    "subtitle": "I am available for opportunities (Full-time, B2B or Freelance) as an Automation Analyst, AI Agents or IT Support. Get in touch!",
     "info": {
       "email": "Email",
       "phone": "Phone",
@@ -152,25 +159,29 @@
     "title_highlight": "Journey",
     "items": [
       {
-        "company": "Freelancer",
-        "role": "Web Designer & AI Automations",
-        "period": "2025 — Present",
-        "description": "Responsive landing page development focused on conversion and intelligent automations with n8n integrating WhatsApp, CRM and databases. Serving clients across various segments.",
-        "tags": ["n8n", "React", "Figma", "AI", "WhatsApp API"]
-      },
-      {
-        "company": "Zukkin",
-        "role": "Market Intelligence & Pricing Analyst",
-        "period": "2024 — 2025",
-        "description": "Massive competitor data collection via ZROBOT, database auditing and cleansing, competitive data validation and strategic insight generation for the commercial team. Developed ZBOT — internal chatbot for new employee support.",
-        "tags": ["ZROBOT", "Excel", "Data Cleansing", "Pricing", "Chatbot"]
-      },
-      {
         "company": "Mar Brasil",
-        "role": "IT Intern",
-        "period": "2024 — Present",
-        "description": "IT infrastructure support, asset inventory management and development of device monitoring automations integrating MaaS360 and Auvo with Power BI dashboards.",
-        "tags": ["Power BI", "MaaS360", "Auvo", "IT Support", "Dashboards"]
+        "role": "IT Intern (Support & AI Automations)",
+        "period": "Dec/2025 — Present",
+        "description": "Creation of Low-Code workflows in n8n to optimize routines; API/Webhook integrations; device management via MaaS360 and Auvo 2.0; tech support and production monitoring.",
+        "tags": [
+          "n8n",
+          "MaaS360",
+          "Auvo",
+          "IT Support"
+        ]
+      },
+      {
+        "company": "Zukkin — Pricing Intelligence",
+        "role": "Quality Intern — Market Intelligence",
+        "period": "2024 — 2025",
+        "description": "Development of ZBOT (internal web chatbot built from scratch) to automate support and onboarding. Auditing and validation of competitor data collected via ZROBOT.",
+        "tags": [
+          "ZBOT",
+          "Auditing",
+          "HTML/CSS/JS",
+          "n8n",
+          "ZROBOT"
+        ]
       }
     ]
   },
@@ -179,16 +190,34 @@
     "title_highlight": "& Courses",
     "items": [
       {
-        "title": "AI Agents with n8n Immersion",
+        "title": "AI Agents with n8n",
         "issuer": "Hashtag Treinamentos",
         "year": "2026",
-        "description": "AI agent creation with n8n, integration with Evolution API, RD Station CRM, Google Calendar and Supabase. Complete automations with humanized messaging."
+        "description": "Integration and creation of flows with AI Agents."
       },
       {
-        "title": "Santander Front-end",
-        "issuer": "Ada Tech",
-        "year": "2024",
-        "description": "Complete front-end development training with HTML, CSS, JavaScript, React and agile methodologies. Final project with practical application."
+        "title": "N8N: Mastering Automations from Scratch",
+        "issuer": "Matheus Fraga, Udemy",
+        "year": "2026",
+        "description": "Complete automation with no-code tools and n8n."
+      },
+      {
+        "title": "AI Developer Training: Zero to Full-Stack",
+        "issuer": "Lovable, Supabase, n8n — Udemy",
+        "year": "2026",
+        "description": "Building solutions using AI and low-code/no-code."
+      },
+      {
+        "title": "n8n Bootcamp",
+        "issuer": "Open Academy",
+        "year": "In progress",
+        "description": "Intensive n8n training."
+      },
+      {
+        "title": "Front-end Development",
+        "issuer": "Santander / Ada Tech",
+        "year": "2025",
+        "description": "Programming logic, HTML, CSS, JavaScript."
       }
     ]
   },
@@ -197,24 +226,49 @@
     "title_highlight": "Skills",
     "categories": [
       {
-        "name": "Market Intelligence",
-        "icon": "BarChart3",
-        "items": ["Excel", "Google Sheets", "Power BI", "SQL", "Data Analysis"]
-      },
-      {
-        "name": "Automations & AI",
+        "name": "Low-Code & Workflow Automation",
         "icon": "Zap",
-        "items": ["n8n", "Python", "WhatsApp API", "Supabase", "REST APIs"]
+        "items": [
+          "n8n",
+          "Webhooks",
+          "Conditional Logic",
+          "Error Handling",
+          "REST APIs"
+        ]
       },
       {
-        "name": "Web Design & Front-end",
+        "name": "AI Agents & LLM",
+        "icon": "Bot",
+        "items": [
+          "Groq AI",
+          "OpenAI",
+          "Gemini",
+          "Prompt Engineering",
+          "Chatbots"
+        ]
+      },
+      {
+        "name": "Infra & Deploy",
+        "icon": "Server",
+        "items": [
+          "Docker",
+          "VPS",
+          "n8n Containers",
+          "Evolution API Self-Hosted"
+        ]
+      },
+      {
+        "name": "Web & Data",
         "icon": "Code2",
-        "items": ["HTML/CSS", "JavaScript", "React", "Figma", "Tailwind CSS"]
-      },
-      {
-        "name": "Tools & DevOps",
-        "icon": "GitBranch",
-        "items": ["Git/GitHub", "VS Code", "Postman", "Vercel", "Notion"]
+        "items": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "Figma",
+          "PostgreSQL",
+          "Power BI",
+          "Google Sheets"
+        ]
       }
     ]
   }

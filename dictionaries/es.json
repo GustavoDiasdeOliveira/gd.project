@@ -12,27 +12,29 @@
   "about": {
     "title_part1": "¿Quién es",
     "title_highlight": "Gustavo?",
-    "description_1": "Soy estudiante de Ciencias de la Computación en la UNIP (7°/8° semestre), apasionado por la tecnología y en constante aprendizaje. Actualmente pasante de TI en Mar Brasil, con experiencia previa en Inteligencia de Mercado en Zukkin.",
-    "description_2": "Creo que la tecnología debe ser accesible. Por eso ofrezco soluciones modernas a precios justos para pequeñas y medianas empresas que quieren crecer en lo digital.",
+    "description_1": "Profesional de Automatización Low-Code / No-Code especializado en n8n, con experiencia en la construcción de workflows, Agentes de IA e integraciones.",
+    "description_2": "Actualmente me desempeño como Pasante de TI en Mar Brasil y ejecuto proyectos freelance de principio a fin para clientes reales (atención comercial, programación de citas y cualificación de leads vía WhatsApp), incluyendo despliegue de n8n y Evolution API en contenedores Docker.\n\nTengo experiencia con LLMs (Groq AI, OpenAI, Gemini), Google Sheets, Google Calendar y CRMs — prompt engineering, manejo de errores y documentación técnica de flujos. Busco posición como Analista de Automatización Low-Code / Agentes de IA (nivel Junior, remoto, freelance o tiempo completo).",
     "highlights": [
-      "Estudiante de Ciencias de la Computación (UNIP)",
-      "Certificado Santander Front-end – Ada Tech (2024)",
-      "Inmersión en Automatización N8N – Hashtag (2026)",
-      "Praia Grande – SP | Servicio remoto nacional"
+      "Enfoque en Automatizaciones (n8n), Workflows y Agentes de IA",
+      "Integración vía APIs (Evolution API, RD Station, Supabase)",
+      "Despliegue Docker, VPS y Configuración de Infraestructura",
+      "Exp. en Soporte TI (Mar Brasil) y Calidad de Datos (Zukkin)",
+      "Desarrollo Web Frontend (HTML/CSS/JS)"
     ],
     "cta_cv": "Descargar currículum completo",
     "cv_downloading": "Descargando..."
   },
   "hero": {
-    "badge": "Disponible para nuevos proyectos",
-    "title_part1": "Transformo ideas en",
-    "title_highlight": "resultados digitales",
+    "badge": "Disponible para oportunidades (Remoto/CLT/Freelance)",
+    "title_part1": "Analista de Automatización,",
+    "title_highlight": "Agentes de IA & Web",
     "typing": [
-      "Landing Pages que convierten",
-      "Automatizaciones que ahorran horas",
-      "Datos que guían decisiones"
+      "Automatizando flujos con n8n e IA ⚡",
+      "Creando Agentes de IA (WhatsApp/Web) 🤖",
+      "Desarrollando interfaces modernas 💻",
+      "Optimizando procesos e integraciones ⚙️"
     ],
-    "description": "Profesional de TI con experiencia en Soporte Técnico, Calidad de Datos y Automatizaciones con IA. Desarrollo agentes de IA, integraciones entre APIs y flujos automatizados con n8n, además de interfaces web responsivas con HTML, CSS y JavaScript. Tengo experiencia en Inteligencia de Mercado y Pricing, uniendo tecnología y análisis de datos para crear soluciones eficientes.",
+    "description": "Profesional de Automatización Low-Code especializado en n8n. Desarrollo Agentes de IA, integraciones vía API y Webhooks (Evolution API, RD Station, Supabase, LLMs). También trabajo en la creación de interfaces web responsivas. Tengo experiencia práctica en automatización de servicios comerciales, programación de citas y soporte de TI.",
     "cta_projects": "Ver mis proyectos",
     "cta_cv": "Descargar CV",
     "cv_downloading": "Descargando...",
@@ -152,25 +154,29 @@
     "title_highlight": "Trayectoria",
     "items": [
       {
-        "company": "Freelancer",
-        "role": "Web Designer & Automatizaciones con IA",
-        "period": "2025 — Presente",
-        "description": "Desarrollo de landing pages responsivas con enfoque en conversión y automatizaciones inteligentes con n8n integrando WhatsApp, CRM y bases de datos. Atención a clientes de diversos segmentos.",
-        "tags": ["n8n", "React", "Figma", "IA", "WhatsApp API"]
-      },
-      {
-        "company": "Zukkin",
-        "role": "Analista de Inteligencia de Mercado & Pricing",
-        "period": "2024 — 2025",
-        "description": "Recolección masiva de datos de competencia via ZROBOT, auditoría y limpieza de bases, validación de datos competitivos y generación de insights estratégicos para el equipo comercial. Desarrollo del ZBOT — chatbot interno para soporte a nuevos colaboradores.",
-        "tags": ["ZROBOT", "Excel", "Data Cleansing", "Pricing", "Chatbot"]
-      },
-      {
         "company": "Mar Brasil",
-        "role": "Pasante de TI",
-        "period": "2024 — Presente",
-        "description": "Soporte a infraestructura de TI, gestión de inventario de activos y desarrollo de automatizaciones para monitoreo de dispositivos integrando MaaS360 y Auvo con dashboards en Power BI.",
-        "tags": ["Power BI", "MaaS360", "Auvo", "Soporte TI", "Dashboards"]
+        "role": "Pasante de TI (Soporte y Automatizaciones con IA)",
+        "period": "Dic/2025 — Presente",
+        "description": "Creación de flujos de trabajo (Low-Code) en n8n para optimizar rutinas; integración de APIs/Webhooks; gestión mediante MaaS360 y sistema Auvo 2.0; soporte técnico a colaboradores y monitoreo en producción.",
+        "tags": [
+          "n8n",
+          "MaaS360",
+          "Auvo",
+          "Soporte TI"
+        ]
+      },
+      {
+        "company": "Zukkin — Inteligencia de Precios",
+        "role": "Pasante de Calidad — Inteligencia de Mercado",
+        "period": "2024 — 2025",
+        "description": "Desarrollo de ZBOT (chatbot web interno construido desde cero) para automatizar soporte e integración. Auditoría y validación de datos de competencia recopilados vía ZROBOT.",
+        "tags": [
+          "ZBOT",
+          "Auditoría",
+          "HTML/CSS/JS",
+          "n8n",
+          "ZROBOT"
+        ]
       }
     ]
   },
@@ -179,16 +185,34 @@
     "title_highlight": "y Cursos",
     "items": [
       {
-        "title": "Inmersión en Agentes de IA con n8n",
+        "title": "Agentes de IA con n8n",
         "issuer": "Hashtag Treinamentos",
         "year": "2026",
-        "description": "Creación de agentes de IA con n8n, integración con Evolution API, RD Station CRM, Google Agenda y Supabase. Automatizaciones completas con mensajes humanizados."
+        "description": "Integración y creación de flujos con Agentes de IA."
       },
       {
-        "title": "Santander Front-end",
-        "issuer": "Ada Tech",
-        "year": "2024",
-        "description": "Formación completa en desarrollo front-end con HTML, CSS, JavaScript, React y metodologías ágiles. Proyecto final con aplicación práctica."
+        "title": "N8N: Dominando Automatizaciones desde Cero",
+        "issuer": "Matheus Fraga, Udemy",
+        "year": "2026",
+        "description": "Automatización completa con herramientas no-code y n8n."
+      },
+      {
+        "title": "Formación Desarrollador IA: De Cero a Full-Stack",
+        "issuer": "Lovable, Supabase, n8n — Udemy",
+        "year": "2026",
+        "description": "Creación de soluciones usando IA y low-code/no-code."
+      },
+      {
+        "title": "Bootcamp n8n",
+        "issuer": "Open Academy",
+        "year": "En curso",
+        "description": "Entrenamiento intensivo de n8n."
+      },
+      {
+        "title": "Desarrollo Front-end",
+        "issuer": "Santander / Ada Tech",
+        "year": "2025",
+        "description": "Lógica de programación, HTML, CSS, JavaScript."
       }
     ]
   },
@@ -197,24 +221,49 @@
     "title_highlight": "Habilidades",
     "categories": [
       {
-        "name": "Inteligencia de Mercado",
-        "icon": "BarChart3",
-        "items": ["Excel", "Google Sheets", "Power BI", "SQL", "Data Analysis"]
-      },
-      {
-        "name": "Automatizaciones & IA",
+        "name": "Low-Code & Workflow Automation",
         "icon": "Zap",
-        "items": ["n8n", "Python", "WhatsApp API", "Supabase", "APIs REST"]
+        "items": [
+          "n8n",
+          "Webhooks",
+          "Lógica Condicional",
+          "Manejo de Errores",
+          "APIs REST"
+        ]
       },
       {
-        "name": "Web Design & Front-end",
+        "name": "Agentes de IA & LLM",
+        "icon": "Bot",
+        "items": [
+          "Groq AI",
+          "OpenAI",
+          "Gemini",
+          "Prompt Engineering",
+          "Chatbots"
+        ]
+      },
+      {
+        "name": "Infra & Despliegue",
+        "icon": "Server",
+        "items": [
+          "Docker",
+          "VPS",
+          "Contenedores n8n",
+          "Evolution API Self-Hosted"
+        ]
+      },
+      {
+        "name": "Web & Datos",
         "icon": "Code2",
-        "items": ["HTML/CSS", "JavaScript", "React", "Figma", "Tailwind CSS"]
-      },
-      {
-        "name": "Herramientas & DevOps",
-        "icon": "GitBranch",
-        "items": ["Git/GitHub", "VS Code", "Postman", "Vercel", "Notion"]
+        "items": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "Figma",
+          "PostgreSQL",
+          "Power BI",
+          "Google Sheets"
+        ]
       }
     ]
   }

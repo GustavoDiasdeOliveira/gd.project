@@ -67,7 +67,7 @@ export function About() {
 
               {/* Stats floating */}
               <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 glass p-3 sm:p-4 md:p-6 rounded-xl sm:rounded-2xl shadow-xl border border-primary/20 animate-float">
-                <div className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">7°/8°</div>
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">8°</div>
                 <div className="text-[10px] sm:text-xs md:text-sm text-muted-foreground font-medium">Semestre C.C.</div>
               </div>
             </div>
