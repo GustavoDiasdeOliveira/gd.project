@@ -184,32 +184,30 @@ export function Hero() {
 
           {/* Right - Visual */}
           <div className="relative flex justify-center order-first lg:order-last">
-            <div className="orbit-wrapper">
-              <div className="orbit-ring">
-                <div className="orbit-badge b1">
-                  <img src="./icons/n8n-color.png" alt="n8n" className="w-5 h-5 object-contain" />
-                  n8n
+            <div className="profile-stage" aria-label="Gustavo Dias — Automação, IA e Power BI">
+              <div className="profile-glow" aria-hidden="true" />
+              <div className="profile-grid" aria-hidden="true" />
+              <div className="profile-ring profile-ring-one" aria-hidden="true" />
+              <div className="profile-ring profile-ring-two" aria-hidden="true" />
+              <div className="profile-card">
+                <div className="profile-card-topline">
+                  <span className="profile-status"><span className="profile-status-dot" /> Disponível para projetos</span>
+                  <span className="profile-index">01 / 04</span>
                 </div>
-                <div className="orbit-badge b2">
-                  <img src="./icons/ia.png" alt="IA" className="w-5 h-5 object-contain" />
-                  IA
+                <div className="profile-portrait-wrap">
+                  <Image src="/foto-gustavo.png" alt="Gustavo Dias usando terno e gravata" fill priority sizes="(max-width: 1024px) 72vw, 420px" className="profile-portrait" />
                 </div>
-                <div className="orbit-badge b3">
-                  <img src="./icons/ai-agent.png" alt="AI Agent" className="w-5 h-5 object-contain" />
-                  AI Agent
-                </div>
-                <div className="orbit-badge b4">
-                  <img src="./icons/power-bi.png" alt="Power BI" className="w-5 h-5 object-contain" />
-                  Power BI
-                </div>
-                <div className="orbit-badge b5">
-                  <span className="text-base">🧑‍💻</span>
-                  Web Designer
+                <div className="profile-card-footer">
+                  <div>
+                    <p className="profile-eyebrow">AUTOMAÇÃO INTELIGENTE</p>
+                    <p className="profile-name">Gustavo Dias</p>
+                  </div>
+                  <span className="profile-arrow" aria-hidden="true"><ArrowRight /></span>
                 </div>
               </div>
-              <div className="center-circle">
-                <img src="./foto.png" alt="Gustavo Dias" />
-              </div>
+              <div className="profile-float profile-float-n8n"><img src="/icons/n8n-color.png" alt="" /> n8n</div>
+              <div className="profile-float profile-float-ai"><img src="/icons/ai-agent.png" alt="" /> AI Agents</div>
+              <div className="profile-float profile-float-bi"><img src="/icons/power-bi.png" alt="" /> Power BI</div>
             </div>
           </div>
         </div>

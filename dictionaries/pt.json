@@ -29,10 +29,10 @@
     "title_part1": "Analista de Automação,",
     "title_highlight": "AI Agents & Web",
     "typing": [
-      "Automatizando fluxos com n8n e IA ⚡",
-      "Criando AI Agents (WhatsApp/Web) 🤖",
-      "Desenvolvendo interfaces modernas 💻",
-      "Otimizando processos e integrações ⚙️"
+"Automatizando fluxos com n8n e IA",
+  "Criando AI Agents para WhatsApp e Web",
+  "Desenvolvendo interfaces modernas",
+  "Otimizando processos e integrações"
     ],
     "description": "Profissional de Automação Low-Code especializado em n8n. Desenvolvo AI Agents, integrações via API e Webhooks (Evolution API, RD Station, Supabase, LLMs). Também atuo na criação de interfaces web responsivas. Tenho vivência prática com automação de atendimento comercial, agendamentos e suporte de TI.",
     "cta_projects": "Ver meus projetos",
@@ -83,9 +83,10 @@
     "title_highlight": "Projetos",
     "subtitle": "Uma seleção de trabalhos recentes em automação, dados e web design.",
     "all": "Todos",
-    "landing": "Landing Pages",
-    "automation": "Automações",
-    "apps": "Apps / Dados",
+  "landing": "Landing Pages",
+  "automation": "n8n & IA",
+  "web": "Web & Dashboards",
+  "apps": "Apps / Dados",
     "view_project": "Ver projeto",
     "more_projects": "Ver todos os projetos"
   },

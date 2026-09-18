@@ -43,7 +43,7 @@ export function Footer() {
           {/* Logo & Tagline */}
           <div className="col-span-2 sm:col-span-2 lg:col-span-1 text-center sm:text-left">
             <Link href="#inicio" className="inline-flex items-center gap-1 text-xl sm:text-2xl font-bold mb-3 sm:mb-4">
-              <img src="./logoGDHeader.png" alt="GD Logo" className="h-8 w-auto" />
+              <span className="brand-wordmark brand-wordmark-footer">Gustavo<span>.</span></span>
             </Link>
             <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed text-pretty">
               {t("footer.description")}

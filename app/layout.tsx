@@ -10,8 +10,8 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: 'Gustavo Dias | Inteligência de Mercado, Automações IA & Web Designer',
-  description: 'Especialista em Inteligência de Mercado, Automações com IA (n8n) e Web Design. Análise de concorrência, agentes de IA no WhatsApp e landing pages de alta conversão.',
+  title: 'Gustavo Dias | Automação n8n, AI Agents & Power BI',
+  description: 'Portfólio de Gustavo Dias de Oliveira: automações n8n, AI Agents 24/7, integrações via APIs, dashboards Power BI e soluções digitais para empresas.',
   keywords: ['inteligência de mercado', 'pricing', 'análise de concorrência', 'automação n8n', 'agente de IA', 'web designer', 'landing page', 'freelancer', 'Praia Grande', 'São Paulo'],
   authors: [{ name: 'Gustavo Dias de Oliveira' }],
   creator: 'Gustavo Dias de Oliveira',
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'pt_BR',
     url: 'https://gustavodiasdeoliveira.com',
-    title: 'Gustavo Dias | Inteligência de Mercado, Automações IA & Web Designer',
-    description: 'Especialista em Inteligência de Mercado, Automações com IA (n8n) e Web Design. Análise de concorrência, agentes de IA no WhatsApp e landing pages de alta conversão.',
+    title: 'Gustavo Dias | Automação n8n, AI Agents & Power BI',
+    description: 'Automação n8n, AI Agents 24/7, integrações via APIs, dashboards Power BI e soluções digitais para empresas.',
     siteName: 'Gustavo Dias',
   },
   twitter: {
