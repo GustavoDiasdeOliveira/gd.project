@@ -2,9 +2,9 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Runs when the portfolio branch is updated
+  # Runs on pushes targeting the default branch
   push:
-    branches: ["main", "v0/portfolio-n8n-powerbi"]
+    branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
