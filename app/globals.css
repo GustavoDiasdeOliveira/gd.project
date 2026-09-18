@@ -270,32 +270,32 @@
 .dot-amber  { background: #EF9F27; }
 
 .dark {
-  /* Gustavo Landing Page - Dark Mode (Default) */
-  --background: #0A0A0F;
-  --foreground: #F0F0F0;
-  --card: #12121A;
-  --card-foreground: #F0F0F0;
-  --popover: #12121A;
-  --popover-foreground: #F0F0F0;
-  --muted: #1A1A24;
-  --muted-foreground: #A0A0B0;
-  --accent: #1A1A24;
-  --accent-foreground: #F0F0F0;
-  --border: #2A2A34;
-  --input: #1A1A24;
-  --primary: #FF6D5A;
-  --primary-rgb: 255, 109, 90;
-  --secondary: #FF9A7A;
-  --secondary-rgb: 255, 154, 122;
-  --primary-foreground: #06221B;
-  --secondary-foreground: #06221B;
-  --ring: #FF6D5A;
+  /* n8n Brand — dark mode */
+  --background: #040506;
+  --foreground: #FFFFFF;
+  --card: #0B0D0F;
+  --card-foreground: #FFFFFF;
+  --popover: #0B0D0F;
+  --popover-foreground: #FFFFFF;
+  --muted: #171A1E;
+  --muted-foreground: #A7ADB5;
+  --accent: #211117;
+  --accent-foreground: #FFFFFF;
+  --border: #292D33;
+  --input: #171A1E;
+  --primary: #EA4B71;
+  --primary-rgb: 234, 75, 113;
+  --secondary: #040506;
+  --secondary-rgb: 4, 5, 6;
+  --primary-foreground: #FFFFFF;
+  --secondary-foreground: #FFFFFF;
+  --ring: #EA4B71;
   
   /* Custom Properties Dark */
-  --gradient: linear-gradient(135deg, #FF6D5A, #FF9A7A);
-  --glass-bg: rgba(18, 26, 28, 0.68);
-  --glass-border: rgba(0, 212, 170, 0.24);
-  --shadow: 0 8px 32px rgba(0, 212, 170, 0.12);
+  --gradient: linear-gradient(135deg, #EA4B71 0%, #EA4B71 58%, #040506 100%);
+  --glass-bg: rgba(11, 13, 15, 0.78);
+  --glass-border: rgba(234, 75, 113, 0.28);
+  --shadow: 0 8px 32px rgba(234, 75, 113, 0.16);
 }
 
 @theme inline {
