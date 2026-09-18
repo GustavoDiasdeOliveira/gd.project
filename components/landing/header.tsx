@@ -108,7 +108,7 @@ export function Header() {
               >
                 {link.label}
                 {activeSection === link.href.slice(1) && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-secondary" />
+                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary" />
                 )}
               </Link>
             ))}
@@ -147,7 +147,7 @@ export function Header() {
             </DropdownMenu>
             <Button
               asChild
-              className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white"
+              className="bg-primary hover:opacity-90 text-white"
             >
               <a
                 href={`https://wa.me/5513991895950?text=${encodeURIComponent(t("whatsapp.message"))}`}
@@ -224,7 +224,7 @@ export function Header() {
             ))}
             <Button
               asChild
-              className="mt-2 sm:mt-4 bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white"
+              className="mt-2 sm:mt-4 bg-primary hover:opacity-90 text-white"
             >
               <a
                 href={`https://wa.me/5513991895950?text=${encodeURIComponent(t("whatsapp.message"))}`}

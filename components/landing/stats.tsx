@@ -88,7 +88,7 @@ function StatCard({
       <div className="inline-flex p-2.5 sm:p-3 rounded-lg sm:rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 mb-3 sm:mb-4">
         <Icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-primary" />
       </div>
-      <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-1 sm:mb-2">
+      <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-primary bg-clip-text text-transparent mb-1 sm:mb-2">
         {stat.value !== null ? count : ""}{stat.suffix}
       </div>
       <p className="text-xs sm:text-sm md:text-base text-muted-foreground text-balance">{stat.label}</p>

@@ -40,7 +40,7 @@ export function Process() {
         <div className="text-center mb-10 sm:mb-12 md:mb-16 fade-in">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-balance">
             {t("process.title_part1")}{" "}
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <span className="bg-primary bg-clip-text text-transparent">
               {t("process.title_highlight")}
             </span>
           </h2>
@@ -49,7 +49,7 @@ export function Process() {
         {/* Timeline - Desktop */}
         <div className="hidden lg:block relative">
           {/* Connection Line */}
-          <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary -translate-y-1/2 rounded-full" />
+          <div className="absolute top-1/2 left-0 right-0 h-1 bg-primary -translate-y-1/2 rounded-full" />
 
           <div className="grid grid-cols-4 gap-4 lg:gap-6 xl:gap-8 relative">
             {steps.map((step: any, index: number) => (
@@ -61,7 +61,7 @@ export function Process() {
                 {/* Step Card */}
                 <div className="gradient-border p-4 lg:p-6 rounded-xl lg:rounded-2xl text-center hover:-translate-y-2 transition-transform">
                   {/* Number Badge */}
-                  <div className="absolute -top-3 lg:-top-4 left-1/2 -translate-x-1/2 w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-white font-bold text-xs lg:text-sm">
+                  <div className="absolute -top-3 lg:-top-4 left-1/2 -translate-x-1/2 w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xs lg:text-sm">
                     {step.number}
                   </div>
 
@@ -92,7 +92,7 @@ export function Process() {
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
                 {/* Number Badge */}
-                <div className="absolute left-2 top-0 w-10 h-10 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-white font-bold text-sm">
+                <div className="absolute left-2 top-0 w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm">
                   {step.number}
                 </div>
 

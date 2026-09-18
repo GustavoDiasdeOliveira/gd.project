@@ -103,7 +103,7 @@ export function Hero() {
             <div className="space-y-4">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-5xl font-bold leading-[1.15] text-balance">
                 {t("hero.title_part1")}{" "}
-                <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                <span className="bg-primary bg-clip-text text-transparent">
                   {t("hero.title_highlight")}
                 </span>
               </h1>
@@ -125,7 +125,7 @@ export function Hero() {
               <Button
                 asChild
                 size="lg"
-                className="w-full sm:w-auto bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white gap-2"
+                className="w-full sm:w-auto bg-primary hover:opacity-90 text-white gap-2"
               >
                 <Link href="#projetos">
                   {t("hero.cta_projects")}
