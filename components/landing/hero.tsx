@@ -203,7 +203,7 @@ export function Hero() {
                   Power BI
                 </div>
                 <div className="orbit-badge b5">
-                  <span className="text-base">🧑‍💻</span>
+                  <span className="text-base" aria-hidden="true">&lt;/&gt;</span>
                   Web Designer
                 </div>
               </div>
