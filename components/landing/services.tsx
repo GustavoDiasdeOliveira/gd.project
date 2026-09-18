@@ -43,7 +43,7 @@ export function Services() {
         <div className="text-center mb-10 sm:mb-12 md:mb-16 fade-in">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-balance">
             {t("services.title_part1")}{" "}
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <span className="bg-primary bg-clip-text text-transparent">
               {t("services.title_highlight")}
             </span>
           </h2>
@@ -62,7 +62,7 @@ export function Services() {
             >
               {/* Badge */}
               {service.badge && (
-                <div className="absolute -top-3 right-4 sm:right-6 flex items-center gap-1 px-2.5 sm:px-3 py-1 rounded-full bg-gradient-to-r from-primary to-secondary text-white text-[10px] sm:text-xs font-semibold">
+                <div className="absolute -top-3 right-4 sm:right-6 flex items-center gap-1 px-2.5 sm:px-3 py-1 rounded-full bg-primary text-white text-[10px] sm:text-xs font-semibold">
                   <Flame className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
                   {service.badge}
                 </div>

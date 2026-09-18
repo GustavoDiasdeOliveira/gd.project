@@ -40,11 +40,11 @@ export function Skills() {
         <div className="text-center mb-10 sm:mb-12 md:mb-16 fade-in">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-balance">
             {t("skills.title_part1")}{" "}
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <span className="bg-primary bg-clip-text text-transparent">
               {t("skills.title_highlight")}
             </span>
           </h2>
-          <div className="h-1.5 w-16 sm:w-20 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto" />
+          <div className="h-1.5 w-16 sm:w-20 bg-primary rounded-full mx-auto" />
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
@@ -65,7 +65,7 @@ export function Skills() {
                 <div className="space-y-2 sm:space-y-3">
                   {cat.items.map((skill: string, i: number) => (
                     <div key={i} className="flex items-center gap-2 sm:gap-3">
-                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gradient-to-r from-primary to-secondary flex-shrink-0" />
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-primary flex-shrink-0" />
                       <span className="text-xs sm:text-sm text-muted-foreground">{skill}</span>
                     </div>
                   ))}

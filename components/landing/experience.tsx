@@ -35,11 +35,11 @@ export function Experience() {
         <div className="text-center mb-10 sm:mb-12 md:mb-16 fade-in">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-balance">
             {t("experience.title_part1")}{" "}
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <span className="bg-primary bg-clip-text text-transparent">
               {t("experience.title_highlight")}
             </span>
           </h2>
-          <div className="h-1.5 w-16 sm:w-20 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto" />
+          <div className="h-1.5 w-16 sm:w-20 bg-primary rounded-full mx-auto" />
         </div>
 
         <div className="relative max-w-3xl mx-auto">
@@ -52,7 +52,7 @@ export function Experience() {
                 className="fade-in relative pl-12 sm:pl-16 md:pl-20"
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
-                <div className="absolute left-2 sm:left-4 md:left-5 top-1 w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center ring-4 ring-background z-10">
+                <div className="absolute left-2 sm:left-4 md:left-5 top-1 w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full bg-primary flex items-center justify-center ring-4 ring-background z-10">
                   <Briefcase className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-3.5 md:h-3.5 text-white" />
                 </div>
 

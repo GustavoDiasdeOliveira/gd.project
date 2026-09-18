@@ -89,7 +89,7 @@ export function Contact() {
         <div className="text-center mb-10 sm:mb-12 md:mb-16 fade-in">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-balance">
             {t("contact.title_part1")}{" "}
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <span className="bg-primary bg-clip-text text-transparent">
               {t("contact.title_highlight")}
             </span>
           </h2>
@@ -203,7 +203,7 @@ export function Contact() {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full gap-2 bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white"
+                className="w-full gap-2 bg-primary hover:opacity-90 text-white"
                 size="lg"
               >
                 {isSubmitting ? (

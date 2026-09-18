@@ -26,15 +26,15 @@
   },
   "hero": {
     "badge": "Disponível para oportunidades (Remoto/CLT/Freela)",
-    "title_part1": "Analista de Automação,",
-    "title_highlight": "AI Agents & Web",
+    "title_part1": "Analista de Automações,",
+    "title_highlight": "Web Design & Power BI",
     "typing": [
-"Automatizando fluxos com n8n e IA",
-  "Criando AI Agents para WhatsApp e Web",
-  "Desenvolvendo interfaces modernas",
-  "Otimizando processos e integrações"
+      "Automatizando processos com n8n e IA",
+      "Criando dashboards responsivos no Power BI",
+      "Apoiando pricing e inteligência de mercado",
+      "Analisando concorrentes para decisões estratégicas"
     ],
-    "description": "Profissional de Automação Low-Code especializado em n8n. Desenvolvo AI Agents, integrações via API e Webhooks (Evolution API, RD Station, Supabase, LLMs). Também atuo na criação de interfaces web responsivas. Tenho vivência prática com automação de atendimento comercial, agendamentos e suporte de TI.",
+    "description": "Profissional de Automações Low-Code, Web Design e Power BI. Desenvolvo workflows inteligentes com n8n e AI Agents, dashboards responsivos para análise de dados e soluções orientadas a pricing, qualidade e inteligência de mercado. Transformo dados e processos em decisões mais eficientes.",
     "cta_projects": "Ver meus projetos",
     "cta_cv": "Download CV",
     "cv_downloading": "Baixando...",

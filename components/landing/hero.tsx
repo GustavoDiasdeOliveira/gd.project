@@ -9,6 +9,7 @@ import { useLanguage } from "@/context/LanguageContext"
 
 export function Hero() {
   const { t } = useLanguage()
+  const assetPath = process.env.NODE_ENV === "production" ? "/gd.project" : ""
   const typingTexts = t("hero.typing")
   const [currentTextIndex, setCurrentTextIndex] = useState(0)
   const [displayText, setDisplayText] = useState("")
@@ -102,7 +103,7 @@ export function Hero() {
             <div className="space-y-4">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-5xl font-bold leading-[1.15] text-balance">
                 {t("hero.title_part1")}{" "}
-                <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                <span className="bg-primary bg-clip-text text-transparent">
                   {t("hero.title_highlight")}
                 </span>
               </h1>
@@ -124,7 +125,7 @@ export function Hero() {
               <Button
                 asChild
                 size="lg"
-                className="w-full sm:w-auto bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white gap-2"
+                className="w-full sm:w-auto bg-primary hover:opacity-90 text-white gap-2"
               >
                 <Link href="#projetos">
                   {t("hero.cta_projects")}
@@ -195,7 +196,7 @@ export function Hero() {
                   <span className="profile-index">01 / 04</span>
                 </div>
                 <div className="profile-portrait-wrap">
-                  <Image src="/foto-gustavo.png" alt="Gustavo Dias usando terno e gravata" fill priority sizes="(max-width: 1024px) 72vw, 420px" className="profile-portrait" />
+                  <Image src={`${assetPath}/foto-gustavo.png`} alt="Gustavo Dias usando terno e gravata" fill priority sizes="(max-width: 1024px) 72vw, 420px" className="profile-portrait" />
                 </div>
                 <div className="profile-card-footer">
                   <div>
@@ -205,9 +206,9 @@ export function Hero() {
                   <span className="profile-arrow" aria-hidden="true"><ArrowRight /></span>
                 </div>
               </div>
-              <div className="profile-float profile-float-n8n"><img src="/icons/n8n-color.png" alt="" /> n8n</div>
-              <div className="profile-float profile-float-ai"><img src="/icons/ai-agent.png" alt="" /> AI Agents</div>
-              <div className="profile-float profile-float-bi"><img src="/icons/power-bi.png" alt="" /> Power BI</div>
+              <div className="profile-float profile-float-n8n"><img src={`${assetPath}/icons/n8n-color.png`} alt="" /> n8n</div>
+              <div className="profile-float profile-float-ai"><img src={`${assetPath}/icons/ai-agent.png`} alt="" /> AI Agents</div>
+              <div className="profile-float profile-float-bi"><img src={`${assetPath}/icons/power-bi.png`} alt="" /> Power BI</div>
             </div>
           </div>
         </div>
