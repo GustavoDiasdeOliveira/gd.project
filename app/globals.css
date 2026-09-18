@@ -5,10 +5,10 @@
 
 :root {
   /* Gustavo Landing Page - Light Mode */
-  --primary: #00D4AA;
-  --primary-rgb: 0, 212, 170;
-  --secondary: #00A88C;
-  --secondary-rgb: 0, 168, 140;
+  --primary: #FF6D5A;
+  --primary-rgb: 255, 109, 90;
+  --secondary: #FF9A7A;
+  --secondary-rgb: 255, 154, 122;
   --background: #F8F8FC;
   --foreground: #0A0A0F;
   --card: #FFFFFF;
@@ -25,11 +25,11 @@
   --destructive-foreground: #FFFFFF;
   --border: #E0E0E8;
   --input: #E8E8F0;
-  --ring: #00D4AA;
+  --ring: #FF6D5A;
   --radius: 1rem;
   
   /* Custom Properties */
-  --gradient: linear-gradient(135deg, #00D4AA, #00A88C);
+  --gradient: linear-gradient(135deg, #FF6D5A, #FF9A7A);
   --glass-bg: rgba(255, 255, 255, 0.8);
   --glass-border: rgba(0, 168, 140, 0.2);
   --shadow: 0 8px 32px rgba(0, 168, 140, 0.1);
@@ -283,16 +283,16 @@
   --accent-foreground: #F0F0F0;
   --border: #2A2A34;
   --input: #1A1A24;
-  --primary: #00D4AA;
-  --primary-rgb: 0, 212, 170;
-  --secondary: #00A88C;
-  --secondary-rgb: 0, 168, 140;
+  --primary: #FF6D5A;
+  --primary-rgb: 255, 109, 90;
+  --secondary: #FF9A7A;
+  --secondary-rgb: 255, 154, 122;
   --primary-foreground: #06221B;
   --secondary-foreground: #06221B;
-  --ring: #00D4AA;
+  --ring: #FF6D5A;
   
   /* Custom Properties Dark */
-  --gradient: linear-gradient(135deg, #00D4AA, #00A88C);
+  --gradient: linear-gradient(135deg, #FF6D5A, #FF9A7A);
   --glass-bg: rgba(18, 26, 28, 0.68);
   --glass-border: rgba(0, 212, 170, 0.24);
   --shadow: 0 8px 32px rgba(0, 212, 170, 0.12);
