@@ -1,0 +1,572 @@
+{
+  "name": "PARTE 1 - Automação Nutrição - Agent IA",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Gemini",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "SEU_ID",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "When chat message received",
+      "webhookId": "SEU_ID"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "=Você é um assistente Pessoal chamado Thiago para facilitar o gerenciamento da clinica de nutrição X.\n\n- Em caso de duvidasa sobre qual dia é hoje consulte:\nData do dia de hoje: {{ $now }}\n\n- Sempre que for trabalhar com datas e horários eu uso Timezone -3 Brásilia a não ser que eu peça no prompt algum timezone especifico.\n\n# Objetivo:\n- Cadastrar novos alunos (cliente) na nossa clinica.\n- Atualizar dados de um aluno já existente na clinica.\n- Gerar uma dieta para um aluno que já está cadastrado.\n- Acessar a dieta de um aluno consultando na nossa planilha de dietas.\n- Buscar detalhes dos alunos cadastrado na base de dados (planilha)\n\n# Regras:\n**SEMPRE** antes de cadastrar um novo aluno (cliente) verifique se já tem todas informações necessárias para cadastrar um novo aluno, todas informações necessárias estão na seção (A) do prompt.\n\n**SEMPRE** antes de criar um novo plano de dieta verifique se o aluno já está cadastrado na nossa base (planilha).\n\n**SEMPRE** que criar uma dieta para um aluno atualize no cadastro do aluno encontrando pelo email e atualize o campo (ultima_dieta) com a data do dia atual que criou a dieta.\n\n**SEMPRE** antes de atualizar um aluno verifique se o aluno existe buscando ele atráves do email fornecido caso o não seja fornecido o email para atualizar um aluno peça o email do aluno que deseja atualizar.\n\n# Obrigatório: \nCaso eu tente cadastrar um aluno e não tenha recebido todos os dados necessarios peça novamente as informações.\n\n(A):\nSempre que for cadastrar um novo aluno peça as informações:\n- nome\n- email\n- idade\n- genero\n- peso_kg (em kg)\n- altura_cm (em cm)\n- objetivo (exemplo: hipertrofia, emagrecer)\n- treinos_por_semana (quantidade exemplo: 4)\n- restricoes: (exemplo: lactose, queijo)\n- alergia: (exemplo: amendoin)\n**SEMPRE** antes de cadastrar o aluno verifique se já existe um aluno com esse email caso já exista um aluno com email igual não cadastre, pois o identificador de cada aluno é o email e não podemos ter 2 ou mais iguais.\n\n(B):\nSempre que for atualizar um aluno peça o email ele é o identificador unico de cada aluno.\n\n# Dietas:\n1. Criar nova dieta:\n**SEMPRE** que for pedido para criar uma nova dieta peça qual o email do aluno caso não tenha fornecido\n**SEMPRE** antes de tentar criar uma dieta verifique se o aluno existe cadastrado na nossa planilha caso não tenha peça para cadastrar antes.\n**SEMPRE** chame nossa ferramenta para cadastrar dieta e passe para ela o email do aluno que quer gerar o plano de deita."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "description": "Essa ferramenta é chamada sempre que quiser criar uma nova dieta para o aluno e sempre passe para ela o email do aluno que deseja criar a dieta",
+        "workflowId": {
+          "__rl": null,
+          "value": "H7S7pztNek8lOS3u",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/H7S7pztNek8lOS3u",
+          "cachedResultName": "Assistente dietas nutricionista"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "email": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('email', ``, 'string') }}"
+          },
+          "matchingColumns": [
+            "email"
+          ],
+          "schema": [
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "canBeUsedToMatch": null,
+              "type": "string",
+              "removed": null
+            }
+          ],
+          "attemptToConvertTypes": null,
+          "convertFieldsToString": null
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Criar relatórios"
+    },
+    {
+      "parameters": {
+        "contextWindowLength": null
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Memoria"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Calculator"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": null,
+          "value": "1_POAyed_Nh_BFo6BK2stf6aU4vg3mhVrvXJfmX7HcPM",
+          "mode": "list",
+          "cachedResultName": "Clinica nutrição",
+          "cachedResultUrl": "SEU_WEBHOOK_URL"
+        },
+        "sheetName": {
+          "__rl": null,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "aluno",
+          "cachedResultUrl": "SEU_WEBHOOK_URL"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Email": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Email', ``, 'string') }}",
+            "nome": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('nome', ``, 'string') }}",
+            "idade": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('idade', ``, 'string') }}",
+            "genero": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('genero', ``, 'string') }}",
+            "peso": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('peso', ``, 'string') }}",
+            "altura": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('altura', ``, 'string') }}",
+            "objetivo": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('objetivo', ``, 'string') }}",
+            "treinos_por_semana": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('treinos_por_semana', ``, 'string') }}",
+            "restrições": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('restri__es', ``, 'string') }}",
+            "ultima_dieta": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('ultima_dieta', ``, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "string",
+              "canBeUsedToMatch": null
+            },
+            {
+              "id": "nome",
+              "displayName": "nome",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "string",
+              "canBeUsedToMatch": null
+            },
+            {
+              "id": "idade",
+              "displayName": "idade",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "string",
+              "canBeUsedToMatch": null
+            },
+            {
+              "id": "genero",
+              "displayName": "genero",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "string",
+              "canBeUsedToMatch": null
+            },
+            {
+              "id": "peso",
+              "displayName": "peso",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "string",
+              "canBeUsedToMatch": null
+            },
+            {
+              "id": "altura",
+              "displayName": "altura",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "string",
+              "canBeUsedToMatch": null
+            },
+            {
+              "id": "objetivo",
+              "displayName": "objetivo",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "string",
+              "canBeUsedToMatch": null
+            },
+            {
+              "id": "SEU_ID",
+              "displayName": "treinos_por_semana",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "string",
+              "canBeUsedToMatch": null
+            },
+            {
+              "id": "restrições",
+              "displayName": "restrições",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "string",
+              "canBeUsedToMatch": null
+            },
+            {
+              "id": "alergias",
+              "displayName": "alergias",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "string",
+              "canBeUsedToMatch": null,
+              "removed": null
+            },
+            {
+              "id": "ultima_dieta",
+              "displayName": "ultima_dieta",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "string",
+              "canBeUsedToMatch": null,
+              "removed": null
+            }
+          ],
+          "attemptToConvertTypes": null,
+          "convertFieldsToString": null
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Cadastrar aluno",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "SEU_ID",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": null,
+          "value": "1_POAyed_Nh_BFo6BK2stf6aU4vg3mhVrvXJfmX7HcPM",
+          "mode": "list",
+          "cachedResultName": "Clinica nutrição",
+          "cachedResultUrl": "SEU_WEBHOOK_URL"
+        },
+        "sheetName": {
+          "__rl": null,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "aluno",
+          "cachedResultUrl": "SEU_WEBHOOK_URL"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Buscar alunos",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "SEU_ID",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": null,
+          "value": "1_POAyed_Nh_BFo6BK2stf6aU4vg3mhVrvXJfmX7HcPM",
+          "mode": "list",
+          "cachedResultName": "Clinica nutrição",
+          "cachedResultUrl": "SEU_WEBHOOK_URL"
+        },
+        "sheetName": {
+          "__rl": null,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "aluno",
+          "cachedResultUrl": "SEU_WEBHOOK_URL"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Email": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Email', ``, 'string') }}",
+            "nome": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('nome', ``, 'string') }}",
+            "idade": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('idade', ``, 'string') }}",
+            "genero": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('genero', ``, 'string') }}",
+            "peso": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('peso', ``, 'string') }}",
+            "altura": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('altura', ``, 'string') }}",
+            "treinos_por_semana": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('treinos_por_semana', ``, 'string') }}",
+            "objetivo": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('objetivo', ``, 'string') }}",
+            "restrições": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('restri__es', ``, 'string') }}",
+            "alergias": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('alergias', ``, 'string') }}",
+            "ultima_dieta": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('ultima_dieta', ``, 'string') }}"
+          },
+          "matchingColumns": [
+            "Email"
+          ],
+          "schema": [
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "string",
+              "canBeUsedToMatch": null,
+              "removed": null
+            },
+            {
+              "id": "nome",
+              "displayName": "nome",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "string",
+              "canBeUsedToMatch": null
+            },
+            {
+              "id": "idade",
+              "displayName": "idade",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "string",
+              "canBeUsedToMatch": null
+            },
+            {
+              "id": "genero",
+              "displayName": "genero",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "string",
+              "canBeUsedToMatch": null
+            },
+            {
+              "id": "peso",
+              "displayName": "peso",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "string",
+              "canBeUsedToMatch": null
+            },
+            {
+              "id": "altura",
+              "displayName": "altura",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "string",
+              "canBeUsedToMatch": null
+            },
+            {
+              "id": "objetivo",
+              "displayName": "objetivo",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "string",
+              "canBeUsedToMatch": null
+            },
+            {
+              "id": "SEU_ID",
+              "displayName": "treinos_por_semana",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "string",
+              "canBeUsedToMatch": null
+            },
+            {
+              "id": "restrições",
+              "displayName": "restrições",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "string",
+              "canBeUsedToMatch": null
+            },
+            {
+              "id": "alergias",
+              "displayName": "alergias",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "string",
+              "canBeUsedToMatch": null
+            },
+            {
+              "id": "ultima_dieta",
+              "displayName": "ultima_dieta",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "string",
+              "canBeUsedToMatch": null
+            }
+          ],
+          "attemptToConvertTypes": null,
+          "convertFieldsToString": null
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Atualizar",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "SEU_ID",
+          "name": "Google Sheets account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Gemini": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Criar relatórios": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Memoria": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Calculator": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Cadastrar aluno": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Buscar alunos": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Atualizar": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": null
+          }
+        ]
+      ]
+    }
+  },
+  "active": null,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": null,
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "versionId": "206e9bb9-220b-4301-b144-2e545be3a74f",
+  "meta": {
+    "templateCredsSetupCompleted": null,
+    "instanceId": "8d938ac1f9c5a3d93f2ee1d12e4389c9d497f2e61596d0fed72f351a1f01c7aa"
+  },
+  "nodeGroups": [],
+  "id": "SEU_ID",
+  "tags": []
+}

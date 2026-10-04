@@ -1,0 +1,1659 @@
+{
+  "name": "Automação de Chatbot Rancho da Praia",
+  "nodes": [
+    {
+      "parameters": {
+        "sendTo": "={{ $fromAI('email', 'Email do cliente. OBRIGATÓRIO — só chame esta ferramenta se você já tiver o email do cliente confirmado na conversa. Formato: exemplo@email.com') }}",
+        "subject": "={{ $fromAI('subject', 'Assunto caloroso com o nome do cliente. Ex: Que bom ter você, Ana!') }}",
+        "message": "={{ $fromAI('body', 'Corpo do email em HTML. Use este template exato substituindo {nome} pelo nome real do cliente e {tipo_evento} pelo tipo de evento mencionado: <div style=\"font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: 0 auto; line-height: 1.6; padding: 20px;\"><h2 style=\"color: #2c5282;\">Olá, {nome}! 🌿</h2><p>Foi um prazer conversar com você pelo WhatsApp!</p><p>Ficamos felizes com o seu interesse em realizar <strong>{tipo_evento}</strong> no <strong>Rancho da Praia</strong>.</p><p>Nosso espaço foi pensado para tornar cada momento especial e inesquecível. Quando quiser tirar mais dúvidas ou avançar nos detalhes, é só me chamar aqui ou lá no WhatsApp.</p><br><p>Com carinho,<br><strong>Lilian | Rancho da Praia</strong><br><a href=\"https://ranchodapraia.com.br\" style=\"color:#2c5282;\">ranchodapraia.com.br</a></p></div>') }}",
+        "options": {
+          "senderName": "Lilian | Rancho da Praia"
+        }
+      },
+      "type": "n8n-nodes-base.gmailTool",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Email",
+      "webhookId": "SEU_ID",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "SEU_ID",
+          "name": "Gmail account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "assign-nome",
+              "name": "Nome",
+              "value": "={{ $json.body.data.pushName }}",
+              "type": "string"
+            },
+            {
+              "id": "SEU_ID",
+              "name": "Mensagem",
+              "value": "={{ $json.body.data.message?.conversation ?? $json.body.data.message?.extendedTextMessage?.text ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "SEU_ID",
+              "name": "Numero",
+              "value": "={{ $json.body.data.key.remoteJid }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Dados2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "assign-text",
+              "name": "text",
+              "value": "={{ $('Webhook EVO2').item.json.body.data.message.conversation ?? $('Webhook EVO2').item.json.body.data.message.extendedTextMessage?.text ?? '' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "text2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "SEU_ID",
+              "name": "data",
+              "value": "={{ $('Webhook EVO2').item.json.body.data.message.base64 }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "data",
+        "options": {
+          "fileName": "file.ogg",
+          "mimeType": "application/ogg"
+        }
+      },
+      "id": "SEU_ID",
+      "name": "Convert to File2",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "SEU_ID",
+              "name": "text",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "finalText2"
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "=buffer: {{ $('Dados2').item.json.Numero }}",
+        "messageData": "={{ $('finalText2').item.json.text }}",
+        "tail": null
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "push2",
+      "credentials": {
+        "redis": {
+          "id": "SEU_ID",
+          "name": "Redis account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": "=5"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Wait2",
+      "webhookId": "SEU_ID"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "msgs",
+        "key": "=buffer: {{ $('Dados2').item.json.Numero }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "msgs2",
+      "credentials": {
+        "redis": {
+          "id": "SEU_ID",
+          "name": "Redis account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": null,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": null
+          },
+          "conditions": [
+            {
+              "id": "SEU_ID",
+              "leftValue": "={{ $json.msgs.last() }}",
+              "rightValue": "={{ $('finalText2').item.json.text }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "filterBuffer2"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "=buffer: {{ $('Dados2').item.json.Numero }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "deleteBuffer2",
+      "credentials": {
+        "redis": {
+          "id": "SEU_ID",
+          "name": "Redis account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "assign-junta",
+              "name": "text",
+              "value": "={{ $('filterBuffer2').item.json.msgs.join('\\n') }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "junta_msgs2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": null,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": null
+          },
+          "conditions": [
+            {
+              "id": "SEU_ID",
+              "leftValue": "={{ $json.telefone }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": null
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "já_existe_numero2"
+    },
+    {
+      "parameters": {
+        "tableId": "dados_cliente",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "telefone",
+              "fieldValue": "={{ $('Dados2').item.json.Numero }}"
+            },
+            {
+              "fieldId": "created_at",
+              "fieldValue": "={{ $now }}"
+            },
+            {
+              "fieldId": "nomewpp",
+              "fieldValue": "={{ $('Dados2').item.json.Nome }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "criar_lead2",
+      "credentials": {
+        "supabaseApi": {
+          "id": "SEU_ID",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "tableId": "dados_cliente",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "telefone",
+              "keyValue": "={{ $json.Numero }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Consulta se o Lead existe2",
+      "alwaysOutputData": null,
+      "credentials": {
+        "supabaseApi": {
+          "id": "SEU_ID",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "TesteBotRancho",
+        "options": {}
+      },
+      "id": "SEU_ID",
+      "name": "Webhook EVO2",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "webhookId": "SEU_ID"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "SEU_WEBHOOK_URL",
+        "sendHeaders": null,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer SUA_API_KEY"
+            }
+          ]
+        },
+        "sendBody": null,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "data"
+            },
+            {
+              "name": "model",
+              "value": "whisper-large-v3-turbo"
+            },
+            {
+              "name": "language",
+              "value": "pt"
+            },
+            {
+              "name": "prompt",
+              "value": "Email: nome@empresa.com.br, arroba, ponto, hífen, underline, gmail, hotmail, .com.br"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Form-Data2"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "SEU_WEBHOOK_URL",
+        "sendHeaders": null,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer SUA_API_KEY"
+            }
+          ]
+        },
+        "sendBody": null,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"llama-3.3-70b-versatile\",\n  \"temperature\": 0,\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"Você corrige transcrições de áudio em português. Todos os emails são todos minusculos, se houver um email sem @, reconstrua-o. Exemplos: 'gustavo ponto oliveira arroba marbr ponto com ponto br' → gustavo.oliveira@marbr.com.br. 'arroba' → @. Retorne APENAS o texto corrigido, sem explicações.\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"Corrija: {{ $json.text }}\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "HTTP Request2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "SEU_ID",
+              "name": "text",
+              "value": "={{ $json.choices[0].message.content }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Edit Fields12"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": null,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": null
+                },
+                "conditions": [
+                  {
+                    "id": "SEU_ID",
+                    "leftValue": "={{ $('Webhook EVO2').item.json.body.data.messageType }}",
+                    "rightValue": "conversation",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": null,
+              "outputKey": "texto"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": null,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": null
+                },
+                "conditions": [
+                  {
+                    "id": "SEU_ID",
+                    "leftValue": "={{ $('Webhook EVO2').item.json.body.data.messageType }}",
+                    "rightValue": "extendedTextMessage",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": null,
+              "outputKey": "texto"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": null,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": null
+                },
+                "conditions": [
+                  {
+                    "id": "cond-audio",
+                    "leftValue": "={{ $('Webhook EVO2').item.json.body.data.messageType }}",
+                    "rightValue": "audioMessage",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": null,
+              "outputKey": "audio"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "SEU_ID",
+      "name": "Switch2",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "ChatbotFabiRancho",
+        "remoteJid": "={{ $('Dados2').item.json.Numero }}",
+        "messageText": "={{ $json.text }}",
+        "options_message": {
+          "delay": "={{ $json.delaySec * 1000 }}"
+        }
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "WhatsApp",
+      "credentials": {
+        "evolutionApi": {
+          "id": "SEU_ID",
+          "name": "Evolution account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## ⚙️ Setup Inicial\nRode este node manualmente UMA única vez para criar a tabela no Postgres antes de ativar o workflow.",
+        "height": null,
+        "width": null,
+        "color": null
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Nota Setup2"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "CREATE TABLE IF NOT EXISTS dados_cliente (\n    id BIGSERIAL PRIMARY KEY,\n    created_at TIMESTAMPTZ DEFAULT NOW(),\n    updated_at TIMESTAMPTZ DEFAULT NOW(),\n    telefone TEXT UNIQUE NOT NULL,\n    nomewpp TEXT,\n    nome_responsavel TEXT,\n    email_responsavel TEXT,\n    tipo_evento TEXT,\n    qtd_convidados INT,\n    investimento TEXT,\n    cidade TEXT,\n    origem TEXT,\n    nomes_evento TEXT,\n    responsavel_legal TEXT,\n    data_visita DATE,\n    horario_visita_inicio TEXT,\n    horario_visita_fim TEXT,\n    visita_reagendada BOOLEAN DEFAULT FALSE,\n    visita_cancelada BOOLEAN DEFAULT FALSE,\n    data_evento DATE,\n    horario_evento_inicio TEXT,\n    horario_evento_fim TEXT,\n    status_atendimento TEXT DEFAULT 'prospeccao'\n);\n\nCREATE OR REPLACE FUNCTION update_modified_column()\nRETURNS TRIGGER AS $$\nBEGIN\n    NEW.updated_at = NOW();\n    RETURN NEW;\nEND;\n$$ language 'plpgsql';\n\nDROP TRIGGER IF EXISTS update_dados_cliente_modtime ON dados_cliente;\nCREATE TRIGGER update_dados_cliente_modtime\n    BEFORE UPDATE ON dados_cliente\n    FOR EACH ROW\n    EXECUTE PROCEDURE update_modified_column();\n\n-- Adicionar colunas novas caso a tabela já exista (ALTER TABLE seguro)\nDO $$\nBEGIN\n    -- nome_responsavel\n    IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name='dados_cliente' AND column_name='nome_responsavel') THEN\n        ALTER TABLE dados_cliente ADD COLUMN nome_responsavel TEXT;\n    END IF;\n    -- email_responsavel\n    IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name='dados_cliente' AND column_name='email_responsavel') THEN\n        ALTER TABLE dados_cliente ADD COLUMN email_responsavel TEXT;\n    END IF;\n    -- qtd_convidados\n    IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name='dados_cliente' AND column_name='qtd_convidados') THEN\n        ALTER TABLE dados_cliente ADD COLUMN qtd_convidados INT;\n    END IF;\n    -- investimento\n    IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name='dados_cliente' AND column_name='investimento') THEN\n        ALTER TABLE dados_cliente ADD COLUMN investimento TEXT;\n    END IF;\n    -- nomes_evento\n    IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name='dados_cliente' AND column_name='nomes_evento') THEN\n        ALTER TABLE dados_cliente ADD COLUMN nomes_evento TEXT;\n    END IF;\n    -- responsavel_legal\n    IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name='dados_cliente' AND column_name='responsavel_legal') THEN\n        ALTER TABLE dados_cliente ADD COLUMN responsavel_legal TEXT;\n    END IF;\n    -- data_visita\n    IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name='dados_cliente' AND column_name='data_visita') THEN\n        ALTER TABLE dados_cliente ADD COLUMN data_visita DATE;\n    END IF;\n    -- horario_visita_inicio\n    IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name='dados_cliente' AND column_name='horario_visita_inicio') THEN\n        ALTER TABLE dados_cliente ADD COLUMN horario_visita_inicio TEXT;\n    END IF;\n    -- horario_visita_fim\n    IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name='dados_cliente' AND column_name='horario_visita_fim') THEN\n        ALTER TABLE dados_cliente ADD COLUMN horario_visita_fim TEXT;\n    END IF;\n    -- visita_reagendada\n    IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name='dados_cliente' AND column_name='visita_reagendada') THEN\n        ALTER TABLE dados_cliente ADD COLUMN visita_reagendada BOOLEAN DEFAULT FALSE;\n    END IF;\n    -- visita_cancelada\n    IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name='dados_cliente' AND column_name='visita_cancelada') THEN\n        ALTER TABLE dados_cliente ADD COLUMN visita_cancelada BOOLEAN DEFAULT FALSE;\n    END IF;\n    -- horario_evento_inicio\n    IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name='dados_cliente' AND column_name='horario_evento_inicio') THEN\n        ALTER TABLE dados_cliente ADD COLUMN horario_evento_inicio TEXT;\n    END IF;\n    -- horario_evento_fim\n    IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name='dados_cliente' AND column_name='horario_evento_fim') THEN\n        ALTER TABLE dados_cliente ADD COLUMN horario_evento_fim TEXT;\n    END IF;\nEND$$;",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Cria Tabela Dados Cliente2",
+      "credentials": {
+        "postgres": {
+          "id": "SEU_ID",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## 3. Filtro Texto / Áudio\nIdentifica o tipo de mensagem:\n- conversation → texto direto\n- extendedTextMessage → texto com formatação\n- audioMessage → transcreve com OpenAI Whisper\n\n⚠️ Adicione sua credencial OpenAI no node \"transcript\".",
+        "height": null,
+        "width": null,
+        "color": null
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Nota Filtro Tipo2"
+    },
+    {
+      "parameters": {
+        "content": "## 1. Filtro de Dados\nExtrai Nome, Mensagem e Número do webhook da Evolution API.",
+        "height": null,
+        "width": null,
+        "color": null
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Nota Filtro Dados2"
+    },
+    {
+      "parameters": {
+        "content": "## 2. Banco de Dados (Postgres)\nVerifica se o lead já existe.\nSe não existir, cria o registro na tabela dados_cliente.\n\n⚠️ Execute o node \"Cria Tabela Dados Cliente\" manualmente UMA VEZ antes de ativar o workflow.",
+        "height": null,
+        "width": null,
+        "color": null
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Nota Banco2"
+    },
+    {
+      "parameters": {
+        "content": "## 4. Buffer Anti-Mensagens Picotadas (Redis)\nAgrupa mensagens enviadas em rápida sucessão.\nEspera 5s → só processa o último gatilho.\nEvita múltiplas respostas da IA para a mesma conversa.\n\n⚠️ Verifique a credencial do Redis.",
+        "height": null,
+        "width": null,
+        "color": null
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Nota Buffer2"
+    },
+    {
+      "parameters": {
+        "content": "## 5. Agente de IA (Groq + Postgres) e Agenda\nLLM: Llama 3.3 70B via Groq\nMemória: Postgres (persiste entre sessões)\n✅ Utilizado o Google Agenda para consultas, agendamentos/reagendamentos e cancelamentos",
+        "height": null,
+        "width": null,
+        "color": null
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Nota Agente2"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.text }}",
+        "options": {
+          "systemMessage": "=# IDENTIDADE\n\nVocê é a Lilian, atendente comercial do Rancho Xixová (https://ranchoxixova.com/). Você conversa pelo WhatsApp com pessoas interessadas em conhecer o espaço para eventos.\n\nVocê é uma pessoa de verdade. Você NUNCA é um robô, bot, IA, assistente virtual ou atendente automático. Se alguém perguntar se você é um robô, responda com leveza e naturalidade, como uma humana faria (\"hahaha imagina, sou eu aqui mesmo 😊 me conta...\"), e siga a conversa. Nunca confirme que é automatizada.\n\n# DATA E HORA ATUAL\n\nHoje é {{ $now.setZone('America/Sao_Paulo').toFormat('yyyy-MM-dd') }} ({{ $now.setZone('America/Sao_Paulo').toFormat('cccc') }}), às {{ $now.setZone('America/Sao_Paulo').toFormat('HH:mm') }} (fuso America/Sao_Paulo). Use SEMPRE este ano e esta data como referência para \"hoje\", \"amanhã\", \"essa semana\", \"próximo mês\" etc. NUNCA use anos passados nas datas enviadas às ferramentas de agenda — a menos que o cliente peça explicitamente uma data de ano anterior.\n\n# NOMES DO EVENTO — CASAMENTO E ANIVERSÁRIO\n\nPara CASAMENTO: Após identificar que o evento é um casamento, pergunte de forma natural e sem assumir gênero os nomes de quem vai se casar. Pode ser homem e mulher, homem e homem, mulher e mulher — trate todos com o mesmo calor. Exemplos naturais:\n- \"Que lindo! Me conta, quem são os noivos? Como eles se chamam?\"\n- \"Ah, que emocionante! Quais são os nomes do casal?\"\n- \"E os protagonistas dessa história toda, como se chamam?\"\nNunca use \"noivos\" assumindo heterossexualidade — use \"casal\", \"os dois\", \"vocês\" conforme o contexto.\n\nPara ANIVERSÁRIO: Após identificar que é aniversário, pergunte quem vai celebrar. Se for a própria pessoa que está falando, colete o nome completo (caso ainda não tenha). Exemplos:\n- \"Que gostoso! É aniversário de quem? Do próprio aniversariante conversando comigo, ou de alguém da família?\"\n- Se for de quem está falando: \"E seu nome completo é...?\"\n- Se for de outra pessoa: \"Qual o nome do aniversariante?\"\n\n# OBJETIVO REAL\n\nSeu objetivo NÃO é vender nem fechar contrato. Seu objetivo é CONVERSAR de forma calorosa e, ao longo do papo, COLETAR O MÁXIMO DE INFORMAÇÕES sobre a pessoa e o evento dela. Você faz isso com curiosidade genuína, como quem está realmente interessada em ajudar — nunca como um formulário.\n\nInformações que você quer descobrir naturalmente, aos poucos, sem soar interrogatório:\n- Nome completo do responsável pelo evento\n- Email do responsável\n- Telefone do responsável (você já tem o WhatsApp, mas confirme)\n- Tipo de evento (casamento, aniversário, corporativo, formatura etc.)\n- Para casamento: nomes do casal (sem assumir gênero)\n- Para aniversário: nome do celebrante\n- Quantidade aproximada de convidados\n- Investimento previsto / faixa de orçamento (pergunte de forma natural)\n- Cidade/de onde a pessoa é\n- Responsável legal (nome para o contrato — pode ser o mesmo responsável)\n- Data pretendida do evento e horários (início e fim)\n- Se já conhece o Rancho ou como nos achou\n\n# COMO VOCÊ CONVERSA\n\n- Quem conduz a conversa é o CLIENTE. Você acompanha, responde, puxa assunto, mas nunca apresenta menus, listas numeradas ou \"digite 1, 2, 3\". Isso está proibido.\n- Tom humano, acolhedor, brasileiro, informal-profissional. Como a Lilian do comercial fala: simpática, próxima, sem ser exagerada.\n- Use o nome da pessoa quando souber.\n- Faça UMA pergunta por vez, encaixada na conversa, nunca várias perguntas empilhadas.\n- Use emojis com MUITA moderação — no máximo 1 por mensagem, e às vezes nenhum. Excesso de emoji parece robótico e suspeito.\n- Nunca diga frases robóticas tipo \"Como posso ajudá-lo hoje?\", \"Selecione uma opção\", \"Entendido. Prosseguindo.\".\n- Demonstre conhecimento e carinho pelo espaço, mas solte as informações aos poucos, conforme o interesse da pessoa.\n- VARIE as suas respostas. Nunca use a mesma abertura ou a mesma frase de transição duas vezes seguidas. Tenha pelo menos 5 formas diferentes de dizer coisas parecidas.\n\n# RAJADAS DE MENSAGEM (MUITO IMPORTANTE)\n\nVocê escreve exatamente como uma pessoa real no WhatsApp: manda várias mensagens curtas em sequência, nunca um bloco único de texto.\n\nPara separar cada mensagem, use exatamente o separador: ||\n\nExemplo de abertura:\nOi, tudo bem? 😊||Aqui é a Lilian, do Rancho da Praia!||Me conta, você tá pensando em fazer algum evento com a gente?\n\nAntes de cada bolha, o sistema vai simular \"digitando...\" com uma pausa proporcional ao tamanho do texto — exatamente como uma pessoa digitando de verdade.\n\nRegras das rajadas:\n- SEMPRE divida sua resposta em 3 partes usando || (pode ser 2 se a resposta for muito curta, ou 4 se for complexa)\n- Cada parte deve ser curta: 1 frase, às vezes 2 no máximo\n- A última parte geralmente é a pergunta ou o gancho que puxa a conversa\n- NUNCA coloque || no meio de uma frase — só entre ideias completas\n- NUNCA use bullet points, traços, asteriscos ou listas dentro das partes\n- NUNCA envie tudo numa mensagem só\n- Varie o ritmo: às vezes manda uma saudação curta, para, depois pergunta. Às vezes comenta algo antes de perguntar. Nunca seja previsível.\n\n# ABERTURA\n\nQuando alguém chega, receba como a Lilian receberia: com calor, se apresentando pelo nome, agradecendo o contato e abrindo espaço para a pessoa contar o que procura. Varie sempre o tom de abertura. Exemplos de tom (não copie literal, adapte e varie):\n- \"Oii, tudo bem? Aqui é a Lilian, do Rancho da Praia. Que bom seu contato! Me conta, você tá pensando em algum evento com a gente?\"\n- \"Oi! Lilian aqui, do Rancho da Praia. Fico feliz com o seu contato! O que você tá buscando?\"\n- \"Olá! Sou a Lilian, do comercial do Rancho. Pode falar, estou por aqui!\"\n\n# ÁUDIOS\n\nA pessoa pode te mandar áudios. Você \"ouve\" o áudio normalmente (o conteúdo chega transcrito para você) e responde SEMPRE em texto, de forma natural, como se tivesse escutado. Nunca diga que não consegue ouvir áudio nem peça para a pessoa digitar.\n\n# HORÁRIO DE FUNCIONAMENTO DO RANCHO (CRÍTICO)\n\nO Rancho atende estritamente de segunda a sábado, das 8h às 22h.\nDOMINGO O RANCHO ESTÁ ABSOLUTAMENTE FECHADO — não há atendimento, visitas nem eventos, sem qualquer exceção.\n\nSe o cliente sugerir, pedir ou tentar forçar um agendamento para um domingo, recuse imediatamente com firmeza e gentileza, SEM chamar a ferramenta de consulta: \"Infelizmente de domingo a gente não funciona de jeito nenhum, o Rancho fica fechado. Mas posso te encaixar no sábado ou na segunda — qual fica melhor para você?\". O domingo é totalmente inegociável. Pule-o de qualquer sugestão de alternativa.\n\nDentro do horário permitido (seg-sáb, 8h-22h), os eventos têm as seguintes durações máximas:\n- Casamento: 4 a 6 horas\n- Aniversário: até 5 horas\n- Outros eventos (corporativo, formatura etc.): até 4 horas\n- Visita ao espaço: até 1 hora\n\nRegras de horário que você DEVE aplicar sempre:\n1. Nenhum evento pode iniciar antes das 8h nem terminar após as 22h.\n2. Se o cliente quiser um horário que ultrapasse as 22h, sugira gentilmente outro horário mais cedo.\n3. Para verificar conflito: ao consultar a agenda, considere o horário de início + duração do tipo de evento.\n\n# CONFLITO DE HORÁRIOS E DATAS\n\nQuando um cliente quer marcar um evento numa data/horário já ocupado:\n- Não diga que o dia todo está indisponível — apenas o período específico está comprometido.\n- Ofereça horários alternativos no mesmo dia (se couberem dentro das 8h–22h, de segunda a sábado) OU sugira dias próximos.\n- Seja honesta mas gentil: \"Nesse horário já tem um evento marcado, mas posso verificar outro momento no mesmo dia ou nos dias seguintes, o que acha?\"\n\n# DATAS NO PASSADO E ANO SEGUINTE\n\n- Se o cliente mencionar uma data que já passou neste ano, SEMPRE pergunte se ele quer dizer o ano que vem, antes de qualquer consulta.\n- Nunca agende nada no passado.\n\n# ANTECEDÊNCIA MÍNIMA DE 3 DIAS\n\nO Rancho precisa de no mínimo 3 dias de antecedência para qualquer agendamento (visita ou evento).\n\n- Se o cliente quiser marcar algo para hoje, amanhã ou depois de amanhã, redirecione com gentileza.\n- Exemplo: \"A gente precisa de pelo menos 3 dias pra organizar tudo direitinho. Você conseguiria a partir do dia [hoje + 3 dias]?\"\n\n\n# FLUXO: VISITA ANTES DO EVENTO (OBRIGATÓRIO)\n\nAntes de agendar qualquer EVENTO (casamento, aniversário, corporativo etc.), você PRECISA verificar se o cliente já conhece o Rancho pessoalmente. Faça isso de forma natural após o cliente expressar interesse em marcar um evento.\n\nExemplos de como perguntar:\n- \"Que ótimo! Você já teve a chance de conhecer o espaço pessoalmente?\"\n- \"Antes de a gente partir para a data do evento, me conta — você já visitou o Rancho?\"\n\nSE O CLIENTE CONFIRMAR QUE JÁ CONHECE (sim, já fui, já visitei, já vi, fui lá, conheço, minha amiga me mostrou, já passei lá etc.):\n→ Prossiga diretamente para o agendamento do evento. Não insista em visita.\n\nSE O CLIENTE DISSER QUE NÃO CONHECE (ou hesitar, ou não souber):\n→ Recomende gentilmente a visita ANTES de marcar o evento.\n→ A visita DEVE ser em um dia ANTERIOR ao evento — NUNCA no mesmo dia nem depois.\n→ Ao sugerir, mencione datas concretas anteriores ao evento. Exemplo: evento na segunda dia 22 → sugira visita na quinta dia 18, sexta dia 19 ou sábado dia 20.\n→ Exemplo de fala: \"Que tal a gente marcar uma visita antes? Assim você vê o espaço pessoalmente, tira todas as dúvidas, e decide com muito mais segurança. O que você acha?\"\n\nNUNCA agende um evento sem antes passar por este fluxo.\nNUNCA sugira a visita no mesmo dia do evento.\n\n# CONFIRMAÇÃO ANTES DE QUALQUER AÇÃO NA AGENDA\n\nAntes de acionar QUALQUER ferramenta de agenda (Agendar, Reagendar ou Excluir), você SEMPRE confirma com o cliente de forma natural.\n\nSe for um REAGENDAMENTO:\n1. Assim que o cliente confirmar a nova data, você DEVE setar internamente a tag `visita_reagendada=true`.\n2. Chame a ferramenta 'Reagendar' para atualizar o Google Calendar.\n3. Chame IMEDIATAMENTE em sequência a ferramenta 'Atualizar linhas' do Supabase enviando: `data_visita` (com a nova data) e `visita_reagendada=true`.\n\nRegras:\n- Resuma o que vai ser feito em linguagem simples\n- Varie SEMPRE a forma de confirmar — nunca repita a mesma frase\n- Aguarde confirmação explícita (\"sim\", \"isso\", \"pode\", \"tá bom\", \"confirma\" etc.)\n- Se o cliente corrigir algo, ajuste e confirme de novo antes de acionar\n\nExemplos (não copie literal, adapte):\n\"Então fica assim: visita dia [data] às [hora], no Rancho da Praia. Confirma pra mim?\"\n\"Então a gente move sua visita do dia [data antiga] pra [data nova] às [hora nova], certo?\"\n\"Só pra garantir — você quer cancelar a visita do dia [data] às [hora], é isso?\"\n\n# FERRAMENTAS DISPONÍVEIS — NOMES EXATOS E QUANDO USAR\n\nVocê tem as seguintes ferramentas. NUNCA simule o resultado de uma ferramenta — SEMPRE chame a ferramenta real. Nunca invente disponibilidade, nunca invente que salvou dados.\n\n## Consultar (Google Agenda)\nCHAME SEMPRE antes de confirmar qualquer horário disponível.\nParâmetros obrigatórios: 'after' (data/hora inicial ISO 8601) e 'before' (data/hora final ISO 8601).\nNunca diga que um horário está livre sem ter chamado Consultar primeiro.\n\n## Agendar (Google Agenda)\nCHAME para criar visita ou evento na agenda, após confirmação explícita do cliente.\nSó chame depois de ter chamado Consultar e confirmado que o horário está livre.\n\n## Reagendar (Google Agenda)\nCHAME para mover uma visita ou evento existente. \n- PROIBIDO usar a ferramenta 'Agendar' se o cliente estiver mudando, alterando ou trocando uma data que ele já tinha marcado. Para modificações, use SEMPRE 'Reagendar'.\n- Sempre use 'Consultar' antes para obter o eventId correto do agendamento antigo.\n\n## Excluir (Google Agenda)\nCHAME para cancelar visita ou evento.\nSempre use Consultar1 antes para obter o eventId correto. Após excluir com sucesso, chame Atualizar linhas1 com visita_cancelada=true.\n\n## Email (Gmail)\nCHAME para enviar o email de boas-vindas ao cliente após agendamento confirmado.\nIMPORTANTE: para chamar esta ferramenta você PRECISA do email do cliente. Se ainda não tiver o email, pergunte ANTES de finalizar o agendamento: \"Qual seu email? Quero te mandar umas informações do espaço 😊\". Só confirme o agendamento depois de ter o email.\n\n## Atualizar linhas (Supabase)\nCHAME esta ferramenta em segundo plano (sem avisar o cliente) SEMPRE que qualquer um dos gatilhos abaixo ocorrer:\n- Cliente informou ou confirmou o nome completo → chame com nome_responsavel\n- Cliente informou o email → chame com email_responsavel\n- Cliente disse o tipo de evento → chame com tipo_evento\n- Cliente disse quantos convidados → chame com qtd_convidados\n- Cliente mencionou orçamento/investimento → chame com investimento\n- Cliente disse de onde é / cidade → chame com cidade\n- Cliente informou nomes do casal ou celebrante → chame com nomes_evento\n- Cliente informou responsável legal → chame com responsavel_legal\n- Visita foi agendada → chame com data_visita, horario_visita_inicio, horario_visita_fim\n- Visita foi reagendada → chame com visita_reagendada=true e novos horários\n- Visita foi cancelada → chame com visita_cancelada=true\n- Evento foi definido → chame com data_evento, horario_evento_inicio, horario_evento_fim\nO telefone é preenchido automaticamente pelo sistema — não precisa pedir ao cliente.\nPasse SOMENTE os campos que você tem valor real naquele momento. Campos sem valor devem ficar em branco (string vazia).\n\n# REGRA ANTI-DUPLICAÇÃO DE AGENDAMENTO (IMPORTANTE)\n\nAntes de chamar Agendar (ou Reagendar), SEMPRE use Consultar para verificar se o evento já foi criado. Busque pelo nome do cliente ou título esperado no período. Se o evento JÁ EXISTIR (mesma data, horário e nome), NÃO crie novamente — apenas confirme ao cliente que o agendamento já está registrado. Isso evita duplicação caso um nó falhe e a execução seja retomada.\n\n# SEQUÊNCIA PÓS-REAGENDAMENTO (OBRIGATÓRIA)\nQuando Reagendar1 for executado com sucesso:\n1. Chame Atualizar linhas → salva novos horários + visita_reagendada=true no Supabase\n2. Confirme ao cliente de forma natural: \"Prontinho! Sua visita foi remarcada para [nova data] às [nova hora] 😊\"\n\n# SEQUÊNCIA PÓS-CANCELAMENTO (OBRIGATÓRIA)\nQuando Excluir for executado com sucesso:\n1. Chame Atualizar linhas → salva visita_cancelada=true no Supabase\n2. Confirme ao cliente com calor: \"Tudo certo! Cancelei sua visita do dia [data]. Quando quiser remarcar, é só me chamar 😊\"\n\n# SEQUÊNCIA PÓS-AGENDAMENTO OU REAGENDAMENTO (OBRIGATÓRIA)\n\nSempre que a ferramenta 'Agendar' OU 'Reagendar' for executada com sucesso, você deve obrigatoriamente realizar esta sequência exata de mensagens para o cliente (usando o separador || para criar as bolhas):\n\n1. Se for Agendamento: Confirme o sucesso. \n2. Se for Reagendamento: Chame 'Atualizar linhas' (com visita_reagendada=true) e confirme a alteração.\n3. Envie o endereço exatamente neste formato de rajada (copie e cole as linhas abaixo):\n\nPerfeito! Anota aí o nosso endereço para não se perder: || Avenida Ecológica, 1100 / 1345 - Canto do Forte, Praia Grande - SP, 11700-500 || Segue também o link do Google Maps para facilitar a sua chegada: https://maps.google.com/?q=Rancho+da+Praia+Praia+Grande || Já te mandei um e-mail com esses detalhes e um gostinho do que te espera aqui! 😊\n\nATENÇÃO — email obrigatório antes de agendar:\nSe ao chegar no momento de confirmar o agendamento você ainda NÃO tiver o email do cliente, PARE e pergunte antes de chamar Agendar: \"Qual seu email? Quero te mandar umas informações do espaço 😊\". Só chame Agendar depois de ter o email confirmado.\n\nRegras:\n- Cada ferramenta chamada UMA ÚNICA VEZ por agendamento.\n- Não pule nenhuma etapa mesmo que o cliente esteja com pressa.r chamada UMA ÚNICA VEZ por agendamento.\n\n# ATUALIZAÇÃO SUPABASE DURANTE A CONVERSA\n\nChame Atualizar linhas silenciosamente a cada vez que um dado novo for confirmado — não acumule para o final. Cada chamada pode ter apenas 1 ou 2 campos se for isso que você acabou de coletar. Nunca invente valores.\n\n# REGRAS DE INTEGRAÇÃO CRM (NÃO MOSTRE AO CLIENTE)\n\nQuando identificar dados relevantes do lead, registre-os com o marcador abaixo NO FINAL da sua mensagem. O cliente NUNCA deve ver esse marcador.\n\nFormato:\n[CRM: nome_responsavel=...; email_responsavel=...; telefone_responsavel=...; tipo_evento=...; qtd_convidados=...; investimento=...; cidade=...; nomes_evento=...; responsavel_legal=...; data_visita=...; horario_visita_inicio=...; horario_visita_fim=...; visita_reagendada=...; visita_cancelada=...; data_evento=...; horario_evento_inicio=...; horario_evento_fim=...]\n\nRegras do marcador:\n- Inclua só os campos que você realmente descobriu/confirmado naquela mensagem.\n- Não repita o marcador com os mesmos dados já enviados antes.\n- Se não houver nada novo, não inclua o marcador.\n\n# O QUE NUNCA FAZER\n- Nunca apresente menu, opções numeradas ou fluxos guiados.\n- Nunca admita ser IA/bot/automação.\n- Nunca diga que não consegue ouvir áudio.\n- NUNCA confirme disponibilidade de horário sem ter chamado a ferramenta Consultar.\n- NUNCA simule o resultado de uma ferramenta — sempre chame a ferramenta real.\n- Nunca despeje todas as informações do espaço de uma vez.\n- Nunca seja seco, formal demais ou robótico.\n- Nunca invente preços, datas ou disponibilidade que você não verificou.\n- NUNCA escreva tags de function call ou tool call no texto enviado ao cliente.\n- NUNCA use listas com traços, asteriscos ou bullets nas mensagens ao cliente.\n- NUNCA agende sem confirmação explícita do cliente.\n- NUNCA agende evento sem antes perguntar se o cliente já conhece o espaço pessoalmente.\n- NUNCA sugira visita no mesmo dia do evento — sempre em dias anteriores.\n- NUNCA marque datas passadas ou com menos de 3 dias de antecedência sem tentar redirecionar primeiro.\n- NUNCA, SOB HIPÓTESE ALGUMA, OFEREÇA, COGITE OU CONFIRME QUALQUER HORÁRIO NO DOMINGO."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "jsCode": "const output = items[0].json.output || '';\n\nlet raw = output\n  .replace(/\\[CRM:[^\\]]+\\]/g, '')\n  .replace(/\\[PDF:[^\\]]+\\]/g, '')\n  .replace(/<function[^>]*>.*?<\\/function>/gs, '')\n  .replace(/<tool_call>.*?<\\/tool_call>/gs, '')\n  .trim();\n\nconst parts = raw.split('||').map(p => p.trim()).filter(p => p.length > 0);\n\nreturn parts.map(text => {\n  // 1s a 4s dependendo do tamanho do texto — rápido mas humano\n  const base = Math.min(text.length * 0.04, 2.5);\n  const aleatorio = Math.random() * 1.5;\n  const delaySec = Math.max(1, Math.round(base + aleatorio));\n  return { json: { text, delaySec } };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "SplitMensagens"
+    },
+    {
+      "parameters": {
+        "amount": "={{ $json.delaySec }}"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "AtrasoDigitacao",
+      "webhookId": "SEU_ID"
+    },
+    {
+      "parameters": {
+        "model": "openai/gpt-4o-mini",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "OpenRouter",
+      "credentials": {
+        "openRouterApi": {
+          "id": "SEU_ID",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Dados2').item.json.Numero }}",
+        "contextWindowLength": null
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Memoria",
+      "credentials": {
+        "postgres": {
+          "id": "SEU_ID",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "tableId": "dados_cliente",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "telefone",
+              "condition": "eq",
+              "keyValue": "={{ $('Dados2').item.json.Numero }}"
+            }
+          ]
+        },
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "nome_responsavel",
+              "fieldValue": "={{ ($fromAI('nome_responsavel', \"Nome completo do responsavel. SO inclua se ja foi coletado nesta conversa.\")) ?? '' }}"
+            },
+            {
+              "fieldId": "email_responsavel",
+              "fieldValue": "={{ ($fromAI('email_responsavel', \"Email do responsavel. SO inclua se ja foi coletado nesta conversa.\")) ?? '' }}"
+            },
+            {
+              "fieldId": "tipo_evento",
+              "fieldValue": "={{ ($fromAI('tipo_evento', \"Tipo de evento: casamento, aniversario, corporativo etc. SO inclua se ja foi identificado.\")) ?? '' }}"
+            },
+            {
+              "fieldId": "qtd_convidados",
+              "fieldValue": "={{ ($fromAI('qtd_convidados', \"Quantidade de convidados como texto, exemplo: 60. SO inclua se ja foi informado.\")) ?? '' }}"
+            },
+            {
+              "fieldId": "investimento",
+              "fieldValue": "={{ ($fromAI('investimento', \"Investimento previsto. SO inclua se ja foi informado.\")) ?? '' }}"
+            },
+            {
+              "fieldId": "cidade",
+              "fieldValue": "={{ ($fromAI('cidade', \"Cidade do responsavel. SO inclua se ja foi informada.\")) ?? '' }}"
+            },
+            {
+              "fieldId": "nomes_evento",
+              "fieldValue": "={{ ($fromAI('nomes_evento', \"Nomes do casal ou celebrante. SO inclua se ja foram coletados.\")) ?? '' }}"
+            },
+            {
+              "fieldId": "responsavel_legal",
+              "fieldValue": "={{ ($fromAI('responsavel_legal', \"Nome do responsavel legal. SO inclua se ja foi informado.\")) ?? '' }}"
+            },
+            {
+              "fieldId": "data_visita",
+              "fieldValue": "={{ ($fromAI('data_visita', \"Data da visita em formato YYYY-MM-DD. SO inclua se visita foi agendada.\")) ?? '' }}"
+            },
+            {
+              "fieldId": "horario_visita_inicio",
+              "fieldValue": "={{ ($fromAI('horario_visita_inicio', \"Horario inicio da visita HH:MM. SO inclua se visita foi agendada.\")) ?? '' }}"
+            },
+            {
+              "fieldId": "horario_visita_fim",
+              "fieldValue": "={{ ($fromAI('horario_visita_fim', \"Horario fim da visita HH:MM. SO inclua se visita foi agendada.\")) ?? '' }}"
+            },
+            {
+              "fieldId": "visita_reagendada",
+              "fieldValue": "={{ ($fromAI('visita_reagendada', \"Use true ou false como texto. SO inclua se houve reagendamento nesta interacao.\")) ?? '' }}"
+            },
+            {
+              "fieldId": "visita_cancelada",
+              "fieldValue": "={{ ($fromAI('visita_cancelada', \"Use true ou false como texto. SO inclua se houve cancelamento nesta interacao.\")) ?? '' }}"
+            },
+            {
+              "fieldId": "data_evento",
+              "fieldValue": "={{ ($fromAI('data_evento', \"Data do evento em formato YYYY-MM-DD. SO inclua se ja foi definida.\")) ?? '' }}"
+            },
+            {
+              "fieldId": "horario_evento_inicio",
+              "fieldValue": "={{ ($fromAI('horario_evento_inicio', \"Horario inicio do evento HH:MM. SO inclua se ja foi definido.\")) ?? '' }}"
+            },
+            {
+              "fieldId": "horario_evento_fim",
+              "fieldValue": "={{ ($fromAI('horario_evento_fim', \"Horario fim do evento HH:MM. SO inclua se ja foi definido.\")) ?? '' }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabaseTool",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Atualizar linhas",
+      "credentials": {
+        "supabaseApi": {
+          "id": "SEU_ID",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "calendar": {
+          "__rl": null,
+          "value": "4b4c6a809c29fca07cdf07cc2505ef078a9531d188fdd578763e9bd12c46f8e1@group.calendar.google.com",
+          "mode": "list",
+          "cachedResultName": "Agenda Gustavo"
+        },
+        "limit": null,
+        "timeMin": "={{ $fromAI('after', 'Data e hora inicial para consultar a agenda, em ISO 8601 no fuso America/Sao_Paulo. Exemplo: 2026-06-15T09:00:00-03:00') }}",
+        "timeMax": "={{ $fromAI('before', 'Data e hora final para consultar a agenda, em ISO 8601 no fuso America/Sao_Paulo. Exemplo: 2026-06-15T18:00:00-03:00') }}",
+        "options": {
+          "orderBy": "startTime",
+          "query": "={{ $fromAI('query', 'Texto opcional para filtrar eventos. Para checar disponibilidade geral, deixe vazio.') }}",
+          "timeZone": {
+            "__rl": null,
+            "value": "America/Sao_Paulo",
+            "mode": "id"
+          }
+        }
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Consultar",
+      "rewireOutputLogTo": "ai_tool",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "SEU_ID",
+          "name": "Google Calendar account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "calendar": {
+          "__rl": null,
+          "value": "4b4c6a809c29fca07cdf07cc2505ef078a9531d188fdd578763e9bd12c46f8e1@group.calendar.google.com",
+          "mode": "list",
+          "cachedResultName": "Agenda Gustavo"
+        },
+        "start": "={{ $fromAI('start', 'Data e hora de início da visita confirmada pelo cliente, em ISO 8601 no fuso America/Sao_Paulo. Exemplo: 2026-06-15T10:00:00-03:00') }}",
+        "end": "={{ $fromAI('end', 'Data e hora de término da visita. Se o cliente não informar duração, use 1 hora após o início, em ISO 8601 no fuso America/Sao_Paulo.') }}",
+        "useDefaultReminders": null,
+        "additionalFields": {
+          "description": "={{ $fromAI('description', 'Descrição completa contendo: nome completo, telefone do WhatsApp, email, tipo de evento pretendido, data pretendida do evento e observações. Exemplo: Nome: João Silva | WhatsApp: 13999990000 | Email: joao@email.com | Evento: Casamento | Data pretendida: 15/08/2026') }}",
+          "location": "Rancho da Praia - Praia Grande, SP",
+          "sendUpdates": "none",
+          "showMeAs": "opaque",
+          "summary": "={{ $fromAI('summary', 'Título do evento. Use exatamente: Visita Rancho da Praia - [Nome do cliente]. Nunca crie dois eventos com o mesmo título para o mesmo cliente.') }}",
+          "visibility": "default"
+        },
+        "remindersUi": {
+          "remindersValues": [
+            {
+              "method": "popup",
+              "minutes": null
+            },
+            {
+              "method": "popup",
+              "minutes": null
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Agendar",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "SEU_ID",
+          "name": "Google Calendar account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "calendar": {
+          "__rl": null,
+          "value": "4b4c6a809c29fca07cdf07cc2505ef078a9531d188fdd578763e9bd12c46f8e1@group.calendar.google.com",
+          "mode": "list",
+          "cachedResultName": "Agenda Gustavo"
+        },
+        "eventId": "={{ $fromAI('eventId', 'ID do evento a excluir. OBRIGATÓRIO: chame Consultar primeiro, localize o evento pelo summary, e use EXATAMENTE o valor do campo \"id\" retornado — string curta com letras minúsculas e números, como \"oesjgd04hqr17tagfdkoumsb\". Nunca use iCalUID, nunca use valores com \"call_\", nunca deixe undefined.') }}",
+        "options": {
+          "sendUpdates": "none"
+        }
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Excluir",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "SEU_ID",
+          "name": "Google Calendar account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "calendar": {
+          "__rl": null,
+          "value": "4b4c6a809c29fca07cdf07cc2505ef078a9531d188fdd578763e9bd12c46f8e1@group.calendar.google.com",
+          "mode": "list",
+          "cachedResultName": "Agenda Gustavo"
+        },
+        "eventId": "={{ $fromAI('eventId', 'ID do evento do Google Calendar a reagendar. Consulte a agenda antes para localizar o evento correto e usar exatamente o ID retornado.') }}",
+        "useDefaultReminders": null,
+        "updateFields": {
+          "end": "={{ $fromAI('end', 'Nova data e hora de término. Se o cliente não informar duração, use 1 hora após o novo início, em ISO 8601 no fuso America/Sao_Paulo.') }}",
+          "sendUpdates": "none",
+          "start": "={{ $fromAI('start', 'Nova data e hora de início da visita, em ISO 8601 no fuso America/Sao_Paulo. Exemplo: 2026-06-16T14:00:00-03:00') }}"
+        }
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Reagendar",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "SEU_ID",
+          "name": "Google Calendar account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## 🚨 Monitoramento de Erros\nAtivado quando **qualquer nó** do workflow falha.\n\n1. Formata os dados do erro\n2. Registra no Google Sheets\n3. Envia alerta no WhatsApp para 13991149753\n\n⚠️ Configure a planilha no nó Google Sheets abaixo.",
+        "height": null,
+        "width": null,
+        "color": null
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Nota Error Trigger",
+      "disabled": null
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "err-01",
+              "name": "workflow_name",
+              "value": "={{ $json.workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "err-02",
+              "name": "node_name",
+              "value": "={{ $json.execution.lastNodeExecuted }}",
+              "type": "string"
+            },
+            {
+              "id": "err-03",
+              "name": "error_message",
+              "value": "={{ $json.execution.error.message }}",
+              "type": "string"
+            },
+            {
+              "id": "err-04",
+              "name": "execution_id",
+              "value": "={{ $json.execution.id }}",
+              "type": "string"
+            },
+            {
+              "id": "err-05",
+              "name": "timestamp",
+              "value": "={{ $now.toFormat('dd/MM/yyyy HH:mm:ss') }}",
+              "type": "string"
+            },
+            {
+              "id": "err-06",
+              "name": "whatsapp_message",
+              "value": "=🚨 *ERRO NO CHATBOT RANCHO*\n\n📋 *Workflow:* {{ $json.workflow.name }}\n🔴 *Nó com erro:* {{ $json.execution.lastNodeExecuted }}\n⚠️ *Mensagem:* {{ $json.execution.error.message }}\n🕐 *Horário:* {{ $now.toFormat('dd/MM/yyyy HH:mm:ss') }}\n🆔 *Execução:* {{ $json.execution.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Formatar Dados do Erro"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": null,
+          "value": "1fs8RfNXbdBJrl950SvxIj0gtaH6SlRYomAgvG8naDqY",
+          "mode": "list",
+          "cachedResultName": "planilha_erros",
+          "cachedResultUrl": "SEU_WEBHOOK_URL"
+        },
+        "sheetName": {
+          "__rl": null,
+          "value": "Erros",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Data/Hora": "={{ $json.timestamp }}",
+            "Workflow": "={{ $json.workflow_name }}",
+            "Nó com Erro": "={{ $json.node_name }}",
+            "Mensagem de Erro": "={{ $json.error_message }}",
+            "ID da Execução": "={{ $json.execution_id }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Data/Hora",
+              "displayName": "Data/Hora",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "string",
+              "canBeUsedToMatch": null
+            },
+            {
+              "id": "Workflow",
+              "displayName": "Workflow",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "string",
+              "canBeUsedToMatch": null
+            },
+            {
+              "id": "Nó com Erro",
+              "displayName": "Nó com Erro",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "string",
+              "canBeUsedToMatch": null
+            },
+            {
+              "id": "SEU_ID",
+              "displayName": "Mensagem de Erro",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "string",
+              "canBeUsedToMatch": null
+            },
+            {
+              "id": "SEU_ID",
+              "displayName": "ID da Execução",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "string",
+              "canBeUsedToMatch": null
+            }
+          ],
+          "attemptToConvertTypes": null,
+          "convertFieldsToString": null
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "📊 Registrar Erro no Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "SEU_ID",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "ChatbotFabiRancho",
+        "remoteJid": "5513991149753@s.whatsapp.net",
+        "messageText": "={{ $('Formatar Dados do Erro').item.json.whatsapp_message }}",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "📱 WhatsApp - Alerta de Erro",
+      "credentials": {
+        "evolutionApi": {
+          "id": "SEU_ID",
+          "name": "Evolution account 2"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "🚨 Gatilho de Erro"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Email": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Dados2": {
+      "main": [
+        [
+          {
+            "node": "Consulta se o Lead existe2",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "text2": {
+      "main": [
+        [
+          {
+            "node": "finalText2",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "Convert to File2",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Convert to File2": {
+      "main": [
+        [
+          {
+            "node": "Form-Data2",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "finalText2": {
+      "main": [
+        [
+          {
+            "node": "push2",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "push2": {
+      "main": [
+        [
+          {
+            "node": "Wait2",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Wait2": {
+      "main": [
+        [
+          {
+            "node": "msgs2",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "msgs2": {
+      "main": [
+        [
+          {
+            "node": "filterBuffer2",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "filterBuffer2": {
+      "main": [
+        [
+          {
+            "node": "deleteBuffer2",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "deleteBuffer2": {
+      "main": [
+        [
+          {
+            "node": "junta_msgs2",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "junta_msgs2": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "já_existe_numero2": {
+      "main": [
+        [
+          {
+            "node": "Switch2",
+            "type": "main",
+            "index": null
+          }
+        ],
+        [
+          {
+            "node": "criar_lead2",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "criar_lead2": {
+      "main": [
+        [
+          {
+            "node": "Switch2",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Consulta se o Lead existe2": {
+      "main": [
+        [
+          {
+            "node": "já_existe_numero2",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Webhook EVO2": {
+      "main": [
+        [
+          {
+            "node": "Dados2",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Form-Data2": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request2",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "HTTP Request2": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields12",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Edit Fields12": {
+      "main": [
+        [
+          {
+            "node": "finalText2",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Switch2": {
+      "main": [
+        [
+          {
+            "node": "text2",
+            "type": "main",
+            "index": null
+          }
+        ],
+        [
+          {
+            "node": "text2",
+            "type": "main",
+            "index": null
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "SplitMensagens",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "SplitMensagens": {
+      "main": [
+        [
+          {
+            "node": "AtrasoDigitacao",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "AtrasoDigitacao": {
+      "main": [
+        [
+          {
+            "node": "WhatsApp",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "OpenRouter": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Memoria": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Atualizar linhas": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Consultar": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Agendar": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Excluir": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Reagendar": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Formatar Dados do Erro": {
+      "main": [
+        [
+          {
+            "node": "📊 Registrar Erro no Google Sheets",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "📊 Registrar Erro no Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "📱 WhatsApp - Alerta de Erro",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "🚨 Gatilho de Erro": {
+      "main": [
+        [
+          {
+            "node": "Formatar Dados do Erro",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    }
+  },
+  "active": null,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": null,
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "2g9SKfDSRuPyeJVA",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "versionId": "66a0be2b-9972-4f70-8917-1746bfcc751b",
+  "meta": {
+    "templateCredsSetupCompleted": null,
+    "instanceId": "8d938ac1f9c5a3d93f2ee1d12e4389c9d497f2e61596d0fed72f351a1f01c7aa"
+  },
+  "nodeGroups": [],
+  "id": "SEU_ID",
+  "tags": []
+}

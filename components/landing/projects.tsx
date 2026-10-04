@@ -14,10 +14,10 @@ const projects = [
     description: "Sistema completo que automatiza a criação de assinaturas de email corporativas. O usuário acessa um formulário, preenche Nome, Cargo, Telefone, Email e foto empresarial. A automação n8n processa e gera a assinatura formatada automaticamente, enviando via WhatsApp pronta para uso. Economia de tempo e padronização visual garantida.",
     tags: ["n8n", "Webhooks", "Formulário Web", "Processamento de Imagem", "WhatsApp API", "Gmail", "Automação Corporativa"],
     liveUrl: null,
-    githubUrl: null,
+    githubUrl: "https://github.com/GustavoDiasdeOliveira/Projetos-N8N",
     gradient: "from-[#00D4AA] to-[#00A88C]",
-    status: "Em produção",
-    image: null,
+    status: "Em desenvolvimento",
+    image: "/automation-signature-cover.png",
     featured: true,
   },
   {
@@ -27,10 +27,10 @@ const projects = [
     description: "Workflow automatizado que dispara cartões digitais personalizados para aniversariantes e novos colaboradores. Integrado com calendários e base de dados, envia via email ou WhatsApp com mensagens customizadas. Aumenta engajamento e humaniza a comunicação interna.",
     tags: ["n8n", "Calendário de Eventos", "Geração de Imagens", "WhatsApp/Email", "Personalização", "RPA"],
     liveUrl: null,
-    githubUrl: null,
+    githubUrl: "https://github.com/GustavoDiasdeOliveira/Projetos-N8N",
     gradient: "from-[#FF6B6B] to-[#FF8E72]",
-    status: "Em produção",
-    image: null,
+    status: "Em desenvolvimento",
+    image: "/automation-welcome-cover.png",
     featured: true,
   },
   {
@@ -40,10 +40,10 @@ const projects = [
     description: "Agente conversacional de IA completo que funciona 24/7. Realiza cadastro de clientes, coleta biometria e objetivos de treino. Gera planos alimentares personalizados (7 dias) com IA (Gemini/OpenAI), documenta em Google Docs formatado e envia por email. Integrado com Google Sheets para gestão de alunos.",
     tags: ["n8n", "IA Agent", "Google Sheets", "Google Docs", "Gemini/OpenAI", "Gmail", "Webhook Chat"],
     liveUrl: null,
-    githubUrl: null,
+    githubUrl: "https://github.com/GustavoDiasdeOliveira/Projetos-N8N",
     gradient: "from-[#667EEA] to-[#764BA2]",
     status: "Em produção",
-    image: null,
+    image: "/automation-nutrition-cover.png",
     featured: true,
   },
   {
@@ -53,23 +53,23 @@ const projects = [
     description: "Agente \"Fabi\" inteligente em produção operando 24/7. Atendimento comercial completo: qualificação de leads, agendamento de eventos, respostas a dúvidas. Integração com RD Station CRM, Google Calendar, Calendly e Supabase. Self-hosted em Docker com Evolution API. Histórico em Redis e suporte total via WhatsApp.",
     tags: ["n8n", "Evolution API Docker", "RD Station", "Calendly", "Supabase", "Redis", "WhatsApp Business", "Production"],
     liveUrl: null,
-    githubUrl: null,
+    githubUrl: "https://github.com/GustavoDiasdeOliveira/Projetos-N8N",
     gradient: "from-[#00D4FF] to-[#0066FF]",
     status: "Em produção",
-    image: null,
+    image: "/automation-chatbot-cover.png",
     featured: true,
   },
   {
     title: "Dashboard de Ativos TI & Automação — Mar Brasil",
-    type: "Power BI & Automação",
-    category: "Automações",
-    description: "Sistema de monitoramento e controle de inventário de TI. Integra MaaS360 (MDM) e Auvo 2.0 automaticamente via n8n. Dashboard Power BI em tempo real para tomada de decisão. Fornece insights sobre ativos, contratos e manutenção preventiva.",
-    tags: ["n8n", "Power BI", "MaaS360", "Auvo 2.0", "BI", "Data Pipeline", "Production"],
+  type: "Automação Low-Code",
+  category: "Automações",
+  description: "Sistema de monitoramento e controle de inventário de TI com integração entre MaaS360 (MDM), Auvo 2.0 e fluxos n8n. Automatiza a coleta, sincronização e organização de dados operacionais.",
+  tags: ["n8n", "MaaS360", "Auvo 2.0", "Webhooks", "Data Pipeline", "Production"],
     liveUrl: null,
-    githubUrl: null,
+    githubUrl: "https://github.com/GustavoDiasdeOliveira/Projetos-N8N",
     gradient: "from-[#FF9500] to-[#FF6B35]",
-    status: "Em produção",
-    image: null,
+    status: "Em desenvolvimento",
+    image: "/automation-it-assets-cover.png",
   },
   {
     title: "Site + AI Agent — Clínica Vita Saúde (\"Sofia\")",
@@ -250,9 +250,22 @@ export function Projects() {
                     </a>
                   )}
                   {project.category === "Automações" ? (
-                    <span className="px-3.5 py-1.5 rounded-full bg-white/20 border border-white/30 backdrop-blur-sm text-white text-xs font-medium shadow-md">
-                      Fluxo de Automação
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <span className="px-3.5 py-1.5 rounded-full bg-white/20 border border-white/30 backdrop-blur-sm text-white text-xs font-medium shadow-md">
+                        Fluxo de Automação
+                      </span>
+                      {project.githubUrl && (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-2.5 sm:p-3 rounded-full bg-white/20 hover:bg-white/30 transition-colors"
+                          aria-label="Abrir projeto no GitHub"
+                        >
+                          <Github className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                        </a>
+                      )}
+                    </div>
                   ) : (
                     <>
                       {project.liveUrl && project.status !== 'Em desenvolvimento' && (

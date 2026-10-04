@@ -1,0 +1,594 @@
+{
+  "name": "PARTE 2 - NUTRIÇÃO - Assistente dietas nutricionista",
+  "nodes": [
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": null,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": null
+          },
+          "conditions": [
+            {
+              "id": "SEU_ID",
+              "leftValue": "={{ $json.nome }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": null
+              }
+            },
+            {
+              "id": "SEU_ID",
+              "leftValue": "={{ $json.Email }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": null
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "SEU_ID",
+              "name": "nome",
+              "value": "={{ $json.nome }}",
+              "type": "string"
+            },
+            {
+              "id": "SEU_ID",
+              "name": "email",
+              "value": "={{ $json.Email }}",
+              "type": "string"
+            },
+            {
+              "id": "SEU_ID",
+              "name": "idade",
+              "value": "={{ $json.idade }}",
+              "type": "string"
+            },
+            {
+              "id": "SEU_ID",
+              "name": "genero",
+              "value": "={{ $json.genero }}",
+              "type": "string"
+            },
+            {
+              "id": "SEU_ID",
+              "name": "peso_kg",
+              "value": "={{ $json.peso }}",
+              "type": "string"
+            },
+            {
+              "id": "SEU_ID",
+              "name": "altura_cm",
+              "value": "={{ $json.altura }}",
+              "type": "string"
+            },
+            {
+              "id": "SEU_ID",
+              "name": "objetivo",
+              "value": "={{ $json.objetivo }}",
+              "type": "string"
+            },
+            {
+              "id": "SEU_ID",
+              "name": "treinos_por_semana",
+              "value": "={{ $json.treinos_por_semana }}",
+              "type": "string"
+            },
+            {
+              "id": "SEU_ID",
+              "name": "restricoes",
+              "value": "={{ $json['restrições'] }}",
+              "type": "string"
+            },
+            {
+              "id": "SEU_ID",
+              "name": "alergias",
+              "value": "={{ $json.alergias }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Campos"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "No Operation, do nothing"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": null,
+          "value": "models/gemini-2.5-flash",
+          "mode": "list",
+          "cachedResultName": "models/gemini-2.5-flash"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.output.parts[0].text }}"
+            },
+            {
+              "content": "=Seu objetivo é criar um template simples para email contendo todas informações do plano alimentar fornecido pelo usuário.\n\n# Regras:\n**NUNCA** Crie informações extras que não estejam no plano alimentar\n**NUNCA** Crie botões ou links ou CTA extras.\n\n# Objetivo:\n- Seu objetivo é criar uma forma melhor de visualizar o email com as informações que é um plano alimentar (dieta) do meu cliente.\n\n# Saída: \nSua saida deve ser o template HTML para enviar no conteúdo do email, como é um template de email pode colocar todo template dentro da tag <body> sem a necessisdade de Doctype, head."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Gerar template email",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "SEU_ID",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// PEGAR O RETORNO DO GEMINI\nlet content = $input.first().json.content.parts[0].text;\n\ncontent = content.replace(/```html/i, \"\").replace(/```/g, \"\").trim()\n\nreturn [ { html: content } ];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Campos').item.json.email }}",
+        "subject": "=Plano alimentar 7 dias - {{ $('Campos').item.json.nome }}",
+        "message": "={{ $json.html }}",
+        "options": {
+          "appendAttribution": null
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Enviar email",
+      "webhookId": "SEU_ID",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "SEU_ID",
+          "name": "Gmail account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "folderId": "1vK-pe6SQsYPEDsWDBzUkUo73ah5tJhql",
+        "title": "=Plano alimentar 7 dias - {{ $('Dados usuario').item.json.nome }}"
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Create a document",
+      "disabled": null
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "={{ $json.id }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": "={{ $('Assistente Nutricionista').item.json.output }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Update a document",
+      "disabled": null
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": null,
+          "value": "models/gemini-2.5-flash",
+          "mode": "list",
+          "cachedResultName": "models/gemini-2.5-flash"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "Você é o assistente nutricionista de uma clínica de nutrição. Você recebe os dados de um aluno já cadastrado e sua tarefa é gerar um plano alimentar (dieta) de 7 dias personalizado.\n\n# Regras:\n- Baseie o plano no objetivo do aluno (hipertrofia, emagrecimento, etc.), idade, peso, altura, gênero, quantidade de treinos por semana, restrições alimentares e alergias informadas.\n- NUNCA inclua um alimento que esteja nas alergias ou restrições do cliente.\n- Use alimentos comuns e de fácil acesso no Brasil.\n- Cada dia deve ter 5 refeições: Café da manhã, Lanche da manhã, Almoço, Lanche da tarde, Jantar.\n- Varie os alimentos entre os dias para não repetir a mesma refeição.\n\n# Formato de saída (siga sempre esta estrutura):\n- Título: \"Plano alimentar de 7 dias - [nome do aluno]\"\n- Resumo curto (2-3 frases) explicando o foco do plano de acordo com o objetivo do aluno\n- Perfil do cliente: gênero, idade, altura, peso, objetivo, treinos por semana, restrições, alergia\n- Plano de 7 dias (Segunda-feira a Domingo), cada dia com as 5 refeições listadas\n- Dicas rápidas ao final (hidratação, preparo antecipado das refeições, variação de treinos)"
+            },
+            {
+              "content": "=Dados do cliente:\nGenero: {{ $json.genero }}\nNome: {{ $json.nome }}\nIdade: {{ $json.idade }} \nObjetivo: {{ $json.objetivo }}\nAltura em cm: {{ $json.altura_cm }}\nPeso em kg: {{ $json.peso_kg }}\nObjetivo: {{ $json.objetivo }}\nTreinos por semana: {{ $json.treinos_por_semana }}\nrestricoes: {{ $json.restricoes }}\nalergia: {{ $json.alergias }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Assistente Nutricionista",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "SEU_ID",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Normaliza a saída do Gemini pro mesmo formato que o resto do fluxo espera ('output')\nconst data = $input.first().json;\nconst texto = data.content ?? data.text ?? data?.candidates?.[0]?.content?.parts?.[0]?.text ?? '';\nreturn [{ output: texto }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Normalizar saída Gemini"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": null,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": null
+          },
+          "conditions": [
+            {
+              "id": "SEU_ID",
+              "leftValue": "={{ $json.output.parts[0].text }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": null
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "email"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": null,
+          "value": "1_POAyed_Nh_BFo6BK2stf6aU4vg3mhVrvXJfmX7HcPM",
+          "mode": "list",
+          "cachedResultName": "Clinica nutrição",
+          "cachedResultUrl": "SEU_WEBHOOK_URL"
+        },
+        "sheetName": {
+          "__rl": null,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "aluno",
+          "cachedResultUrl": "SEU_WEBHOOK_URL"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Email",
+              "lookupValue": "={{ $json.email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Buscar aluno",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "SEU_ID",
+          "name": "Google Sheets account"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "When Executed by Another Workflow": [
+      {
+        "json": {
+          "email": "mariana.ribeiro.fit@gmail.com"
+        }
+      }
+    ],
+    "Assistente Nutricionista": [
+      {
+        "json": {
+          "content": {
+            "parts": [
+              {
+                "text": "Olá, Mariana! Que bom ter você aqui na clínica. Com base nos seus dados e no seu objetivo de emagrecimento, preparei um plano alimentar focado em refeições nutritivas, saborosas e que te ajudarão a alcançar suas metas de forma saudável e sustentável. Este plano visa promover a saciedade, fornecer energia para seus treinos e otimizar a queima de gordura, sempre respeitando sua intolerância à lactose e alergia a camarão.\n\n## Plano alimentar de 7 dias - Mariana Alves Ribeiro\n\nEste plano alimentar foi cuidadosamente elaborado para você, Mariana, com foco no emagrecimento saudável. As refeições são ricas em nutrientes, proteínas magras e fibras para promover a saciedade e auxiliar na perda de peso, considerando sua rotina de 4 treinos semanais. A variedade de alimentos garante que você receba todos os macro e micronutrientes necessários, sem abrir mão do sabor e da praticidade.\n\n**Perfil do cliente:**\n*   **Gênero:** Feminino\n*   **Idade:** 35 anos\n*   **Altura:** 165 cm\n*   **Peso:** 74 kg\n*   **Objetivo:** Emagrecimento\n*   **Treinos por semana:** 4\n*   **Restrições:** Intolerância à lactose\n*   **Alergia:** Camarão\n\n---\n\n### Plano de 7 dias\n\n**Segunda-feira**\n*   **Café da manhã:** Tapioca média com 2 ovos mexidos (preparados com azeite ou manteiga sem lactose) e uma fatia de queijo vegano ou zero lactose. Café puro ou com bebida vegetal.\n*   **Lanche da manhã:** 1 maçã média e um punhado (30g) de castanhas do Pará ou amêndoas.\n*   **Almoço:** 1 filé de frango grelhado (120g), 4 colheres de sopa de arroz integral, 1 concha média de feijão, e salada mista à vontade (alface, tomate, pepino, cenoura ralada) temperada com azeite e limão.\n*   **Lanche da tarde:** 1 pote de iogurte natural zero lactose com 1/2 xícara de frutas vermelhas (morango, mirtilo) e 1 colher de sopa de chia.\n*   **Jantar:** Sopa de legumes variados (abobrinha, cenoura, chuchu, espinafre) com 100g de frango desfiado.\n\n**Terça-feira**\n*   **Café da manhã:** Mingau de aveia (4 colheres de sopa de aveia em flocos finos com 200ml de bebida vegetal ou água), com 1 banana picada e canela em pó.\n*   **Lanche da manhã:** 1 pera média.\n*   **Almoço:** 1 posta média de tilápia assada ou grelhada (120g), 3 colheres de sopa de purê de batata doce (preparado com bebida vegetal), e brócolis cozido no vapor à vontade.\n*   **Lanche da tarde:** 2 torradas integrais com 1 colher de sopa de pasta de amendoim integral.\n*   **Jantar:** Omelete feito com 2 ovos, recheado com espinafre, tomate e cebola, acompanhado de uma porção de salada de folhas verdes.\n\n**Quarta-feira**\n*   **Café da manhã:** 2 fatias de pão integral com 1/2 abacate amassado e 1 ovo cozido.\n*   **Lanche da manhã:** Vitamina preparada com 1 copo de bebida vegetal, 1/2 mamão papaia e 1 colher de sopa de aveia.\n*   **Almoço:** 100g de carne moída magra refogada, 4 colheres de sopa de purê de abóbora, e couve refogada à vontade.\n*   **Lanche da tarde:** 1 xícara de cenouras baby com 2 colheres de sopa de hommus (pasta de grão de bico).\n*   **Jantar:** 1 wrap integral recheado com 100g de frango desfiado, alface, tomate e um molho leve de iogurte zero lactose com ervas.\n\n**Quinta-feira**\n*   **Café da manhã:** Crepioca (1 ovo + 2 colheres de sopa de tapioca) recheada com 80g de frango desfiado e 1 colher de sopa de requeijão zero lactose.\n*   **Lanche da manhã:** 1 tangerina.\n*   **Almoço:** 1 filé médio de salmão grelhado (120g) (se preferir ou para economizar, pode ser tilápia), 4 colheres de sopa de quinoa cozida, e uma porção de vagem salteada.\n*   **Lanche da tarde:** 1 punhado (30g) de castanhas variadas (caju, do Pará) e 10 uvas.\n*   **Jantar:** Sanduíche natural com 2 fatias de pão integral, recheado com 1 lata pequena de atum em água (escorrido), alface, tomate e cenoura ralada.\n\n**Sexta-feira**\n*   **Café da manhã:** Tigela de frutas picadas (1/2 mamão papaia, 1 xícara de morangos, 1 kiwi) com 1 colher de sopa de sementes de linhaça.\n*   **Lanche da manhã:** 1 pote de iogurte natural zero lactose com um fio de mel (opcional).\n*   **Almoço:** 1 bife grelhado (patinho ou alcatra, 120g), 4 colheres de sopa de arroz integral, 1 concha de lentilha, e salada de beterraba cozida e pepino.\n*   **Lanche da tarde:** 2 bolachas de arroz com 1 colher de sopa de pasta de amendoim.\n*   **Jantar:** Pizza de frigideira individual com massa integral, molho de tomate caseiro, frango desfiado, legumes (pimentão, cebola) e queijo vegano ou zero lactose.\n\n**Sábado**\n*   **Café da manhã:** Ovos mexidos (2 ovos) com tomate picado e espinafre, acompanhado de 2 fatias de pão integral.\n*   **Lanche da manhã:** Smoothie de frutas vermelhas (1 xícara de frutas vermelhas congeladas, 1 copo de bebida de amêndoas ou coco) e 1 colher de sopa de aveia.\n*   **Almoço:** Feijão preto com carne seca desfiada magra (dessalgada e cozida, 80g), 4 colheres de sopa de arroz integral, e couve refogada à vontade.\n*   **Lanche da tarde:** 4 damascos secos e 1 punhado (20g) de amêndoas.\n*   **Jantar:** Escondidinho individual de batata doce (150g de purê) com 100g de carne seca desfiada e refogada (sem lactose).\n\n**Domingo**\n*   **Café da manhã:** Panquecas de banana (feitas com 1 banana amassada, 1 ovo, 2 colheres de sopa de aveia) com calda de frutas (morango cozido com um pouco de água) e um pouco de leite de coco por cima.\n*   **Lanche da manhã:** 1 fatia grande de melancia em cubos.\n*   **Almoço:** 1 pedaço médio de frango assado (coxa ou sobrecoxa sem pele, 150g), 4 colheres de sopa de batatas rústicas (assadas com azeite e alecrim), e salada de folhas verdes variadas.\n*   **Lanche da tarde:** 3 colheres de sopa de guacamole com palitos de cenoura e pepino.\n*   **Jantar:** Salada de grão de bico (1 xícara cozida) com atum em água (1 lata pequena, escorrido), pepino, tomate, pimentão e salsinha, temperada com azeite e limão.\n\n---\n\n### Dicas rápidas para o seu dia a dia:\n\n1.  **Hidrate-se:** Beba bastante água ao longo do dia, no mínimo 2 litros. Tenha sempre uma garrafa de água por perto para te lembrar.\n2.  **Planejamento e Preparo:** Reserve um tempo no fim de semana para planejar suas refeições e, se possível, deixar alguns alimentos pré-preparados (cozinhar o frango, lavar e picar os vegetais). Isso facilita muito a adesão à dieta.\n3.  **Variação nos Treinos:** Continue com seus 4 treinos semanais. A combinação de uma alimentação equilibrada com exercícios físicos é fundamental para alcançar seus objetivos de emagrecimento de forma eficaz.\n4.  **Ouça seu corpo:** Este plano é um guia. Se sentir fome entre as refeições, opte por mais vegetais, frutas ou pequenas porções de oleaginosas (respeitando as quantidades diárias).\n5.  **Desfrute:** A alimentação saudável não precisa ser monótona. Explore temperos naturais e diferentes formas de preparo para tornar suas refeições ainda mais saborosas.\n\nSeja consistente e celebre cada pequena vitória. Estamos aqui para te apoiar em sua jornada!"
+              }
+            ],
+            "role": "model"
+          },
+          "finishReason": "STOP",
+          "index": null
+        },
+        "pairedItem": {
+          "item": null
+        }
+      }
+    ],
+    "Campos": [
+      {
+        "json": {
+          "nome": "Mariana Alves Ribeiro",
+          "email": "mariana.ribeiro.fit@gmail.com",
+          "idade": "35 anos",
+          "genero": "Feminino",
+          "peso_kg": "74",
+          "altura_cm": "165",
+          "objetivo": "Emagrecimento",
+          "treinos_por_semana": "4",
+          "restricoes": "Intolerância à lactose",
+          "alergias": "camarão"
+        },
+        "pairedItem": {
+          "item": null
+        }
+      }
+    ],
+    "Gerar template email": [
+      {
+        "json": {
+          "content": {
+            "parts": [
+              {
+                "text": "```html\n<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 20px auto; background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; box-shadow: 0 0 10px rgba(0,0,0,0.05);\">\n\n    <!-- Header Introduction -->\n    <div style=\"background-color: #f7f7f7; padding: 20px; text-align: center; border-bottom: 1px solid #e0e0e0;\">\n        <p style=\"font-size: 16px; color: #333333; margin: 0; line-height: 1.5;\">Olá, Mariana! Que bom ter você aqui na clínica. Com base nos seus dados e no seu objetivo de emagrecimento, preparei um plano alimentar focado em refeições nutritivas, saborosas e que te ajudarão a alcançar suas metas de forma saudável e sustentável. Este plano visa promover a saciedade, fornecer energia para seus treinos e otimizar a queima de gordura, sempre respeitando sua intolerância à lactose e alergia a camarão.</p>\n    </div>\n\n    <!-- Plan Title -->\n    <div style=\"padding: 20px;\">\n        <h1 style=\"font-size: 26px; color: #1a5276; margin-top: 0; margin-bottom: 10px; text-align: center; font-weight: bold;\">Plano alimentar de 7 dias - Mariana Alves Ribeiro</h1>\n        <p style=\"font-size: 14px; color: #555555; line-height: 1.6; text-align: center;\">Este plano alimentar foi cuidadosamente elaborado para você, Mariana, com foco no emagrecimento saudável. As refeições são ricas em nutrientes, proteínas magras e fibras para promover a saciedade e auxiliar na perda de peso, considerando sua rotina de 4 treinos semanais. A variedade de alimentos garante que você receba todos os macro e micronutrientes necessários, sem abrir mão do sabor e da praticidade.</p>\n    </div>\n\n    <!-- Client Profile -->\n    <div style=\"background-color: #f9f9f9; padding: 20px; border-top: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0;\">\n        <h2 style=\"font-size: 20px; color: #1a5276; margin-top: 0; margin-bottom: 15px; text-align: center;\">Perfil do cliente:</h2>\n        <ul style=\"list-style-type: none; padding: 0; margin: 0; font-size: 14px; color: #555555;\">\n            <li style=\"margin-bottom: 8px;\"><strong style=\"color: #333333;\">Gênero:</strong> Feminino</li>\n            <li style=\"margin-bottom: 8px;\"><strong style=\"color: #333333;\">Idade:</strong> 35 anos</li>\n            <li style=\"margin-bottom: 8px;\"><strong style=\"color: #333333;\">Altura:</strong> 165 cm</li>\n            <li style=\"margin-bottom: 8px;\"><strong style=\"color: #333333;\">Peso:</strong> 74 kg</li>\n            <li style=\"margin-bottom: 8px;\"><strong style=\"color: #333333;\">Objetivo:</strong> Emagrecimento</li>\n            <li style=\"margin-bottom: 8px;\"><strong style=\"color: #333333;\">Treinos por semana:</strong> 4</li>\n            <li style=\"margin-bottom: 8px;\"><strong style=\"color: #333333;\">Restrições:</strong> Intolerância à lactose</li>\n            <li><strong style=\"color: #333333;\">Alergia:</strong> Camarão</li>\n        </ul>\n    </div>\n\n    <!-- Daily Plan Section -->\n    <div style=\"padding: 20px;\">\n        <h2 style=\"font-size: 22px; color: #1a5276; margin-top: 0; margin-bottom: 25px; text-align: center; font-weight: bold;\">Plano de 7 dias</h2>\n\n        <!-- Monday -->\n        <div style=\"margin-bottom: 25px; border-bottom: 1px dashed #cccccc; padding-bottom: 15px;\">\n            <h3 style=\"font-size: 18px; color: #333333; margin-top: 0; margin-bottom: 12px; font-weight: bold;\">Segunda-feira</h3>\n            <ul style=\"list-style-type: none; padding: 0; margin: 0; font-size: 14px; color: #555555; line-height: 1.5;\">\n                <li style=\"margin-bottom: 8px;\"><strong style=\"color: #444444;\">Café da manhã:</strong> Tapioca média com 2 ovos mexidos (preparados com azeite ou manteiga sem lactose) e uma fatia de queijo vegano ou zero lactose. Café puro ou com bebida vegetal.</li>\n                <li style=\"margin-bottom: 8px;\"><strong style=\"color: #444444;\">Lanche da manhã:</strong> 1 maçã média e um punhado (30g) de castanhas do Pará ou amêndoas.</li>\n                <li style=\"margin-bottom: 8px;\"><strong style=\"color: #444444;\">Almoço:</strong> 1 filé de frango grelhado (120g), 4 colheres de sopa de arroz integral, 1 concha média de feijão, e salada mista à vontade (alface, tomate, pepino, cenoura ralada) temperada com azeite e limão.</li>\n                <li style=\"margin-bottom: 8px;\"><strong style=\"color: #444444;\">Lanche da tarde:</strong> 1 pote de iogurte natural zero lactose com 1/2 xícara de frutas vermelhas (morango, mirtilo) e 1 colher de sopa de chia.</li>\n                <li><strong style=\"color: #444444;\">Jantar:</strong> Sopa de legumes variados (abobrinha, cenoura, chuchu, espinafre) com 100g de frango desfiado.</li>\n            </ul>\n        </div>\n\n        <!-- Tuesday -->\n        <div style=\"margin-bottom: 25px; border-bottom: 1px dashed #cccccc; padding-bottom: 15px;\">\n            <h3 style=\"font-size: 18px; color: #333333; margin-top: 0; margin-bottom: 12px; font-weight: bold;\">Terça-feira</h3>\n            <ul style=\"list-style-type: none; padding: 0; margin: 0; font-size: 14px; color: #555555; line-height: 1.5;\">\n                <li style=\"margin-bottom: 8px;\"><strong style=\"color: #444444;\">Café da manhã:</strong> Mingau de aveia (4 colheres de sopa de aveia em flocos finos com 200ml de bebida vegetal ou água), com 1 banana picada e canela em pó.</li>\n                <li style=\"margin-bottom: 8px;\"><strong style=\"color: #444444;\">Lanche da manhã:</strong> 1 pera média.</li>\n                <li style=\"margin-bottom: 8px;\"><strong style=\"color: #444444;\">Almoço:</strong> 1 posta média de tilápia assada ou grelhada (120g), 3 colheres de sopa de purê de batata doce (preparado com bebida vegetal), e brócolis cozido no vapor à vontade.</li>\n                <li style=\"margin-bottom: 8px;\"><strong style=\"color: #444444;\">Lanche da tarde:</strong> 2 torradas integrais com 1 colher de sopa de pasta de amendoim integral.</li>\n                <li><strong style=\"color: #444444;\">Jantar:</strong> Omelete feito com 2 ovos, recheado com espinafre, tomate e cebola, acompanhado de uma porção de salada de folhas verdes.</li>\n            </ul>\n        </div>\n\n        <!-- Wednesday -->\n        <div style=\"margin-bottom: 25px; border-bottom: 1px dashed #cccccc; padding-bottom: 15px;\">\n            <h3 style=\"font-size: 18px; color: #333333; margin-top: 0; margin-bottom: 12px; font-weight: bold;\">Quarta-feira</h3>\n            <ul style=\"list-style-type: none; padding: 0; margin: 0; font-size: 14px; color: #555555; line-height: 1.5;\">\n                <li style=\"margin-bottom: 8px;\"><strong style=\"color: #444444;\">Café da manhã:</strong> 2 fatias de pão integral com 1/2 abacate amassado e 1 ovo cozido.</li>\n                <li style=\"margin-bottom: 8px;\"><strong style=\"color: #444444;\">Lanche da manhã:</strong> Vitamina preparada com 1 copo de bebida vegetal, 1/2 mamão papaia e 1 colher de sopa de aveia.</li>\n                <li style=\"margin-bottom: 8px;\"><strong style=\"color: #444444;\">Almoço:</strong> 100g de carne moída magra refogada, 4 colheres de sopa de purê de abóbora, e couve refogada à vontade.</li>\n                <li style=\"margin-bottom: 8px;\"><strong style=\"color: #444444;\">Lanche da tarde:</strong> 1 xícara de cenouras baby com 2 colheres de sopa de hommus (pasta de grão de bico).</li>\n                <li><strong style=\"color: #444444;\">Jantar:</strong> 1 wrap integral recheado com 100g de frango desfiado, alface, tomate e um molho leve de iogurte zero lactose com ervas.</li>\n            </ul>\n        </div>\n\n        <!-- Thursday -->\n        <div style=\"margin-bottom: 25px; border-bottom: 1px dashed #cccccc; padding-bottom: 15px;\">\n            <h3 style=\"font-size: 18px; color: #333333; margin-top: 0; margin-bottom: 12px; font-weight: bold;\">Quinta-feira</h3>\n            <ul style=\"list-style-type: none; padding: 0; margin: 0; font-size: 14px; color: #555555; line-height: 1.5;\">\n                <li style=\"margin-bottom: 8px;\"><strong style=\"color: #444444;\">Café da manhã:</strong> Crepioca (1 ovo + 2 colheres de sopa de tapioca) recheada com 80g de frango desfiado e 1 colher de sopa de requeijão zero lactose.</li>\n                <li style=\"margin-bottom: 8px;\"><strong style=\"color: #444444;\">Lanche da manhã:</strong> 1 tangerina.</li>\n                <li style=\"margin-bottom: 8px;\"><strong style=\"color: #444444;\">Almoço:</strong> 1 filé médio de salmão grelhado (120g) (se preferir ou para economizar, pode ser tilápia), 4 colheres de sopa de quinoa cozida, e uma porção de vagem salteada.</li>\n                <li style=\"margin-bottom: 8px;\"><strong style=\"color: #444444;\">Lanche da tarde:</strong> 1 punhado (30g) de castanhas variadas (caju, do Pará) e 10 uvas.</li>\n                <li><strong style=\"color: #444444;\">Jantar:</strong> Sanduíche natural com 2 fatias de pão integral, recheado com 1 lata pequena de atum em água (escorrido), alface, tomate e cenoura ralada.</li>\n            </ul>\n        </div>\n\n        <!-- Friday -->\n        <div style=\"margin-bottom: 25px; border-bottom: 1px dashed #cccccc; padding-bottom: 15px;\">\n            <h3 style=\"font-size: 18px; color: #333333; margin-top: 0; margin-bottom: 12px; font-weight: bold;\">Sexta-feira</h3>\n            <ul style=\"list-style-type: none; padding: 0; margin: 0; font-size: 14px; color: #555555; line-height: 1.5;\">\n                <li style=\"margin-bottom: 8px;\"><strong style=\"color: #444444;\">Café da manhã:</strong> Tigela de frutas picadas (1/2 mamão papaia, 1 xícara de morangos, 1 kiwi) com 1 colher de sopa de sementes de linhaça.</li>\n                <li style=\"margin-bottom: 8px;\"><strong style=\"color: #444444;\">Lanche da manhã:</strong> 1 pote de iogurte natural zero lactose com um fio de mel (opcional).</li>\n                <li style=\"margin-bottom: 8px;\"><strong style=\"color: #444444;\">Almoço:</strong> 1 bife grelhado (patinho ou alcatra, 120g), 4 colheres de sopa de arroz integral, 1 concha de lentilha, e salada de beterraba cozida e pepino.</li>\n                <li style=\"margin-bottom: 8px;\"><strong style=\"color: #444444;\">Lanche da tarde:</strong> 2 bolachas de arroz com 1 colher de sopa de pasta de amendoim.</li>\n                <li><strong style=\"color: #444444;\">Jantar:</strong> Pizza de frigideira individual com massa integral, molho de tomate caseiro, frango desfiado, legumes (pimentão, cebola) e queijo vegano ou zero lactose.</li>\n            </ul>\n        </div>\n\n        <!-- Saturday -->\n        <div style=\"margin-bottom: 25px; border-bottom: 1px dashed #cccccc; padding-bottom: 15px;\">\n            <h3 style=\"font-size: 18px; color: #333333; margin-top: 0; margin-bottom: 12px; font-weight: bold;\">Sábado</h3>\n            <ul style=\"list-style-type: none; padding: 0; margin: 0; font-size: 14px; color: #555555; line-height: 1.5;\">\n                <li style=\"margin-bottom: 8px;\"><strong style=\"color: #444444;\">Café da manhã:</strong> Ovos mexidos (2 ovos) com tomate picado e espinafre, acompanhado de 2 fatias de pão integral.</li>\n                <li style=\"margin-bottom: 8px;\"><strong style=\"color: #444444;\">Lanche da manhã:</strong> Smoothie de frutas vermelhas (1 xícara de frutas vermelhas congeladas, 1 copo de bebida de amêndoas ou coco) e 1 colher de sopa de aveia.</li>\n                <li style=\"margin-bottom: 8px;\"><strong style=\"color: #444444;\">Almoço:</strong> Feijão preto com carne seca desfiada magra (dessalgada e cozida, 80g), 4 colheres de sopa de arroz integral, e couve refogada à vontade.</li>\n                <li style=\"margin-bottom: 8px;\"><strong style=\"color: #444444;\">Lanche da tarde:</strong> 4 damascos secos e 1 punhado (20g) de amêndoas.</li>\n                <li><strong style=\"color: #444444;\">Jantar:</strong> Escondidinho individual de batata doce (150g de purê) com 100g de carne seca desfiada e refogada (sem lactose).</li>\n            </ul>\n        </div>\n\n        <!-- Sunday -->\n        <div style=\"margin-bottom: 0; padding-bottom: 0;\"> <!-- No bottom border for the last day, no extra margin -->\n            <h3 style=\"font-size: 18px; color: #333333; margin-top: 0; margin-bottom: 12px; font-weight: bold;\">Domingo</h3>\n            <ul style=\"list-style-type: none; padding: 0; margin: 0; font-size: 14px; color: #555555; line-height: 1.5;\">\n                <li style=\"margin-bottom: 8px;\"><strong style=\"color: #444444;\">Café da manhã:</strong> Panquecas de banana (feitas com 1 banana amassada, 1 ovo, 2 colheres de sopa de aveia) com calda de frutas (morango cozido com um pouco de água) e um pouco de leite de coco por cima.</li>\n                <li style=\"margin-bottom: 8px;\"><strong style=\"color: #444444;\">Lanche da manhã:</strong> 1 fatia grande de melancia em cubos.</li>\n                <li style=\"margin-bottom: 8px;\"><strong style=\"color: #444444;\">Almoço:</strong> 1 pedaço médio de frango assado (coxa ou sobrecoxa sem pele, 150g), 4 colheres de sopa de batatas rústicas (assadas com azeite e alecrim), e salada de folhas verdes variadas.</li>\n                <li style=\"margin-bottom: 8px;\"><strong style=\"color: #444444;\">Lanche da tarde:</strong> 3 colheres de sopa de guacamole com palitos de cenoura e pepino.</li>\n                <li><strong style=\"color: #444444;\">Jantar:</strong> Salada de grão de bico (1 xícara cozida) com atum em água (1 lata pequena, escorrido), pepino, tomate, pimentão e salsinha, temperada com azeite e limão.</li>\n            </ul>\n        </div>\n\n    </div>\n\n    <!-- Quick Tips -->\n    <div style=\"background-color: #f7f7f7; padding: 20px; border-top: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0;\">\n        <h2 style=\"font-size: 20px; color: #1a5276; margin-top: 0; margin-bottom: 15px; text-align: center; font-weight: bold;\">Dicas rápidas para o seu dia a dia:</h2>\n        <ol style=\"padding-left: 20px; margin: 0; font-size: 14px; color: #555555; line-height: 1.5;\">\n            <li style=\"margin-bottom: 10px;\"><strong style=\"color: #333333;\">Hidrate-se:</strong> Beba bastante água ao longo do dia, no mínimo 2 litros. Tenha sempre uma garrafa de água por perto para te lembrar.</li>\n            <li style=\"margin-bottom: 10px;\"><strong style=\"color: #333333;\">Planejamento e Preparo:</strong> Reserve um tempo no fim de semana para planejar suas refeições e, se possível, deixar alguns alimentos pré-preparados (cozinhar o frango, lavar e picar os vegetais). Isso facilita muito a adesão à dieta.</li>\n            <li style=\"margin-bottom: 10px;\"><strong style=\"color: #333333;\">Variação nos Treinos:</strong> Continue com seus 4 treinos semanais. A combinação de uma alimentação equilibrada com exercícios físicos é fundamental para alcançar seus objetivos de emagrecimento de forma eficaz.</li>\n            <li style=\"margin-bottom: 10px;\"><strong style=\"color: #333333;\">Ouça seu corpo:</strong> Este plano é um guia. Se sentir fome entre as refeições, opte por mais vegetais, frutas ou pequenas porções de oleaginosas (respeitando as quantidades diárias).</li>\n            <li><strong style=\"color: #333333;\">Desfrute:</strong> A alimentação saudável não precisa ser monótona. Explore temperos naturais e diferentes formas de preparo para tornar suas refeições ainda mais saborosas.</li>\n        </ol>\n    </div>\n\n    <!-- Closing Statement -->\n    <div style=\"padding: 20px; text-align: center; background-color: #ffffff;\">\n        <p style=\"font-size: 14px; color: #555555; margin: 0; line-height: 1.5;\">Seja consistente e celebre cada pequena vitória. Estamos aqui para te apoiar em sua jornada!</p>\n    </div>\n\n</div>\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finishReason": "STOP",
+          "index": null
+        },
+        "pairedItem": {
+          "item": null
+        }
+      }
+    ]
+  },
+  "connections": {
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Campos",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Campos": {
+      "main": [
+        [
+          {
+            "node": "Assistente Nutricionista",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Gerar template email": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Enviar email",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Create a document": {
+      "main": [
+        [
+          {
+            "node": "Update a document",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Assistente Nutricionista": {
+      "main": [
+        [
+          {
+            "node": "Normalizar saída Gemini",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Normalizar saída Gemini": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Gerar template email",
+            "type": "main",
+            "index": null
+          },
+          {
+            "node": "Create a document",
+            "type": "main",
+            "index": null
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Buscar aluno",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Buscar aluno": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    }
+  },
+  "active": null,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": null
+  },
+  "versionId": "0634ff48-938b-4e7c-b3eb-16e067d3ea3e",
+  "meta": {
+    "templateCredsSetupCompleted": null,
+    "instanceId": "8d938ac1f9c5a3d93f2ee1d12e4389c9d497f2e61596d0fed72f351a1f01c7aa"
+  },
+  "nodeGroups": [],
+  "id": "SEU_ID",
+  "tags": []
+}
