@@ -1,0 +1,979 @@
+{
+  "name": "Registro de TAF (Supabase + Telegram)",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## Agente do Telegram + Supabase\nRecebe treinos em linguagem natural (ex: \"fiz 32 flexões e corri 2400m\"), interpreta as marcas, calcula a pontuação e registra no Supabase sem mencionar edital ou TAFs específicos.\n\n⚠️ Lembre-se de configurar a credencial do Telegram, Gemini e Supabase.",
+        "height": null,
+        "width": null,
+        "color": null
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Nota: agente"
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Telegram Trigger",
+      "webhookId": "SEU_ID",
+      "credentials": {
+        "telegramApi": {
+          "id": "SEU_ID",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.message.text }}",
+        "options": {
+          "systemMessage": "=Você é o Treinador TAF — o assistente pessoal de preparação física focado na meta de atingir no mínimo 210 PONTOS no TAF.\n\nHoje é {{ $now.format('yyyy-MM-dd') }} ({{ $now.format('cccc') }}).\n\nTabela Oficial de Pontuação do TAF:\n1. Flexão de Braço (1 min)[cite: 1]:\n   - Até 13: 0 pts | 14-15: 10 pts | 16-17: 20 pts | 18-19: 30 pts | 20-21: 40 pts | 22-23: 50 pts | 24-25: 60 pts | 26-27: 70 pts | 28-29: 80 pts | 30-31: 90 pts | 32+: 100 pts[cite: 1]\n2. Abdominal (1 min)[cite: 2]:\n   - Até 23: 0 pts | 24-25: 10 pts | 26-27: 20 pts | 28-29: 30 pts | 30-31: 40 pts | 32-33: 50 pts | 34-35: 60 pts | 36-37: 70 pts | 38-39: 80 pts | 40-41: 90 pts | 42+: 100 pts[cite: 2]\n3. Corrida 50m (tempo em segundos)[cite: 3]:\n   - > 9.00s: 0 pts | 9.00-8.76s: 10 pts | 8.75-8.51s: 20 pts | 8.50-8.26s: 30 pts | 8.25-8.01s: 40 pts | 8.00-7.76s: 50 pts | 7.75-7.51s: 60 pts | 7.50-7.26s: 70 pts | 7.25-7.01s: 80 pts | 7.00-6.76s: 90 pts | < 6.75s: 100 pts[cite: 3]\n4. Corrida 12 min (distância em metros)[cite: 4]:\n   - Até 1899m: 0 pts | 1900-1999m: 10 pts | 2000-2099m: 20 pts | 2100-2199m: 30 pts | 2200-2299m: 40 pts | 2300-2399m: 50 pts | 2400-2499m: 60 pts | 2500-2599m: 70 pts | 2600-2699m: 80 pts | 2700-2799m: 90 pts | 2800m+: 100 pts[cite: 4]\n\nInstruções Importantes:\n- NUNCA mencione nomes de editais ou bancas (como VUNESP, IBAM, etc.). O usuário quer apenas registrar o treino e ver o cálculo exato de pontos rumo aos 210 pontos.\n- Se o usuário informar vários exercícios em uma única frase (ex: \"fiz 30 flexões e mandei 40 abdominais\"), registre cada um individualmente no Supabase.\n- Calcule a pontuação exata de acordo com a tabela acima e retorne de forma direta: Marca informada -> Pontos obtidos -> Soma total atual em relação aos 210 pontos mínimos."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "tableName": "chat_histories"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Memoria",
+      "credentials": {
+        "postgres": {
+          "id": "SEU_ID",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schema": {
+          "__rl": null,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": null,
+          "value": "registros_treino",
+          "mode": "list",
+          "cachedResultName": "registros_treino"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "valor": "={{ $fromAI('valor', ``, 'number') }}",
+            "pontos": "={{ $fromAI('pontos', ``, 'number') }}",
+            "exercicio": "={{ $fromAI('exercicio', ``, 'string') }}",
+            "data": "={{ $fromAI('data', ``, 'string') }}",
+            "unidade": "={{ $fromAI('unidade', ``, 'string') }}",
+            "status": "={{ $fromAI('status', ``, 'string') }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "string",
+              "canBeUsedToMatch": null,
+              "removed": null
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "dateTime",
+              "canBeUsedToMatch": null
+            },
+            {
+              "id": "exercicio",
+              "displayName": "exercicio",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "string",
+              "canBeUsedToMatch": null
+            },
+            {
+              "id": "valor",
+              "displayName": "valor",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "number",
+              "canBeUsedToMatch": null
+            },
+            {
+              "id": "unidade",
+              "displayName": "unidade",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "string",
+              "canBeUsedToMatch": null
+            },
+            {
+              "id": "pontos",
+              "displayName": "pontos",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "number",
+              "canBeUsedToMatch": null
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "string",
+              "canBeUsedToMatch": null
+            },
+            {
+              "id": "criado_em",
+              "displayName": "criado_em",
+              "required": null,
+              "defaultMatch": null,
+              "display": null,
+              "type": "dateTime",
+              "canBeUsedToMatch": null,
+              "removed": null
+            }
+          ],
+          "attemptToConvertTypes": null,
+          "convertFieldsToString": null
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgresTool",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Registrar",
+      "credentials": {
+        "postgres": {
+          "id": "SEU_ID",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Gemini",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "SEU_ID",
+          "name": "Google Gemini(PaLM) Api account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Automação de Faltas (Corrigida)\nRoda todo dia às 23h59. Checa a coluna 'data' (Always Output Data ativado). Se não houver treino, grava o registro de falta sem enviar campos auto-gerados (id / criado_em).\n\nCorreções aplicadas:\n1. Filtro de data agora usa {{ $now.format('yyyy-MM-dd') }} em vez de data fixa/timestamp\n2. Code node checa o campo 'id' (só existe em registro real do Supabase) em vez de Object.keys().length\n3. IF compara string 'status' (tem_treino/sem_treino) em vez de boolean, mais confiável\n4. Removida condição órfã que checava {{ $json.id }} isEmpty (campo que não existe mais nesse ponto do fluxo)",
+        "height": null,
+        "width": null,
+        "color": null
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Nota: cron_faltas"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": null,
+              "triggerAtMinute": null
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Gatilho Diário (23:59)"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "registros_treino",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "data",
+              "condition": "eq",
+              "keyValue": "={{ $now.format('yyyy-MM-dd') }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Checar Registros de Hoje",
+      "alwaysOutputData": null,
+      "credentials": {
+        "supabaseApi": {
+          "id": "SEU_ID",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const item = $input.first().json;\nconst temRegistro = !!(item && item.id !== undefined && item.id !== null);\nreturn [{ json: { status: temRegistro ? 'tem_treino' : 'sem_treino' } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": null,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": null
+          },
+          "conditions": [
+            {
+              "id": "SEU_ID",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "sem_treino",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": null,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Não treinou hoje?"
+    },
+    {
+      "parameters": {
+        "tableId": "registros_treino",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "data",
+              "fieldValue": "={{ $now.format('yyyy-MM-dd') }}"
+            },
+            {
+              "fieldId": "exercicio",
+              "fieldValue": "Sem treino"
+            },
+            {
+              "fieldId": "valor",
+              "fieldValue": null
+            },
+            {
+              "fieldId": "unidade",
+              "fieldValue": "na"
+            },
+            {
+              "fieldId": "pontos",
+              "fieldValue": null
+            },
+            {
+              "fieldId": "status",
+              "fieldValue": "falta"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Registrar Falta no Supabase",
+      "credentials": {
+        "supabaseApi": {
+          "id": "SEU_ID",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Responder no Telegram1",
+      "webhookId": "SEU_ID",
+      "credentials": {
+        "telegramApi": {
+          "id": "SEU_ID",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "let text = $json.output; text = text.replace(/^\\* /gm, '- '); text = text.replace(/\\*\\*(.*?)\\*\\*/g, '*$1*'); return [{ json: { output: text } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Code in JavaScript1"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Error Trigger"
+    },
+    {
+      "parameters": {
+        "chatId": "7328677730",
+        "text": "=🚨 *Erro na automação!*\n\nWorkflow: {{ $json.workflow?.name }}\nNó com erro: {{ $json.execution?.error?.node?.name || $json.trigger?.node?.name || 'desconhecido' }}\nMensagem: {{ $json.execution?.error?.message || $json.trigger?.error?.message || 'sem detalhes' }}\n\nHorário: {{ $now.format('dd/MM/yyyy HH:mm') }}",
+        "additionalFields": {
+          "parse_mode": "Markdown"
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Avisar erro no Telegram",
+      "webhookId": "SEU_ID",
+      "credentials": {
+        "telegramApi": {
+          "id": "SEU_ID",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Gatilho de erro",
+        "height": null,
+        "width": null
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        null,
+        null
+      ],
+      "typeVersion": null,
+      "id": "SEU_ID",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "### Relatório Semanal TAF\nRoda todo domingo às 20h.\n\nBusca no Supabase os treinos da semana, calcula as melhores marcas de acordo com a tabela do TAF (flexão, abdominal, 50m, 12min), verifica o progresso para a meta de 210 pontos, contabiliza as faltas e envia a análise formatada em HTML pelo Gmail.",
+        "height": null,
+        "width": null,
+        "color": null
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Nota: relatorio"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "triggerAtHour": null
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Gatilho semanal (domingo 20h)"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "registros_treino",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "data",
+              "condition": "gte",
+              "keyValue": "={{ $now.minus({ days: 7 }).format('yyyy-MM-dd') }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Buscar Registros no Supabase (relatório)",
+      "credentials": {
+        "supabaseApi": {
+          "id": "SEU_ID",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "function removerAcentos(txt) {\n  return String(txt).normalize('NFD').replace(/[\\u0300-\\u036f]/g, '');\n}\n\nfunction calcularPontos(exercicio, valor) {\n  const ex = removerAcentos(String(exercicio).toLowerCase().trim());\n  const v = Number(valor);\n\n  if (ex.includes('flex')) {\n    if (v >= 32) return 100;\n    if (v >= 30) return 90;\n    if (v >= 28) return 80;\n    if (v >= 26) return 70;\n    if (v >= 24) return 60;\n    if (v >= 22) return 50;\n    if (v >= 20) return 40;\n    if (v >= 18) return 30;\n    if (v >= 16) return 20;\n    if (v >= 14) return 10;\n    return 0;\n  }\n\n  if (ex.includes('abdom')) {\n    if (v >= 42) return 100;\n    if (v >= 40) return 90;\n    if (v >= 38) return 80;\n    if (v >= 36) return 70;\n    if (v >= 34) return 60;\n    if (v >= 32) return 50;\n    if (v >= 30) return 40;\n    if (v >= 28) return 30;\n    if (v >= 26) return 20;\n    if (v >= 24) return 10;\n    return 0;\n  }\n\n  if (ex.includes('50m') || ex.includes('tiro') || (ex.includes('corrida') && v < 20)) {\n    if (v <= 6.75) return 100;\n    if (v <= 7.00) return 90;\n    if (v <= 7.25) return 80;\n    if (v <= 7.50) return 70;\n    if (v <= 7.75) return 60;\n    if (v <= 8.00) return 50;\n    if (v <= 8.25) return 40;\n    if (v <= 8.50) return 30;\n    if (v <= 8.75) return 20;\n    if (v <= 9.00) return 10;\n    return 0;\n  }\n\n  if (ex.includes('12') || ex.includes('resistencia') || v >= 1000) {\n    if (v >= 2800) return 100;\n    if (v >= 2700) return 90;\n    if (v >= 2600) return 80;\n    if (v >= 2500) return 70;\n    if (v >= 2400) return 60;\n    if (v >= 2300) return 50;\n    if (v >= 2200) return 40;\n    if (v >= 2100) return 30;\n    if (v >= 2000) return 20;\n    if (v >= 1900) return 10;\n    return 0;\n  }\n\n  return 0;\n}\n\nconst registros = $input.all().map(i => i.json);\n\nconst categorias = [\n  { label: 'Flexão de Braço', match: ex => ex.includes('flex') },\n  { label: 'Abdominal', match: ex => ex.includes('abdom') },\n  { label: 'Corrida 50m', match: ex => ex.includes('50m') || ex.includes('tiro') },\n  { label: 'Corrida 12min', match: ex => (ex.includes('corrida') && ex.includes('12')) || ex.includes('resistencia') }\n];\n\nlet pontuacaoTotalAcurada = 0;\nlet resumoExercicios = [];\n\nfor (const cat of categorias) {\n  const filtrados = registros.filter(r => {\n    const exNorm = removerAcentos(String(r.exercicio).toLowerCase().trim());\n    return r.status !== 'falta' && cat.match(exNorm);\n  });\n\n  if (filtrados.length > 0) {\n    const comPontos = filtrados.map(r => ({ ...r, pontosCalc: calcularPontos(r.exercicio, r.valor) }));\n    const melhor = comPontos.reduce((max, r) => (r.pontosCalc > max.pontosCalc ? r : max), comPontos[0]);\n\n    pontuacaoTotalAcurada += melhor.pontosCalc;\n    resumoExercicios.push({\n      exercicio: cat.label,\n      melhor_marca: melhor.valor,\n      unidade: melhor.unidade,\n      pontos: melhor.pontosCalc,\n      sessoes: filtrados.length\n    });\n  } else {\n    resumoExercicios.push({\n      exercicio: cat.label,\n      melhor_marca: 'Sem treinos',\n      pontos: 0,\n      sessoes: 0\n    });\n  }\n}\n\nconst faltas = registros.filter(r => r.status === 'falta').length;\n\nconst porDia = {};\nfor (const r of registros) {\n  const dia = String(r.data).slice(0, 10);\n  if (!porDia[dia]) porDia[dia] = { data: dia, treinou: false, pontosDoDia: 0, exercicios: [] };\n\n  if (r.status !== 'falta') {\n    const pts = calcularPontos(r.exercicio, r.valor);\n    porDia[dia].treinou = true;\n    porDia[dia].pontosDoDia += pts;\n    porDia[dia].exercicios.push({ exercicio: r.exercicio, valor: r.valor, unidade: r.unidade, pontos: pts });\n  }\n}\nconst diasOrdenados = Object.values(porDia).sort((a, b) => a.data.localeCompare(b.data));\n\nreturn [{\n  pontuacao_total: pontuacaoTotalAcurada,\n  meta: 210,\n  atingiu_meta: pontuacaoTotalAcurada >= 210,\n  dias_faltosos: faltas,\n  detalhes: resumoExercicios,\n  detalhamento_diario: diasOrdenados\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Agregar dados TAF (relatório)"
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = $input.first().json;\nlet texto = `### RELATÓRIO DE DESEMPENHO TAF\\n`;\ntexto += `Pontuação Total Acumulada: ${data.pontuacao_total} / 210 pontos mínimos\\n`;\ntexto += `Atingiu a Meta dos 210 pts? ${data.atingiu_meta ? 'SIM' : 'NÃO'}\\n`;\ntexto += `Dias sem treino na semana (Faltas): ${data.dias_faltosos}\\n\\n`;\n\ntexto += `### MELHOR MARCA DA SEMANA POR EXERCÍCIO:\\n`;\nfor (const ex of data.detalhes) {\n  texto += `- ${ex.exercicio}: Melhor marca = ${ex.melhor_marca}${ex.unidade ? ' ' + ex.unidade : ''} (${ex.pontos} pts) | ${ex.sessoes} sessão(ões) na semana\\n`;\n}\n\ntexto += `\\n### DETALHAMENTO DIA A DIA:\\n`;\nfor (const dia of data.detalhamento_diario) {\n  if (dia.treinou) {\n    const lista = dia.exercicios.map(e => `${e.exercicio} = ${e.valor}${e.unidade ? ' ' + e.unidade : ''} (${e.pontos} pts)`).join('; ');\n    texto += `- ${dia.data}: TREINOU — ${lista} | Total do dia: ${dia.pontosDoDia} pts\\n`;\n  } else {\n    texto += `- ${dia.data}: FALTA — nenhum treino registrado\\n`;\n  }\n}\n\nreturn [{ resumo: texto.trim() }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Montar resumo com pontuação"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": null,
+          "value": "models/gemini-2.5-flash",
+          "mode": "list",
+          "cachedResultName": "models/gemini-2.5-flash"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "Você é um treinador focado na preparação física para o TAF. O objetivo do aluno é somar NO MÍNIMO 210 pontos no total das 4 modalidades (Flexão, Abdominal, Corrida 50m e Corrida 12min).\n\nRegras:\n- Baseie a análise ESTRITAMENTE nos dados fornecidos. Não invente nem omita nenhum dia ou exercício.\n- Destaque a pontuação acumulada frente à meta de 210 pontos.\n- Comente o progresso individual de cada exercício (melhor marca da semana) e mencione as faltas acumuladas.\n- OBRIGATÓRIO: inclua uma seção \"Detalhamento Dia a Dia\" listando CADA data presente nos dados, o que foi treinado naquele dia (exercício, marca, pontos) ou se foi falta, e o total de pontos do dia.\n- Seja motivador, objetivo e direto ao ponto.\n\nSaída estruturada com:\n- Título: \"Relatório Semanal de Treino TAF\"\n- Resumo Geral e Situação da Meta (210 pts)\n- Melhor Marca por Exercício (melhor marca da semana, pontos, sessões)\n- Detalhamento Dia a Dia (obrigatório — todas as datas, o que treinou e pontos, ou falta)\n- Faltas acumuladas\n- Plano de foco para a próxima semana"
+            },
+            {
+              "content": "=Dados da semana:\n{{ $json.resumo }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Analisar desempenho (Gemini)",
+      "retryOnFail": null,
+      "maxTries": null,
+      "waitBetweenTries": null,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "SEU_ID",
+          "name": "Google Gemini(PaLM) Api account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = $input.first().json;\nconst texto = data.content?.parts?.[0]?.text ?? data.text ?? data?.candidates?.[0]?.content?.parts?.[0]?.text ?? '';\nreturn [{ output: texto }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Normalizar saída Gemini"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": null,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": null
+          },
+          "conditions": [
+            {
+              "id": "SEU_ID",
+              "leftValue": "={{ $json.output }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": null
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Tem conteúdo?"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Sem dados na semana"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": null,
+          "value": "models/gemini-2.5-flash",
+          "mode": "list",
+          "cachedResultName": "models/gemini-2.5-flash"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.output }}"
+            },
+            {
+              "content": "Transforme o relatório em um template HTML limpo e profissional para email.\n\nRegras:\n- Não invente informações, use apenas o que está no texto recebido.\n- Destaque em VERDE se atingiu a meta dos 210 pontos ou VERMELHO se ainda não atingiu.\n- Use fonte Arial.\n- Inclua uma tabela com a Melhor Marca por Exercício (Exercício | Melhor Marca | Pontos | Sessões).\n- Inclua OBRIGATORIAMENTE uma segunda tabela com o Detalhamento Dia a Dia: uma linha por data, mostrando os exercícios feitos, a marca de cada um, os pontos de cada exercício e o total de pontos do dia. Para dias de falta, mostre a linha com \"Falta\" e 0 pontos.\n- Traga um bloco visual limpo organizando as métricas, sem cortar nenhuma data."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Gerar template email",
+      "retryOnFail": null,
+      "maxTries": null,
+      "waitBetweenTries": null,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "SEU_ID",
+          "name": "Google Gemini(PaLM) Api account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "let content = $input.first().json.content.parts[0].text;\ncontent = content.replace(/```html/i, \"\").replace(/```/g, \"\").trim();\nreturn [{ html: content }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Limpar HTML"
+    },
+    {
+      "parameters": {
+        "sendTo": "gustavodiasdeoliveira72@gmail.com",
+        "subject": "=Relatório Semanal TAF (Meta 210 pts) - {{ $now.format('dd/MM/yyyy') }}",
+        "message": "={{ $json.html }}",
+        "options": {
+          "appendAttribution": null
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": null,
+      "position": [
+        null,
+        null
+      ],
+      "id": "SEU_ID",
+      "name": "Enviar relatório por email",
+      "webhookId": "SEU_ID",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "SEU_ID",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Memoria": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Registrar": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Gemini": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Gatilho Diário (23:59)": {
+      "main": [
+        [
+          {
+            "node": "Checar Registros de Hoje",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Checar Registros de Hoje": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Não treinou hoje?",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Não treinou hoje?": {
+      "main": [
+        [
+          {
+            "node": "Registrar Falta no Supabase",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "Responder no Telegram1",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Avisar erro no Telegram",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Gatilho semanal (domingo 20h)": {
+      "main": [
+        [
+          {
+            "node": "Buscar Registros no Supabase (relatório)",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Buscar Registros no Supabase (relatório)": {
+      "main": [
+        [
+          {
+            "node": "Agregar dados TAF (relatório)",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Agregar dados TAF (relatório)": {
+      "main": [
+        [
+          {
+            "node": "Montar resumo com pontuação",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Montar resumo com pontuação": {
+      "main": [
+        [
+          {
+            "node": "Analisar desempenho (Gemini)",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Analisar desempenho (Gemini)": {
+      "main": [
+        [
+          {
+            "node": "Normalizar saída Gemini",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Normalizar saída Gemini": {
+      "main": [
+        [
+          {
+            "node": "Tem conteúdo?",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Tem conteúdo?": {
+      "main": [
+        [
+          {
+            "node": "Gerar template email",
+            "type": "main",
+            "index": null
+          }
+        ],
+        [
+          {
+            "node": "Sem dados na semana",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Gerar template email": {
+      "main": [
+        [
+          {
+            "node": "Limpar HTML",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    },
+    "Limpar HTML": {
+      "main": [
+        [
+          {
+            "node": "Enviar relatório por email",
+            "type": "main",
+            "index": null
+          }
+        ]
+      ]
+    }
+  },
+  "active": null,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "BGWQu08oChlGnGno",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": null
+  },
+  "versionId": "c9debf1b-b0ea-4d82-88a5-8e5d2c0301a3",
+  "meta": {
+    "templateCredsSetupCompleted": null,
+    "instanceId": "8d938ac1f9c5a3d93f2ee1d12e4389c9d497f2e61596d0fed72f351a1f01c7aa"
+  },
+  "nodeGroups": [],
+  "id": "SEU_ID",
+  "tags": []
+}
