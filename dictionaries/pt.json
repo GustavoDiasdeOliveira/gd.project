@@ -27,14 +27,14 @@
   "hero": {
     "badge": "Disponível para oportunidades (Remoto/CLT/Freela)",
     "title_part1": "Analista de Automações,",
-    "title_highlight": "Web Design & Power BI",
+    "title_highlight": "Low-Code & AI Agents",
     "typing": [
-      "Automatizando processos com n8n e IA",
-      "Criando dashboards responsivos no Power BI",
-      "Apoiando pricing e inteligência de mercado",
-      "Analisando concorrentes para decisões estratégicas"
+      "Criando workflows inteligentes com n8n",
+      "Desenvolvendo AI Agents para atendimento",
+      "Integrando APIs, Webhooks e CRMs",
+      "Automatizando processos de ponta a ponta"
     ],
-    "description": "Profissional de Automações Low-Code, Web Design e Power BI. Desenvolvo workflows inteligentes com n8n e AI Agents, dashboards responsivos para análise de dados e soluções orientadas a pricing, qualidade e inteligência de mercado. Transformo dados e processos em decisões mais eficientes.",
+    "description": "Analista de Automação Low-Code / No-Code especializado em n8n, AI Agents e integrações via API e Webhooks. Desenvolvo automações para atendimento comercial, agendamento e qualificação de leads, com deploy em Docker, conexão com LLMs, Google Workspace, CRMs e bancos de dados.",
     "cta_projects": "Ver meus projetos",
     "cta_cv": "Download CV",
     "cv_downloading": "Baixando...",
@@ -49,7 +49,7 @@
   "services": {
     "title_part1": "Minhas",
     "title_highlight": "Expertises",
-    "subtitle": "Soluções com Inteligência, Dados e Web",
+    "subtitle": "Automações inteligentes para processos reais",
     "most_requested": "Mais procurado",
     "items": [
       {
@@ -68,8 +68,8 @@
         "cta": "Quero um site"
       },
       {
-        "title": "Dados & Infraestrutura",
-        "description": "Configuração de containers Docker, VPS, análise de dados básica (PostgreSQL, Power BI) e coleta de informações (auditoria Zukkin).",
+        "title": "Deploy & Infraestrutura",
+        "description": "Configuração de n8n e Evolution API em containers Docker, VPS, subdomínios e serviços de apoio como Redis e Supabase.",
         "cta": "Saber mais"
       }
     ]
@@ -81,7 +81,7 @@
   "projects": {
     "title_part1": "Meus",
     "title_highlight": "Projetos",
-    "subtitle": "Uma seleção de trabalhos recentes em automação, dados e web design.",
+    "subtitle": "Projetos reais com n8n, AI Agents, APIs e integrações No-Code.",
     "all": "Todos",
   "landing": "Landing Pages",
   "automation": "n8n & IA",
@@ -93,7 +93,7 @@
   "contact": {
     "title_part1": "Vamos trabalhar",
     "title_highlight": "juntos?",
-    "subtitle": "Estou disponível para oportunidades (CLT, PJ ou Freelance) como Analista de Automação, AI Agents ou Suporte TI. Entre em contato!",
+    "subtitle": "Estou disponível para oportunidades como Analista de Automação Low-Code / AI Agents, em regime remoto, freelance ou CLT.",
     "info": {
       "email": "E-mail",
       "phone": "Telefone",
@@ -111,7 +111,6 @@
       "service_landing": "Landing Page / Web Design",
       "service_automation": "Automação com IA (n8n)",
       "service_intelligence": "Inteligência de Mercado / Pricing",
-      "service_dashboard": "Dashboard / Análise de Dados",
       "service_other": "Outro",
       "message_label": "Descrição do projeto",
       "message_placeholder": "Descreva sua necessidade, projeto ou proposta...",
@@ -134,17 +133,17 @@
         "description": "Vivência em Qualidade de Dados e Inteligência de Preços pela Zukkin."
       },
       {
-        "title": "Perfil Analítico",
-        "description": "Domínio de Power BI e SQL para tomada de decisão."
+        "title": "Automação de Ponta a Ponta",
+        "description": "Da lógica do workflow ao deploy, monitoramento, tratamento de erros e documentação técnica."
       },
       {
-        "title": "Versatilidade Web",
-        "description": "Criação de interfaces modernas como Web Designer (HTML/CSS/JS)."
+        "title": "Integrações Conectadas",
+        "description": "Conexão de APIs, Webhooks, CRMs, Google Workspace e ferramentas de IA."
       }
     ]
   },
   "footer": {
-    "description": "Automações com IA (n8n) · Qualidade & Inteligência de Mercado · Web Design",
+    "description": "Automações Low-Code / No-Code com n8n · AI Agents · APIs e Webhooks",
     "quick_links": "Links Rápidos",
     "rights": "Feito com 💻 e ☕",
     "back_to_top": "Voltar ao topo"
@@ -268,8 +267,7 @@
           "JavaScript",
           "Figma",
           "PostgreSQL",
-          "Power BI",
-          "Google Sheets"
+                  "Google Sheets"
         ]
       }
     ]

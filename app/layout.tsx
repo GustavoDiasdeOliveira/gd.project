@@ -10,8 +10,8 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: 'Gustavo Dias | Automação n8n, AI Agents & Power BI',
-  description: 'Portfólio de Gustavo Dias de Oliveira: automações n8n, AI Agents 24/7, integrações via APIs, dashboards Power BI e soluções digitais para empresas.',
+  title: 'Gustavo Dias | Automação Low-Code, n8n & AI Agents',
+  description: 'Portfólio de Gustavo Dias de Oliveira: automações Low-Code/No-Code com n8n, AI Agents, integrações via APIs, Webhooks e soluções digitais.',
   keywords: ['inteligência de mercado', 'pricing', 'análise de concorrência', 'automação n8n', 'agente de IA', 'web designer', 'landing page', 'freelancer', 'Praia Grande', 'São Paulo'],
   authors: [{ name: 'Gustavo Dias de Oliveira' }],
   creator: 'Gustavo Dias de Oliveira',
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'pt_BR',
     url: 'https://gustavodiasdeoliveira.com',
-    title: 'Gustavo Dias | Automação n8n, AI Agents & Power BI',
-    description: 'Automação n8n, AI Agents 24/7, integrações via APIs, dashboards Power BI e soluções digitais para empresas.',
+    title: 'Gustavo Dias | Automação Low-Code, n8n & AI Agents',
+    description: 'Automação Low-Code/No-Code com n8n, AI Agents, integrações via APIs e Webhooks para empresas.',
     siteName: 'Gustavo Dias',
   },
   twitter: {

@@ -185,7 +185,7 @@ export function Hero() {
 
           {/* Right - Visual */}
           <div className="relative flex justify-center order-first lg:order-last">
-            <div className="profile-stage" aria-label="Gustavo Dias — Automação, IA e Power BI">
+            <div className="profile-stage" aria-label="Gustavo Dias — Automação Low-Code e AI Agents">
               <div className="profile-glow" aria-hidden="true" />
               <div className="profile-grid" aria-hidden="true" />
               <div className="profile-ring profile-ring-one" aria-hidden="true" />
@@ -208,7 +208,6 @@ export function Hero() {
               </div>
               <div className="profile-float profile-float-n8n"><img src={`${assetPath}/icons/n8n-color.png`} alt="" /> n8n</div>
               <div className="profile-float profile-float-ai"><img src={`${assetPath}/icons/ai-agent.png`} alt="" /> AI Agents</div>
-              <div className="profile-float profile-float-bi"><img src={`${assetPath}/icons/power-bi.png`} alt="" /> Power BI</div>
             </div>
           </div>
         </div>

@@ -6,7 +6,6 @@ import { useLanguage } from "@/context/LanguageContext"
 const technologies = [
   { name: "Excel", icon: "https://img.icons8.com/color/48/microsoft-excel-2019--v1.png" },
   { name: "Google Sheets", icon: "./icons/icons8-google-sheets-48.png" },
-  { name: "Power BI", icon: "./icons/power-bi.png" },
   { name: "SQL", badge: "SQL" },
   { name: "Python", icon: "./icons/icons8-python-48.png" },
   { name: "n8n", icon: "./icons/n8n-color.png" },
