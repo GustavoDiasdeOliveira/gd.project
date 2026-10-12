@@ -34,7 +34,7 @@ const projects = [
     featured: true,
   },
   {
-    title: "AI Agent — Assistente Nutricionista \"Thiago\" 24/7",
+    title: "Projeto4 Automação Nutrição - Thiago",
     type: "IA & Automação",
     category: "Automações",
     description: "Agente conversacional de IA completo que funciona 24/7. Realiza cadastro de clientes, coleta biometria e objetivos de treino. Gera planos alimentares personalizados (7 dias) com IA (Gemini/OpenAI), documenta em Google Docs formatado e envia por email. Integrado com Google Sheets para gestão de alunos.",
@@ -47,7 +47,7 @@ const projects = [
     featured: true,
   },
   {
-    title: "Chatbot Empresarial Completo 24/7 — Rancho da Praia",
+    title: "Projeto2 Automação de Chatbot (RD Station + Supabase + Calendly + AI Agent + Sheets + Wpp)",
     type: "IA & WhatsApp",
     category: "Automações",
     description: "Agente \"Fabi\" inteligente em produção operando 24/7. Atendimento comercial completo: qualificação de leads, agendamento de eventos, respostas a dúvidas. Integração com RD Station CRM, Google Calendar, Calendly e Supabase. Self-hosted em Docker com Evolution API. Histórico em Redis e suporte total via WhatsApp.",
@@ -72,7 +72,7 @@ const projects = [
     image: "/automation-it-assets-cover.png",
   },
   {
-    title: "Site + AI Agent — Clínica Vita Saúde (\"Sofia\")",
+    title: "Projeto1 Clínica Vita Saude_Web",
     type: "Web + IA",
     category: "Web",
     description: "Landing page responsiva + chatbot de IA embarcado. Widget de chat que responde dúvidas sobre serviços clínicos e realiza agendamentos em tempo real. Integração com Google Calendar e Supabase para gestão de pacientes.",
