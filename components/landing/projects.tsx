@@ -229,6 +229,11 @@ export function Projects() {
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
+                    <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/85 via-black/45 to-transparent px-4 pb-4 pt-12 sm:px-6 sm:pb-5">
+                      <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white text-center text-balance leading-tight drop-shadow-md">
+                        {project.title}
+                      </h3>
+                    </div>
                   </div>
                 ) : (
                   <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white text-center text-balance z-10">
