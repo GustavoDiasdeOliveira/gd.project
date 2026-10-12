@@ -8,7 +8,7 @@ import { useLanguage } from "@/context/LanguageContext"
 
 const projects = [
   {
-    title: "Automação Assinatura de Email Corporativa — Mar Brasil",
+    title: "Projeto3 Automação de Chatbot (Google Calendar + Supabase + AI Agent)",
     type: "Automação & IA",
     category: "Automações",
     description: "Sistema completo que automatiza a criação de assinaturas de email corporativas. O usuário acessa um formulário, preenche Nome, Cargo, Telefone, Email e foto empresarial. A automação n8n processa e gera a assinatura formatada automaticamente, enviando via WhatsApp pronta para uso. Economia de tempo e padronização visual garantida.",
@@ -21,7 +21,7 @@ const projects = [
     featured: true,
   },
   {
-    title: "Automação Cartões de Aniversário e Boas-vindas",
+    title: "Projeto5 Registro de TAF (Supabase + Telegram)",
     type: "Automação & Notificação",
     category: "Automações",
     description: "Workflow automatizado que dispara cartões digitais personalizados para aniversariantes e novos colaboradores. Integrado com calendários e base de dados, envia via email ou WhatsApp com mensagens customizadas. Aumenta engajamento e humaniza a comunicação interna.",
