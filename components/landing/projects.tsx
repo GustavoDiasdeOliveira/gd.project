@@ -8,7 +8,7 @@ import { useLanguage } from "@/context/LanguageContext"
 
 const projects = [
   {
-    title: "Automação Assinatura de Email Corporativa — Mar Brasil",
+    title: "Projeto3 Automação de Chatbot (Google Calendar + Supabase + AI Agent)",
     type: "Automação & IA",
     category: "Automações",
     description: "Sistema completo que automatiza a criação de assinaturas de email corporativas. O usuário acessa um formulário, preenche Nome, Cargo, Telefone, Email e foto empresarial. A automação n8n processa e gera a assinatura formatada automaticamente, enviando via WhatsApp pronta para uso. Economia de tempo e padronização visual garantida.",
@@ -21,7 +21,7 @@ const projects = [
     featured: true,
   },
   {
-    title: "Automação Cartões de Aniversário e Boas-vindas",
+    title: "Projeto5 Registro de TAF (Supabase + Telegram)",
     type: "Automação & Notificação",
     category: "Automações",
     description: "Workflow automatizado que dispara cartões digitais personalizados para aniversariantes e novos colaboradores. Integrado com calendários e base de dados, envia via email ou WhatsApp com mensagens customizadas. Aumenta engajamento e humaniza a comunicação interna.",
@@ -34,7 +34,7 @@ const projects = [
     featured: true,
   },
   {
-    title: "AI Agent — Assistente Nutricionista \"Thiago\" 24/7",
+    title: "Projeto4 Automação Nutrição - Thiago",
     type: "IA & Automação",
     category: "Automações",
     description: "Agente conversacional de IA completo que funciona 24/7. Realiza cadastro de clientes, coleta biometria e objetivos de treino. Gera planos alimentares personalizados (7 dias) com IA (Gemini/OpenAI), documenta em Google Docs formatado e envia por email. Integrado com Google Sheets para gestão de alunos.",
@@ -47,7 +47,7 @@ const projects = [
     featured: true,
   },
   {
-    title: "Chatbot Empresarial Completo 24/7 — Rancho da Praia",
+    title: "Projeto2 Automação de Chatbot (RD Station + Supabase + Calendly + AI Agent + Sheets + Wpp)",
     type: "IA & WhatsApp",
     category: "Automações",
     description: "Agente \"Fabi\" inteligente em produção operando 24/7. Atendimento comercial completo: qualificação de leads, agendamento de eventos, respostas a dúvidas. Integração com RD Station CRM, Google Calendar, Calendly e Supabase. Self-hosted em Docker com Evolution API. Histórico em Redis e suporte total via WhatsApp.",
@@ -72,7 +72,7 @@ const projects = [
     image: "/automation-it-assets-cover.png",
   },
   {
-    title: "Site + AI Agent — Clínica Vita Saúde (\"Sofia\")",
+    title: "Projeto1 Clínica Vita Saude_Web",
     type: "Web + IA",
     category: "Web",
     description: "Landing page responsiva + chatbot de IA embarcado. Widget de chat que responde dúvidas sobre serviços clínicos e realiza agendamentos em tempo real. Integração com Google Calendar e Supabase para gestão de pacientes.",
@@ -229,6 +229,11 @@ export function Projects() {
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
+                    <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/85 via-black/45 to-transparent px-4 pb-4 pt-12 sm:px-6 sm:pb-5">
+                      <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white text-center text-balance leading-tight drop-shadow-md">
+                        {project.title}
+                      </h3>
+                    </div>
                   </div>
                 ) : (
                   <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white text-center text-balance z-10">
