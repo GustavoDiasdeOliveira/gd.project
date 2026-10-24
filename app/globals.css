@@ -283,17 +283,17 @@
   --accent-foreground: #FFFFFF;
   --border: #292D33;
   --input: #171A1E;
-  --primary: #FF6D5A;
-  --primary-rgb: 255, 109, 90;
-  --secondary: #F2C811;
-  --secondary-rgb: 242, 200, 17;
+--primary: #FF2438;
+ --primary-rgb: 255, 36, 56;
+ --secondary: #FF9800;
+ --secondary-rgb: 255, 152, 0;
   --primary-foreground: #FFFFFF;
   --secondary-foreground: #FFFFFF;
-  --ring: #F2C811;
+  --ring: #FF9800;
   --radius: 1rem;
   
   /* Custom Properties */
-  --gradient: linear-gradient(135deg, #FF6D5A 0%, #F2C811 58%, #040506 100%);
+  --gradient: linear-gradient(135deg, #FF2438 0%, #FF9800 58%, #040506 100%);
   --glass-bg: rgba(4, 5, 6, 0.8);
   --glass-border: rgba(255, 109, 90, 0.28);
   --shadow: 0 8px 32px rgba(255, 109, 90, 0.16);

@@ -216,7 +216,7 @@ export function Hero() {
                 <BarChart3 className="h-4 w-4" />
                 <span className="text-xs font-bold tracking-wide">POWER BI</span>
               </div>
-              <div className="absolute -right-5 bottom-28 hidden sm:flex gap-1.5 rounded-xl border border-[#FF6D5A]/40 bg-[#101820]/90 p-2 text-[#FF6D5A] shadow-xl backdrop-blur-md" aria-label="Indicadores e dados">
+              <div className="absolute -right-5 bottom-28 hidden sm:flex gap-1.5 rounded-xl border border-[#FF9800]/40 bg-[#101820]/90 p-2 text-[#FF9800] shadow-xl backdrop-blur-md" aria-label="Indicadores e dados">
                 <Database className="h-4 w-4" />
                 <LineChart className="h-4 w-4 text-[#FF9800]" />
               </div>
