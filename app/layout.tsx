@@ -11,7 +11,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: 'Gustavo Dias | Análise de Dados, Power BI & Automação n8n',
-  description: 'Portfólio de Gustavo Dias de Oliveira: Análise de Dados em desenvolvimento com Power BI e SQL, automações Low-Code com n8n, AI Agents e integrações.',
+  description: 'Portfólio de Gustavo Dias de Oliveira: Análise de Dados com Power BI e SQL, automações Low-Code com n8n, AI Agents e integrações.',
   keywords: ['inteligência de mercado', 'pricing', 'análise de concorrência', 'automação n8n', 'agente de IA', 'web designer', 'landing page', 'freelancer', 'Praia Grande', 'São Paulo'],
   authors: [{ name: 'Gustavo Dias de Oliveira' }],
   creator: 'Gustavo Dias de Oliveira',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     locale: 'pt_BR',
     url: 'https://gustavodiasdeoliveira.com',
     title: 'Gustavo Dias | Análise de Dados, Power BI & Automação n8n',
-    description: 'Análise de Dados em desenvolvimento com Power BI e SQL, automações Low-Code com n8n, AI Agents e integrações.',
+    description: 'Análise de Dados com Power BI e SQL, automações Low-Code com n8n, AI Agents e integrações.',
     siteName: 'Gustavo Dias',
   },
   twitter: {

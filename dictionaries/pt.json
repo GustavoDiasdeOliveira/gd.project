@@ -13,9 +13,9 @@
     "title_part1": "Quem é o",
     "title_highlight": "Gustavo?",
     "description_1": "Profissional de Análise de Dados e Automação Low-Code / No-Code, com experiência em n8n, workflows, AI Agents e integrações.",
-    "description_2": "Atualmente atuo como Estagiário de TI e Automações com IA na Mar Brasil. Também desenvolvo projetos freelancer de ponta a ponta para atendimento, agendamento e qualificação de leads via WhatsApp. Estou em desenvolvimento ativo em Power BI e SQL, conectando meu interesse por dados à automação da coleta, tratamento e organização das informações.\n\nNa Zukkin, tive experiência com auditoria e validação de dados de concorrência, limpeza e padronização de bases, identificação de padrões e anomalias e relatórios de precificação. Busco crescer na combinação entre dados, BI e automação.",
+    "description_2": "Atualmente atuo como Estagiário de TI e Automações com IA na Mar Brasil. Também desenvolvo projetos freelancer de ponta a ponta para atendimento, agendamento e qualificação de leads via WhatsApp, combinando n8n, integrações e agentes de IA.\n\nNa Zukkin, tive experiência com auditoria e validação de dados de concorrência, limpeza e padronização de bases, identificação de padrões e anomalias e relatórios de precificação. Atuo na interseção entre dados, Business Intelligence e automação de processos.",
     "highlights": [
-      "Análise de Dados e BI em desenvolvimento (Power BI e SQL)",
+      "Análise de Dados e Business Intelligence com Power BI e SQL",
       "Integração via APIs (Evolution API, RD Station, Supabase)",
       "Deploy Docker, VPS e Configuração de Infraestrutura",
       "Exp. em Suporte TI (Mar Brasil) e Qualidade de Dados (Zukkin)",
@@ -26,17 +26,17 @@
   },
   "hero": {
     "badge": "Disponível para oportunidades (Remoto/CLT/Freela)",
-    "title_part1": "Análise de Dados +",
+    "title_part1": "Dados, BI +",
     "title_highlight": "Automação Low-Code",
     "typing": [
       "Criando workflows inteligentes com n8n",
       "Transformando dados em indicadores com Power BI",
-      "Estudando SQL para análises mais confiáveis",
+      "Estruturando análises confiáveis com SQL",
       "Desenvolvendo AI Agents para atendimento",
       "Integrando APIs, Webhooks e CRMs",
       "Automatizando processos de ponta a ponta"
     ],
-    "description": "Análise de Dados e Automação Low-Code / No-Code com n8n. Estou me desenvolvendo em Power BI e SQL enquanto construo automações que coletam, integram e tratam dados para gerar dashboards e decisões mais claras.",
+    "description": "Análise de Dados e Automação Low-Code / No-Code com n8n, Power BI e SQL. Estruturo dados, indicadores e workflows integrados para apoiar decisões mais rápidas e processos mais eficientes.",
     "cta_projects": "Ver meus projetos",
     "cta_cv": "Download CV",
     "cv_downloading": "Baixando...",

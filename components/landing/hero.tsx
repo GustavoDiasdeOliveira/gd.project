@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Github, Linkedin, MessageCircle, Download, ArrowRight, Loader2 } from "lucide-react"
+import { Github, Linkedin, MessageCircle, Download, ArrowRight, Loader2, BarChart3, Database, LineChart } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { useLanguage } from "@/context/LanguageContext"
@@ -208,6 +208,14 @@ export function Hero() {
               </div>
               <div className="profile-float profile-float-n8n"><img src={`${assetPath}/icons/n8n-color.png`} alt="" /> n8n</div>
               <div className="profile-float profile-float-ai"><img src={`${assetPath}/icons/ai-agent.png`} alt="" /> AI Agents</div>
+              <div className="absolute -left-4 top-8 hidden sm:flex items-center gap-2 rounded-xl border border-[#F2C811]/40 bg-[#101820]/90 px-3 py-2 text-[#F2C811] shadow-xl backdrop-blur-md" aria-label="Power BI e indicadores">
+                <BarChart3 className="h-4 w-4" />
+                <span className="text-xs font-bold tracking-wide">POWER BI</span>
+              </div>
+              <div className="absolute -right-5 bottom-28 hidden sm:flex gap-1.5 rounded-xl border border-[#118DFF]/40 bg-[#101820]/90 p-2 text-[#118DFF] shadow-xl backdrop-blur-md" aria-label="Indicadores e dados">
+                <Database className="h-4 w-4" />
+                <LineChart className="h-4 w-4 text-[#F2C811]" />
+              </div>
             </div>
           </div>
         </div>
