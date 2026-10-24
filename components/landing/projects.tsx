@@ -8,6 +8,20 @@ import { useLanguage } from "@/context/LanguageContext"
 
 const projects = [
   {
+    title: "Dashboard de Gestão de Vendas (Power BI)",
+    type: "Análise de Dados & BI",
+    category: "Dados",
+    description: "Projeto em desenvolvimento com faturamento por loja, forma de pagamento e período; análise por produto; KPIs; filtros dinâmicos; relacionamentos entre tabelas; medidas em DAX e tratamento de dados no Power Query.",
+    tags: ["Power BI", "Power Query", "Modelagem de Dados", "DAX básico", "KPIs", "SQL em desenvolvimento"],
+    liveUrl: null,
+    githubUrl: null,
+    gradient: "from-[#F2C94C] to-[#F2994A]",
+    status: "Em desenvolvimento",
+    // Troque image por uma imagem em /public ou adicione o link do dashboard quando estiver disponível.
+    image: null,
+    featured: true,
+  },
+  {
     title: "Projeto3 Automação de Chatbot (Google Calendar + Supabase + AI Agent)",
     type: "Automação & IA",
     category: "Automações",
@@ -130,13 +144,13 @@ const projects = [
 
 export function Projects() {
   const { t } = useLanguage()
-  const categories = [t("projects.all"), t("projects.automation"), t("projects.web")]
+  const categories = [t("projects.all"), t("projects.automation"), t("projects.data"), t("projects.web")]
   const [activeCategory, setActiveCategory] = useState(categories[0])
   const [visibleCount, setVisibleCount] = useState(4) 
   const ref = useRef<HTMLDivElement>(null)
 
   const filteredProjects = projects.filter(
-    (project) => activeCategory === categories[0] || project.category === (activeCategory === categories[1] ? "Automações" : activeCategory === categories[2] ? "Web" : "")
+    (project) => activeCategory === categories[0] || project.category === (activeCategory === categories[1] ? "Automações" : activeCategory === categories[2] ? "Dados" : activeCategory === categories[3] ? "Web" : "")
   )
 
   useEffect(() => {

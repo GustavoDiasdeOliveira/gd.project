@@ -7,7 +7,7 @@ const technologies = [
   { name: "Excel", icon: "https://img.icons8.com/color/48/microsoft-excel-2019--v1.png" },
   { name: "Google Sheets", icon: "./icons/icons8-google-sheets-48.png" },
   { name: "SQL", badge: "SQL" },
-  { name: "Python", icon: "./icons/icons8-python-48.png" },
+  { name: "Power BI", badge: "BI" },
   { name: "n8n", icon: "./icons/n8n-color.png" },
   { name: "WhatsApp API", icon: "./icons/icons8-whatsapp-48.png" },
   { name: "Supabase", icon: "https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/supabase-logo-icon.png" },
