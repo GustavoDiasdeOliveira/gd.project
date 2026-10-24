@@ -23,8 +23,8 @@ export function Hero() {
     setTimeout(() => {
       const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
       const link = document.createElement('a');
-      link.href = `${basePath}/Gustavo_CV_2026.pdf`;
-      link.download = 'Gustavo_CV_2026.pdf';
+      link.href = `${basePath}/Curriculo_Gustavo_Dados_e_LowCode.docx`;
+      link.download = 'Curriculo_Gustavo_Dados_e_LowCode.docx';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -185,7 +185,7 @@ export function Hero() {
 
           {/* Right - Visual */}
           <div className="relative flex justify-center order-first lg:order-last">
-            <div className="profile-stage" aria-label="Gustavo Dias — Automação Low-Code e AI Agents">
+            <div className="profile-stage" aria-label="Gustavo Dias — Dados, Power BI e Automação Low-Code">
               <div className="profile-glow" aria-hidden="true" />
               <div className="profile-grid" aria-hidden="true" />
               <div className="profile-ring profile-ring-one" aria-hidden="true" />
@@ -197,10 +197,14 @@ export function Hero() {
                 </div>
                 <div className="profile-portrait-wrap">
                   <Image src={`${assetPath}/foto-gustavo.png`} alt="Gustavo Dias usando terno e gravata" fill priority sizes="(max-width: 1024px) 72vw, 420px" className="profile-portrait" />
+                  <div className="absolute bottom-3 left-3 flex items-center gap-2 rounded-lg border border-[#F2C811]/60 bg-[#111820]/90 px-2 py-1.5 text-[#F2C811] shadow-lg backdrop-blur-sm">
+                    <img src={`${assetPath}/icons/icons8-power-bi-48.png`} alt="Power BI" className="h-5 w-5" />
+                    <span className="text-[10px] font-bold tracking-wide">POWER BI</span>
+                  </div>
                 </div>
                 <div className="profile-card-footer">
                   <div>
-                    <p className="profile-eyebrow">AUTOMAÇÃO INTELIGENTE</p>
+                    <p className="profile-eyebrow">DADOS + AUTOMAÇÃO</p>
                     <p className="profile-name">Gustavo Dias</p>
                   </div>
                   <span className="profile-arrow" aria-hidden="true"><ArrowRight /></span>
@@ -212,7 +216,7 @@ export function Hero() {
                 <BarChart3 className="h-4 w-4" />
                 <span className="text-xs font-bold tracking-wide">POWER BI</span>
               </div>
-              <div className="absolute -right-5 bottom-28 hidden sm:flex gap-1.5 rounded-xl border border-[#118DFF]/40 bg-[#101820]/90 p-2 text-[#118DFF] shadow-xl backdrop-blur-md" aria-label="Indicadores e dados">
+              <div className="absolute -right-5 bottom-28 hidden sm:flex gap-1.5 rounded-xl border border-[#FF6D5A]/40 bg-[#101820]/90 p-2 text-[#FF6D5A] shadow-xl backdrop-blur-md" aria-label="Indicadores e dados">
                 <Database className="h-4 w-4" />
                 <LineChart className="h-4 w-4 text-[#F2C811]" />
               </div>
