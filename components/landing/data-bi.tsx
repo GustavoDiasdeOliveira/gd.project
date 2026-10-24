@@ -8,9 +8,9 @@ export function DataBI() {
       <div className="orb orb-primary w-[360px] h-[360px] -top-24 -right-24 opacity-10" />
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#F2C811] mb-3">Power BI + n8n</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#FF9800] mb-3">Power BI + n8n</p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-balance">
-            Dados &amp; <span className="bg-[linear-gradient(90deg,#F2C811,#FF6D5A)] bg-clip-text text-transparent">BI</span>
+            Dados &amp; <span className="bg-[linear-gradient(90deg,#FF2438,#FF9800)] bg-clip-text text-transparent">BI</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-muted-foreground text-pretty">
             Transformo dados tratados em indicadores claros e decisões melhores, conectando Power BI, SQL e automação com n8n.

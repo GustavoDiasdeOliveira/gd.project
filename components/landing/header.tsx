@@ -90,8 +90,13 @@ export function Header() {
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14 sm:h-16 lg:h-20">
           {/* Logo */}
-          <Link href="#inicio" className="flex items-center gap-1 text-2xl font-bold">
-            <span className="brand-wordmark">Gustavo<span>.</span></span>
+          <Link href="#inicio" className="flex items-center gap-2" aria-label="Gustavo Dias — início">
+            <img
+              src="/logoGDHeader.png"
+              alt="Logo GD de Gustavo Dias"
+              className="h-10 w-10 object-contain sm:h-12 sm:w-12"
+            />
+            <span className="brand-wordmark hidden sm:inline">Gustavo<span>.</span></span>
           </Link>
 
           {/* Desktop Navigation */}

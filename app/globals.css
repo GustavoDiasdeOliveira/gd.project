@@ -4,11 +4,11 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* n8n orange + Power BI yellow brand palette */
-  --primary: #FF6D5A;
-  --primary-rgb: 255, 109, 90;
-  --secondary: #F2C811;
-  --secondary-rgb: 242, 200, 17;
+  /* Gustavo Dias brand palette: electric red + n8n orange */
+  --primary: #FF2438;
+  --primary-rgb: 255, 36, 56;
+  --secondary: #FF9800;
+  --secondary-rgb: 255, 152, 0;
   --background: #040506;
   --foreground: #FFFFFF;
   --card: #0B0D0F;
@@ -19,20 +19,20 @@
   --secondary-foreground: #FFFFFF;
   --muted: #171A1E;
   --muted-foreground: #A7ADB5;
-  --accent: #2A1714;
+  --accent: #2A0D12;
   --accent-foreground: #FFFFFF;
-  --destructive: #FF6D5A;
+  --destructive: #FF2438;
   --destructive-foreground: #FFFFFF;
   --border: #292D33;
   --input: #171A1E;
-  --ring: #F2C811;
+  --ring: #FF9800;
   --radius: 1rem;
   
   /* Custom Properties */
-  --gradient: linear-gradient(135deg, #FF6D5A, #F2C811);
+  --gradient: linear-gradient(135deg, #FF2438, #FF9800);
   --glass-bg: rgba(4, 5, 6, 0.8);
-  --glass-border: rgba(255, 109, 90, 0.24);
-  --shadow: 0 8px 32px rgba(255, 109, 90, 0.14);
+  --glass-border: rgba(255, 36, 56, 0.24);
+  --shadow: 0 8px 32px rgba(255, 36, 56, 0.14);
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 @keyframes spin-reverse {

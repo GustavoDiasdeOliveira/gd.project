@@ -68,7 +68,7 @@ const projects = [
     tags: ["n8n", "Evolution API Docker", "RD Station", "Calendly", "Supabase", "Redis", "WhatsApp Business", "Production"],
     liveUrl: null,
     githubUrl: "https://github.com/GustavoDiasdeOliveira/Projetos-N8N",
-    gradient: "from-[#FF6D5A] to-[#F2C811]",
+    gradient: "from-[#FF2438] to-[#FF9800]",
     status: "Em produção",
     image: "/automation-chatbot-cover.png",
     featured: true,
