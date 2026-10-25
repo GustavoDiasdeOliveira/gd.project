@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { Award, ExternalLink, Calendar, Download } from "lucide-react"
+import { Award, ExternalLink, Calendar, Download, Eye } from "lucide-react"
 import { useLanguage } from "@/context/LanguageContext"
 
 export function Certificates() {
@@ -73,14 +73,26 @@ export function Certificates() {
               </p>
 
               {item.file && (
-                <a
-                  href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/${item.file}`}
-                  download
-                  className="mt-auto inline-flex w-full items-center justify-center gap-2 rounded-lg border border-primary/40 px-3 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground sm:w-fit"
-                >
-                  <Download className="h-4 w-4" />
-                  Baixar certificado
-                </a>
+                <div className="mt-auto flex w-full flex-col gap-2 pt-5 sm:w-fit sm:flex-row">
+                  <a
+                    href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/${item.file}`}
+                    download
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-primary/40 px-3 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground sm:w-auto"
+                  >
+                    <Download className="h-4 w-4" />
+                    Baixar certificado
+                  </a>
+                  <a
+                    href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/${item.file}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Visualizar certificado: ${item.title}`}
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-secondary/40 px-3 py-2.5 text-sm font-semibold text-secondary transition-colors hover:bg-secondary hover:text-secondary-foreground sm:w-auto"
+                  >
+                    <Eye className="h-4 w-4" />
+                    Visualizar
+                  </a>
+                </div>
               )}
             </div>
           ))}
