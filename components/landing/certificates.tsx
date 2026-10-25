@@ -32,21 +32,28 @@ export function Certificates() {
       <div className="orb orb-secondary w-[350px] h-[350px] bottom-1/3 -right-40 opacity-10" />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 sm:mb-12 md:mb-16 fade-in">
+        <div className="mx-auto mb-10 max-w-2xl text-center sm:mb-12 md:mb-16 fade-in">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+            <Award className="h-3.5 w-3.5" />
+            Formação comprovada
+          </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-balance">
             {t("certificates.title_part1")}{" "}
             <span className="bg-primary bg-clip-text text-transparent">
               {t("certificates.title_highlight")}
             </span>
           </h2>
-          <div className="h-1.5 w-16 sm:w-20 bg-primary rounded-full mx-auto" />
+          <div className="mx-auto mb-4 h-1.5 w-16 rounded-full bg-gradient-to-r from-primary to-secondary sm:w-20" />
+          <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+            Cursos e certificações que reforçam minha atuação em automação, inteligência artificial, dados e desenvolvimento.
+          </p>
         </div>
 
         <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-4xl mx-auto">
           {items.map((item: any, index: number) => (
             <div
               key={index}
-              className="fade-in gradient-border group p-5 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+              className="fade-in gradient-border group flex h-full flex-col rounded-xl p-5 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl sm:rounded-2xl sm:p-6 md:p-8"
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               <div className="inline-flex p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 mb-4 sm:mb-5 group-hover:scale-110 transition-transform">
@@ -69,7 +76,7 @@ export function Certificates() {
                 <a
                   href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/${item.file}`}
                   download
-                  className="mt-5 inline-flex items-center gap-2 rounded-lg border border-primary/40 px-3 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+                  className="mt-auto inline-flex w-full items-center justify-center gap-2 rounded-lg border border-primary/40 px-3 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground sm:w-fit"
                 >
                   <Download className="h-4 w-4" />
                   Baixar certificado

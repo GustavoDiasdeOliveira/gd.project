@@ -32,6 +32,7 @@ export function Header() {
     { href: "#inicio", label: t("header.home") },
     { href: "#servicos", label: t("header.services") },
     { href: "#projetos", label: t("header.projects") },
+    { href: "#certificados", label: "Certificados" },
     { href: "#sobre", label: t("header.about") },
     { href: "#contato", label: t("header.contact") },
   ]
