@@ -1,9 +1,11 @@
 import { Header } from "@/components/landing/header"
 import { Hero } from "@/components/landing/hero"
 import { Services } from "@/components/landing/services"
+import { DataBI } from "@/components/landing/data-bi"
 import { Process } from "@/components/landing/process"
 import { Projects } from "@/components/landing/projects"
 import { Technologies } from "@/components/landing/technologies"
+import { Certificates } from "@/components/landing/certificates"
 import { About } from "@/components/landing/about"
 import { Contact } from "@/components/landing/contact"
 import { Footer } from "@/components/landing/footer"
@@ -17,9 +19,11 @@ export default function LandingPage() {
       <Header />
       <Hero />
       <Services />
+      <DataBI />
       <Process />
       <Projects />
       <Technologies />
+      <Certificates />
       <About />
       <Contact />
       <Footer />

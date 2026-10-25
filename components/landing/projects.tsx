@@ -8,6 +8,20 @@ import { useLanguage } from "@/context/LanguageContext"
 
 const projects = [
   {
+    title: "Dashboard de Gestão de Vendas (Power BI)",
+    type: "Análise de Dados & BI",
+    category: "Dados",
+    description: "Dashboard de faturamento por loja, forma de pagamento e período, com análise por produto, KPIs, filtros dinâmicos, relacionamentos entre tabelas, medidas em DAX e tratamento de dados no Power Query.",
+    tags: ["Power BI", "Power Query", "Modelagem de Dados", "DAX", "KPIs", "SQL"],
+    liveUrl: null,
+    githubUrl: null,
+    gradient: "from-[#F2C94C] to-[#F2994A]",
+    status: "Em desenvolvimento",
+    // Troque image por uma imagem em /public ou adicione o link do dashboard quando estiver disponível.
+    image: null,
+    featured: true,
+  },
+  {
     title: "Projeto3 Automação de Chatbot (Google Calendar + Supabase + AI Agent)",
     type: "Automação & IA",
     category: "Automações",
@@ -15,7 +29,7 @@ const projects = [
     tags: ["n8n", "Webhooks", "Formulário Web", "Processamento de Imagem", "WhatsApp API", "Gmail", "Automação Corporativa"],
     liveUrl: null,
     githubUrl: "https://github.com/GustavoDiasdeOliveira/Projetos-N8N",
-    gradient: "from-[#00D4AA] to-[#00A88C]",
+    gradient: "from-[#FF2438] to-[#FF9800]",
     status: "Em desenvolvimento",
     image: "/automation-signature-cover.png",
     featured: true,
@@ -41,7 +55,7 @@ const projects = [
     tags: ["n8n", "IA Agent", "Google Sheets", "Google Docs", "Gemini/OpenAI", "Gmail", "Webhook Chat"],
     liveUrl: null,
     githubUrl: "https://github.com/GustavoDiasdeOliveira/Projetos-N8N",
-    gradient: "from-[#667EEA] to-[#764BA2]",
+    gradient: "from-[#FF2438] to-[#FF9800]",
     status: "Em produção",
     image: "/automation-nutrition-cover.png",
     featured: true,
@@ -54,7 +68,7 @@ const projects = [
     tags: ["n8n", "Evolution API Docker", "RD Station", "Calendly", "Supabase", "Redis", "WhatsApp Business", "Production"],
     liveUrl: null,
     githubUrl: "https://github.com/GustavoDiasdeOliveira/Projetos-N8N",
-    gradient: "from-[#00D4FF] to-[#0066FF]",
+    gradient: "from-[#FF2438] to-[#FF9800]",
     status: "Em produção",
     image: "/automation-chatbot-cover.png",
     featured: true,
@@ -67,7 +81,7 @@ const projects = [
   tags: ["n8n", "MaaS360", "Auvo 2.0", "Webhooks", "Data Pipeline", "Production"],
     liveUrl: null,
     githubUrl: "https://github.com/GustavoDiasdeOliveira/Projetos-N8N",
-    gradient: "from-[#FF9500] to-[#FF6B35]",
+    gradient: "from-[#FF2438] to-[#FF9800]",
     status: "Em desenvolvimento",
     image: "/automation-it-assets-cover.png",
   },
@@ -130,13 +144,13 @@ const projects = [
 
 export function Projects() {
   const { t } = useLanguage()
-  const categories = [t("projects.all"), t("projects.automation"), t("projects.web")]
+  const categories = [t("projects.all"), t("projects.automation"), t("projects.data"), t("projects.web")]
   const [activeCategory, setActiveCategory] = useState(categories[0])
   const [visibleCount, setVisibleCount] = useState(4) 
   const ref = useRef<HTMLDivElement>(null)
 
   const filteredProjects = projects.filter(
-    (project) => activeCategory === categories[0] || project.category === (activeCategory === categories[1] ? "Automações" : activeCategory === categories[2] ? "Web" : "")
+    (project) => activeCategory === categories[0] || project.category === (activeCategory === categories[1] ? "Automações" : activeCategory === categories[2] ? "Dados" : activeCategory === categories[3] ? "Web" : "")
   )
 
   useEffect(() => {

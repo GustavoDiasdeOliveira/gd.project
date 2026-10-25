@@ -12,13 +12,14 @@
   "about": {
     "title_part1": "Quem é o",
     "title_highlight": "Gustavo?",
-    "description_1": "Profissional de Automação Low-Code / No-Code especializado em n8n, com experiência na construção de workflows, AI Agents e integrações.",
-    "description_2": "Atualmente atuo como Estagiário de TI na Mar Brasil e também executo projetos freelancer de ponta a ponta para clientes reais (atendimento comercial, agendamento e qualificação de leads via WhatsApp), incluindo deploy de n8n e Evolution API em containers Docker.\n\nTenho vivência com LLM (Groq AI, OpenAI, Gemini), Google Sheets, Google Calendar e CRMs — prompt engineering, tratamento de erros e documentação técnica de fluxos. Busco posição como Analista de Automação Low-Code / AI Agents, nível Júnior, em regime remoto, freelance ou CLT.",
+    "description_1": "Profissional de Análise de Dados e Automação Low-Code / No-Code, com experiência em n8n, workflows, AI Agents e integrações.",
+    "description_2": "Atualmente atuo como Estagiário de TI e Automações com IA na Mar Brasil. Também desenvolvo projetos freelancer de ponta a ponta para atendimento, agendamento e qualificação de leads via WhatsApp, combinando n8n, integrações e agentes de IA.\n\nNa Zukkin, tive experiência com auditoria e validação de dados de concorrência, limpeza e padronização de bases, identificação de padrões e anomalias e relatórios de precificação. Atuo na interseção entre dados, Business Intelligence e automação de processos.",
     "highlights": [
-      "Foco em Automações (n8n), Workflows e AI Agents",
+      "Análise de Dados e Business Intelligence com Power BI e SQL",
+      "Desenvolvedor de Automações Low-Code/No-Code (n8n)",
       "Integração via APIs (Evolution API, RD Station, Supabase)",
       "Deploy Docker, VPS e Configuração de Infraestrutura",
-      "Exp. em Suporte TI (Mar Brasil) e Qualidade de Dados (Zukkin)",
+      "Exp. em Suporte TI (Mar Brasil) e Qualidade — Inteligência de Mercado, Pricing & Pesquisa (Zukkin)",
       "Desenvolvimento Web Frontend (HTML/CSS/JS)"
     ],
     "cta_cv": "Baixar currículo completo",
@@ -26,15 +27,17 @@
   },
   "hero": {
     "badge": "Disponível para oportunidades (Remoto/CLT/Freela)",
-    "title_part1": "Analista de Automações,",
-    "title_highlight": "Low-Code & AI Agents",
+    "title_part1": "Dados, BI +",
+    "title_highlight": "Automação Low-Code",
     "typing": [
       "Criando workflows inteligentes com n8n",
+      "Transformando dados em indicadores com Power BI",
+      "Estruturando análises confiáveis com SQL",
       "Desenvolvendo AI Agents para atendimento",
       "Integrando APIs, Webhooks e CRMs",
       "Automatizando processos de ponta a ponta"
     ],
-    "description": "Analista de Automação Low-Code / No-Code especializado em n8n, AI Agents e integrações via API e Webhooks. Desenvolvo automações para atendimento comercial, agendamento e qualificação de leads, com deploy em Docker, conexão com LLMs, Google Workspace, CRMs e bancos de dados.",
+    "description": "Análise de Dados e Automação Low-Code / No-Code com n8n, Power BI e SQL. Estruturo dados, indicadores e workflows integrados para apoiar decisões mais rápidas e processos mais eficientes.",
     "cta_projects": "Ver meus projetos",
     "cta_cv": "Download CV",
     "cv_downloading": "Baixando...",
@@ -85,6 +88,7 @@
     "all": "Todos",
   "landing": "Landing Pages",
   "automation": "n8n & IA",
+  "data": "Dados & BI",
   "web": "Web & Dashboards",
   "apps": "Apps / Dados",
     "view_project": "Ver projeto",
@@ -143,7 +147,7 @@
     ]
   },
   "footer": {
-    "description": "Automações Low-Code / No-Code com n8n · AI Agents · APIs e Webhooks",
+    "description": "Automação n8n · AI Agents · APIs e Webhooks · Inteligência de Mercado · Pricing · Análise de Concorrentes",
     "quick_links": "Links Rápidos",
     "rights": "Feito com 💻 e ☕",
     "back_to_top": "Voltar ao topo"
@@ -194,14 +198,16 @@
         "title": "Agentes de IA com n8n",
         "issuer": "Hashtag Treinamentos",
         "year": "2026",
-        "description": "Integração e criação de fluxos com Agentes de IA."
-      },
+"description": "Integração e criação de fluxos com Agentes de IA.",
+    "file": "certificados/certificado-agentes-ia.png"
+  },
       {
         "title": "N8N: Dominando Automações do Zero",
         "issuer": "Matheus Fraga, Udemy",
         "year": "2026",
-        "description": "Automatização completa com ferramentas no-code e n8n."
-      },
+"description": "Automatização completa com ferramentas no-code e n8n.",
+    "file": "certificado-n8n-udemy.pdf"
+  },
       {
         "title": "Formação Desenvolvedor IA: Do Zero ao Full-Stack",
         "issuer": "Lovable, Supabase, n8n — Udemy",
@@ -209,17 +215,33 @@
         "description": "Criação de soluções usando IA e low-code/no-code."
       },
       {
-        "title": "Bootcamp n8n",
-        "issuer": "Open Academy",
-        "year": "Em andamento",
-        "description": "Treinamento intensivo de n8n."
-      },
+"title": "Santander 2026 — Automação com n8n",
+    "issuer": "Santander / Digital Innovation One",
+    "year": "2026",
+    "description": "Bootcamp de automação com n8n, com carga horária de 26 horas.",
+    "file": "certificados/certificado-santander-n8n.png"
+  },
+  {
+    "title": "Jornada Python",
+    "issuer": "Hashtag Treinamentos",
+    "year": "2026",
+    "description": "Certificado de conclusão em fundamentos de Python.",
+    "file": "certificados/certificado-python.png"
+  },
+  {
+    "title": "Desenvolvimento Front-end — CSS",
+    "issuer": "Santander / Ada Tech",
+    "year": "2026",
+    "description": "Curso digital de CSS com carga horária de 6 horas.",
+    "file": "certificado-css.pdf"
+  },
       {
         "title": "Desenvolvimento Front-end",
         "issuer": "Santander / Ada Tech",
         "year": "2025",
-        "description": "Lógica de programação, HTML, CSS, JavaScript."
-      }
+"description": "Lógica de programação, HTML, CSS, JavaScript.",
+    "file": "certificado-html.pdf"
+  }
     ]
   },
   "skills": {
@@ -259,15 +281,15 @@
         ]
       },
       {
-        "name": "Web & Dados",
+        "name": "Dados & BI",
         "icon": "Code2",
         "items": [
-          "HTML",
-          "CSS",
-          "JavaScript",
-          "Figma",
-          "PostgreSQL",
-                  "Google Sheets"
+          "Power BI (Power Query, DAX básico e KPIs)",
+          "Modelagem de dados",
+          "SQL (em desenvolvimento)",
+          "Excel",
+          "Qualidade e auditoria de dados",
+          "Google Sheets"
         ]
       }
     ]
