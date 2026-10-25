@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { Award, ExternalLink, Calendar } from "lucide-react"
+import { Award, ExternalLink, Calendar, Download } from "lucide-react"
 import { useLanguage } from "@/context/LanguageContext"
 
 export function Certificates() {
@@ -64,6 +64,17 @@ export function Certificates() {
               <p className="text-sm sm:text-base text-muted-foreground leading-relaxed text-pretty">
                 {item.description}
               </p>
+
+              {item.file && (
+                <a
+                  href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/${item.file}`}
+                  download
+                  className="mt-5 inline-flex items-center gap-2 rounded-lg border border-primary/40 px-3 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+                >
+                  <Download className="h-4 w-4" />
+                  Baixar certificado
+                </a>
+              )}
             </div>
           ))}
         </div>

@@ -197,14 +197,16 @@
         "title": "Agentes de IA com n8n",
         "issuer": "Hashtag Treinamentos",
         "year": "2026",
-        "description": "Integração e criação de fluxos com Agentes de IA."
-      },
+"description": "Integração e criação de fluxos com Agentes de IA.",
+    "file": "certificados/certificado-agentes-ia.png"
+  },
       {
         "title": "N8N: Dominando Automações do Zero",
         "issuer": "Matheus Fraga, Udemy",
         "year": "2026",
-        "description": "Automatização completa com ferramentas no-code e n8n."
-      },
+"description": "Automatização completa com ferramentas no-code e n8n.",
+    "file": "certificado-n8n-udemy.pdf"
+  },
       {
         "title": "Formação Desenvolvedor IA: Do Zero ao Full-Stack",
         "issuer": "Lovable, Supabase, n8n — Udemy",
@@ -212,17 +214,33 @@
         "description": "Criação de soluções usando IA e low-code/no-code."
       },
       {
-        "title": "Bootcamp n8n",
-        "issuer": "Open Academy",
-        "year": "Em andamento",
-        "description": "Treinamento intensivo de n8n."
-      },
+"title": "Santander 2026 — Automação com n8n",
+    "issuer": "Santander / Digital Innovation One",
+    "year": "2026",
+    "description": "Bootcamp de automação com n8n, com carga horária de 26 horas.",
+    "file": "certificados/certificado-santander-n8n.png"
+  },
+  {
+    "title": "Jornada Python",
+    "issuer": "Hashtag Treinamentos",
+    "year": "2026",
+    "description": "Certificado de conclusão em fundamentos de Python.",
+    "file": "certificados/certificado-python.png"
+  },
+  {
+    "title": "Desenvolvimento Front-end — CSS",
+    "issuer": "Santander / Ada Tech",
+    "year": "2026",
+    "description": "Curso digital de CSS com carga horária de 6 horas.",
+    "file": "certificado-css.pdf"
+  },
       {
         "title": "Desenvolvimento Front-end",
         "issuer": "Santander / Ada Tech",
         "year": "2025",
-        "description": "Lógica de programação, HTML, CSS, JavaScript."
-      }
+"description": "Lógica de programação, HTML, CSS, JavaScript.",
+    "file": "certificado-html.pdf"
+  }
     ]
   },
   "skills": {

@@ -1,0 +1,58 @@
+
+
+GUSTAVO DIAS DE OLIVEIRA
+Análise de Dados & Automação Low-Code/No-Code  |  Power BI · SQL · n8n
+(13) 99189-5950  ·  gustavodiasdeoliveira72@gmail.com  ·  Praia Grande, SP  ·  Remoto/Híbrido
+Portfólio: gustavodiasdeoliveira.github.io/gd.project   ·   LinkedIn: linkedin.com/in/gustavodias-de-oliveira-615073299
+RESUMO PROFISSIONAL
+Formando em Ciência da Computação (conclusão em dez/2026) que une análise de dados e automação de processos. Na 
+Zukkin, atuei com auditoria, validação e padronização de dados de preços e mercado. Na Mar Brasil e em projetos 
+freelancer, construo workflows e AI Agents em n8n, com integrações via API e Webhooks, para clientes reais. Em 
+desenvolvimento ativo em Power BI (Power Query, modelagem e DAX) e SQL. Busco posição júnior em Análise de Dados 
+ou Automação Low-Code/No-Code, transformando dados e processos em decisões e eficiência.
+COMPETÊNCIAS
+•Análise de dados e BI: Power BI (Power Query, modelagem de dados, medidas DAX, KPIs, filtros dinâmicos) · 
+Excel · Google Sheets · storytelling com dados
+•Bancos de dados: SQL (em desenvolvimento ativo) · PostgreSQL · Supabase
+•Qualidade de dados: auditoria e validação · limpeza e padronização de bases · identificação de padrões e 
+anomalias
+•Low-Code / No-Code: n8n (workflows, sub-workflows, lógica condicional, tratamento de erros) · AI Agents e 
+chatbots · prompt engineering · Groq, OpenAI, Gemini
+•Integrações e infraestrutura: APIs REST · Webhooks · Evolution API (WhatsApp) · RD Station CRM · Google 
+Workspace · Calendly · Docker (n8n e Evolution API self-hosted)
+•Idiomas: Português (nativo) · Inglês (básico, em estudo) · Espanhol (básico/intermediário)
+EXPERIÊNCIA PROFISSIONAL
+Estagiário de TI — Suporte e Automações com IA  |  Mar BrasilDez 2025 – Atual
+•Criação e manutenção de workflows em n8n para otimizar rotinas operacionais: fluxos de dados, notificações 
+automáticas e sincronização entre sistemas via API e Webhooks.
+•Integração de ferramentas internas (banco de dados, e-mail e sistemas corporativos), eliminando tarefas manuais e 
+reduzindo o tempo de processamento.
+•Monitoramento e testes diários dos workflows em produção, com alertas automáticos de erro e identificação de 
+melhorias.
+•Suporte de TI em paralelo: gestão de dispositivos via IBM MaaS360 (MDM) e registro de ativos via Auvo 2.0.
+Estagiário de Qualidade — Inteligência de Mercado  |  Zukkin Inteligência de Preços2024 – 2025
+•Auditoria e validação de dados de concorrência coletados em larga escala via ZROBOT, garantindo integridade e 
+consistência para análises de pricing.
+•Limpeza, padronização e estruturação de bases de dados; identificação de padrões e anomalias de mercado, com 
+relatórios e insights de precificação.
+•Desenvolvimento do ZBOT: chatbot interno em n8n (workflows + webhooks) para automatizar o suporte operacional 
+e o onboarding de novos colaboradores.
+PROJETOS
+•Dashboard de Gestão de Vendas (Power BI): faturamento por loja, pagamento e período, análise por produto, 
+KPIs e filtros dinâmicos; relacionamentos entre tabelas, medidas DAX e Power Query (projeto de curso).
+•Painel de automações — Mar Brasil (Next.js, Firebase): dashboard web para gestão e acompanhamento das 
+automações n8n de aniversários e boas-vindas de colaboradores.
+•AI Agent WhatsApp — Rancho da Praia (freelance): atendimento comercial, qualificação de leads e reservas. n8n 
+· Evolution API (Docker) · RD Station CRM · Calendly · Google Calendar · Supabase · Redis.
+•AI Agent — Assistente de Nutrição "Thiago" (freelance): cadastro de alunos e geração de plano alimentar de 7 
+dias salvo em Google Docs e enviado por e-mail. n8n · Google Sheets · Gmail · OpenAI/Gemini.
+•AI Agent + Chat Widget — Clínica Vita Saúde "Sofia" (freelance): agente embarcado em chat widget que 
+responde dúvidas e agenda em tempo real. n8n · Supabase · Google Calendar API.
+FORMAÇÃO ACADÊMICA
+Bacharelado em Ciência da Computação  |  UNIP – Universidade PaulistaConclusão: Dez/2026
+CERTIFICAÇÕES E CURSOS
+•Santander 2026 — Automação com N8N (Bootcamp, 26h) — Santander / Digital Innovation One (2026)
+•Agentes de IA com n8n — Hashtag Treinamentos (2026)
+•N8N: Dominando Automações do Zero — Matheus Fraga, Udemy (2026)
+•Formação Desenvolvedor IA: Do Zero ao Full-Stack (No Code) — Lovable, Supabase, n8n — Udemy (2026)
+•Desenvolvimento Front-end — Santander / Ada Tech (2025)
