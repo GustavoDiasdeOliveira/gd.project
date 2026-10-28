@@ -98,7 +98,7 @@ src={`${assetPath}/logo-ciber-prime.png`}
   alt="Logo Ciber Prime"
               className="h-10 w-10 object-contain sm:h-12 sm:w-12"
             />
-            <span className="brand-wordmark hidden sm:inline">Ciber<span>.</span>Prime</span>
+            <span className="brand-wordmark hidden sm:inline">Gustavo<span>.</span></span>
           </Link>
 
           {/* Desktop Navigation */}

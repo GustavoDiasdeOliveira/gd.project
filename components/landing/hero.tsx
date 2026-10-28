@@ -95,7 +95,7 @@ export function Hero() {
           <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-primary/20">
-              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+              <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
               <span className="text-sm font-medium">{t("hero.badge")}</span>
             </div>
 
@@ -193,7 +193,7 @@ export function Hero() {
               <div className="profile-card">
                 <div className="profile-card-topline">
                   <span className="profile-status"><span className="profile-status-dot" /> Disponível para projetos</span>
-                  <span className="profile-index">01 / 04</span>
+                  <span className="profile-index">WEB DESIGN</span>
                 </div>
                 <div className="profile-portrait-wrap">
                   <Image src={`${assetPath}/foto-gustavo.png`} alt="Gustavo Dias usando terno e gravata" fill priority sizes="(max-width: 1024px) 72vw, 420px" className="profile-portrait" />
@@ -208,6 +208,8 @@ export function Hero() {
               </div>
               <div className="profile-float profile-float-n8n"><img src={`${assetPath}/icons/n8n-color.png`} alt="" /> n8n</div>
               <div className="profile-float profile-float-ai"><img src={`${assetPath}/icons/ai-agent.png`} alt="" /> AI Agents</div>
+              <div className="profile-float profile-float-web"><img src={`${assetPath}/icons/icons8-figma-48.png`} alt="" /> Figma</div>
+              <div className="profile-float profile-float-code"><img src={`${assetPath}/icons/icons8-html-5-48.png`} alt="" /> HTML / CSS</div>
 
             </div>
           </div>
