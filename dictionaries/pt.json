@@ -12,12 +12,12 @@
   "about": {
     "title_part1": "Quem é o",
     "title_highlight": "Gustavo?",
-    "description_1": "Profissional de Análise de Dados e Automação Low-Code / No-Code, com experiência em n8n, workflows, AI Agents e integrações.",
-    "description_2": "Atualmente atuo como Estagiário de TI e Automações com IA na Mar Brasil. Também desenvolvo projetos freelancer de ponta a ponta para atendimento, agendamento e qualificação de leads via WhatsApp, combinando n8n, integrações e agentes de IA.\n\nNa Zukkin, tive experiência com auditoria e validação de dados de concorrência, limpeza e padronização de bases, identificação de padrões e anomalias e relatórios de precificação. Atuo na interseção entre dados, Business Intelligence e automação de processos.",
+    "description_1": "Web Designer e desenvolvedor de automações com IA, n8n Low-Code, agentes de IA e interfaces digitais.",
+    "description_2": "Formando em Ciência da Computação (dez/2026) que une web design e automação com IA. Desenho interfaces no Figma e desenvolvo sites responsivos em HTML, CSS e JavaScript, usando GitHub, v0 e Vercel para colocar projetos no ar.\n\nConstruo workflows e agentes de IA em n8n, integrados a sistemas via API e Webhooks, usando LLMs como Claude, GPT e Gemini.",
     "highlights": [
-      "Análise de Dados e Business Intelligence com Power BI e SQL",
+      "Web Design, UX/UI e interfaces responsivas",
       "Desenvolvedor de Automações Low-Code/No-Code (n8n)",
-      "Integração via APIs (Evolution API, RD Station, Supabase)",
+      "Integração via APIs (Evolution API, Supabase)",
       "Deploy Docker, VPS e Configuração de Infraestrutura",
       "Exp. em Suporte TI (Mar Brasil) e Qualidade — Inteligência de Mercado, Pricing & Pesquisa (Zukkin)",
       "Desenvolvimento Web Frontend (HTML/CSS/JS)"
@@ -26,18 +26,17 @@
     "cv_downloading": "Baixando..."
   },
   "hero": {
-    "badge": "Disponível para oportunidades (Remoto/CLT/Freela)",
-    "title_part1": "Dados, BI +",
-    "title_highlight": "Automação Low-Code",
+    "badge": "Disponível para oportunidades (Remoto/CLT/Freelancer)",
+    "title_part1": "Web Designer &",
+    "title_highlight": "Automação Inteligente",
     "typing": [
-      "Criando workflows inteligentes com n8n",
-      "Transformando dados em indicadores com Power BI",
-      "Estruturando análises confiáveis com SQL",
-      "Desenvolvendo AI Agents para atendimento",
+      "Criando interfaces no Figma",
+      "Desenvolvendo sites responsivos",
+      "Construindo agentes de IA com n8n",
       "Integrando APIs, Webhooks e CRMs",
       "Automatizando processos de ponta a ponta"
     ],
-    "description": "Análise de Dados e Automação Low-Code / No-Code com n8n, Power BI e SQL. Estruturo dados, indicadores e workflows integrados para apoiar decisões mais rápidas e processos mais eficientes.",
+    "description": "Web Designer e desenvolvedor de automações com IA, n8n Low-Code e agentes de IA. Crio interfaces, sites responsivos e workflows integrados para transformar ideias em experiências digitais e processos eficientes.",
     "cta_projects": "Ver meus projetos",
     "cta_cv": "Download CV",
     "cv_downloading": "Baixando...",
@@ -62,7 +61,7 @@
       },
       {
         "title": "Integração de APIs & Webhooks",
-        "description": "Conexão de sistemas como Google Sheets, Calendar, Supabase, CRMs (RD Station) e ferramentas de IA (OpenAI, Groq, Gemini) para orquestrar dados.",
+        "description": "Conexão de sistemas como Google Sheets, Calendar, Supabase, CRMs e sistemas internos e ferramentas de IA (OpenAI, Groq, Gemini) para orquestrar dados.",
         "cta": "Quero integrar sistemas"
       },
       {
@@ -71,8 +70,8 @@
         "cta": "Quero um site"
       },
       {
-        "title": "Deploy & Infraestrutura",
-        "description": "Configuração de n8n e Evolution API em containers Docker, VPS, subdomínios e serviços de apoio como Redis e Supabase.",
+        "title": "UX/UI e Design Responsivo",
+        "description": "Interfaces pensadas no Figma e desenvolvidas com foco em clareza, acessibilidade, responsividade e conversão.",
         "cta": "Saber mais"
       }
     ]
@@ -88,8 +87,8 @@
     "all": "Todos",
   "landing": "Landing Pages",
   "automation": "n8n & IA",
-  "data": "Dados & BI",
-  "web": "Web & Dashboards",
+  "data": "UX/UI",
+  "web": "Web Design",
   "apps": "Apps / Dados",
     "view_project": "Ver projeto",
     "more_projects": "Ver todos os projetos"
@@ -97,7 +96,7 @@
   "contact": {
     "title_part1": "Vamos trabalhar",
     "title_highlight": "juntos?",
-    "subtitle": "Estou disponível para oportunidades como Analista de Automação Low-Code / AI Agents, em regime remoto, freelance ou CLT.",
+    "subtitle": "Estou disponível para oportunidades como Web Designer, UX/UI Designer ou desenvolvedor de Automações com IA e n8n.",
     "info": {
       "email": "E-mail",
       "phone": "Telefone",
@@ -114,7 +113,7 @@
       "service_select": "Selecione uma opção",
       "service_landing": "Landing Page / Web Design",
       "service_automation": "Automação com IA (n8n)",
-      "service_intelligence": "Inteligência de Mercado / Pricing",
+      "service_intelligence": "UX/UI e Web Design",
       "service_other": "Outro",
       "message_label": "Descrição do projeto",
       "message_placeholder": "Descreva sua necessidade, projeto ou proposta...",
@@ -147,7 +146,7 @@
     ]
   },
   "footer": {
-    "description": "Automação n8n · AI Agents · APIs e Webhooks · Inteligência de Mercado · Pricing · Análise de Concorrentes",
+    "description": "Web Design · UX/UI · n8n · AI Agents",
     "quick_links": "Links Rápidos",
     "rights": "Feito com 💻 e ☕",
     "back_to_top": "Voltar ao topo"
@@ -281,15 +280,16 @@
         ]
       },
       {
-        "name": "Dados & BI",
+        "name": "Web design e front-end",
         "icon": "Code2",
         "items": [
-          "Power BI (Power Query, DAX básico e KPIs)",
-          "Modelagem de dados",
-          "SQL (em desenvolvimento)",
-          "Excel",
-          "Qualidade e auditoria de dados",
-          "Google Sheets"
+          "Figma",
+          "Canva",
+          "HTML5 e CSS3",
+          "JavaScript",
+          "GitHub, v0 e Vercel",
+          "v0, Lovable e design responsivo",
+          "Git e GitHub"
         ]
       }
     ]

@@ -42,9 +42,10 @@ export function Footer() {
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12">
           {/* Logo & Tagline */}
           <div className="col-span-2 sm:col-span-2 lg:col-span-1 text-center sm:text-left">
-            <Link href="#inicio" className="inline-flex items-center gap-1 text-xl sm:text-2xl font-bold mb-3 sm:mb-4">
-              <span className="brand-wordmark brand-wordmark-footer">Gustavo<span>.</span></span>
-            </Link>
+<Link href="#inicio" className="inline-flex items-center gap-2 text-xl sm:text-2xl font-bold mb-3 sm:mb-4">
+  <img src={`${process.env.NODE_ENV === "production" ? "/gd.project" : ""}/logo-ciber-prime.png`} alt="Logo Ciber Prime" className="h-9 w-9 rounded-md object-contain" />
+  <span className="brand-wordmark brand-wordmark-footer">Gustavo<span>.</span></span>
+  </Link>
             <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed text-pretty">
               {t("footer.description")}
             </p>

@@ -20,6 +20,7 @@ const languages = [
 ] as const
 
 export function Header() {
+  const assetPath = process.env.NODE_ENV === "production" ? "/gd.project" : ""
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isDark, setIsDark] = useState(true)
@@ -93,8 +94,8 @@ export function Header() {
           {/* Logo */}
           <Link href="#inicio" className="flex items-center gap-2" aria-label="Gustavo Dias — início">
             <img
-              src="/logoGDHeader.png"
-              alt="Logo GD de Gustavo Dias"
+src={`${assetPath}/logo-ciber-prime.png`}
+  alt="Logo Ciber Prime"
               className="h-10 w-10 object-contain sm:h-12 sm:w-12"
             />
             <span className="brand-wordmark hidden sm:inline">Gustavo<span>.</span></span>

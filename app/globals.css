@@ -4,35 +4,35 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Gustavo Dias brand palette: electric red + n8n orange */
-  --primary: #FF2438;
-  --primary-rgb: 255, 36, 56;
-  --secondary: #FF9800;
-  --secondary-rgb: 255, 152, 0;
-  --background: #040506;
-  --foreground: #FFFFFF;
-  --card: #0B0D0F;
-  --card-foreground: #FFFFFF;
-  --popover: #0B0D0F;
-  --popover-foreground: #FFFFFF;
-  --primary-foreground: #FFFFFF;
-  --secondary-foreground: #FFFFFF;
-  --muted: #171A1E;
-  --muted-foreground: #A7ADB5;
-  --accent: #2A0D12;
-  --accent-foreground: #FFFFFF;
-  --destructive: #FF2438;
-  --destructive-foreground: #FFFFFF;
-  --border: #292D33;
-  --input: #171A1E;
-  --ring: #FF9800;
+  /* Ciber Prime brand palette */
+  --primary: #00b86a;
+  --primary-rgb: 0, 184, 106;
+  --secondary: #006e3f;
+  --secondary-rgb: 0, 110, 63;
+  --background: #f7fffa;
+  --foreground: #062016;
+  --card: #ffffff;
+  --card-foreground: #062016;
+  --popover: #ffffff;
+  --popover-foreground: #062016;
+  --primary-foreground: #ffffff;
+  --secondary-foreground: #ffffff;
+  --muted: #e8f5ed;
+  --muted-foreground: #507062;
+  --accent: #d8f5e4;
+  --accent-foreground: #062016;
+  --destructive: #b91c1c;
+  --destructive-foreground: #ffffff;
+  --border: #b8dec8;
+  --input: #e8f5ed;
+  --ring: #00b86a;
   --radius: 1rem;
   
   /* Custom Properties */
-  --gradient: linear-gradient(135deg, #FF2438, #FF9800);
-  --glass-bg: rgba(4, 5, 6, 0.8);
-  --glass-border: rgba(255, 36, 56, 0.24);
-  --shadow: 0 8px 32px rgba(255, 36, 56, 0.14);
+  --gradient: linear-gradient(135deg, #00b86a, #006e3f 58%, #003f21);
+  --glass-bg: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(0, 110, 63, 0.22);
+  --shadow: 0 8px 32px rgba(0, 110, 63, 0.2);
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 @keyframes spin-reverse {
@@ -119,19 +119,23 @@
 @media (max-width: 640px) { .profile-card { inset: 8% 7% 5%; padding: 12px; } .profile-portrait-wrap { aspect-ratio: 1.08 / 1; } }
 .profile-arrow { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid rgba(var(--primary-rgb), .32); border-radius: 50%; color: var(--primary); }
 .profile-arrow svg { width: 16px; }
-.profile-float { position: absolute; z-index: 3; display: inline-flex; align-items: center; gap: 7px; padding: 9px 12px; border: 1px solid rgba(255,255,255,.14); border-radius: 999px; background: rgba(15, 22, 26, .78); backdrop-filter: blur(14px); box-shadow: 0 14px 28px rgba(0,0,0,.24); color: var(--foreground); font-size: 12px; font-weight: 600; }
+.profile-float { position: absolute; z-index: 3; display: inline-flex; align-items: center; gap: 7px; padding: 9px 12px; border: 1px solid rgba(var(--primary-rgb), .32); border-radius: 999px; background: rgba(15, 22, 26, .78); backdrop-filter: blur(14px); box-shadow: 0 14px 28px rgba(0,0,0,.24); color: var(--foreground); font-size: 12px; font-weight: 600; }
 .profile-float img { width: 18px; height: 18px; object-fit: contain; }
 .profile-float-n8n { top: 17%; left: -2%; }
 .profile-float-ai { top: 45%; right: -8%; }
-.profile-float-bi { bottom: 0; left: -2%; }
+  .profile-float-web { top: 4%; right: 4%; }
+  .profile-float-code { bottom: 6%; left: 3%; }
+  .profile-float-bi { bottom: 0; left: -2%; }
 @media (max-width: 640px) {
   .profile-stage { width: min(94vw, 390px); }
   .profile-card { inset: 8% 7% 5%; padding: 12px; border-radius: 23px; }
   .profile-portrait-wrap { min-height: 230px; border-radius: 15px; }
   .profile-float { padding: 7px 9px; font-size: 10px; }
   .profile-float-n8n { left: -1%; }
-  .profile-float-ai { right: -2%; }
-}
+.profile-float-ai { right: -2%; }
+  .profile-float-web { top: 1%; right: 2%; }
+  .profile-float-code { bottom: 2%; left: 1%; }
+  }
 
 /* ========================================
    ORBIT BADGES — Gustavo Dias Portfolio
@@ -263,40 +267,35 @@
   border-radius: 50%;
   flex-shrink: 0;
 }
-.dot-red    { background: #e03030; }
-.dot-blue   { background: #378ADD; }
-.dot-purple { background: #7F77DD; }
-.dot-green  { background: #1D9E75; }
-.dot-amber  { background: #EF9F27; }
+.dot-red, .dot-blue, .dot-purple, .dot-green, .dot-amber { background: var(--primary); }
 
 .dark {
-  /* n8n Brand — dark mode */
-  --background: #040506;
-  --foreground: #FFFFFF;
-  --card: #0B0D0F;
-  --card-foreground: #FFFFFF;
-  --popover: #0B0D0F;
-  --popover-foreground: #FFFFFF;
-  --muted: #171A1E;
-  --muted-foreground: #A7ADB5;
-  --accent: #211117;
-  --accent-foreground: #FFFFFF;
-  --border: #292D33;
-  --input: #171A1E;
---primary: #FF2438;
- --primary-rgb: 255, 36, 56;
- --secondary: #FF9800;
- --secondary-rgb: 255, 152, 0;
-  --primary-foreground: #FFFFFF;
-  --secondary-foreground: #FFFFFF;
-  --ring: #FF9800;
-  --radius: 1rem;
+  /* Ciber Prime dark mode */
+  --background: #06110c;
+  --foreground: #f5fff9;
+  --card: #0b1b13;
+  --card-foreground: #f5fff9;
+  --popover: #0b1b13;
+  --popover-foreground: #f5fff9;
+  --muted: #10251a;
+  --muted-foreground: #a7b9ae;
+  --accent: #003f21;
+  --accent-foreground: #f5fff9;
+  --border: #1d4430;
+  --input: #10251a;
+  --primary: #00b86a;
+  --primary-rgb: 0, 184, 106;
+  --secondary: #006e3f;
+  --secondary-rgb: 0, 110, 63;
+  --primary-foreground: #03140b;
+  --secondary-foreground: #ffffff;
+  --ring: #00b86a;
   
   /* Custom Properties */
-  --gradient: linear-gradient(135deg, #FF2438 0%, #FF9800 58%, #040506 100%);
+  --gradient: linear-gradient(135deg, #00b86a 0%, #006e3f 58%, #003f21 100%);
   --glass-bg: rgba(4, 5, 6, 0.8);
-  --glass-border: rgba(255, 109, 90, 0.28);
-  --shadow: 0 8px 32px rgba(255, 109, 90, 0.16);
+  --glass-border: rgba(0, 184, 106, 0.28);
+  --shadow: 0 8px 32px rgba(0, 110, 63, 0.18);
 }
 
 @theme inline {
