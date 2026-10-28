@@ -4,35 +4,35 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Gustavo Dias brand palette: electric red + n8n orange */
-  --primary: #FF2438;
-  --primary-rgb: 255, 36, 56;
-  --secondary: #FF9800;
-  --secondary-rgb: 255, 152, 0;
-  --background: #040506;
-  --foreground: #FFFFFF;
-  --card: #0B0D0F;
-  --card-foreground: #FFFFFF;
-  --popover: #0B0D0F;
-  --popover-foreground: #FFFFFF;
-  --primary-foreground: #FFFFFF;
-  --secondary-foreground: #FFFFFF;
-  --muted: #171A1E;
-  --muted-foreground: #A7ADB5;
-  --accent: #2A0D12;
-  --accent-foreground: #FFFFFF;
-  --destructive: #FF2438;
-  --destructive-foreground: #FFFFFF;
-  --border: #292D33;
-  --input: #171A1E;
-  --ring: #FF9800;
+  /* Ciber Prime brand palette */
+  --primary: #00b86a;
+  --primary-rgb: 0, 184, 106;
+  --secondary: #006e3f;
+  --secondary-rgb: 0, 110, 63;
+  --background: #06110c;
+  --foreground: #f5fff9;
+  --card: #0b1b13;
+  --card-foreground: #f5fff9;
+  --popover: #0b1b13;
+  --popover-foreground: #f5fff9;
+  --primary-foreground: #03140b;
+  --secondary-foreground: #ffffff;
+  --muted: #10251a;
+  --muted-foreground: #a7b9ae;
+  --accent: #003f21;
+  --accent-foreground: #f5fff9;
+  --destructive: #b91c1c;
+  --destructive-foreground: #ffffff;
+  --border: #1d4430;
+  --input: #10251a;
+  --ring: #00b86a;
   --radius: 1rem;
   
   /* Custom Properties */
-  --gradient: linear-gradient(135deg, #FF2438, #FF9800);
-  --glass-bg: rgba(4, 5, 6, 0.8);
-  --glass-border: rgba(255, 36, 56, 0.24);
-  --shadow: 0 8px 32px rgba(255, 36, 56, 0.14);
+  --gradient: linear-gradient(135deg, #00b86a, #006e3f 58%, #003f21);
+  --glass-bg: rgba(6, 17, 12, 0.84);
+  --glass-border: rgba(0, 184, 106, 0.24);
+  --shadow: 0 8px 32px rgba(0, 110, 63, 0.2);
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 @keyframes spin-reverse {
@@ -270,30 +270,29 @@
 .dot-amber  { background: #EF9F27; }
 
 .dark {
-  /* n8n Brand — dark mode */
-  --background: #040506;
-  --foreground: #FFFFFF;
-  --card: #0B0D0F;
-  --card-foreground: #FFFFFF;
-  --popover: #0B0D0F;
-  --popover-foreground: #FFFFFF;
-  --muted: #171A1E;
-  --muted-foreground: #A7ADB5;
-  --accent: #211117;
-  --accent-foreground: #FFFFFF;
-  --border: #292D33;
-  --input: #171A1E;
---primary: #FF2438;
- --primary-rgb: 255, 36, 56;
- --secondary: #FF9800;
- --secondary-rgb: 255, 152, 0;
-  --primary-foreground: #FFFFFF;
-  --secondary-foreground: #FFFFFF;
-  --ring: #FF9800;
-  --radius: 1rem;
+  /* Ciber Prime dark mode */
+  --background: #06110c;
+  --foreground: #f5fff9;
+  --card: #0b1b13;
+  --card-foreground: #f5fff9;
+  --popover: #0b1b13;
+  --popover-foreground: #f5fff9;
+  --muted: #10251a;
+  --muted-foreground: #a7b9ae;
+  --accent: #003f21;
+  --accent-foreground: #f5fff9;
+  --border: #1d4430;
+  --input: #10251a;
+  --primary: #00b86a;
+  --primary-rgb: 0, 184, 106;
+  --secondary: #006e3f;
+  --secondary-rgb: 0, 110, 63;
+  --primary-foreground: #03140b;
+  --secondary-foreground: #ffffff;
+  --ring: #00b86a;
   
   /* Custom Properties */
-  --gradient: linear-gradient(135deg, #FF2438 0%, #FF9800 58%, #040506 100%);
+  --gradient: linear-gradient(135deg, #00b86a 0%, #006e3f 58%, #003f21 100%);
   --glass-bg: rgba(4, 5, 6, 0.8);
   --glass-border: rgba(255, 109, 90, 0.28);
   --shadow: 0 8px 32px rgba(255, 109, 90, 0.16);
