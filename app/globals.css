@@ -263,11 +263,7 @@
   border-radius: 50%;
   flex-shrink: 0;
 }
-.dot-red    { background: #e03030; }
-.dot-blue   { background: #378ADD; }
-.dot-purple { background: #7F77DD; }
-.dot-green  { background: #1D9E75; }
-.dot-amber  { background: #EF9F27; }
+.dot-red, .dot-blue, .dot-purple, .dot-green, .dot-amber { background: var(--primary); }
 
 .dark {
   /* Ciber Prime dark mode */
