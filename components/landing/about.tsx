@@ -18,8 +18,8 @@ export function About() {
     setTimeout(() => {
       const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
       const link = document.createElement('a');
-      link.href = `${basePath}/Curriculo_Gustavo_Dados_e_LowCode.pdf`;
-      link.download = 'Curriculo_Gustavo_Dados_e_LowCode.pdf';
+      link.href = `${basePath}/Curriculo_Gustavo_WebDesigner_Automacoes_IA.docx`;
+      link.download = 'Curriculo_Gustavo_WebDesigner_Automacoes_IA.docx';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

@@ -4,19 +4,18 @@ import { useEffect, useRef } from "react"
 import { useLanguage } from "@/context/LanguageContext"
 
 const technologies = [
-  { name: "Excel", icon: "https://img.icons8.com/color/48/microsoft-excel-2019--v1.png" },
-  { name: "Google Sheets", icon: "./icons/icons8-google-sheets-48.png" },
-  { name: "SQL", badge: "SQL" },
-  { name: "Power BI", badge: "BI" },
+  { name: "Figma", icon: "./icons/icons8-figma-48.png" },
+  { name: "HTML5", icon: "./icons/icons8-html-5-48.png" },
+  { name: "CSS3", icon: "./icons/icons8-css3-48.png" },
+  { name: "JavaScript", icon: "./icons/icons8-js-48.png" },
   { name: "n8n", icon: "./icons/n8n-color.png" },
   { name: "WhatsApp API", icon: "./icons/icons8-whatsapp-48.png" },
   { name: "Supabase", icon: "https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/supabase-logo-icon.png" },
   { name: "RD Station", badge: "RD" },
-  { name: "HTML5", icon: "./icons/icons8-html-5-48.png" },
-  { name: "CSS3", icon: "./icons/icons8-css3-48.png" },
-  { name: "JavaScript", icon: "./icons/icons8-js-48.png" },
   { name: "React", icon: "https://img.icons8.com/color/48/react-native.png" },
-  { name: "Figma", icon: "./icons/icons8-figma-48.png" },
+  { name: "Next.js", badge: "N" },
+  { name: "Claude", badge: "AI" },
+  { name: "Gemini", badge: "AI" },
   { name: "GitHub", icon: "./icons/icons8-github-2-50.png" },
 ]
 

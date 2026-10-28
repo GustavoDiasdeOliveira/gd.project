@@ -8,20 +8,6 @@ import { useLanguage } from "@/context/LanguageContext"
 
 const projects = [
   {
-    title: "Dashboard de Gestão de Vendas (Power BI)",
-    type: "Análise de Dados & BI",
-    category: "Dados",
-    description: "Dashboard de faturamento por loja, forma de pagamento e período, com análise por produto, KPIs, filtros dinâmicos, relacionamentos entre tabelas, medidas em DAX e tratamento de dados no Power Query.",
-    tags: ["Power BI", "Power Query", "Modelagem de Dados", "DAX", "KPIs", "SQL"],
-    liveUrl: null,
-    githubUrl: null,
-    gradient: "from-[#F2C94C] to-[#F2994A]",
-    status: "Em desenvolvimento",
-    // Troque image por uma imagem em /public ou adicione o link do dashboard quando estiver disponível.
-    image: null,
-    featured: true,
-  },
-  {
     title: "Projeto3 Automação de Chatbot (Google Calendar + Supabase + AI Agent)",
     type: "Automação & IA",
     category: "Automações",
@@ -74,7 +60,7 @@ const projects = [
     featured: true,
   },
   {
-    title: "Dashboard de Ativos TI & Automação — Mar Brasil",
+    title: "Painel de Automações — Mar Brasil",
   type: "Automação Low-Code",
   category: "Automações",
   description: "Sistema de monitoramento e controle de inventário de TI com integração entre MaaS360 (MDM), Auvo 2.0 e fluxos n8n. Automatiza a coleta, sincronização e organização de dados operacionais.",
@@ -123,7 +109,7 @@ const projects = [
     type: "SaaS",
     category: "Web",
     description: "Aplicação SaaS para gestão financeira empresarial. Controle de custos, movimentações de entrada/saída de transações com dashboards analíticos. Interface intuitiva para PMEs.",
-    tags: ["Lovable", "SaaS", "Fintech", "Dashboard"],
+    tags: ["Lovable", "SaaS", "Fintech", "React"],
     liveUrl: "https://gustavofinancesapp.lovable.app/",
     githubUrl: null,
     gradient: "from-orange-400 to-primary",
@@ -144,13 +130,13 @@ const projects = [
 
 export function Projects() {
   const { t } = useLanguage()
-  const categories = [t("projects.all"), t("projects.automation"), t("projects.data"), t("projects.web")]
+  const categories = [t("projects.all"), t("projects.automation"), t("projects.web")]
   const [activeCategory, setActiveCategory] = useState(categories[0])
   const [visibleCount, setVisibleCount] = useState(4) 
   const ref = useRef<HTMLDivElement>(null)
 
   const filteredProjects = projects.filter(
-    (project) => activeCategory === categories[0] || project.category === (activeCategory === categories[1] ? "Automações" : activeCategory === categories[2] ? "Dados" : activeCategory === categories[3] ? "Web" : "")
+    (project) => activeCategory === categories[0] || project.category === (activeCategory === categories[1] ? "Automações" : activeCategory === categories[2] ? "Web" : "")
   )
 
   useEffect(() => {
