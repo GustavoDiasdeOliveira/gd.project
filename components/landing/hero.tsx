@@ -200,7 +200,7 @@ export function Hero() {
                 </div>
                 <div className="profile-card-footer">
                   <div>
-                    <p className="profile-eyebrow">DADOS + AUTOMAÇÃO</p>
+                    <p className="profile-eyebrow">WEB DESIGN + IA</p>
                     <p className="profile-name">Gustavo Dias</p>
                   </div>
                   <span className="profile-arrow" aria-hidden="true"><ArrowRight /></span>

@@ -13,11 +13,11 @@
     "title_part1": "Quem é o",
     "title_highlight": "Gustavo?",
     "description_1": "Web Designer e desenvolvedor de automações com IA, n8n Low-Code, agentes de IA e interfaces digitais.",
-    "description_2": "Formando em Ciência da Computação (dez/2026) que une web design e automação com IA. Desenho interfaces no Figma, desenvolvo em HTML, CSS, JavaScript, React e Next.js e uso v0, Vercel e Supabase para colocar sites e sistemas no ar.\n\nConstruo workflows e agentes de IA em n8n, integrados a sistemas via API e Webhooks, usando LLMs como Claude, GPT e Gemini.",
+    "description_2": "Formando em Ciência da Computação (dez/2026) que une web design e automação com IA. Desenho interfaces no Figma e desenvolvo sites responsivos em HTML, CSS e JavaScript, usando GitHub, v0 e Vercel para colocar projetos no ar.\n\nConstruo workflows e agentes de IA em n8n, integrados a sistemas via API e Webhooks, usando LLMs como Claude, GPT e Gemini.",
     "highlights": [
       "Web Design, UX/UI e interfaces responsivas",
       "Desenvolvedor de Automações Low-Code/No-Code (n8n)",
-      "Integração via APIs (Evolution API, RD Station, Supabase)",
+      "Integração via APIs (Evolution API, Supabase)",
       "Deploy Docker, VPS e Configuração de Infraestrutura",
       "Exp. em Suporte TI (Mar Brasil) e Qualidade — Inteligência de Mercado, Pricing & Pesquisa (Zukkin)",
       "Desenvolvimento Web Frontend (HTML/CSS/JS)"
@@ -28,7 +28,7 @@
   "hero": {
     "badge": "Disponível para oportunidades (Remoto/CLT/Freela)",
     "title_part1": "Web Designer &",
-    "title_highlight": "Automações com IA",
+    "title_highlight": "Automação Inteligente",
     "typing": [
       "Criando interfaces no Figma",
       "Desenvolvendo sites responsivos",
@@ -36,7 +36,7 @@
       "Integrando APIs, Webhooks e CRMs",
       "Automatizando processos de ponta a ponta"
     ],
-    "description": "Web Designer e desenvolvedor de automações com IA, n8n Low-Code e agentes de IA. Crio interfaces, sites e workflows integrados para transformar ideias em experiências digitais e processos eficientes.",
+    "description": "Web Designer e desenvolvedor de automações com IA, n8n Low-Code e agentes de IA. Crio interfaces, sites responsivos e workflows integrados para transformar ideias em experiências digitais e processos eficientes.",
     "cta_projects": "Ver meus projetos",
     "cta_cv": "Download CV",
     "cv_downloading": "Baixando...",
@@ -61,7 +61,7 @@
       },
       {
         "title": "Integração de APIs & Webhooks",
-        "description": "Conexão de sistemas como Google Sheets, Calendar, Supabase, CRMs (RD Station) e ferramentas de IA (OpenAI, Groq, Gemini) para orquestrar dados.",
+        "description": "Conexão de sistemas como Google Sheets, Calendar, Supabase, CRMs e sistemas internos e ferramentas de IA (OpenAI, Groq, Gemini) para orquestrar dados.",
         "cta": "Quero integrar sistemas"
       },
       {
@@ -146,7 +146,7 @@
     ]
   },
   "footer": {
-    "description": "Web Design · UX/UI · n8n · AI Agents · APIs e Webhooks",
+    "description": "Web Design · UX/UI · n8n · AI Agents",
     "quick_links": "Links Rápidos",
     "rights": "Feito com 💻 e ☕",
     "back_to_top": "Voltar ao topo"
@@ -287,7 +287,7 @@
           "Canva",
           "HTML5 e CSS3",
           "JavaScript",
-          "React e Next.js",
+          "GitHub, v0 e Vercel",
           "v0, Lovable e design responsivo",
           "Git e GitHub"
         ]

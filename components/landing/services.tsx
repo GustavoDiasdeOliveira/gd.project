@@ -10,7 +10,7 @@ export function Services() {
   const servicesData = t("services.items")
   const services = [
     { ...servicesData[0], icon: Code2, tools: ["Figma", "HTML", "CSS", "JavaScript", "React", "UX/UI"], badge: "Mais procurado" },
-    { ...servicesData[1], icon: Zap, tools: ["n8n", "WhatsApp API", "Agentes de IA", "RD Station", "Google Agenda", "Supabase"], badge: t("services.most_requested") },
+    { ...servicesData[1], icon: Zap, tools: ["n8n", "WhatsApp API", "Agentes de IA", "Google Agenda", "Supabase"], badge: t("services.most_requested") },
     { ...servicesData[2], icon: Code2, tools: ["HTML/CSS", "JavaScript", "React", "Figma", "Responsivo", "GitHub"], badge: "Alta Conversão" },
   ]
   const ref = useRef<HTMLDivElement>(null)
