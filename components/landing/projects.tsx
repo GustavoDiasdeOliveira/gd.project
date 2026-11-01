@@ -8,6 +8,19 @@ import { useLanguage } from "@/context/LanguageContext"
 
 const projects = [
   {
+    title: "Pulso — Marketing Analytics Dashboard",
+    type: "Web Design / Figma",
+    category: "Web",
+    description: "Dashboard de analytics para marketing criado no Figma, com visão geral de investimentos, impressões, cliques, leads, CPL, canais e funil de conversão.",
+    tags: ["Figma", "UI Design", "Dashboard", "Analytics", "UX/UI"],
+    liveUrl: "https://www.figma.com/make/1RiZUqxC2IZXqJBONIqYQ9/Pulso-Marketing-Analytics-Dashboard?t=MJ7Wdm4FDW0lLNKx-20&fullscreen=1",
+    githubUrl: null,
+    gradient: "from-[#00b86a] to-[#003f21]",
+    status: "Ver projeto no Figma",
+    image: "/pulso-dashboard-cover.png",
+    featured: true,
+  },
+  {
     title: "Projeto3 Automação de Chatbot (Google Calendar + Supabase + AI Agent)",
     type: "Automação & IA",
     category: "Automações",

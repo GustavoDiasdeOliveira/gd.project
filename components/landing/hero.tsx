@@ -162,6 +162,15 @@ export function Hero() {
                   <Linkedin className="w-5 h-5" />
                 </a>
                 <a
+                  href="https://www.figma.com/@guuh_dias"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2.5 rounded-full glass hover:bg-primary/20 transition-colors"
+                  aria-label="Perfil no Figma"
+                >
+                  <img src={`${assetPath}/icons/icons8-figma-48.png`} alt="" className="w-5 h-5 object-contain" />
+                </a>
+                <a
                   href="https://github.com/GustavoDiasdeOliveira"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -208,8 +217,10 @@ export function Hero() {
               </div>
               <div className="profile-float profile-float-n8n"><img src={`${assetPath}/icons/n8n-color.png`} alt="" /> n8n</div>
               <div className="profile-float profile-float-ai"><img src={`${assetPath}/icons/ai-agent.png`} alt="" /> AI Agents</div>
-              <div className="profile-float profile-float-web"><img src={`${assetPath}/icons/icons8-figma-48.png`} alt="" /> Figma</div>
-              <div className="profile-float profile-float-code"><img src={`${assetPath}/icons/icons8-html-5-48.png`} alt="" /> HTML / CSS</div>
+<div className="profile-float profile-float-web"><img src={`${assetPath}/icons/icons8-figma-48.png`} alt="" /> Figma</div>
+  <div className="profile-float profile-float-code"><img src={`${assetPath}/icons/icons8-html-5-48.png`} alt="" /> HTML / CSS</div>
+  <div className="profile-float profile-float-js"><img src={`${assetPath}/icons/icons8-js-48.png`} alt="" /> JavaScript</div>
+  <div className="profile-float profile-float-react"><img src="https://img.icons8.com/color/48/react-native.png" alt="" /> React</div>
 
             </div>
           </div>
