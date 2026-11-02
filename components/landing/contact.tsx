@@ -2,17 +2,17 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Mail, Phone, MapPin, Linkedin, Send, CheckCircle } from "lucide-react"
+import { MessageCircle, Phone, MapPin, Linkedin, Send, CheckCircle } from "lucide-react"
 import { useLanguage } from "@/context/LanguageContext"
 
 export function Contact() {
   const { t } = useLanguage()
   const contactInfo = [
     {
-      icon: Mail,
-      label: t("contact.info.email"),
-      value: "gustavodiasdeoliveira72@gmail.com",
-      href: "mailto:gustavodiasdeoliveira72@gmail.com",
+      icon: MessageCircle,
+      label: "WhatsApp",
+      value: "(13) 99189-5950",
+      href: "https://wa.me/5513991895950",
     },
     {
       icon: Phone,
@@ -62,20 +62,22 @@ export function Contact() {
     const form = e.currentTarget
     const formData = new FormData(form)
 
-    try {
-      await fetch("https://formsubmit.co/gustavodiasdeoliveira72@gmail.com", {
-        method: "POST",
-        body: formData,
-      })
-      setIsSubmitted(true)
-      form.reset()
-    } catch {
-      // Form submission handled by FormSubmit
-      setIsSubmitted(true)
-    } finally {
-      setIsSubmitting(false)
-      setTimeout(() => setIsSubmitted(false), 5000)
-    }
+    const name = String(formData.get("name") || "")
+    const email = String(formData.get("email") || "")
+    const service = String(formData.get("service") || "")
+    const message = String(formData.get("message") || "")
+    const whatsappMessage = [
+      `Olá, Gustavo! Meu nome é ${name}.`,
+      email ? `Meu e-mail é ${email}.` : "",
+      service ? `Tenho interesse em: ${service}.` : "",
+      message ? `Mensagem: ${message}` : "",
+    ].filter(Boolean).join("\\n")
+
+    window.open(`https://wa.me/5513991895950?text=${encodeURIComponent(whatsappMessage)}`, "_blank", "noopener,noreferrer")
+    setIsSubmitted(true)
+    form.reset()
+    setIsSubmitting(false)
+    setTimeout(() => setIsSubmitted(false), 5000)
   }
 
   return (
