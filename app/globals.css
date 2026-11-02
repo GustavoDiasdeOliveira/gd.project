@@ -125,6 +125,8 @@
 .profile-float-ai { top: 45%; right: -8%; }
   .profile-float-web { top: 4%; right: 4%; }
   .profile-float-code { bottom: 6%; left: 3%; }
+  .profile-float-js { top: 25%; left: -9%; }
+  .profile-float-react { bottom: 24%; right: -7%; }
   .profile-float-bi { bottom: 0; left: -2%; }
 @media (max-width: 640px) {
   .profile-stage { width: min(94vw, 390px); }
@@ -135,6 +137,8 @@
 .profile-float-ai { right: -2%; }
   .profile-float-web { top: 1%; right: 2%; }
   .profile-float-code { bottom: 2%; left: 1%; }
+  .profile-float-js { top: 20%; left: -2%; }
+  .profile-float-react { bottom: 19%; right: -2%; }
   }
 
 /* ========================================
