@@ -220,7 +220,7 @@ export function Hero() {
 <div className="profile-float profile-float-web"><img src={`${assetPath}/icons/icons8-figma-48.png`} alt="" /> Figma</div>
   <div className="profile-float profile-float-code"><img src={`${assetPath}/icons/icons8-html-5-48.png`} alt="" /> HTML / CSS</div>
   <div className="profile-float profile-float-js"><img src={`${assetPath}/icons/icons8-js-48.png`} alt="" /> JavaScript</div>
-  <div className="profile-float profile-float-react"><img src="https://img.icons8.com/color/48/react-native.png" alt="" /> React</div>
+  <div className="profile-float profile-float-react"><img src="https://img.icons8.com/color/48/react-native.png" alt="Ícone React" width="20" height="20" /> React</div>
 
             </div>
           </div>
