@@ -13,7 +13,7 @@ const projects = [
     category: "Web",
     description: "Dashboard de analytics para marketing criado no Figma, com visão geral de investimentos, impressões, cliques, leads, CPL, canais e funil de conversão.",
     tags: ["Figma", "UI Design", "Dashboard", "Analytics", "UX/UI"],
-    liveUrl: "https://www.figma.com/make/1RiZUqxC2IZXqJBONIqYQ9/Pulso-Marketing-Analytics-Dashboard?t=MJ7Wdm4FDW0lLNKx-20&fullscreen=1",
+    liveUrl: "https://image-micro-85954136.figma.site",
     githubUrl: null,
     gradient: "from-[#00b86a] to-[#003f21]",
     status: "Ver projeto no Figma",
