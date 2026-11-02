@@ -16,9 +16,9 @@ export const metadata: Metadata = {
   authors: [{ name: 'Gustavo Dias de Oliveira' }],
   creator: 'Gustavo Dias de Oliveira',
   icons: {
-    icon: '/gd.project/icons/n8n-color.png',
-    shortcut: '/gd.project/icons/n8n-color.png',
-    apple: '/gd.project/icons/n8n-color.png',
+    icon: '/gd.project/favicon-gustavo.png',
+    shortcut: '/gd.project/favicon-gustavo.png',
+    apple: '/gd.project/favicon-gustavo.png',
   },
   openGraph: {
     type: 'website',
